@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="建立博客过程中遇到的问题, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
-    <meta name="description" content="建立博客网站时遇到的故障与如何排除掉的方式本博客参考了两位up主的创建过程，其中遇到不少阻碍，解决过程有些烦人，故将中途遇到的故障进行记录，防止日后继续出现类似问题。
-本博客搭建参考：博客搭建+美化（巨细版本） | 兴平 (crazyyuc">
+    <meta name="keywords" content="linux的基本操作, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="Linux系统使用注意1、Linux严格区分大小写Linux 和Windows不同，Linux严格区分大小写的，包括文件名和目录名、命令、命令选项、配置文件设置选项等。
+
+例如，Win7 系统桌面上有文件夹叫做Test，当我们在桌面上再新建">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>建立博客过程中遇到的问题 | yanshuisiyu&#39;s Blog</title>
+    <title>linux的基本操作 | yanshuisiyu&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -423,12 +424,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">建立博客过程中遇到的问题</h1>
+                    <h1 class="description center-align post-title">linux的基本操作</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +453,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/blog/">
-                                <span class="chip bg-color">blog</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -482,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    11 分
                 </div>
                 
 
@@ -509,33 +510,261 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="建立博客网站时遇到的故障与如何排除掉的方式"><a href="#建立博客网站时遇到的故障与如何排除掉的方式" class="headerlink" title="建立博客网站时遇到的故障与如何排除掉的方式"></a>建立博客网站时遇到的故障与如何排除掉的方式</h1><p>本博客参考了两位up主的创建过程，其中遇到不少阻碍，解决过程有些烦人，故将中途遇到的故障进行记录，防止日后继续出现类似问题。</p>
-<p>本博客搭建参考：<a target="_blank" rel="noopener" href="https://crazyyuchi.github.io/2022/05/02/bo-ke-da-jian-mei-hua-ju-xi-ban-ben/#!">博客搭建+美化（巨细版本） | 兴平 (crazyyuchi.github.io)</a></p>
-<p>本博客搭建参考：【[教程]Hexo &amp; Github搭建自己的专属博客】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL/?share_source=copy_web&amp;vd_source=5cd149d1723aac0eeb1b0c9b1ca86059">https://www.bilibili.com/video/BV1Eg41157tL/?share_source=copy_web&amp;vd_source=5cd149d1723aac0eeb1b0c9b1ca86059</a></p>
-<h2 id="故障问题："><a href="#故障问题：" class="headerlink" title="故障问题："></a>故障问题：</h2><h5 id="1-文件同步失败，无反馈"><a href="#1-文件同步失败，无反馈" class="headerlink" title="1.文件同步失败，无反馈"></a>1.文件同步失败，无反馈</h5><p>跟随博客教程，安装软件过程无误，但后续无法与github网站进行上传同步，提示一直卡在_config文件上，经测试；</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091004345.png" alt="image-20231222091004345"></p>
-<p>是按照教程操作过程之中，忽略了上传路径的排版，缺少了前面的空格，导致失败，调整格式后正常。</p>
-<p>解决问题参考方案：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43819439/article/details/118309688">使用hexo/git搭建博客时注意的几点_you should configure deployment settings in _confi-CSDN博客</a></p>
-<h5 id="2-文件上传路径错误，main与master的区分"><a href="#2-文件上传路径错误，main与master的区分" class="headerlink" title="2.文件上传路径错误，main与master的区分"></a>2.文件上传路径错误，main与master的区分</h5><p>上传文件成功之后，访问对应的链接页面仍旧是测试页面，并非上传博客页面，重新排查安装问题与_config文件配置，皆无异常；</p>
-<p>后经观察，上传过程中显示正常，故访问github个人仓库进行查验，最后发现是分支main与分支master的问题；</p>
-<p>创建github测试之时，勾选主分支为main，核对发现教程中设置分支为master分支。</p>
-<p>百度查验，进行更替主分支测试：</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091446007.png" alt="image-20231222091446007"></p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091513382.png" alt="image-20231222091513382"></p>
-<p>已调整后，测试仍旧是之前测试页面，后发现，需要在pages设置上，将域名对应的分支继续进行更替</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091648629.png" alt="image-20231222091648629"></p>
-<p>操作完毕，一切回归正常，域名页面可以正常访问上传博客页面，故障排除。</p>
-<p>解决问题参考方案：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/339370999?utm_id=0">Github仓库master分支到main分支迁移指南 - 知乎 (zhihu.com)</a></p>
-<h5 id="3-代码高亮插件与默认设置冲突"><a href="#3-代码高亮插件与默认设置冲突" class="headerlink" title="3.代码高亮插件与默认设置冲突"></a>3.代码高亮插件与默认设置冲突</h5><p>代码高亮更替过程之中，产生的故障（处理时长较久，反思应该是基础不扎实导致，无意义浪费了许多时间去排查不相关的地带）</p>
-<p>根据错误提示，故障发生在blog设置_config.yml文件之中，有关于默认高亮设置代码与更替的高亮代码插件之间的冲突。</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222093952543.png" alt="image-20231222093952543"></p>
-<p>原默认配置全部都在开启中，根据测试反馈结果，冲突在这几行代码之中，参考博客搭建教程之中给出的解决方法并未找到对应的代码行列；</p>
-<p>后经过翻阅资料后，发现7.0版本之后与之前的代码出现差异化，参考文档给出的解决方法是旧版的，即7.0之前；</p>
-<p>解决思路——对比测试</p>
-<p>参考资料：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/syntax-highlight.html#Highlight-js">代码高亮 | Hexo</a></p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222150641079.png" alt="image-20231222150641079"></p>
-<p>经过不断测试关闭开启的选项，后确认成功。</p>
-<h5 id="4-插件问题"><a href="#4-插件问题" class="headerlink" title="4.插件问题"></a>4.插件问题</h5><p>参考资料：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1952241">6.hexo插件篇（必看）-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+                <h1 id="Linux系统使用注意"><a href="#Linux系统使用注意" class="headerlink" title="Linux系统使用注意"></a>Linux系统使用注意</h1><h2 id="1、Linux严格区分大小写"><a href="#1、Linux严格区分大小写" class="headerlink" title="1、Linux严格区分大小写"></a>1、Linux严格区分大小写</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Linux 和Windows不同，Linux严格区分大小写的，包括文件名和目录名、命令、命令选项、配置文件设置选项等。
+
+例如，Win7 系统桌面上有文件夹叫做Test，当我们在桌面上再新建一个名为 test 的文件夹时，系统会提示文件夹命名冲突；<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Windows演示：</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312104935449.png" alt="image-20200312104935449"></p>
+<p>Linux演示：</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312105002814.png" alt="image-20200312105002814"></p>
+<p>由以上图解可知：Linux是一个非常严谨的操作系统，严格区分大小写。</p>
+<h2 id="2、Linux文件”扩展名”"><a href="#2、Linux文件”扩展名”" class="headerlink" title="2、Linux文件”扩展名”"></a>2、Linux文件”扩展名”</h2><blockquote>
+<p>在Linux操作系统中，与Windows不同，其文件的类型不是通过扩展名来进行区分的！</p>
+</blockquote>
+<p>我们都知道，Windows 是依赖扩展名区分文件类型的，比如，”.txt” 是文本文件、”.exe” 是执行文件，但 Linux 不是。</p>
+<p> Linux 系统通过==权限位标识==来确定文件类型，常见的文件类型有普通文件、目录、链接文件、块设备文件、字符设备文件等几种。Linux 的可执行文件就是普通文件被赋予了可执行权限。</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312105800243.png" alt="image-20200312105800243"></p>
+<p>Linux系统中常见的后缀名称：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Linux 中的一些特殊文件还是要求写 "扩展名" 的，但 Linux 不依赖扩展名来识别文件类型，写这些扩展名是为了帮助运维人员来区分不同的文件类型。
+
+这样的文件扩展名主要有以下几种：
+压缩包：Linux 下常见的压缩文件名有 *.gz、*.bz2、*.zip、*.tar.gz、*.tar.bz2、*.tgz 等。
+
+为什么压缩包一定要写扩展名呢？很简单，如果不写清楚扩展名，那么管理员不容易判断压缩包的格式，虽然有命令可以帮助判断，但是直观一点更加方便。就算没写扩展名，在 Linux 中一样可以解压缩，不影响使用。
+
+二进制软件包：CentOS 中所使用的二进制安装包是 RPM 包，所有的 RPM 包都用".rpm"扩展名结尾，目的同样是让管理员一目了然。=&gt; 类似Windows中的exe文件
+
+程序文件：Shell 脚本一般用 ".sh" 扩展名结尾。=&gt; check_network.sh
+
+网页文件：网页文件一般使用 ".php" 等结尾，不过这是网页服务器的要求，而不是 Linux 的要求。
+.html/.css/.js/.jsp/.php/.py =&gt; 网页文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>① Linux操作系统不以“扩展名”来判断文件的类型，而是通过权限位标识符来进行判断</p>
+</blockquote>
+<blockquote>
+<p>② 有一些特殊的文件，有扩展名称=&gt;压缩包、二进制软件包、程序文件、网页文件</p>
+</blockquote>
+<h2 id="3、Linux中所有内容以文件形式保存"><a href="#3、Linux中所有内容以文件形式保存" class="headerlink" title="3、Linux中所有内容以文件形式保存"></a>3、Linux中所有内容以文件形式保存</h2><p>在Linux系统中，一切皆文件！</p>
+<blockquote>
+<p>在Windows是文件的，在Linux下也是文件。在Windows中不是文件的，在Linux系统中也是文件。</p>
+</blockquote>
+<p>问题：我们目前还没有学习权限标识符，怎么判断文件的类型呢？</p>
+<p>答：可以通过文件的颜色</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312113307247.png" alt="image-20200312113307247"></p>
+<p>然后使用ls命令，查看文件的颜色</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls
+l : L的小写形式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>普通文件：通过ls命令查看时，如果显示<font color="red">黑色</font>，代表其是一个普通的文件</p>
+<p>文件夹：通过ls命令查看时，如果显示<font color="red">天蓝色</font>，代表是一个文件夹</p>
+<h2 id="4、Linux中存储设备都必须在挂载之后才能使用"><a href="#4、Linux中存储设备都必须在挂载之后才能使用" class="headerlink" title="4、Linux中存储设备都必须在挂载之后才能使用"></a>4、Linux中存储设备都必须在挂载之后才能使用</h2><p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312114423821.png" alt="image-20200312114423821"></p>
+<p>Windows：分区+格式化</p>
+<p>Linux操作系统：分区+格式化+挂载，存储设备必须挂载后才能使用（硬盘、光盘、U盘）</p>
+<blockquote>
+<p>mount命令： mount   空格   /dev/sda1  空格  /mnt/file</p>
+</blockquote>
+<h1 id="Linux系统的目录结构（重要）"><a href="#Linux系统的目录结构（重要）" class="headerlink" title="Linux系统的目录结构（重要）"></a>Linux系统的目录结构（重要）</h1><h2 id="1、Linux分区与Windows分区"><a href="#1、Linux分区与Windows分区" class="headerlink" title="1、Linux分区与Windows分区"></a>1、Linux分区与Windows分区</h2><p>Linux 系统不同于 Windows，没有 C 盘、D 盘、E 盘那么多的盘符，只有一个==根目录（/）==，所有的文件（资源）都存储在以==根目录（/）==为树根的==树形==目录结构中。</p>
+<p>Windows：</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312115814989.png" alt="image-20200312115814989"></p>
+<p>Linux：</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312115750006.png" alt="image-20200312115750006"></p>
+<h2 id="2、Linux系统文件架构"><a href="#2、Linux系统文件架构" class="headerlink" title="2、Linux系统文件架构"></a>2、Linux系统文件架构</h2><p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312115851811.png" alt="image-20200312115851811"></p>
+<p> 在 Linux 根目录（/）下包含很多的子目录，称为一级目录。<br>例如 bin、boot、dev 等。</p>
+<p>同时，各一级目录下还含有很多子目录，称为二级目录。<br>例如 /bin/bash、/bin/ed 等。</p>
+<h2 id="3、Linux系统的文件目录用途"><a href="#3、Linux系统的文件目录用途" class="headerlink" title="3、Linux系统的文件目录用途"></a>3、Linux系统的文件目录用途</h2><p>/bin：系统命令目录</p>
+<p>/sbin：超级命令目录，只能超级管理员可以执行的命令</p>
+<p>/boot：系统目录，类似于Windows中的C盘</p>
+<p>/dev ：设备文件目录，硬盘、光驱、U盘都属于设备文件，/dev/sr0代表光驱设备。注意，次目录下的文件没有办法直接使用，必须先挂载</p>
+<p>/etc ：非常重要，代表系统的配置文件目录。大部分软件安装完成后，其配置文件都存放在此目录</p>
+<p>/home：普通用户的家目录，用户登录后会自动切换到此目录</p>
+<p>/root：超级管理员的家目录，超级管理员登录后会自动切换到此目录</p>
+<p>/media：挂载目录，早期Linux挂载目录，用于挂载光盘以及软盘</p>
+<p>/mnt：挂载目录，用来挂载额外的设备，如 U 盘、移动硬盘和其他操作系统的分区</p>
+<p>/opt ：第三方软件目录，这个目录是放置和安装其他软件的位置，手工安装的源码包软件都可以安装到这个目录中。不过笔者还是习惯把软件放到 /usr/local/ 目录中，也就是说，/usr/local/ 目录也可以用来安装软件</p>
+<p>/usr ：系统程序目录，类似Windows中的Program Files</p>
+<p>/proc：虚拟文件系统。该目录中的数据并不保存在硬盘上，而是保存到内存中。主要保存系统的内核、进程、外部设备状态和网络状态等。</p>
+<p>/tmp ：临时文件目录，在该目录下，所有用户都可以访问和写入。建议此目录中不能保存重要数据，最好每次开机都把该目录清理</p>
+<p>/var ：经常变化的文件目录，网页文件、数据文件、日志文件</p>
+<h1 id="Linux入门级命令"><a href="#Linux入门级命令" class="headerlink" title="Linux入门级命令"></a>Linux入门级命令</h1><h2 id="1、开启终端"><a href="#1、开启终端" class="headerlink" title="1、开启终端"></a>1、开启终端</h2><p>问题：什么是终端（Terminal）</p>
+<p>答：Linux操作系统中用于输入命令的地方</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312145513405.png" alt="image-20200312145513405"></p>
+<p>打开后，效果如下图所示：</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312145943049.png" alt="image-20200312145943049"></p>
+<h2 id="2、Linux命令格式"><a href="#2、Linux命令格式" class="headerlink" title="2、Linux命令格式"></a>2、Linux命令格式</h2><p>什么是Linux 的命令？</p>
+<p>答：就是指在Linux 终端（命令行）中输入的内容就称之为命令。</p>
+<p>一个完整的命令的标准格式：Linux 通用的格式</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 命令（空格） [选项]（空格）[参数]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是有些命令比较特殊，可能没有选项也没有参数</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># pwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>还有一些命令，有命令有选项，但是没有参数</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>还有一些命令，命令+选项+参数全都有</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># tail -n 3 readme.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3、扩展：Linux下的命令补全"><a href="#3、扩展：Linux下的命令补全" class="headerlink" title="3、扩展：Linux下的命令补全"></a>3、扩展：Linux下的命令补全</h2><p>键盘上有一个按键：Tab键</p>
+<p><img src="/../assets/blog_res/linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.assets/image-20200312151903965.png" alt="image-20200312151903965"></p>
+<p>当我们在Linux系统的终端中，输入命令时，可以无需完整的命令，只需要记住命令的前几个字母即可，然后按Tab键，系统会自动进行补全操作。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># syst + Tab键
+# systemc + Tab键
+# systemctl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>有些命令可能都以某几个字母开头，这个时候，只需要按两次Tab键，其就会显示所有命令。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># clea + Tab键 + Tab键<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>Tab键的功能特别强大：其不仅可以补全命令还可以补全Linux的文件路径</p>
+</blockquote>
+<h2 id="4、切换用户"><a href="#4、切换用户" class="headerlink" title="4、切换用户"></a>4、切换用户</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># su - root
+Password:123456
+[root@localhost ~]# 切换成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>扩展：-横杠作用是什么？答：-横杠代表切换用户的同时，切换用户的家目录</p>
+</blockquote>
+<h2 id="5、uname命令"><a href="#5、uname命令" class="headerlink" title="5、uname命令"></a>5、uname命令</h2><p>主要功能：获取计算机操作系统相关信息</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># uname -a
+选项说明：
+-a ：all缩写，代表显示所有信息，获取全部的系统信息（类型、全部主机名、内核版本、发布时间、开源计划）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="6、ls命令"><a href="#6、ls命令" class="headerlink" title="6、ls命令"></a>6、ls命令</h2><h3 id="☆-用法一"><a href="#☆-用法一" class="headerlink" title="☆ 用法一"></a>☆ 用法一</h3><p>主要功能：ls完整写法list show，以平铺的形式显示当前目录下的文件信息</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-用法二"><a href="#☆-用法二" class="headerlink" title="☆ 用法二"></a>☆ 用法二</h3><p>主要功能：显示其他目录下的文件信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls 其他目录的绝对路径或相对路径<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>扩展：ls后面跟的路径既可以是绝对路径也可以是相对路径</p>
+</blockquote>
+<p><strong>绝对路径</strong>：不管当前工作路径是在哪，==目标路径都会从“/”磁盘根下开始==。<br>案例：访问itheima用户的家目录，查看有哪些文件</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls /home/itheima<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><font color="red">绝对路径必须以左斜杠开头，一级一级向下访问，不能越级</font></p>
+<p><strong>相对路径</strong>：除绝对路径之外的路径称之为相对路径，相对路径得有一个相对物（当前工作路径）。</p>
+<p>只要看到路径以“/”开头则表示该路径是绝对路径，除了以“/”开头的路径称之为相对路径。</p>
+<p>当前位置：/home/itheima目录下</p>
+<p>../：表示上级目录（上一级）</p>
+<p>./ ：表示当前目录（同级），普通文件./可以省略，可执行文件（绿色）必须加./</p>
+<p>文件夹名称/：表示下级目录（下一级），注意这个斜杠/</p>
+<h3 id="☆-用法三"><a href="#☆-用法三" class="headerlink" title="☆ 用法三"></a>☆ 用法三</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ls [选项] [路径]
+选项说明：
+-l ：ls -l，代表以详细列表的形式显示当前或其他目录下的文件信息(简写命令=&gt;ll)
+-h ：ls -lh，通常与-l结合一起使用，代表以较高的可读性显示文件的大小(kb/mb/gb)
+-a ：ls -a，a是all缩写，代表显示所有文件（也包含隐藏文件=&gt;大部分以.开头）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>计算机中的单位：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># 1TB = 1024GB
+# 1GB = 1024MB
+# 1MB = 1024KB
+# 1KB（千字节） = 1024B（字节）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7、pwd命令"><a href="#7、pwd命令" class="headerlink" title="7、pwd命令"></a>7、pwd命令</h2><p>主要功能：pwd=print working directory，打印当前工作目录（告诉我们，我们当前位置）</p>
+<p>基本语法：</p>
+ <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># pwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="8、cd命令"><a href="#8、cd命令" class="headerlink" title="8、cd命令"></a>8、cd命令</h2><p>主要功能：cd全称change directory，切换目录（从一个目录跳转到另外一个目录）</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd [路径]
+选项说明：
+路径既可以是绝对路径，也可以是相对路径<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>案例一：切换到/usr/local这个程序目录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd /usr/local<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例二：比如我们当前在/home/itheima下，切换到根目录/下</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd /home/itheima
+# cd ../../<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例三：当我们在某个路径下，如何快速回到自己的家目录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd
+或
+# cd ~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="9、clear命令"><a href="#9、clear命令" class="headerlink" title="9、clear命令"></a>9、clear命令</h2><p>主要功能：清屏</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># clear<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="10、reboot命令"><a href="#10、reboot命令" class="headerlink" title="10、reboot命令"></a>10、reboot命令</h2><p>主要功能：立即重启计算机</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># reboot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="11、shutdown命令"><a href="#11、shutdown命令" class="headerlink" title="11、shutdown命令"></a>11、shutdown命令</h2><p>主要功能：立即关机或延迟关机</p>
+<p>立即关机基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># shutdown -h 0或now
+# shutdown -h 0
+# shutdown -h now
+选项说明：
+-h ：halt缩写，代表关机<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>在Linux系统中，立即关机除了使用shutdown -h 0以外还可以使用halt -p命令</p>
+</blockquote>
+<p>延迟关机基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># shutdown -h 分钟数
+代表多少分钟后，自动关机<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例1：10分钟后自动关机</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># shutdown -h 10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例2：后悔了，取消关机</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">光标一直不停的闪，取消关机
+# 按Ctrl + C（CentOS6，中断关机。CentOS7中还需要使用shutdown -c命令）
+# shutdown -c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="12、type命令"><a href="#12、type命令" class="headerlink" title="12、type命令"></a>12、type命令</h2><p>主要功能：主要用来结合help命令，用于判断命令的类型（属于内部命令还是外部命令）</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># type 命令
+内部命令：命令 is a shell builtin
+外部命令：没有显示以上信息的就是外部命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="13、history命令"><a href="#13、history命令" class="headerlink" title="13、history命令"></a>13、history命令</h2><p>主要功能：显示系统以前输入的前1000条命令</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># history<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="14、hostnamectl命令"><a href="#14、hostnamectl命令" class="headerlink" title="14、hostnamectl命令"></a>14、hostnamectl命令</h2><p>主要功能：用于设置计算机的主机名称（给计算机起个名字），此命令式CentOS7新增的命令。</p>
+<p>hostnamectl ： hostname + control</p>
+<h3 id="☆-获取计算机的主机名称"><a href="#☆-获取计算机的主机名称" class="headerlink" title="☆ 获取计算机的主机名称"></a>☆ 获取计算机的主机名称</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostname	CentOS6
+# hostnamectl  CentOS7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="☆-设置计算机的主机名称"><a href="#☆-设置计算机的主机名称" class="headerlink" title="☆ 设置计算机的主机名称"></a>☆ 设置计算机的主机名称</h3><p>Centos7中主机名分3类，静态的（static）、瞬态的（transient）、和灵活的（pretty）。</p>
+<p>① 静态static主机名称：电脑关机或重启后，设置的名称亦然有效</p>
+<p>② 瞬态transient主机名称：临时主机名称，电脑关机或重启后，设置的名称就失效了</p>
+<p>③ 灵活pretty主机名称：可以包含一些特殊字符</p>
+<p>CentOS 7中和主机名有关的文件为/etc/hostname，它是在系统初始化的时候被读取的，并且内核根据它的内容设置瞬态主机名。</p>
+<blockquote>
+<p>更改主机名称，让其永久生效？① 使用静态的 ② 改/etc/hostname文件</p>
+</blockquote>
+<h4 id="①-瞬态主机名称（临时设置）"><a href="#①-瞬态主机名称（临时设置）" class="headerlink" title="① 瞬态主机名称（临时设置）"></a>① 瞬态主机名称（临时设置）</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --transient set-hostname 主机名称
+主机名称 建议遵循 FQDN协议（功能+公司域名）
+web01.itcast.cn
+web02.itcast.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：临时设置主机名称为yunwei.itcast.cn</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --transient set-hostname yunwei.itcast.cn
+# su 立即生效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="②-静态主机名称（永久生效）"><a href="#②-静态主机名称（永久生效）" class="headerlink" title="② 静态主机名称（永久生效）"></a>② 静态主机名称（永久生效）</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --static set-hostname 主机名称
+温馨提示：--static也可以省略不写<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：把计算机的主机名称永久设置为yunwei.itcast.cn</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --static set-hostname yunwei.itcast.cn
+# su 立即生效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="③-灵活主机名称（主机名称可以添加特殊字符）"><a href="#③-灵活主机名称（主机名称可以添加特殊字符）" class="headerlink" title="③ 灵活主机名称（主机名称可以添加特殊字符）"></a>③ 灵活主机名称（主机名称可以添加特殊字符）</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --pretty set-hostname 主机名称（包含特殊字符）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：把计算机的主机名称通过灵活设置，设置为yunwei’s server01</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl --pretty set-hostname "yunwei's server01"
+查看灵活的主机名称
+# hostnamectl --pretty<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -562,7 +791,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/">http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/</a>
+                    <a href="http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/">http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,8 +829,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/blog/">
-                                    <span class="chip bg-color">blog</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -684,13 +913,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/12/22/dao-hang-ye-mian/">
+                <a href="/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="导航页面">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="相册页的创建故障">
                         
-                        <span class="card-title">导航页面</span>
+                        <span class="card-title">相册页的创建故障</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -718,6 +947,10 @@
                         <span class="chip bg-color">学习</span>
                     </a>
                     
+                    <a href="/tags/%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">问题</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -729,13 +962,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/21/test2/">
+                <a href="/2023/12/22/bo-ke-chuang-jian-wan-shan-can-kao-zi-liao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="test2">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="博客创建完善参考资料">
                         
-                        <span class="card-title">test2</span>
+                        <span class="card-title">博客创建完善参考资料</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,16 +979,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog1/" class="post-category">
-                                    blog1
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yanshuisiyu
                             
                         </span>
                     </div>
@@ -763,8 +992,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/test/">
-                        <span class="chip bg-color">test</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
                     </a>
                     
                 </div>

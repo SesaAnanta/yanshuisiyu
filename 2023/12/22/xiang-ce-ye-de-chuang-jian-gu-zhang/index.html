@@ -4,9 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="建立博客过程中遇到的问题, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
-    <meta name="description" content="建立博客网站时遇到的故障与如何排除掉的方式本博客参考了两位up主的创建过程，其中遇到不少阻碍，解决过程有些烦人，故将中途遇到的故障进行记录，防止日后继续出现类似问题。
-本博客搭建参考：博客搭建+美化（巨细版本） | 兴平 (crazyyuc">
+    <meta name="keywords" content="相册页的创建故障, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="相册页创建参考资料：
+hexo-theme-matery_文字博客wordpress主题-腾讯云开发者社区-腾讯云 (tencent.com)
+期间故障：
+gallery.ejs文件已经提前存在，其内部也书写了相当多的代码，在浏览的过程之中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>建立博客过程中遇到的问题 | yanshuisiyu&#39;s Blog</title>
+    <title>相册页的创建故障 | yanshuisiyu&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -423,12 +425,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">建立博客过程中遇到的问题</h1>
+                    <h1 class="description center-align post-title">相册页的创建故障</h1>
                 </div>
             </div>
         </div>
@@ -452,8 +454,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/blog/">
-                                <span class="chip bg-color">blog</span>
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%97%AE%E9%A2%98/">
+                                <span class="chip bg-color">问题</span>
                             </a>
                         
                     </div>
@@ -482,14 +488,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    776
+                    585
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -509,33 +515,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="建立博客网站时遇到的故障与如何排除掉的方式"><a href="#建立博客网站时遇到的故障与如何排除掉的方式" class="headerlink" title="建立博客网站时遇到的故障与如何排除掉的方式"></a>建立博客网站时遇到的故障与如何排除掉的方式</h1><p>本博客参考了两位up主的创建过程，其中遇到不少阻碍，解决过程有些烦人，故将中途遇到的故障进行记录，防止日后继续出现类似问题。</p>
-<p>本博客搭建参考：<a target="_blank" rel="noopener" href="https://crazyyuchi.github.io/2022/05/02/bo-ke-da-jian-mei-hua-ju-xi-ban-ben/#!">博客搭建+美化（巨细版本） | 兴平 (crazyyuchi.github.io)</a></p>
-<p>本博客搭建参考：【[教程]Hexo &amp; Github搭建自己的专属博客】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL/?share_source=copy_web&amp;vd_source=5cd149d1723aac0eeb1b0c9b1ca86059">https://www.bilibili.com/video/BV1Eg41157tL/?share_source=copy_web&amp;vd_source=5cd149d1723aac0eeb1b0c9b1ca86059</a></p>
-<h2 id="故障问题："><a href="#故障问题：" class="headerlink" title="故障问题："></a>故障问题：</h2><h5 id="1-文件同步失败，无反馈"><a href="#1-文件同步失败，无反馈" class="headerlink" title="1.文件同步失败，无反馈"></a>1.文件同步失败，无反馈</h5><p>跟随博客教程，安装软件过程无误，但后续无法与github网站进行上传同步，提示一直卡在_config文件上，经测试；</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091004345.png" alt="image-20231222091004345"></p>
-<p>是按照教程操作过程之中，忽略了上传路径的排版，缺少了前面的空格，导致失败，调整格式后正常。</p>
-<p>解决问题参考方案：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43819439/article/details/118309688">使用hexo/git搭建博客时注意的几点_you should configure deployment settings in _confi-CSDN博客</a></p>
-<h5 id="2-文件上传路径错误，main与master的区分"><a href="#2-文件上传路径错误，main与master的区分" class="headerlink" title="2.文件上传路径错误，main与master的区分"></a>2.文件上传路径错误，main与master的区分</h5><p>上传文件成功之后，访问对应的链接页面仍旧是测试页面，并非上传博客页面，重新排查安装问题与_config文件配置，皆无异常；</p>
-<p>后经观察，上传过程中显示正常，故访问github个人仓库进行查验，最后发现是分支main与分支master的问题；</p>
-<p>创建github测试之时，勾选主分支为main，核对发现教程中设置分支为master分支。</p>
-<p>百度查验，进行更替主分支测试：</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091446007.png" alt="image-20231222091446007"></p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091513382.png" alt="image-20231222091513382"></p>
-<p>已调整后，测试仍旧是之前测试页面，后发现，需要在pages设置上，将域名对应的分支继续进行更替</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222091648629.png" alt="image-20231222091648629"></p>
-<p>操作完毕，一切回归正常，域名页面可以正常访问上传博客页面，故障排除。</p>
-<p>解决问题参考方案：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/339370999?utm_id=0">Github仓库master分支到main分支迁移指南 - 知乎 (zhihu.com)</a></p>
-<h5 id="3-代码高亮插件与默认设置冲突"><a href="#3-代码高亮插件与默认设置冲突" class="headerlink" title="3.代码高亮插件与默认设置冲突"></a>3.代码高亮插件与默认设置冲突</h5><p>代码高亮更替过程之中，产生的故障（处理时长较久，反思应该是基础不扎实导致，无意义浪费了许多时间去排查不相关的地带）</p>
-<p>根据错误提示，故障发生在blog设置_config.yml文件之中，有关于默认高亮设置代码与更替的高亮代码插件之间的冲突。</p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222093952543.png" alt="image-20231222093952543"></p>
-<p>原默认配置全部都在开启中，根据测试反馈结果，冲突在这几行代码之中，参考博客搭建教程之中给出的解决方法并未找到对应的代码行列；</p>
-<p>后经过翻阅资料后，发现7.0版本之后与之前的代码出现差异化，参考文档给出的解决方法是旧版的，即7.0之前；</p>
-<p>解决思路——对比测试</p>
-<p>参考资料：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/syntax-highlight.html#Highlight-js">代码高亮 | Hexo</a></p>
-<p><img src="/../assets/blog_res/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.assets/image-20231222150641079.png" alt="image-20231222150641079"></p>
-<p>经过不断测试关闭开启的选项，后确认成功。</p>
-<h5 id="4-插件问题"><a href="#4-插件问题" class="headerlink" title="4.插件问题"></a>4.插件问题</h5><p>参考资料：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1952241">6.hexo插件篇（必看）-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+                <p>相册页创建参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2076603">hexo-theme-matery_文字博客wordpress主题-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p>期间故障：</p>
+<p>gallery.ejs文件已经提前存在，其内部也书写了相当多的代码，在浏览的过程之中忽略了作者的‘新建’二字，产生冲突无法成功执行命令。</p>
+<p>后删除原gallery.ejs文件，重新建立空白文档并添加参考资料内部代码，重新运行后成功。</p>
+<p>以下是参考资料的gallery.ejs代码：</p>
+<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">&lt;style type="text/css"&gt;
+    /* don't remove. */
+    .about-cover {
+        height: 75vh;
+    }
+&lt;/style&gt;
+
+&lt;%- partial('_partial/bg-cover') %&gt;
+
+&lt;main class="content"&gt;
+&lt;% if (theme.myGallery &amp;&amp; theme.myGallery.enable) { %&gt;
+&lt;%- partial('_widget/my-gallery') %&gt;
+&lt;% } %&gt;
+&lt;/main&gt;
+
+&lt;% if (page.total &gt; 1) { %&gt;
+&lt;%- partial('_partial/paging') %&gt;
+&lt;% } %&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后是原gallery.ejs代码，已做保存；</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>link rel<span class="token operator">=</span><span class="token string">"stylesheet"</span> href<span class="token operator">=</span><span class="token string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.css.gallery) %&gt;"</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>link type<span class="token operator">=</span><span class="token string">"text/css"</span> href<span class="token operator">=</span><span class="token string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.css.fancybox) %&gt;"</span> rel<span class="token operator">=</span><span class="token string">"stylesheet"</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>link type<span class="token operator">=</span><span class="token string">"text/css"</span> href<span class="token operator">=</span><span class="token string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.css.justifiedGallery) %&gt;"</span> rel<span class="token operator">=</span><span class="token string">"stylesheet"</span><span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/post-cover'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">%</span>
+<span class="token keyword">let</span> galleries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>site<span class="token punctuation">.</span>data <span class="token operator">&amp;&amp;</span> site<span class="token punctuation">.</span>data<span class="token punctuation">.</span>galleries<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    galleries <span class="token operator">=</span> site<span class="token punctuation">.</span>data<span class="token punctuation">.</span>galleries<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> pageTitle <span class="token operator">=</span> page<span class="token punctuation">.</span>title<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">getCurrentGallery</span><span class="token punctuation">(</span><span class="token parameter">galleries<span class="token punctuation">,</span> pageTitle</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> galleries<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>galleries<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">==</span> pageTitle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> galleries<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> currentGallery <span class="token operator">=</span> <span class="token function">getCurrentGallery</span><span class="token punctuation">(</span>galleries<span class="token punctuation">,</span> pageTitle<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> photos <span class="token operator">=</span> currentGallery<span class="token punctuation">.</span>photos<span class="token punctuation">;</span>
+<span class="token keyword">var</span> galleryImageStr <span class="token operator">=</span> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url <span class="token operator">?</span> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> imageStr <span class="token operator">=</span> <span class="token string">''</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> photos<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> photo <span class="token operator">=</span> photos<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    imageStr <span class="token operator">+=</span> <span class="token string">"&lt;a href=\""</span> <span class="token operator">+</span> galleryImageStr <span class="token operator">+</span> photo <span class="token operator">+</span> <span class="token string">"\""</span> <span class="token operator">+</span>
+            <span class="token string">"     class=\"photo-item\" rel=\"example_group\""</span> <span class="token operator">+</span>
+            <span class="token string">"     data-fancybox=\"images\"&gt;"</span> <span class="token operator">+</span>
+            <span class="token string">"      &lt;img src=\""</span> <span class="token operator">+</span> galleryImageStr <span class="token operator">+</span> photo <span class="token operator">+</span> <span class="token string">"\""</span> <span class="token operator">+</span>
+            <span class="token string">"       alt="</span> <span class="token operator">+</span> photo <span class="token operator">+</span> <span class="token string">"&gt;\n"</span> <span class="token operator">+</span>
+            <span class="token string">"    &lt;/a&gt;"</span>
+
+<span class="token punctuation">}</span>
+<span class="token operator">%</span><span class="token operator">&gt;</span>  
+
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"container"</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"photo-wrapper"</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>page<span class="token punctuation">.</span>password <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
+
+            <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"/js/crypto-js.js"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"/js/gallery-encrypt.js"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"hbe-security"</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"hbe-input-container"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"password"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"hbe-form-control"</span> id<span class="token operator">=</span><span class="token string">"pass"</span>  placeholder<span class="token operator">=</span><span class="token string">"请输入密码查看内容"</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"javascript:;"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"btn-decrypt"</span> id<span class="token operator">=</span><span class="token string">"btn_decrypt"</span><span class="token operator">&gt;</span>解密<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div  id<span class="token operator">=</span><span class="token string">"mygallery"</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"waterfall"</span> id<span class="token operator">=</span><span class="token string">"encrypt-blog"</span> style<span class="token operator">=</span><span class="token string">"display:none"</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">aes</span><span class="token punctuation">(</span>imageStr<span class="token punctuation">,</span> page<span class="token punctuation">.</span>password<span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"waterfall"</span> id<span class="token operator">=</span><span class="token string">"encrypt-blog"</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> imageStr <span class="token operator">%</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">%</span> <span class="token punctuation">}</span> <span class="token operator">%</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.js.fancybox) %&gt;"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"&lt;%- theme.jsDelivr.url %&gt;&lt;%- url_for(theme.libs.js.justifiedGallery) %&gt;"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"a[rel=example_group]"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fancybox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#encrypt-blog"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">justifiedGallery</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">margins</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">rowHeight</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>成功后的相册页面：</p>
+<p><img src="/../assets/blog_res/%E5%AF%BC%E8%88%AA%E9%A1%B5%E7%9A%84%E5%88%9B%E5%BB%BA%E6%95%85%E9%9A%9C.assets/image-20231222193734284.png" alt="image-20231222193734284"></p>
 
                 
             </div>
@@ -562,7 +642,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/">http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/</a>
+                    <a href="http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/">http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,8 +680,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/blog/">
-                                    <span class="chip bg-color">blog</span>
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%97%AE%E9%A2%98/">
+                                    <span class="chip bg-color">问题</span>
                                 </a>
                             
                         </div>
@@ -680,17 +764,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/22/dao-hang-ye-mian/">
+                <a href="/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="导航页面">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="相册页的创建故障">
                         
-                        <span class="card-title">导航页面</span>
+                        <span class="card-title">相册页的创建故障</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -700,9 +785,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -711,11 +796,16 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E5%AD%A6%E4%B9%A0/">
                         <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">问题</span>
                     </a>
                     
                 </div>
@@ -729,13 +819,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/21/test2/">
+                <a href="/2023/12/22/linux-de-ji-ben-cao-zuo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="test2">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux的基本操作">
                         
-                        <span class="card-title">test2</span>
+                        <span class="card-title">linux的基本操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -746,16 +836,12 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog1/" class="post-category">
-                                    blog1
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yanshuisiyu
                             
                         </span>
                     </div>
@@ -763,8 +849,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/test/">
-                        <span class="chip bg-color">test</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
