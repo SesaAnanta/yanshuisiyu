@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-23T02:10:00.247Z</updated>
+  <updated>2023-12-23T04:37:42.296Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>live2D安装指南</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/live2d-an-zhuang-zhi-nan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/live2d-an-zhuang-zhi-nan/</id>
+    <published>2023-12-23T04:28:28.000Z</published>
+    <updated>2023-12-23T04:37:42.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;个人博客安装live2d插件&quot;&gt;&lt;a href=&quot;#个人博客安装live2d插件&quot; class=&quot;headerlink&quot; title=&quot;个人博客安装live2d插件&quot;&gt;&lt;/a&gt;个人博客安装live2d插件&lt;/h1&gt;&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="blog" scheme="http://yanshuisiyu.github.io/categories/blog/"/>
+    
+    
+    <category term="blog" scheme="http://yanshuisiyu.github.io/tags/blog/"/>
+    
+    <category term="live2d" scheme="http://yanshuisiyu.github.io/tags/live2d/"/>
+    
+  </entry>
   
   <entry>
     <title>半同步复制与MHA高可用架构设计</title>
@@ -315,18 +343,18 @@
   </entry>
   
   <entry>
-    <title>Linux计划任务以及进程检测与控制</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</id>
+    <title>Linux自有服务与软件包管理</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/</id>
     <published>2023-12-23T01:43:29.000Z</published>
-    <updated>2023-12-23T01:54:09.791Z</updated>
+    <updated>2023-12-23T01:51:20.040Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;a href=&quot;#Linux计划任务以及进程检测与控制&quot; class=&quot;headerlink&quot; title=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;/a&gt;Linux计划任务以及进程检测与控制&lt;/h1&gt;&lt;h1</summary>
+    <summary type="html">&lt;h1 id=&quot;Linux自有服务与软件包管理&quot;&gt;&lt;a href=&quot;#Linux自有服务与软件包管理&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -342,18 +370,18 @@
   </entry>
   
   <entry>
-    <title>Linux自有服务与软件包管理</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/</id>
+    <title>Linux计划任务以及进程检测与控制</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</id>
     <published>2023-12-23T01:43:29.000Z</published>
-    <updated>2023-12-23T01:51:20.040Z</updated>
+    <updated>2023-12-23T01:54:09.791Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Linux自有服务与软件包管理&quot;&gt;&lt;a href=&quot;#Linux自有服务与软件包管理&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;a href=&quot;#Linux计划任务以及进程检测与控制&quot; class=&quot;headerlink&quot; title=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;/a&gt;Linux计划任务以及进程检测与控制&lt;/h1&gt;&lt;h1</summary>
         
       
     
@@ -396,18 +424,18 @@
   </entry>
   
   <entry>
-    <title>Linux文件管理与用户管理</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/</id>
+    <title>Linux文件管理（上）-2</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/</id>
     <published>2023-12-23T01:40:29.000Z</published>
-    <updated>2023-12-23T01:46:00.735Z</updated>
+    <updated>2023-12-23T01:43:59.311Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Linux文件管理与用户管理&quot;&gt;&lt;a href=&quot;#Linux文件管理与用户管理&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理与用户管理&quot;&gt;&lt;/a&gt;Linux文件管理与用户管理&lt;/h1&gt;&lt;h1 id=&quot;一、查看文件内容&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、VIM编辑器&quot;&gt;&lt;a</summary>
         
       
     
@@ -423,18 +451,18 @@
   </entry>
   
   <entry>
-    <title>Linux文件管理（上）-2</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/</id>
+    <title>Linux文件管理与用户管理</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/</id>
     <published>2023-12-23T01:40:29.000Z</published>
-    <updated>2023-12-23T01:43:59.311Z</updated>
+    <updated>2023-12-23T01:46:00.735Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、VIM编辑器&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1 id=&quot;Linux文件管理与用户管理&quot;&gt;&lt;a href=&quot;#Linux文件管理与用户管理&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理与用户管理&quot;&gt;&lt;/a&gt;Linux文件管理与用户管理&lt;/h1&gt;&lt;h1 id=&quot;一、查看文件内容&quot;&gt;&lt;a</summary>
         
       
     
@@ -534,33 +562,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、Linux下文件命名规则&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux的基本操作</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/</id>
-    <published>2023-12-22T10:48:12.000Z</published>
-    <updated>2023-12-23T01:44:12.705Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux系统使用注意&quot;&gt;&lt;a href=&quot;#Linux系统使用注意&quot; class=&quot;headerlink&quot; title=&quot;Linux系统使用注意&quot;&gt;&lt;/a&gt;Linux系统使用注意&lt;/h1&gt;&lt;h2 id=&quot;1、Linux严格区分大小写&quot;&gt;&lt;a</summary>
         
       
     
