@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-23T04:37:42.296Z</updated>
+  <updated>2023-12-23T09:21:59.973Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -15,6 +15,328 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SHELL编程前奏_小工具</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/shell-bian-cheng-qian-zou-xiao-gong-ju/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/shell-bian-cheng-qian-zou-xiao-gong-ju/</id>
+    <published>2023-12-23T09:10:00.000Z</published>
+    <updated>2023-12-23T09:21:59.973Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;本节课程目标&quot;&gt;&lt;a href=&quot;#本节课程目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DNS域名管理系统与LAMP编译安装</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/dns-yu-ming-guan-li-xi-tong-yu-lamp-bian-yi-an-zhuang/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/dns-yu-ming-guan-li-xi-tong-yu-lamp-bian-yi-an-zhuang/</id>
+    <published>2023-12-23T09:04:00.000Z</published>
+    <updated>2023-12-23T09:16:18.078Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;DNS域名管理系统与LAMP编译安装&quot;&gt;&lt;a href=&quot;#DNS域名管理系统与LAMP编译安装&quot; class=&quot;headerlink&quot; title=&quot;DNS域名管理系统与LAMP编译安装&quot;&gt;&lt;/a&gt;DNS域名管理系统与LAMP编译安装&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SAMBA文件共享与DNS域名服务</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/samba-wen-jian-gong-xiang-yu-dns-yu-ming-fu-wu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/samba-wen-jian-gong-xiang-yu-dns-yu-ming-fu-wu/</id>
+    <published>2023-12-23T09:03:00.000Z</published>
+    <updated>2023-12-23T09:15:16.711Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SAMBA文件共享与DNS域名服务&quot;&gt;&lt;a href=&quot;#SAMBA文件共享与DNS域名服务&quot; class=&quot;headerlink&quot; title=&quot;SAMBA文件共享与DNS域名服务&quot;&gt;&lt;/a&gt;SAMBA文件共享与DNS域名服务&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTP、NFS以及SAMBA服务下</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/ftp-nfs-yi-ji-samba-fu-wu-xia/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/ftp-nfs-yi-ji-samba-fu-wu-xia/</id>
+    <published>2023-12-23T09:02:00.000Z</published>
+    <updated>2023-12-23T09:14:35.868Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;FTP、NFS以及SAMBA服务&quot;&gt;&lt;a href=&quot;#FTP、NFS以及SAMBA服务&quot; class=&quot;headerlink&quot; title=&quot;FTP、NFS以及SAMBA服务&quot;&gt;&lt;/a&gt;FTP、NFS以及SAMBA服务&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTP、NFS、SAMBA系统服务上</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/ftp-nfs-samba-xi-tong-fu-wu-shang/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/ftp-nfs-samba-xi-tong-fu-wu-shang/</id>
+    <published>2023-12-23T09:01:00.000Z</published>
+    <updated>2023-12-23T09:14:12.923Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;FTP、NFS、SAMBA系统服务&quot;&gt;&lt;a href=&quot;#FTP、NFS、SAMBA系统服务&quot; class=&quot;headerlink&quot; title=&quot;FTP、NFS、SAMBA系统服务&quot;&gt;&lt;/a&gt;FTP、NFS、SAMBA系统服务&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统下数据同步服务RSYNC</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-xia-shu-ju-tong-bu-fu-wu-rsync/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-xia-shu-ju-tong-bu-fu-wu-rsync/</id>
+    <published>2023-12-23T09:00:10.000Z</published>
+    <updated>2023-12-23T09:12:49.142Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux系统下数据同步服务RSYNC&quot;&gt;&lt;a href=&quot;#Linux系统下数据同步服务RSYNC&quot; class=&quot;headerlink&quot; title=&quot;Linux系统下数据同步服务RSYNC&quot;&gt;&lt;/a&gt;Linux系统下数据同步服务RSYNC&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程管理SSH服务</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/yuan-cheng-guan-li-ssh-fu-wu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/yuan-cheng-guan-li-ssh-fu-wu/</id>
+    <published>2023-12-23T09:00:08.000Z</published>
+    <updated>2023-12-23T09:11:53.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;远程管理SSH服务&quot;&gt;&lt;a href=&quot;#远程管理SSH服务&quot; class=&quot;headerlink&quot; title=&quot;远程管理SSH服务&quot;&gt;&lt;/a&gt;远程管理SSH服务&lt;/h1&gt;&lt;h1 id=&quot;一、搭建SSH服务&quot;&gt;&lt;a href=&quot;#一、搭建SSH服务&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下yum源配置实战</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-xia-yum-yuan-pei-zhi-shi-zhan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-xia-yum-yuan-pei-zhi-shi-zhan/</id>
+    <published>2023-12-23T09:00:00.000Z</published>
+    <updated>2023-12-23T09:10:32.014Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux下yum源配置实战&quot;&gt;&lt;a href=&quot;#Linux下yum源配置实战&quot; class=&quot;headerlink&quot; title=&quot;Linux下yum源配置实战&quot;&gt;&lt;/a&gt;Linux下yum源配置实战&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux高级命令（扩展）</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan/</id>
+    <published>2023-12-23T09:00:00.000Z</published>
+    <updated>2023-12-23T09:06:55.027Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、find命令&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux高级命令（扩展）三</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-san/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-san/</id>
+    <published>2023-12-23T09:00:00.000Z</published>
+    <updated>2023-12-23T09:09:49.965Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、date命令&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux高级命令（扩展）二</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-er/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-er/</id>
+    <published>2023-12-23T09:00:00.000Z</published>
+    <updated>2023-12-23T09:09:03.838Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、Linux下用户管理&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH远程管理服务</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/ssh-yuan-cheng-guan-li-fu-wu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/ssh-yuan-cheng-guan-li-fu-wu/</id>
+    <published>2023-12-23T09:00:00.000Z</published>
+    <updated>2023-12-23T09:11:08.325Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SSH远程管理服务&quot;&gt;&lt;a href=&quot;#SSH远程管理服务&quot; class=&quot;headerlink&quot; title=&quot;SSH远程管理服务&quot;&gt;&lt;/a&gt;SSH远程管理服务&lt;/h1&gt;&lt;h1 id=&quot;一、SSH概述&quot;&gt;&lt;a href=&quot;#一、SSH概述&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>live2D安装指南</title>
@@ -258,321 +580,6 @@
     <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LAMP项目部署实战</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/lamp-xiang-mu-bu-shu-shi-zhan/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/lamp-xiang-mu-bu-shu-shi-zhan/</id>
-    <published>2023-12-23T01:47:29.000Z</published>
-    <updated>2023-12-23T01:56:24.240Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;LAMP项目部署实战&quot;&gt;&lt;a href=&quot;#LAMP项目部署实战&quot; class=&quot;headerlink&quot; title=&quot;LAMP项目部署实战&quot;&gt;&lt;/a&gt;LAMP项目部署实战&lt;/h1&gt;&lt;h1 id=&quot;一、LAMP环境部署&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>进程的优先级与LAMP项目部署实战</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/jin-cheng-de-you-xian-ji-yu-lamp-xiang-mu-bu-shu-shi-zhan/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/jin-cheng-de-you-xian-ji-yu-lamp-xiang-mu-bu-shu-shi-zhan/</id>
-    <published>2023-12-23T01:45:29.000Z</published>
-    <updated>2023-12-23T01:55:06.871Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;进程的优先级与LAMP项目部署实战&quot;&gt;&lt;a href=&quot;#进程的优先级与LAMP项目部署实战&quot; class=&quot;headerlink&quot; title=&quot;进程的优先级与LAMP项目部署实战&quot;&gt;&lt;/a&gt;进程的优先级与LAMP项目部署实战&lt;/h1&gt;&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统自有服务</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-zi-you-fu-wu/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-zi-you-fu-wu/</id>
-    <published>2023-12-23T01:43:29.000Z</published>
-    <updated>2023-12-23T01:53:12.220Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux系统自有服务&quot;&gt;&lt;a href=&quot;#Linux系统自有服务&quot; class=&quot;headerlink&quot; title=&quot;Linux系统自有服务&quot;&gt;&lt;/a&gt;Linux系统自有服务&lt;/h1&gt;&lt;h1 id=&quot;一、Linux中防火墙firewalld&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux自有服务与软件包管理</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/</id>
-    <published>2023-12-23T01:43:29.000Z</published>
-    <updated>2023-12-23T01:51:20.040Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux自有服务与软件包管理&quot;&gt;&lt;a href=&quot;#Linux自有服务与软件包管理&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux计划任务以及进程检测与控制</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</id>
-    <published>2023-12-23T01:43:29.000Z</published>
-    <updated>2023-12-23T01:54:09.791Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;a href=&quot;#Linux计划任务以及进程检测与控制&quot; class=&quot;headerlink&quot; title=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;/a&gt;Linux计划任务以及进程检测与控制&lt;/h1&gt;&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux的权限管理操作</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/</id>
-    <published>2023-12-23T01:42:29.000Z</published>
-    <updated>2023-12-23T01:49:51.519Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux的权限管理操作&quot;&gt;&lt;a href=&quot;#Linux的权限管理操作&quot; class=&quot;headerlink&quot; title=&quot;Linux的权限管理操作&quot;&gt;&lt;/a&gt;Linux的权限管理操作&lt;/h1&gt;&lt;h1 id=&quot;一、权限概述&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理（上）-2</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/</id>
-    <published>2023-12-23T01:40:29.000Z</published>
-    <updated>2023-12-23T01:43:59.311Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、VIM编辑器&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理与用户管理</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/</id>
-    <published>2023-12-23T01:40:29.000Z</published>
-    <updated>2023-12-23T01:46:00.735Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux文件管理与用户管理&quot;&gt;&lt;a href=&quot;#Linux文件管理与用户管理&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理与用户管理&quot;&gt;&lt;/a&gt;Linux文件管理与用户管理&lt;/h1&gt;&lt;h1 id=&quot;一、查看文件内容&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux用户管理与远程管理</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-yong-hu-guan-li-yu-yuan-cheng-guan-li/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-yong-hu-guan-li-yu-yuan-cheng-guan-li/</id>
-    <published>2023-12-23T01:40:29.000Z</published>
-    <updated>2023-12-23T01:47:22.479Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux用户管理与远程管理&quot;&gt;&lt;a href=&quot;#Linux用户管理与远程管理&quot; class=&quot;headerlink&quot; title=&quot;Linux用户管理与远程管理&quot;&gt;&lt;/a&gt;Linux用户管理与远程管理&lt;/h1&gt;&lt;h1 id=&quot;一、用户管理&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>md模版</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/md/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/md/</id>
-    <published>2023-12-22T16:00:00.000Z</published>
-    <updated>2023-12-23T02:13:33.597Z</updated>
-    
-    
-    
-    
-    <category term="none" scheme="http://yanshuisiyu.github.io/categories/none/"/>
-    
-    
-    <category term="none" scheme="http://yanshuisiyu.github.io/tags/none/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>相册页的创建故障</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/</id>
-    <published>2023-12-22T11:28:18.000Z</published>
-    <updated>2023-12-23T01:38:07.257Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;相册页创建参考资料：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/developer/article/2076603&quot;&gt;hexo-theme-matery_文字博客wordpress主题-腾讯云开发者社区-腾讯云</summary>
-        
-      
-    
-    
-    
-    <category term="随笔" scheme="http://yanshuisiyu.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="问题" scheme="http://yanshuisiyu.github.io/tags/%E9%97%AE%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文件管理（上）-1</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/linux-wen-jian-guan-li-shang/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/linux-wen-jian-guan-li-shang/</id>
-    <published>2023-12-22T10:48:12.000Z</published>
-    <updated>2023-12-23T01:44:03.163Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、Linux下文件命名规则&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

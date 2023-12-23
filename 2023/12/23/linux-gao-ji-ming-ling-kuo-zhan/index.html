@@ -1,0 +1,1448 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux高级命令（扩展）, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="Linux高级命令（扩展）一、find命令1、find命令作用在Linux操作系统中，find命令主要用于进行文件的搜索。
+2、基本语法# find 搜索路径 [选项 选项的值] ...
+选项说明：
+-name ：根据文件的名称搜索文件，支">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux高级命令（扩展） | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux高级命令（扩展）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Linux高级命令（扩展）"><a href="#Linux高级命令（扩展）" class="headerlink" title="Linux高级命令（扩展）"></a>Linux高级命令（扩展）</h1><h1 id="一、find命令"><a href="#一、find命令" class="headerlink" title="一、find命令"></a>一、find命令</h1><h2 id="1、find命令作用"><a href="#1、find命令作用" class="headerlink" title="1、find命令作用"></a>1、find命令作用</h2><p>在Linux操作系统中，find命令主要用于进行文件的搜索。</p>
+<h2 id="2、基本语法"><a href="#2、基本语法" class="headerlink" title="2、基本语法"></a>2、基本语法</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find 搜索路径 [选项 选项的值] ...
+选项说明：
+-name ：根据文件的名称搜索文件，支持*通配符
+-type ：f代表普通文件、d代表文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：搜索计算机中的所有文件，然后找到httpd.conf文件</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /etc -name "httpd.conf" -type f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3、-星号通配符"><a href="#3、-星号通配符" class="headerlink" title="3、*星号通配符"></a>3、*星号通配符</h2><p>在Linux操作系统中，我们想要查找的文件名称不是特别清晰（只记住了前面或后面的字符），这个时候就可以使用*星号通配符了。</p>
+<p>案例：获取/etc目录下，所有后缀名为.conf的文件信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /etc -name "*.conf" -type f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：在/etc目录下，搜索所有以httpd开头的文件</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /etc -name "httpd*" -type f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="4、根据文件修改时间搜索文件"><a href="#4、根据文件修改时间搜索文件" class="headerlink" title="4、根据文件修改时间搜索文件"></a>4、根据文件修改时间搜索文件</h2><h3 id="☆-聊一下Windows中的文件时间概念？"><a href="#☆-聊一下Windows中的文件时间概念？" class="headerlink" title="☆ 聊一下Windows中的文件时间概念？"></a>☆ 聊一下Windows中的文件时间概念？</h3><p> <img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331112114347.png" alt="image-20200331112114347"></p>
+<p>创建时间：代表这个文件什么时间被创建</p>
+<p>访问时间：代表这个文件什么时间被访问</p>
+<p>修改时间：代表这个文件什么时间被修改</p>
+<h3 id="☆-使用stat命令获取文件的最后修改时间"><a href="#☆-使用stat命令获取文件的最后修改时间" class="headerlink" title="☆ 使用stat命令获取文件的最后修改时间"></a>☆ 使用stat命令获取文件的最后修改时间</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># stat 文件名称
+Modify: 2020-03-31 10:25:20.609010605 +0800<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="☆-创建文件时设置修改时间以及修改文件的修改时间"><a href="#☆-创建文件时设置修改时间以及修改文件的修改时间" class="headerlink" title="☆ 创建文件时设置修改时间以及修改文件的修改时间"></a>☆ 创建文件时设置修改时间以及修改文件的修改时间</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># touch -m -d "日期时间格式" 文件名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>作用：① 如果文件不存在，则自动创建该文件，然后设置其最后的修改时间</p>
+<p>​		     ② 如果文件存在，touch命令就是只修改文件的最后修改时间</p>
+<p>案例：创建一个a.txt文件，设置最后修改时间为2020-03-30 00:00</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># touch -m -d "2020-03-30 00:00" a.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：创建一个b.txt文件，然后在设置文件的最后修改时间为2020-03-29 00:00</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># touch b.txt
+# touch -m -d "2020-03-29 00:00" b.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：创建一个c.txt文件，设置最后修改时间为2020-03-28 00:00</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># touch -m -d "2020-03-28 00:00" c.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-根据文件的-最后修改时间-搜索文件"><a href="#☆-根据文件的-最后修改时间-搜索文件" class="headerlink" title="☆ 根据文件的==最后修改时间==搜索文件"></a>☆ 根据文件的==最后修改时间==搜索文件</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find 搜索路径 -mtime +days/-day3
+-mtime ：根据文件的最后修改时间搜索文件
++ ：加号，代表搜索几天之前的文件信息
+- ：减号，代表搜索几天以内的文件信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：搜索3天以前的文件信息（不包含第3天的，而且只搜索.txt格式）</p>
+<p><img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331113956170.png" alt="image-20200331113956170"></p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find ./ -name "*.txt" -mtime +3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：搜索3天以内的文件信息（只搜索.txt格式）</p>
+<p><img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331120315628.png" alt="image-20200331120315628"></p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find ./ -name "*.txt" -mtime -3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="5、扩展选项-exec选项"><a href="#5、扩展选项-exec选项" class="headerlink" title="5、扩展选项-exec选项"></a>5、扩展选项-exec选项</h2><p>案例：删除Linux系统中/var/log目录下10天以前的日志信息（日志文件格式*.log结尾）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /var/log -name "*.log" -mtime +10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第一种解决方案：使用管道命令|</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /var/log -name "*.log" -mtime +10 |rm -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以上命令并不能正确的执行删除操作，原因在于rm命令和ls命令一样，都不支持管道。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /var/log -name "*.log" -mtime +10 |xargs rm -rf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>第二种解决方案：使用find命令 + -exec选项</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find /var/log -name "*.log" -mtime +10 -exec rm -rf {} \;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6、根据文件的大小搜索文件"><a href="#6、根据文件的大小搜索文件" class="headerlink" title="6、根据文件的大小搜索文件"></a>6、根据文件的大小搜索文件</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find 搜索路径 -size [文件大小，常用单位：k，M，G]
+size值  : 搜索等于size值大小的文件
+-size值 : [0, size值)
++size值 : (size值,正无穷大)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：搜索/root目录下大小为5M的文件信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find ./ -type f -size 5M<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：搜索/root目录下大小为5M以内的文件信息（5M&gt;size&gt;=0）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find ./ -type f -size -5M<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：搜索/目录中，文件大小大于100M的文件信息（size&gt;100M）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># find / -type f -size +100M<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="7、dd扩展命令"><a href="#7、dd扩展命令" class="headerlink" title="7、dd扩展命令"></a>7、dd扩展命令</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># dd if=/dev/zero of=文件名称 bs=1M count=1
+选项说明：
+if代表输入文件
+of代表输出文件
+bs代表字节为单位的块大小。
+count代表被复制的块。
+其中/dev/zero是一个字符设备，会不断返回0值字节。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>主要功能：在Linux操作系统中，生成某个大小的测试文件！</p>
+<p>案例：使用dd创建一个1M大小的sun.txt文件</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># dd if=/dev/zero of=moon.txt bs=1M count=1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：使用dd创建一个5M大小的moon.txt文件</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># dd if=/dev/zero of=moon.txt bs=5M count=1
+
+if = input file
+of = output file<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="二、tree命令"><a href="#二、tree命令" class="headerlink" title="二、tree命令"></a>二、tree命令</h1><h2 id="1、tree命令的主要作用"><a href="#1、tree命令的主要作用" class="headerlink" title="1、tree命令的主要作用"></a>1、tree命令的主要作用</h2><p>Windows和Linux都有tree命令，主要功能是创建文件列表，将所有文件以树的形式列出来</p>
+<h2 id="2、使用yum命令安装tree"><a href="#2、使用yum命令安装tree" class="headerlink" title="2、使用yum命令安装tree"></a>2、使用yum命令安装tree</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># yum install tree -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3、以树状结构显示路径下的文件信息"><a href="#3、以树状结构显示路径下的文件信息" class="headerlink" title="3、以树状结构显示路径下的文件信息"></a>3、以树状结构显示路径下的文件信息</h2><p>案例：以树状结构显示当前目录下的文件信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># tree <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：以树状结构显示/var/log目录下的文件信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># tree /var/log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="三、scp命令"><a href="#三、scp命令" class="headerlink" title="三、scp命令"></a>三、scp命令</h1><h2 id="1、scp命令的主要作用"><a href="#1、scp命令的主要作用" class="headerlink" title="1、scp命令的主要作用"></a>1、scp命令的主要作用</h2><p>scp命令的主要作用是实现Linux与Linux系统之间的文件传输。</p>
+<blockquote>
+<p>完成以上实战需要两个Linux系统，解决方案可以使用克隆操作（先关机后克隆）快速生成一个Linux系统</p>
+</blockquote>
+<p><img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331153615311.png" alt="image-20200331153615311"></p>
+<h2 id="2、scp效果图"><a href="#2、scp效果图" class="headerlink" title="2、scp效果图"></a>2、scp效果图</h2><p><img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331154917349.png" alt="image-20200331154917349"></p>
+<p>scp传输要求：两台计算机所使用的操作系统都必须是Linux操作系统。</p>
+<blockquote>
+<p>ssh: connect to host 10.1.1.17 port 22: Connection refused<br>lost connection</p>
+<p>出现以上问题的主要原因在于SCP命令时基于SSH协议，所以两台服务器的sshd服务必须处于开启状态，否则无法完成上传与下载操作。</p>
+</blockquote>
+<h2 id="3、下载文件或目录"><a href="#3、下载文件或目录" class="headerlink" title="3、下载文件或目录"></a>3、下载文件或目录</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp [选项] 用户名@linux主机地址:资源路径  linux本地文件路径
+选项说明：
+-r ：代表递归操作，主要针对文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：从10.1.1.17服务器下载/root路径下的video.mp4文件到本地的/root目录下</p>
+<p>10.1.1.16：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp root@10.1.1.17:/root/video.mp4 ./
+The authenticity of host '10.1.1.17 (10.1.1.17)' can't be established.
+ECDSA key fingerprint is SHA256:Wcxibo2ZQulm6bV+jEakz8IniwFgE6CUHopCxYjexrI.
+ECDSA key fingerprint is MD5:48:25:21:93:ef:2b:22:25:5f:95:39:56:0c:8e:ff:75.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.1.1.17' (ECDSA) to the list of known hosts.
+root@10.1.1.17's password:123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：从10.1.1.17服务器下载/root路径下的shop文件夹到本地的/root目录下</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp -r root@10.1.1.17:/root/shop ./
+root@10.1.1.17's password:123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="4、上传文件或目录"><a href="#4、上传文件或目录" class="headerlink" title="4、上传文件或目录"></a>4、上传文件或目录</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp [选项] linux本地文件路径 用户名@linux主机地址:远程路径
+选项说明：
+-r ：递归操作<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：把10.1.1.16服务器上的/root/video.mp4上传到10.1.1.17服务器的/root目录下</p>
+<p>10.1.1.16：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp /root/video.mp4 root@10.1.1.17:/root/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：把10.1.1.16服务器上的/root/shop文件夹上传到10.1.1.17服务器的/root目录下</p>
+<p>10.1.1.16：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># scp -r /root/shop root@10.1.1.17:/root/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="四、计划任务-tar命令实现文件备份"><a href="#四、计划任务-tar命令实现文件备份" class="headerlink" title="四、计划任务+tar命令实现文件备份"></a>四、计划任务+tar命令实现文件备份</h1><h2 id="1、回顾计划任务"><a href="#1、回顾计划任务" class="headerlink" title="1、回顾计划任务"></a>1、回顾计划任务</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># crontab [选项]
+-l : list缩写，查询当前用户的计划任务信息
+-e : edit缩写，编辑计划任务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="2、计划任务格式"><a href="#2、计划任务格式" class="headerlink" title="2、计划任务格式"></a>2、计划任务格式</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">分 时 日 月 周 执行的命令（要求使用完整路径,which命令）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/../assets/blog_res/Linux%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%EF%BC%88%E6%89%A9%E5%B1%95%EF%BC%89.assets/image-20200331164953190.png" alt="image-20200331164953190"></p>
+<blockquote>
+<p>周的范围比较特殊，正常情况下，只有周一 ~ 周日 1-7，但是计划任务范围0-7，0和7都代表周日</p>
+</blockquote>
+<h2 id="3、案例"><a href="#3、案例" class="headerlink" title="3、案例"></a>3、案例</h2><p>案例：每天的凌晨2点0分把/etc目录备份一次/tmp目录下，要求把/etc打包成etc.tar.gz格式</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># crontab -e
+分 时 日 月 周 /usr/bin/tar -zcf /tmp/etc.tar.gz /etc
+0 2 * * * /usr/bin/tar -zcf /tmp/etc.tar.gz /etc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>以上案例虽然可以实现对/etc目录的备份，但是有一个小缺点：每次备份时，生成的文件名称是一致的，这样后面备份的文件就会把前面备份的文件进行覆盖！</p>
+<p>==案例：备份文件时，要求按时间作为备份文件的名称==</p>
+<p>/tmp/etc-20200331.tar.gz</p>
+<p>/tmp/etc-20200401.tar.gz</p>
+<p>…</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># crontab -e
+0 2 * * * /usr/bin/tar -zcf /tmp/etc-$(date +"\%Y\%m\%d").tar.gz	/etc
+
+重点：
+/tmp/etc-$(date +"\%Y\%m\%d").tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>经验之谈：如果在编写计划任务时，出现了%百分号，前面必须添加一个反斜杠\进行转义，否则计划任务会失效！</p>
+</blockquote>
+<h2 id="4、扩展命令：date"><a href="#4、扩展命令：date" class="headerlink" title="4、扩展命令：date"></a>4、扩展命令：date</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># date +"时间格式"
+%F : 年-月-日
+%T : 小时:分钟:秒
+%Y : Year,年
+%m : month,月
+%d : day,日
+%H : Hour,小时
+%M : Minute,分钟
+%S : Second,秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>案例：获取计算机的系统时间</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># date<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取年月日信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># date +""<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan/">http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/23/linux-xia-yum-yuan-pei-zhi-shi-zhan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Linux下yum源配置实战">
+                        
+                        <span class="card-title">Linux下yum源配置实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-san/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Linux高级命令（扩展）三">
+                        
+                        <span class="card-title">Linux高级命令（扩展）三</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">108.1k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>
