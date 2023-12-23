@@ -1,0 +1,1832 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL基本SQL语句（下）, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="MySQL基本SQL语句（下）一、扩展常见的数据类型1、回顾数据表的创建语法基本语法：
+mysql&amp;gt; create table 数据表名称(
+	字段名称1 字段类型 字段约束,
+	字段名称2 字段类型 字段约束,
+	...
+	prim">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL基本SQL语句（下） | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL基本SQL语句（下）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                mysql
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQL基本SQL语句（下）"><a href="#MySQL基本SQL语句（下）" class="headerlink" title="MySQL基本SQL语句（下）"></a>MySQL基本SQL语句（下）</h1><h1 id="一、扩展常见的数据类型"><a href="#一、扩展常见的数据类型" class="headerlink" title="一、扩展常见的数据类型"></a>一、扩展常见的数据类型</h1><h2 id="1、回顾数据表的创建语法"><a href="#1、回顾数据表的创建语法" class="headerlink" title="1、回顾数据表的创建语法"></a>1、回顾数据表的创建语法</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table 数据表名称(
+	字段名称1 字段类型 字段约束,
+	字段名称2 字段类型 字段约束,
+	...
+	primary key(主键字段 =&gt; 不能为空、必须唯一)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>经验之谈：一般情况下，我们在设计数据表时，必须拥有一个id主键字段，非空、自动编号、主键约束。</p>
+</blockquote>
+<p>在创建数据表时，必须明确指定字段的名称以及字段的类型，那到底MySQL中的SQL语句支持哪些字段类型呢？</p>
+<p>答：参考下图</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826094830721.png" alt="image-20200826094830721"></p>
+<h2 id="2、数值类型"><a href="#2、数值类型" class="headerlink" title="2、数值类型"></a>2、数值类型</h2><h3 id="☆-整数类型（整数、精准）"><a href="#☆-整数类型（整数、精准）" class="headerlink" title="☆ 整数类型（整数、精准）"></a>☆ 整数类型（整数、精准）</h3><p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826095603519.png" alt="image-20200826095603519"></p>
+<p>应用场景：人的年龄、考试成绩等等相关的信息都可以使用整数类型进行存储，那整数类型有这么多形式，我应该选择哪一个呢？</p>
+<p>答：整数类型的选择主要取决于数值的范围。</p>
+<blockquote>
+<p>比如存储中国人的人口信息，可以用INT类型也可以用BIGINT类型，但是在数据库设计原则中，不是越大越好，而是正好满足条件即可。</p>
+</blockquote>
+<p>案例：设计一个数据表如tb_student学生表（id、username、age、mobile）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use 数据库名称;
+mysql&gt; create table tb_student(
+	id mediumint unsigned not null auto_increment,
+	username varchar(20),
+	age tinyint unsigned,
+	mobile char(11),
+	primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-小数类型（浮点类型、定点类型）"><a href="#☆-小数类型（浮点类型、定点类型）" class="headerlink" title="☆ 小数类型（浮点类型、定点类型）"></a>☆ 小数类型（浮点类型、定点类型）</h3><h4 id="①-浮点类型（近似值）"><a href="#①-浮点类型（近似值）" class="headerlink" title="① 浮点类型（近似值）"></a>① 浮点类型（近似值）</h4><ul>
+<li>FLOAT和DOUBLE</li>
+</ul>
+<p><code>FLOAT</code>和<code>DOUBLE</code>类型代表近似数字数据值。MySQL对于单精度值使用四个字节，对于双精度值使用八个字节。 <code>FLOAT</code>单精度浮点数精确到约7位小数，<code>DOUBLE</code>双精度浮点数精确到大约15位小数 。<code>FLOAT</code><strong>类型会随着数值的增大精度会减小。</strong></p>
+<p>举例说明</p>
+<p>FLOAT(M,D)，其中，M表示存储的有效位数，D代表小数点后面的位数；即整数位数+小数部分不能超过M值。<br>colum1 FLOAT(7,4)<br>上面例子中，如果你插入为999.00009到cloum1列，那么mysql在存储时会四舍五入变为999.0001插入。</p>
+<blockquote>
+<p>DOUBLE(7,4) ：DOUBLE类型的使用与FLOAT类型完全一致，唯一的区别就是占用字节不同且浮点数的精度有所不同。</p>
+</blockquote>
+<h4 id="②-定点类型（精确值）"><a href="#②-定点类型（精确值）" class="headerlink" title="② 定点类型（精确值）"></a>② 定点类型（精确值）</h4><ul>
+<li>DECIMAL和NUMERIC</li>
+</ul>
+<p><code>DECIMAL</code>和<code>NUMERIC</code>&nbsp;类型的存储==精确的数值数据==。使用这些类型时，重要的是要保留==精确的精度==，例如使用<strong>货币数据</strong>。在MySQL中, <code>NUMERIC</code>被作为<code>DECIMAL</code>来应用，所以下面的举例<code>DECIMAL</code>同样适用于&nbsp;<code>NUMERIC</code> 。</p>
+<ul>
+<li>举例说明</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">salary DECIMAL(5,2)
+在上面的例子中，薪水字段的类型为decimal，表示精确的数字。其中，5代表精度，2代表刻度。
+精度表示数值存储的有效位数，刻度表示小数点后面可存储的位数。
+DECIMAL(5,2)能够存储五位数和两位小数的任何值，因此可以存储在salary 列中的值的范围-999.99是 999.99
+
+特殊注意：
+DECIMAL(M)和DECIMAL(M,0)是相等的，存储长度取决于M的值，默认情况下M值为10.刻度为0表示没有小数。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：定义一个职员表tb_staff，定义字段（id、username、salary、addtime）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_staff(
+	id smallint unsigned not null auto_increment,
+	username varchar(20),
+	salary decimal(11,2),
+	addtime date,
+	primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3、字符串类型"><a href="#3、字符串类型" class="headerlink" title="3、字符串类型"></a>3、字符串类型</h2><h3 id="☆-CHAR类型"><a href="#☆-CHAR类型" class="headerlink" title="☆ CHAR类型"></a>☆ CHAR类型</h3><p>CHAR类型的字符串为<strong>定长</strong>.长度范围是0到255之间的任何值.占用定长的存储空间,不足的部分用==空格==填充；读取时删掉后面的空格。</p>
+<p>password char(32)</p>
+<p>mobile char(11)</p>
+<ul>
+<li><strong>存储空间</strong></li>
+</ul>
+<p>CHAR(==M==)<strong>类型的存储空间和字符集有关系</strong>，一个中文在utf8字符集中占用3个bytes、gbk占用2个bytes、数字和字符统一用一个字符表示。</p>
+<ul>
+<li><strong>存储机制</strong></li>
+</ul>
+<p>在不够M长度时，MySQL在存储数据时，需要填充特殊的空格.</p>
+<ul>
+<li><strong>举例说明</strong></li>
+</ul>
+<p><code>字段名称 CHAR(M),M表示字符数</code></p>
+<p>应用场景：加密后的密码 =&gt; char(32)，手机号码mobile(11)，身份证号码等等</p>
+<p>案例：创建一个tb_admin数据表，定义字段（id、username、password）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_admin(
+	id tinyint unsigned not null auto_increment,
+	username varchar(10),
+	password char(32),
+	primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-VARCHAR类型"><a href="#☆-VARCHAR类型" class="headerlink" title="☆ VARCHAR类型"></a>☆ VARCHAR类型</h3><p>VARCHAR是==变长存储==,仅使用必要的存储空间.</p>
+<p>name varchar(10)</p>
+<ul>
+<li><strong>存储空间</strong></li>
+</ul>
+<p>VARCHAR(M)类型的存储空间和字符集有关系，一个中文在utf8字符集中占用3个bytes、gbk统一占用2个bytes、数字和字符一个字符表示。</p>
+<ul>
+<li><strong>存储机制</strong></li>
+</ul>
+<p>VARCHAR(M)字段存储实际是从<strong>第二个字节开始存储</strong>,然后用1到2个字节表示实际长度,剩下的才是可以存储数据的范围,因此最大可用存储范围是65535-3=65532字节;</p>
+<p>第一个字节标识是否为空.（长度小于255字节,使用一个字节来表示长度;大于255字节使用两个字节来表示长度)。</p>
+<p>应用场景：主要适合存储长度不固定的字符串信息，如用户名称、产品标题、新闻标题、新闻描述（不超过255个字符）</p>
+<p>案例：创建一个tb_news数据表，定义字段（id、title、description、addtime）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_news(
+	id int not null auto_increment,
+	title varchar(80),
+	description varchar(255),
+	addtime date,
+	primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-TEXT类型"><a href="#☆-TEXT类型" class="headerlink" title="☆ TEXT类型"></a>☆ TEXT类型</h3><p>TEXT代表文本类型的数据，当我们使用VARCHAR类型存储数据时（早期最大只能存储255个字符，MySQL5版本中，其gbk可以存储3万多个字符，utf8格式可以存储2万多个字符），如超过了VARCHAR的最大存储范围，则可以考虑使用TEXT文本类型。</p>
+<blockquote>
+<p>经验之谈：255个字符以内（包括），定长就使用CHAR类型，变长就使用VARCHAR类型，如果超过255个字符，则使用TEXT文本类型。</p>
+</blockquote>
+<p>应用场景：文本内容、产品的详细介绍等等</p>
+<p>案例：创建一个tb_goods产品表，定义字段（id、name、price、content）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_goods(
+  id int not null auto_increment,
+  name varchar(80),
+  price decimal(11,2),
+  content text,
+  primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-其他类型"><a href="#☆-其他类型" class="headerlink" title="☆ 其他类型"></a>☆ 其他类型</h3><p>BLOB：保存二进制的大型数据（字节串），没有字符集，eg：图片、音频视频等。</p>
+<blockquote>
+<p>实际运维工作中，很少将文件直接保存在数据库端，一般文件的存储都是基于路径进行操作的。</p>
+</blockquote>
+<p>ENUM枚举类型：多选一，从给定的多个选项中选择一个，如gender  enum(‘男’,’女’,’保密’)</p>
+<p>SET集合类型：多选多，从给定的多个选项中选个多个，如hobby set(‘吃饭’,’睡觉’,’打豆豆’)</p>
+<h2 id="4、日期时间类型"><a href="#4、日期时间类型" class="headerlink" title="4、日期时间类型"></a>4、日期时间类型</h2><p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826114942732.png" alt="image-20200826114942732"></p>
+<blockquote>
+<p>经验之谈：时间类型的选择比较简单，主要看你需要的时间格式，是年月日、小时分钟秒等等。</p>
+</blockquote>
+<p>###㈠ DATE类型（年-月-日）</p>
+<p>The&nbsp;<code>DATE</code>&nbsp;type is used for values with a date part but no time part. MySQL retrieves and displays&nbsp;<code>DATE</code>&nbsp;values in<code>'YYYY-MM-DD'</code>&nbsp;format. The supported range is&nbsp;<code>'1000-01-01'</code>&nbsp;to&nbsp;<code>'9999-12-31'</code>. </p>
+<p>###㈡ DATETIME(年月日小时分钟秒)</p>
+<p>The&nbsp;<code>DATETIME</code>&nbsp;type is used for values that contain both date and time parts. MySQL retrieves and displays<code>DATETIME</code>&nbsp;values in&nbsp;<code>'YYYY-MM-DD HH:MM:SS'</code>&nbsp;format. The supported range is&nbsp;<code>'1000-01-01 00:00:00'</code>&nbsp;to&nbsp;<code>'9999-12-31 23:59:59'</code>. </p>
+<blockquote>
+<p>DATETIME范围相对于TIMESTAMP范围更广，<code>'1000-01-01 00:00:00'</code> to <code>'9999-12-31 23:59:59'</code></p>
+</blockquote>
+<p>###㈢ TIMESTAMP(年月日小时分钟秒)</p>
+<p>The&nbsp;<code>TIMESTAMP</code>&nbsp;data type is used for values that contain both date and time parts.&nbsp;<code>TIMESTAMP</code>&nbsp;has a range of&nbsp;<code>'1970-01-01 00:00:01'</code>&nbsp;UTC to&nbsp;<code>'2038-01-19 03:14:07'</code>&nbsp;UTC. </p>
+<blockquote>
+<p>TIMESTAMP选项如果不插入时间，则MySQL会自动调用系统时间写入数据</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<p>Invalid&nbsp;<code>DATE</code>,&nbsp;<code>DATETIME</code>, or&nbsp;<code>TIMESTAMP</code>&nbsp;values are converted to the&nbsp;“zero”&nbsp;value of the appropriate type (<code>'0000-00-00'</code>&nbsp;or&nbsp;<code>'0000-00-00 00:00:00'</code>). </p>
+<p>无效的日期，日期时间等会被替换成‘0000-00-00’或‘0000-00-00 00:00:00’</p>
+<p>###㈣ TIME（小时:分钟:秒）</p>
+<p>MySQL retrieves and displays&nbsp;<code>TIME</code>&nbsp;values in&nbsp;<code>'HH:MM:SS'</code>&nbsp;format (or&nbsp;<code>'HHH:MM:SS'</code>&nbsp;format for large hours values).<code>TIME</code>&nbsp;values may range from&nbsp;<code>'-838:59:59'</code>&nbsp;to&nbsp;<code>'838:59:59'</code>. </p>
+<p><strong>说明：</strong>小时部分可以是这么大，因为可以使用TIME类型不仅代表一个时间(必须小于24小时),而且可以表示运行时间或两个事件之间的时间间隔(可能大于24小时,甚至负数)。 </p>
+<p><strong>==注意：==</strong></p>
+<p>TIME这一列如果存储缩写，需要注意mysql的解释方式。<strong>无效的时间值会被转换成’00:00:00’</strong>&nbsp;。</p>
+<p><code>'11:12'</code>&nbsp;means&nbsp;<code>'11:12:00'</code>, not&nbsp;<code>'00:11:12'</code>. </p>
+<p><code>'12'</code>&nbsp;and&nbsp;<code>12</code>&nbsp;are interpreted as&nbsp;<code>'00:00:12'</code>. </p>
+<p>###㈤ YEAR</p>
+<p><code>YEAR(4)</code>&nbsp;and&nbsp;<code>YEAR(2)</code>&nbsp;differ in display format, but have the same range of values. </p>
+<p>For 4-digit format, MySQL displays&nbsp;<code>YEAR</code>&nbsp;values in&nbsp;<code>YYYY</code>&nbsp;format, with a range of&nbsp;<code>1901</code>&nbsp;to&nbsp;<code>2155</code>, or&nbsp;<code>0000</code>. </p>
+<p>For 2-digit format, MySQL displays only the last two (least significant) digits; for example,&nbsp;<code>70</code>&nbsp;(1970 or 2070) or&nbsp;<code>69</code>&nbsp;(2069). </p>
+<p><strong>无效的值将会被转换成’0000’.</strong></p>
+<p>案例：编写tb_article文章表，定义字段（id、title、description、addtime）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_article1(
+	id int not null auto_increment,
+	title varchar(80),
+	description varchar(255),
+	addtime datetime,
+	primary key(id)
+) engine=innodb default charset=utf8;
+
+mysql&gt; create table tb_article2(
+	id int not null auto_increment,
+	title varchar(80),
+	description varchar(255),
+	addtime timestamp,
+	primary key(id)
+) engine=innodb default charset=utf8;
+
+mysql&gt; insert into tb_article1 values (null,'mysql从入门到放弃','mysql很好很强大...',null);
+
+mysql&gt; insert into tb_article1 values (null,'mysql从入门到放弃','mysql很好很强大...',null);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="二、SQL查询语句（重点）"><a href="#二、SQL查询语句（重点）" class="headerlink" title="二、SQL查询语句（重点）"></a>二、SQL查询语句（重点）</h1><h2 id="1、回顾SQL查询语句"><a href="#1、回顾SQL查询语句" class="headerlink" title="1、回顾SQL查询语句"></a>1、回顾SQL查询语句</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select */字段列表 from 数据表名称 where 查询条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="2、SQL查询五子句"><a href="#2、SQL查询五子句" class="headerlink" title="2、SQL查询五子句"></a>2、SQL查询五子句</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select */字段列表 from 数据表名称 where 子句 group by 子句 having 子句 order by 子句 limit 子句;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>① where子句</p>
+<p>② group by子句</p>
+<p>③ having子句</p>
+<p>④ order by子句</p>
+<p>⑤ limit子句</p>
+<blockquote>
+<p>特别注意：五子句的顺序是固定的，不能颠倒。</p>
+</blockquote>
+<h2 id="3、WHERE子句"><a href="#3、WHERE子句" class="headerlink" title="3、WHERE子句"></a>3、WHERE子句</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%</td>
+<td>匹配0个或任意多个字符</td>
+</tr>
+<tr>
+<td>_(下划线)</td>
+<td>匹配单个字符</td>
+</tr>
+<tr>
+<td>like</td>
+<td>模糊匹配</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于,精确匹配</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>!=和&lt;&gt;</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>! 和 not</td>
+<td>逻辑非</td>
+</tr>
+<tr>
+<td>|| 和 or</td>
+<td>逻辑或</td>
+</tr>
+<tr>
+<td>&amp;&amp; 和 and</td>
+<td>逻辑与</td>
+</tr>
+<tr>
+<td>between…and….</td>
+<td>两者之间</td>
+</tr>
+<tr>
+<td>in (….)</td>
+<td>在…</td>
+</tr>
+<tr>
+<td>not in (….)</td>
+<td>不在</td>
+</tr>
+</tbody></table>
+<p>案例：like模糊查询语句，查询姓”关”的同学信息（name字段对应值应该以”关”开头）</p>
+<p>准备测试数据</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_student(
+	id mediumint not null auto_increment,
+	name varchar(20),
+	age tinyint unsigned default 0,
+	gender enum('男','女'),
+	address varchar(255),
+	primary key(id)
+) engine=innodb default charset=utf8;
+插入测试数据
+mysql&gt; insert into tb_student values (null,'刘备',33,'男','湖北省武汉市');
+mysql&gt; insert into tb_student values (null,'貂蝉',18,'女','湖南省长沙市');
+mysql&gt; insert into tb_student values (null,'关羽',32,'男','湖北省荆州市');
+mysql&gt; insert into tb_student values (null,'大乔',20,'女','河南省漯河市');
+mysql&gt; insert into tb_student values (null,'赵云',25,'男','河北省石家庄市');
+mysql&gt; insert into tb_student values (null,'小乔',18,'女','湖北省荆州市');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用like模糊查询，获取姓”关”的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where name like '关%';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>like模糊查询，有点类似于管道命令的中的数据检索。有两个关键字：%百分号与_下划线，%百分号代表任意个任意字符，_下划线代表任意的某个字符（只能匹配1个）</p>
+</blockquote>
+<p>案例：like模糊查询语句，查询名字中带”蝉”字的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where name like '%蝉%';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：like模糊查询语句，查询云字结尾且名字为两个字的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where name like '_云';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取学生表中，id编号为3的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where id=3;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取年龄大于25周岁的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where age&gt;25;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取学生表中，性别不为男的同学信息（获取女同学的信息）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where gender&lt;&gt;'男';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取班级中年龄大于30岁的男同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where age&gt;30 &amp;&amp; gender='男';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取id值为1、3、5的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where id=1 or id=3 or id=5;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取年龄在18周岁~25周岁之间的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where age&gt;=18 and age&lt;=25;
+或
+mysql&gt; select * from tb_student where age between 18 and 25;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：获取id值为2、4、6的同学信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student where id in (2,4,6);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="4、DISTINCT数据去重"><a href="#4、DISTINCT数据去重" class="headerlink" title="4、DISTINCT数据去重"></a>4、DISTINCT数据去重</h2><p>案例：获取tb_student学生表学员年龄的分布情况。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select distinct age from tb_student;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="5、GROUP-BY子句-重点和难点"><a href="#5、GROUP-BY子句-重点和难点" class="headerlink" title="5、GROUP BY子句(重点和难点)"></a>5、GROUP BY子句(重点和难点)</h2><p>group by子句的作用：对数据进行分组操作，为什么要进行分组呢？分组的目标就是进行分组统计。</p>
+<blockquote>
+<p>日常生活中的分组太多了，如按男女进行分组，按成绩进行分组，按院校、系部分组，按部门进行分组。</p>
+</blockquote>
+<p>根据给定==数据列==的查询结果进行分组统计，最终得到一个==分组汇总表==</p>
+<p>注：一般情况下group by需与==统计函数==一起使用才有意义</p>
+<h3 id="☆-统计函数"><a href="#☆-统计函数" class="headerlink" title="☆ 统计函数"></a>☆ 统计函数</h3><table>
+<thead>
+<tr>
+<th>常见统计函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>max</td>
+<td>求最大值</td>
+</tr>
+<tr>
+<td>min</td>
+<td>求最小值</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>求和</td>
+</tr>
+<tr>
+<td>avg</td>
+<td>求平均值</td>
+</tr>
+<tr>
+<td>count</td>
+<td>求总行数</td>
+</tr>
+</tbody></table>
+<p>案例：求tb_student表中一共有多少个记录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select count(*) from tb_student;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：求年龄的最大值与最小值</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select max(age) from tb_student;
+与
+mysql&gt; select min(age) from tb_student;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：针对id字段求和</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select sum(id) from tb_student;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：求学员表中年龄的平均值</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select avg(age) from tb_student;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-GROUP-BY分组"><a href="#☆-GROUP-BY分组" class="headerlink" title="☆ GROUP BY分组"></a>☆ GROUP BY分组</h3><p>案例：求tb_student表中，男同学的总数量与女同学的总数量</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select gender,count(*) from tb_student group by gender;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>在MySQL5.7以后版本中，分组字段必须出现在select后面的查询字段中</p>
+</blockquote>
+<p>案例：求tb_student表中，男同学年龄的最大值与女同学年龄的最大值</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select gender,max(age) from tb_student group by gender;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-GROUP-BY分组原理"><a href="#☆-GROUP-BY分组原理" class="headerlink" title="☆ GROUP BY分组原理"></a>☆ GROUP BY分组原理</h3><p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826161519999.png" alt="image-20200826161519999"></p>
+<blockquote>
+<p>记住：以后只要涉及到求每个学科、每个部分、每个年级、每个系部薪资最高、成绩最好、薪资的平均值等等，就是基于GROUP BY + 统计函数。</p>
+</blockquote>
+<h2 id="6、HAVING子句"><a href="#6、HAVING子句" class="headerlink" title="6、HAVING子句"></a>6、HAVING子句</h2><ul>
+<li><p>having与where类似，根据条件对==数据==进行过滤筛选</p>
+</li>
+<li><p>where==针对表中的列==发挥作用，查询数据</p>
+</li>
+<li><p>having==针对查询结果集==发挥作用，筛选数据</p>
+</li>
+</ul>
+<p>案例：having在做简单查询时可以替代where子句</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student having age&gt;20;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：按学科进行分组，求每个学科拥有多少人</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_student(
+	id mediumint not null auto_increment,
+	name varchar(20),
+	age tinyint unsigned default 0,
+	gender enum('男','女'),
+	subject enum('ui','java','yunwei','python'),
+	primary key(id)
+) engine=innodb default charset=utf8;
+
+mysql&gt; insert into tb_student values (null,'悟空',255,'男','ui');
+mysql&gt; insert into tb_student values (null,'八戒',250,'男','python');
+mysql&gt; insert into tb_student values (null,'唐僧',30,'男','yunwei');
+mysql&gt; insert into tb_student values (null,'沙僧',150,'男','java');
+mysql&gt; insert into tb_student values (null,'小白龙',100,'男','yunwei');
+mysql&gt; insert into tb_student values (null,'白骨精',28,'女','ui');
+mysql&gt; insert into tb_student values (null,'兔子精',22,'女','yunwei');
+mysql&gt; insert into tb_student values (null,'狮子精',33,'男','yunwei');
+或
+mysql&gt; insert into tb_student values (null,'悟空',255,'男','ui'),(null,'八戒',250,'男','python'),(null,'唐僧',30,'男','yunwei'),(null,'沙僧',150,'男','java'),(null,'小白龙',100,'男','yunwei'),(null,'白骨精',28,'女','ui'),(null,'兔子精',22,'女','yunwei'),(null,'狮子精',33,'男','yunwei');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select subject,count(*) from tb_student group by subject;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：求每个学科中，学科人数大于3人的学科信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select subject,count(*) from tb_student group by subject having count(*)&gt;3;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="7、ORDER-BY子句"><a href="#7、ORDER-BY子句" class="headerlink" title="7、ORDER BY子句"></a>7、ORDER BY子句</h2><p>主要作用的就是对数据进行排序（升序、降序）</p>
+<p>升序：从小到大，1,2,3,4,5</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from 数据表名称 ... order by 字段名称 asc;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>降序：从大到小，5,4,3,2,1</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from 数据表名称 ... order by 字段名称 desc;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：按年龄进行排序（由大到小）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student order by age desc;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="8、LIMIT子句"><a href="#8、LIMIT子句" class="headerlink" title="8、LIMIT子句"></a>8、LIMIT子句</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from 数据表名称 ... limit number; 查询满足条件的number条数据
+或
+mysql&gt; select * from 数据表名称 ... limit offset,number; 从偏移量为offset开始查询，查询number条记录
+offset的值从0开始<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>offset偏移量：</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826170515365.png" alt="image-20200826170515365"></p>
+<p>案例：获取学生表中，年龄最大的学员信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student order by age desc limit 1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：从偏移量为1的元素开始查询，查询2条记录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student limit 1,2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>LIMIT子句在开发项目中，主要应用于数据分页。</p>
+</blockquote>
+<p>案例：实现数据分页（参考上图）</p>
+<p>第一页：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student limit 0,2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>第二页：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student limit 2,2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="三、SQL多表查询（了解）"><a href="#三、SQL多表查询（了解）" class="headerlink" title="三、SQL多表查询（了解）"></a>三、SQL多表查询（了解）</h1><h2 id="1、什么是多表查询"><a href="#1、什么是多表查询" class="headerlink" title="1、什么是多表查询"></a>1、什么是多表查询</h2><p>我们刚才学习的SQL五子句都主要是针对单表情况，我们在实际工作中，也可能会接触到一些复杂的多表查询。</p>
+<h2 id="2、UNION联合查询"><a href="#2、UNION联合查询" class="headerlink" title="2、UNION联合查询"></a>2、UNION联合查询</h2><p>UNION联合查询的作用：把多个表中的数据联合在一起进行显示。应用场景：分库分表</p>
+<p>第一步：创建两个结构相同的学生表tb_student1与tb_student2</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_student1(
+	id mediumint not null auto_increment,
+	name varchar(20),
+	age tinyint unsigned default 0,
+	gender enum('男','女'),
+	subject enum('ui','java','yunwei','python'),
+	primary key(id)
+) engine=innodb default charset=utf8;
+mysql&gt; insert into tb_student1 values (1,'悟空',255,'男','ui');
+
+mysql&gt; create table tb_student2(
+	id mediumint not null auto_increment,
+	name varchar(20),
+	age tinyint unsigned default 0,
+	gender enum('男','女'),
+	subject enum('ui','java','yunwei','python'),
+	primary key(id)
+) engine=innodb default charset=utf8;
+mysql&gt; insert into tb_student2 values (2,'唐僧',30,'男','yunwei');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第二步：使用UNION进行联合查询</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_student1 union select * from tb_student2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="3、交叉查询（了解）"><a href="#3、交叉查询（了解）" class="headerlink" title="3、交叉查询（了解）"></a>3、交叉查询（了解）</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select */字段列表 from 数据表1,数据表2;
+或
+mysql&gt; select */字段列表 from 数据表1 cross join 数据表2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<p>字段总数 = 数据表1的字段 + 数据表2的字段</p>
+<p>总记录数 = 数据表1的记录数 * 数据表2的记录数 =&gt; (笛卡尔积)</p>
+<p>准备两张数据表：产品分类表 与 产品的信息表</p>
+<p>tb_category</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_category(
+	id smallint not null auto_increment,
+	name varchar(20),
+	pid smallint default 0,
+	primary key(id)
+) engine=innodb default charset=utf8;
+
+insert into tb_category values (null,'手机',0);		=&gt;  id=1
+insert into tb_cateogry values (null,'电脑',0);		=&gt;  id=2
+insert into tb_category values (null,'游戏手机',1);	   =&gt;  游戏手机属于手机分类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>pid代表所属的父级类别，如果自己就是顶级分类，则为0</p>
+</blockquote>
+<p>tb_goods</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_goods(
+	id int not null auto_increment,
+	title varchar(80),
+	price decimal(11,2),
+	cid smallint default 0,
+	primary key(id)
+) engine=innodb default charset=utf8;
+
+insert into tb_goods values (null,'IPhone 11',5699.00,1);
+insert into tb_goods values (null,'MI 10',4699.00,1);
+insert into tb_goods values (null,'ThinkPad X1',9999.00,2);
+
+insert into tb_goods values (null,'Nike air',999.00,10);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>cid代表产品的所属分类编号，与tb_category表要一一对应</p>
+</blockquote>
+<p>案例：把分类表与产品表进行交叉，求结果</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_category cross join tb_goods;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8B%EF%BC%89.assets/image-20200826174322790.png" alt="image-20200826174322790"></p>
+<blockquote>
+<p>交叉连接本身是没有意义的，其只是强制把两个表甚至多个表进行连接在一起。但是交叉查询中也有正确的结果，所以我们所谓的多表连接只需要在交叉连接的基础上增加一个连接条件，则就是我们想要的结果了。所以交叉查询是多表查询的基础。</p>
+</blockquote>
+<h2 id="4、内连接查询（重点）"><a href="#4、内连接查询（重点）" class="headerlink" title="4、内连接查询（重点）"></a>4、内连接查询（重点）</h2><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select 数据表1.字段列表,数据表2.字段列表 from 数据表1 inner join 数据表2 on 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取产品表中每个产品的分类信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select tb_goods.*,tb_category.name from tb_goods inner join tb_category on tb_goods.cid=tb_category.id;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>内连接查询：把两个表甚至多个表进行连接，然后拿表1中的每一条记录与表2中的每一条记录进行匹配，如果有与之对应的结果，则显示。反之，则忽略这条记录。</p>
+</blockquote>
+<h2 id="5、外连接查询（重点）"><a href="#5、外连接查询（重点）" class="headerlink" title="5、外连接查询（重点）"></a>5、外连接查询（重点）</h2><p>内连接查询要求：表1和表2中的每一条记录必须要一一对应，如果无法匹配，则这条记录会被自动被忽略掉，那如果我需要保留表1中的所有记录或表2中的所有记录怎么办呢？</p>
+<p>答：使用外连接查询</p>
+<p>基本语法：</p>
+<p>左外连接查询：把左表中的每一条数据都保留，右表匹配到结果就显示，匹配不到就NULL</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">select 数据表1.字段列表,数据表2.字段列表 from 数据表1 left join 数据表2 on 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>右外连接查询：把右表中的每一条数据都保留，左表匹配到结果就显示，匹配不到就NULL</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">select 数据表1.字段列表,数据表2.字段列表 from 数据表1 right join 数据表2 on 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：获取产品表中每个产品的分类信息（无论匹配到与否）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select tb_goods.*,tb_category.name from tb_goods left join tb_category on tb_goods.cid=tb_category.id;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6、别名机制：简化内外连接"><a href="#6、别名机制：简化内外连接" class="headerlink" title="6、别名机制：简化内外连接"></a>6、别名机制：简化内外连接</h2><p>案例：获取产品表中每个产品的分类信息（无论匹配到与否）</p>
+<p>原始语句：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select tb_goods.*,tb_category.name from tb_goods left join tb_category on tb_goods.cid=tb_category.id;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>给数据表起个简单的名字，如tb_category叫c，tb_goods叫g</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">① mysql&gt; select * from tb_goods left join tb_category;
+起别名
+② mysql&gt; select * from tb_goods g left join tb_category c;
+写on条件
+③ mysql&gt; select * from tb_goods g left join tb_category c on g.cid=c.id;
+筛选字段
+④ mysql&gt; select g.*,c.name from tb_goods g left join tb_category c on g.cid=c.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/">http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="MySQL基本SQL语句（上）">
+                        
+                        <span class="card-title">MySQL基本SQL语句（上）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/23/lamp-xiang-mu-bu-shu-shi-zhan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="LAMP项目部署实战">
+                        
+                        <span class="card-title">LAMP项目部署实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">72.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-22T11:37:39.111Z</updated>
+  <updated>2023-12-23T02:10:00.247Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -17,11 +17,488 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>半同步复制与MHA高可用架构设计</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/ban-tong-bu-fu-zhi-yu-mha-gao-ke-yong-jia-gou-she-ji/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/ban-tong-bu-fu-zhi-yu-mha-gao-ke-yong-jia-gou-she-ji/</id>
+    <published>2023-12-23T02:00:20.000Z</published>
+    <updated>2023-12-23T02:10:00.247Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;半同步复制与MHA高可用架构设计&quot;&gt;&lt;a href=&quot;#半同步复制与MHA高可用架构设计&quot; class=&quot;headerlink&quot; title=&quot;半同步复制与MHA高可用架构设计&quot;&gt;&lt;/a&gt;半同步复制与MHA高可用架构设计&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL主从复制架构</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/</id>
+    <published>2023-12-23T02:00:19.000Z</published>
+    <updated>2023-12-23T02:08:18.908Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL主从复制架构&quot;&gt;&lt;a href=&quot;#MySQL主从复制架构&quot; class=&quot;headerlink&quot; title=&quot;MySQL主从复制架构&quot;&gt;&lt;/a&gt;MySQL主从复制架构&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL集群概述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL备份与恢复</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu/</id>
+    <published>2023-12-23T02:00:18.000Z</published>
+    <updated>2023-12-23T02:07:24.294Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL备份与恢复&quot;&gt;&lt;a href=&quot;#MySQL备份与恢复&quot; class=&quot;headerlink&quot; title=&quot;MySQL备份与恢复&quot;&gt;&lt;/a&gt;MySQL备份与恢复&lt;/h1&gt;&lt;h1 id=&quot;一、逻辑备份&quot;&gt;&lt;a href=&quot;#一、逻辑备份&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL备份与恢复（重点）</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu-chong-dian/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu-chong-dian/</id>
+    <published>2023-12-23T02:00:15.000Z</published>
+    <updated>2023-12-23T02:06:37.200Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL备份与恢复（重点）&quot;&gt;&lt;a href=&quot;#MySQL备份与恢复（重点）&quot; class=&quot;headerlink&quot; title=&quot;MySQL备份与恢复（重点）&quot;&gt;&lt;/a&gt;MySQL备份与恢复（重点）&lt;/h1&gt;&lt;h1 id=&quot;一、用户管理与权限管理&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL介绍及安装</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/</id>
+    <published>2023-12-23T02:00:12.000Z</published>
+    <updated>2023-12-23T02:03:57.748Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL介绍及安装&quot;&gt;&lt;a href=&quot;#MySQL介绍及安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL介绍及安装&quot;&gt;&lt;/a&gt;MySQL介绍及安装&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL概述&quot;&gt;&lt;a href=&quot;#一、MySQL概述&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基本SQL语句（上）</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/</id>
+    <published>2023-12-23T02:00:12.000Z</published>
+    <updated>2023-12-23T02:05:02.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL基本SQL语句（上）&quot;&gt;&lt;a href=&quot;#MySQL基本SQL语句（上）&quot; class=&quot;headerlink&quot; title=&quot;MySQL基本SQL语句（上）&quot;&gt;&lt;/a&gt;MySQL基本SQL语句（上）&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL基本SQL语句（下）</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/</id>
+    <published>2023-12-23T02:00:12.000Z</published>
+    <updated>2023-12-23T02:05:46.527Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MySQL基本SQL语句（下）&quot;&gt;&lt;a href=&quot;#MySQL基本SQL语句（下）&quot; class=&quot;headerlink&quot; title=&quot;MySQL基本SQL语句（下）&quot;&gt;&lt;/a&gt;MySQL基本SQL语句（下）&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LAMP项目部署实战</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/lamp-xiang-mu-bu-shu-shi-zhan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/lamp-xiang-mu-bu-shu-shi-zhan/</id>
+    <published>2023-12-23T01:47:29.000Z</published>
+    <updated>2023-12-23T01:56:24.240Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;LAMP项目部署实战&quot;&gt;&lt;a href=&quot;#LAMP项目部署实战&quot; class=&quot;headerlink&quot; title=&quot;LAMP项目部署实战&quot;&gt;&lt;/a&gt;LAMP项目部署实战&lt;/h1&gt;&lt;h1 id=&quot;一、LAMP环境部署&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程的优先级与LAMP项目部署实战</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/jin-cheng-de-you-xian-ji-yu-lamp-xiang-mu-bu-shu-shi-zhan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/jin-cheng-de-you-xian-ji-yu-lamp-xiang-mu-bu-shu-shi-zhan/</id>
+    <published>2023-12-23T01:45:29.000Z</published>
+    <updated>2023-12-23T01:55:06.871Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;进程的优先级与LAMP项目部署实战&quot;&gt;&lt;a href=&quot;#进程的优先级与LAMP项目部署实战&quot; class=&quot;headerlink&quot; title=&quot;进程的优先级与LAMP项目部署实战&quot;&gt;&lt;/a&gt;进程的优先级与LAMP项目部署实战&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统自有服务</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-zi-you-fu-wu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-xi-tong-zi-you-fu-wu/</id>
+    <published>2023-12-23T01:43:29.000Z</published>
+    <updated>2023-12-23T01:53:12.220Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux系统自有服务&quot;&gt;&lt;a href=&quot;#Linux系统自有服务&quot; class=&quot;headerlink&quot; title=&quot;Linux系统自有服务&quot;&gt;&lt;/a&gt;Linux系统自有服务&lt;/h1&gt;&lt;h1 id=&quot;一、Linux中防火墙firewalld&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux计划任务以及进程检测与控制</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</id>
+    <published>2023-12-23T01:43:29.000Z</published>
+    <updated>2023-12-23T01:54:09.791Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;a href=&quot;#Linux计划任务以及进程检测与控制&quot; class=&quot;headerlink&quot; title=&quot;Linux计划任务以及进程检测与控制&quot;&gt;&lt;/a&gt;Linux计划任务以及进程检测与控制&lt;/h1&gt;&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux自有服务与软件包管理</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/</id>
+    <published>2023-12-23T01:43:29.000Z</published>
+    <updated>2023-12-23T01:51:20.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux自有服务与软件包管理&quot;&gt;&lt;a href=&quot;#Linux自有服务与软件包管理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux的权限管理操作</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/</id>
+    <published>2023-12-23T01:42:29.000Z</published>
+    <updated>2023-12-23T01:49:51.519Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux的权限管理操作&quot;&gt;&lt;a href=&quot;#Linux的权限管理操作&quot; class=&quot;headerlink&quot; title=&quot;Linux的权限管理操作&quot;&gt;&lt;/a&gt;Linux的权限管理操作&lt;/h1&gt;&lt;h1 id=&quot;一、权限概述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux文件管理与用户管理</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-yu-yong-hu-guan-li/</id>
+    <published>2023-12-23T01:40:29.000Z</published>
+    <updated>2023-12-23T01:46:00.735Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux文件管理与用户管理&quot;&gt;&lt;a href=&quot;#Linux文件管理与用户管理&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理与用户管理&quot;&gt;&lt;/a&gt;Linux文件管理与用户管理&lt;/h1&gt;&lt;h1 id=&quot;一、查看文件内容&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux文件管理（上）-2</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-wen-jian-guan-li-shang-2/</id>
+    <published>2023-12-23T01:40:29.000Z</published>
+    <updated>2023-12-23T01:43:59.311Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux文件管理（上）&quot;&gt;&lt;a href=&quot;#Linux文件管理（上）&quot; class=&quot;headerlink&quot; title=&quot;Linux文件管理（上）&quot;&gt;&lt;/a&gt;Linux文件管理（上）&lt;/h1&gt;&lt;h1 id=&quot;一、VIM编辑器&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux用户管理与远程管理</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-yong-hu-guan-li-yu-yuan-cheng-guan-li/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/linux-yong-hu-guan-li-yu-yuan-cheng-guan-li/</id>
+    <published>2023-12-23T01:40:29.000Z</published>
+    <updated>2023-12-23T01:47:22.479Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Linux用户管理与远程管理&quot;&gt;&lt;a href=&quot;#Linux用户管理与远程管理&quot; class=&quot;headerlink&quot; title=&quot;Linux用户管理与远程管理&quot;&gt;&lt;/a&gt;Linux用户管理与远程管理&lt;/h1&gt;&lt;h1 id=&quot;一、用户管理&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>md模版</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/md/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/md/</id>
+    <published>2023-12-22T16:00:00.000Z</published>
+    <updated>2023-12-23T02:13:33.597Z</updated>
+    
+    
+    
+    
+    <category term="none" scheme="http://yanshuisiyu.github.io/categories/none/"/>
+    
+    
+    <category term="none" scheme="http://yanshuisiyu.github.io/tags/none/"/>
+    
+  </entry>
+  
+  <entry>
     <title>相册页的创建故障</title>
     <link href="http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/"/>
     <id>http://yanshuisiyu.github.io/2023/12/22/xiang-ce-ye-de-chuang-jian-gu-zhang/</id>
     <published>2023-12-22T11:28:18.000Z</published>
-    <updated>2023-12-22T11:37:39.111Z</updated>
+    <updated>2023-12-23T01:38:07.257Z</updated>
     
     
       
@@ -35,6 +512,8 @@
     
     
     
+    <category term="随笔" scheme="http://yanshuisiyu.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
     
     <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
@@ -43,11 +522,11 @@
   </entry>
   
   <entry>
-    <title>Linux文件管理（上）</title>
+    <title>Linux文件管理（上）-1</title>
     <link href="http://yanshuisiyu.github.io/2023/12/22/linux-wen-jian-guan-li-shang/"/>
     <id>http://yanshuisiyu.github.io/2023/12/22/linux-wen-jian-guan-li-shang/</id>
     <published>2023-12-22T10:48:12.000Z</published>
-    <updated>2023-12-22T11:42:01.240Z</updated>
+    <updated>2023-12-23T01:44:03.163Z</updated>
     
     
       
@@ -60,8 +539,12 @@
     
     
     
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
     
     <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -70,7 +553,7 @@
     <link href="http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/"/>
     <id>http://yanshuisiyu.github.io/2023/12/22/linux-de-ji-ben-cao-zuo/</id>
     <published>2023-12-22T10:48:12.000Z</published>
-    <updated>2023-12-22T10:54:58.015Z</updated>
+    <updated>2023-12-23T01:44:12.705Z</updated>
     
     
       
@@ -83,148 +566,12 @@
     
     
     
+    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
+    
     
     <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
     
-  </entry>
-  
-  <entry>
-    <title>博客创建完善参考资料</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/bo-ke-chuang-jian-wan-shan-can-kao-zi-liao/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/bo-ke-chuang-jian-wan-shan-can-kao-zi-liao/</id>
-    <published>2023-12-22T08:44:29.000Z</published>
-    <updated>2023-12-22T08:47:50.194Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h1&gt;&lt;p&gt;1.hexo+github搭建博客(超级详细版，精细入微)&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
     <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后续博客待定补充</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/hou-xu-bo-ke-dai-ding-bu-chong/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/hou-xu-bo-ke-dai-ding-bu-chong/</id>
-    <published>2023-12-22T08:21:13.000Z</published>
-    <updated>2023-12-22T08:24:40.345Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;后续待补充：&quot;&gt;&lt;a href=&quot;#后续待补充：&quot; class=&quot;headerlink&quot; title=&quot;后续待补充：&quot;&gt;&lt;/a&gt;后续待补充：&lt;/h2&gt;&lt;h3 id=&quot;一：相册问题&quot;&gt;&lt;a href=&quot;#一：相册问题&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>导航页面</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/dao-hang-ye-mian/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/dao-hang-ye-mian/</id>
-    <published>2023-12-22T06:46:34.000Z</published>
-    <updated>2023-12-22T07:03:06.560Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;导航页面的创建&quot;&gt;&lt;a href=&quot;#导航页面的创建&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>建立博客过程中遇到的问题</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/22/jian-li-bo-ke-guo-cheng-zhong-yu-dao-de-wen-ti/</id>
-    <published>2023-12-22T01:05:41.000Z</published>
-    <updated>2023-12-22T07:06:59.919Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;建立博客网站时遇到的故障与如何排除掉的方式&quot;&gt;&lt;a href=&quot;#建立博客网站时遇到的故障与如何排除掉的方式&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="blog" scheme="http://yanshuisiyu.github.io/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test2</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/21/test2/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/21/test2/</id>
-    <published>2023-12-21T15:10:14.000Z</published>
-    <updated>2023-12-21T15:16:16.176Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;hr&gt;
-&lt;h3 id=&quot;1-This-is-a-blog-Test&quot;&gt;&lt;a href=&quot;#1-This-is-a-blog-Test&quot; class=&quot;headerlink&quot; title=&quot;1. This is a blog Test&quot;&gt;&lt;/a&gt;1. This is a</summary>
-        
-      
-    
-    
-    
-    <category term="blog1" scheme="http://yanshuisiyu.github.io/categories/blog1/"/>
-    
-    
-    <category term="test" scheme="http://yanshuisiyu.github.io/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/21/hello-world/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/21/hello-world/</id>
-    <published>2023-12-21T12:49:07.599Z</published>
-    <updated>2023-12-21T12:49:07.599Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
     
   </entry>
   

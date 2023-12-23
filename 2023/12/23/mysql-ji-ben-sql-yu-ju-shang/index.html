@@ -1,0 +1,1817 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL基本SQL语句（上）, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="MySQL基本SQL语句（上）一、客户端工具的使用1、客户端工具mysql使用mysql: mysql命令行工具，一般用来连接访问mysql数据库
+
+
+
+
+选项
+说明
+
+
+
+-u, –user=name
+指定登录用户名
+
+
+-p, –pas">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL基本SQL语句（上） | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL基本SQL语句（上）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                mysql
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQL基本SQL语句（上）"><a href="#MySQL基本SQL语句（上）" class="headerlink" title="MySQL基本SQL语句（上）"></a>MySQL基本SQL语句（上）</h1><h1 id="一、客户端工具的使用"><a href="#一、客户端工具的使用" class="headerlink" title="一、客户端工具的使用"></a>一、客户端工具的使用</h1><h2 id="1、客户端工具mysql使用"><a href="#1、客户端工具mysql使用" class="headerlink" title="1、客户端工具mysql使用"></a>1、客户端工具mysql使用</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql: mysql命令行工具，一般用来连接访问mysql数据库<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-u, –user=name</td>
+<td>指定登录用户名</td>
+</tr>
+<tr>
+<td>-p, –password</td>
+<td>指定登录密码(注意是小写p),一定要放到最后面</td>
+</tr>
+<tr>
+<td>-h, –host=name</td>
+<td>指定数据库的主机地址</td>
+</tr>
+<tr>
+<td>-P, –port=xxx</td>
+<td>指定数据库的端口号(大写P)</td>
+</tr>
+<tr>
+<td>-S, –socket=name</td>
+<td>指定socket文件</td>
+</tr>
+<tr>
+<td>-e, –execute=name</td>
+<td>使用非交互式操作(在shell终端执行sql语句)</td>
+</tr>
+</tbody></table>
+<p>案例：使用mysql客户端工具连接服务器端（用户名：root、密码：123）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysql -uroot -p123 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>注：以上连接方式虽然可以连接进入到MySQL，但是官方不建议我们直接把密码写入在终端，建议-p然后直接回车，然后在终端中输入密码。</p>
+</blockquote>
+<p>案例：连接10.1.1.100服务器上的MySQL数据库（用户名：itheima，密码：123）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysql -h 10.1.1.100 -P 3306 -uitheima -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：根据不同的套接字连接同步的数据库</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysql -S /tmp/mysql.sock -uroot -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：在不进入MySQL内部的情况下，执行SQL语句，获取数据信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysql -e "show databases;" -uroot -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>扩展了解：</strong></p>
+<table>
+<thead>
+<tr>
+<th>默认库</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>information_schema</td>
+<td>1、==对象信息数据库==，提供对数据库元数据的访问 ，有关MySQL服务器的信息，例如数据库或表的名称，列的数据类型或访问权限等；<br>2、在INFORMATION_SCHEMA中，有数个只读表，它们实际上是视图，而不是基本表，因此你将无法看到与之相关的任何文件；<br>3、视图，是一个虚表，即视图所对应的数据不进行实际存储，数据库中只存储视图的定义，在对视图的数据进行操作时，系统根据视图的定义去操作与视图相关联的基本表</td>
+</tr>
+<tr>
+<td>mysql</td>
+<td>1、mysql数据库是==系统数据库==。它包含存储MySQL服务器运行时所需的信息的表。比如权限表、对象信息表、日志系统表、时区系统表、优化器系统表、杂项系统表等。<br>2、==不可以删除==,也不要轻易修改这个数据库里面的表息。</td>
+</tr>
+<tr>
+<td>performance_schema</td>
+<td>MySQL5.5开始新增一个数据库，主要用于==收集数据库服务器性能==；并且库里表的存储引擎均PERFORMANCE_SCHEMA，而用户是不能创建存储引擎为PERFORMANCE_SCHEMA的表</td>
+</tr>
+<tr>
+<td>sys</td>
+<td>1、mysql5.7增加了sys 系统数据库，通过这个库可以快速的了解系统的元数据信息；<br>2、sys库方便DBA发现数据库的很多信息，解决性能瓶颈；<br>3、这个库是通过视图的形式把information_schema 和performance_schema结合起来，查询出更加令人容易理解的数据</td>
+</tr>
+</tbody></table>
+<h2 id="2、客户端工具mysqladmin使用"><a href="#2、客户端工具mysqladmin使用" class="headerlink" title="2、客户端工具mysqladmin使用"></a>2、客户端工具mysqladmin使用</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysqladmin：客户端管理mysql数据库工具<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="㈠-常用选项"><a href="#㈠-常用选项" class="headerlink" title="㈠ 常用选项"></a>㈠ 常用选项</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-h, –host=name</td>
+<td>指定连接数据库主机</td>
+</tr>
+<tr>
+<td>-p, –password</td>
+<td>指定数据库密码</td>
+</tr>
+<tr>
+<td>-P, –port=#</td>
+<td>指定数据库端口</td>
+</tr>
+<tr>
+<td>-S, –socket=name</td>
+<td>指定数据库socket文件</td>
+</tr>
+<tr>
+<td>-u, –user=name</td>
+<td>指定连接数据库用户</td>
+</tr>
+</tbody></table>
+<h4 id="㈡-常用命令"><a href="#㈡-常用命令" class="headerlink" title="㈡ 常用命令"></a>㈡ 常用命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>password [new-password]</td>
+<td>更改密码</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>刷新授权表</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td>停止mysql服务</td>
+</tr>
+<tr>
+<td>status</td>
+<td>简短查看数据库状态信息</td>
+</tr>
+<tr>
+<td>start-slave</td>
+<td>启动slave</td>
+</tr>
+<tr>
+<td>stop-slave</td>
+<td>停止slave</td>
+</tr>
+<tr>
+<td>variables</td>
+<td>打印可用变量</td>
+</tr>
+<tr>
+<td>version</td>
+<td>查看当前mysql数据库的版本信息</td>
+</tr>
+</tbody></table>
+<p>案例：更改root账号的密码为root</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin password '新密码' -p
+Enter password:'旧密码'
+
+# mysqladmin password 'root' -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：更改密码后，建议刷新授权表（mysql&gt; flush privileges;）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin reload -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：停止mysql</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin shutdown -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>service mysql_3306 stop</p>
+</blockquote>
+<p>案例：查看mysql状态</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin status -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：打印可用变量（mysql本身预置了很多变量信息）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin variables -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：查询mysql版本</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysqladmin version -p
+Enter password:123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h1 id="二、MySQL中的SQL语句"><a href="#二、MySQL中的SQL语句" class="headerlink" title="二、MySQL中的SQL语句"></a>二、MySQL中的SQL语句</h1><h2 id="1、什么是SQL？"><a href="#1、什么是SQL？" class="headerlink" title="1、什么是SQL？"></a>1、什么是SQL？</h2><p>SQL 是 Structure Query Language(==结构化查询语言==)的缩写,它是使用==关系模型的数据库应==<br>==用语言==,由 IBM 在 20 世纪 70 年代开发出来,作为 IBM 关系数据库原型 System R 的原型关<br>系语言,实现了关系数据库中的信息检索。</p>
+<p>20 世纪 80 年代初,美国国家标准局(ANSI)开始着手制定 SQL 标准,最早的 ANSI 标准于<br>1986 年完成,就被叫作 SQL-86。标准的出台使 SQL 作为标准关系数据库语言的地位得到了<br>加强。SQL 标准目前已几经修改更趋完善。</p>
+<p>正是由于 SQL 语言的标准化,所以大多数关系型数据库系统都支持 SQL 语言,它已经发展<br>成为多种平台进行交互操作的底层会话语言。</p>
+<h2 id="2、SQL语句的分类"><a href="#2、SQL语句的分类" class="headerlink" title="2、SQL语句的分类"></a>2、SQL语句的分类</h2><ul>
+<li><p>DDL(Data Definition Languages)语句:</p>
+<p>==数据定义语言==,这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象的定义。常用的语句关键字主要包括 <strong>create、drop、alter、rename、truncate</strong>。</p>
+</li>
+<li><p>DML(Data Manipulation Language)语句:</p>
+<p>==数据操纵语句==,用于添加、删除、更新和查询数据库记录,并检查数据完整性,常用的语句关键字主要包括 <strong>insert、delete、update</strong>等。</p>
+</li>
+<li><p>DCL(Data Control Language)语句:</p>
+<p>==数据控制语句==,用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字包括 <strong>grant、revoke</strong> 等。</p>
+</li>
+<li><p>DQL(Data Query Language)语句:</p>
+<p>==数据查询语句==，用于从一个或多个表中检索信息。主要的语句关键字包括 <strong>select</strong></p>
+</li>
+</ul>
+<h2 id="3、MySQL中如何求帮助"><a href="#3、MySQL中如何求帮助" class="headerlink" title="3、MySQL中如何求帮助"></a>3、MySQL中如何求帮助</h2><ul>
+<li>亘古不变的官档（软件作用）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.6/en/sql-syntax.html">MySQL5.6官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/sql-syntax.html">MySQL5.7官方文档</a></p>
+<ul>
+<li>man文档（工具作用）</li>
+</ul>
+<p>man文档可以对mysql的一些基本工具及后台命令求帮助，比如：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">[root@db01 ~]# man mysql
+[root@db01 ~]# man mysql_install_db
+[root@db01 ~]# man mysqldump
+[root@db01 ~]# man mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>MySQL的命令行求帮助（主要针对SQL语句求帮助）</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; help;
+mysql&gt; ?
+mysql&gt; help create table;
+
+根据内容进行查找帮助
+mysql&gt; ? contents
+   Account Management
+   Administration
+   Data Definition
+   Data Manipulation
+   Data Types
+   Functions
+   Functions and Modifiers for Use with GROUP BY
+   Geographic Features
+   Language Structure
+   Storage Engines
+   Stored Routines
+   Table Maintenance
+   Transactions
+   Triggers
+   
+寻求账户管理的帮助（一级一级的向内部查）
+mysql&gt; ? Account Management
+mysql&gt; ? CREATE USER<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注：在mysql内部，没有clear命令，也就是无法使用clear实现清屏，如果想实现清屏操作，可以使用快捷键Ctrl + Shift + L</p>
+</blockquote>
+<h2 id="4、SQL语句的基本操作"><a href="#4、SQL语句的基本操作" class="headerlink" title="4、SQL语句的基本操作"></a>4、SQL语句的基本操作</h2><h3 id="☆-MySQL的内部结构"><a href="#☆-MySQL的内部结构" class="headerlink" title="☆ MySQL的内部结构"></a>☆ MySQL的内部结构</h3><p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825112014915.png" alt="image-20200825112014915"></p>
+<blockquote>
+<p>注：我们平常说的MySQL，其实主要指的是MySQL数据库管理软件。</p>
+</blockquote>
+<p>一个MySQL DBMS可以同时存放多个数据库，理论上一个项目就对应一个数据库。如博客项目blog数据库、商城项目shop数据库、微信项目wechat数据库。</p>
+<p>一个数据库中还可以同时包含多个数据表，而数据表才是真正用于存放数据的位置。（类似我们Office软件中的Excel表格），理论上一个功能就对应一个数据表。如博客系统中的用户管理功能，就需要一个user数据表、博客中的文章就需要一个article数据表、博客中的评论就需要一个message数据表。</p>
+<p>一个数据表又可以拆分为多个字段，每个字段就是一个属性。</p>
+<p>一个数据表除了字段以外，还有很多行，每一行都是一条完整的数据（记录）。</p>
+<h3 id="☆-数据库的基本操作"><a href="#☆-数据库的基本操作" class="headerlink" title="☆ 数据库的基本操作"></a>☆ 数据库的基本操作</h3><h4 id="①-创建数据库"><a href="#①-创建数据库" class="headerlink" title="① 创建数据库"></a>① 创建数据库</h4><p>普及英语小课堂：</p>
+<p>创建 =&gt; create</p>
+<p>数据库 =&gt; database</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create database 数据库名称;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>特别注意：在MySQL中，当一条SQL语句编写完毕后，一定要使用分号;进行结尾，否则系统认为这条语句还没有结束。</p>
+</blockquote>
+<p>案例：创建数据库的相关案例</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">创建db1库
+create database db1;
+
+创建db1库并指定默认字符集
+create database db1 default charset gbk;
+
+如果存在不报错(if not exists)
+create database if not exists db1 default character set utf8;
+说明：不能创建相同名字的数据库！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>扩展：编码格式，常见的gbk（中国的编码格式）与utf8（国际通用编码格式）</p>
+</blockquote>
+<p>latin1    256个字符	（abcd、1234、传统字符）</p>
+<p>国内汉字无法通过256个字符进行描述，所以国内开发了自己的编码格式gb2312，升级gbk</p>
+<p>中国台湾业开发了一套自己的编码格式big5</p>
+<p>很多项目并不仅仅只在本地使用，也可能支持多国语言，标准化组织开发了一套通用编码utf8，后来5.6版本以后又进行了升级utf8mb4</p>
+<blockquote>
+<p>编写SQL语句是一个比较细致工作，不建议大家直接在终端中输入SQL语句，可以先把你要写的SQL语句写入一个记事本中，然后拷贝执行。</p>
+</blockquote>
+<h4 id="②-查询已创建数据库"><a href="#②-查询已创建数据库" class="headerlink" title="② 查询已创建数据库"></a>② 查询已创建数据库</h4><p>英语小课堂：</p>
+<p>显示 =&gt; show</p>
+<p>数据库 =&gt; database</p>
+<p>基本语法：</p>
+<p>显示所有数据库</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; show databases;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>显示某个数据库的数据结构</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; show create database db_itheima;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="③-修改数据库信息"><a href="#③-修改数据库信息" class="headerlink" title="③ 修改数据库信息"></a>③ 修改数据库信息</h4><p>在MySQL5以后的版本中，MySQL不支持更改数据库的名称。我们所谓的修改数据库主要修改的是数据库的编码格式。</p>
+<p>英语小课堂：</p>
+<p>修改 =&gt; alter</p>
+<p>数据库 =&gt; database</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter database 数据库名称 default charset=新编码格式;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：把db_itheima数据库的编码格式更改为gbk</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter database db_itheima default charset=gbk;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="④-删除数据库"><a href="#④-删除数据库" class="headerlink" title="④ 删除数据库"></a>④ 删除数据库</h4><p>英语小课堂：</p>
+<p>删除 =&gt; drop</p>
+<p>数据库 =&gt; database</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; drop database 数据库名称;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：删除db_itheima数据库</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; drop database db_itheima;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="5、数据表的基本操作"><a href="#5、数据表的基本操作" class="headerlink" title="5、数据表的基本操作"></a>5、数据表的基本操作</h2><h3 id="☆-数据表的创建"><a href="#☆-数据表的创建" class="headerlink" title="☆ 数据表的创建"></a>☆ 数据表的创建</h3><p>英语小课堂：</p>
+<p>创建 =&gt; create</p>
+<p>数据表 =&gt; table</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table 数据表名称(
+	字段1 字段类型 [字段约束],
+	字段2 字段类型 [字段约束],
+	...
+); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：创建一个admin管理员表，拥有3个字段（编号、用户名称、用户密码）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create database db_itheima;
+mysql&gt; use db_itheima;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>use在MySQL中的含义代表选择，use 数据库名称相当于选择指定的数据库。而且use比较特殊，其选择结束后，其尾部可以不加分号；但是强烈建议所有的SQL语句都要加分号，养成一个好习惯。</p>
+</blockquote>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_admin(
+	id tinyint,
+    username varchar(20),
+    password char(32)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>tinyint ：微整型，范围-128 ~ 127，无符号型，则表示0 ~ 255</p>
+</blockquote>
+<blockquote>
+<p>表示字符串类型可以使用char与varchar，char代表固定长度的字段，varchar代表变化长度的字段。</p>
+</blockquote>
+<p>案例：创建一个article文章表，拥有4个字段（编号、标题、作者、内容）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_article(
+	id int,
+	title varchar(50),
+	author varchar(20),
+	content text
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>text ：文本类型，一般情况下，用varchar存储不了的字符串信息，都建议使用text文本进行处理。</p>
+</blockquote>
+<blockquote>
+<p>varchar存储的最大长度，理论值65535个字符。但是实际上，有几个字符是用于存放内容的长度的，所以真正可以使用的不足65535个字符，另外varchar类型存储的字符长度还和编码格式有关。1个GBK格式的占用2个字节长度，1个UTF8格式的字符占用3个字节长度。GBK = 65532<del>65533/2，UTF8 = 65532</del>65533/3</p>
+</blockquote>
+<h3 id="☆-查询已创建数据表"><a href="#☆-查询已创建数据表" class="headerlink" title="☆ 查询已创建数据表"></a>☆ 查询已创建数据表</h3><p>英语小课堂：</p>
+<p>显示 =&gt; show</p>
+<p>数据表 =&gt; table</p>
+<p>显示所有数据表（当前数据库）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use 数据库名称;
+mysql&gt; show tables;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>显示数据表的创建过程（编码格式、字段等信息）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; show create table 数据表名称;
+或
+mysql&gt; desc 数据表名称;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-修改数据表信息"><a href="#☆-修改数据表信息" class="headerlink" title="☆ 修改数据表信息"></a>☆ 修改数据表信息</h3><h4 id="①-数据表字段添加"><a href="#①-数据表字段添加" class="headerlink" title="① 数据表字段添加"></a>① 数据表字段添加</h4><p>英语小课堂：</p>
+<p>修改 =&gt; alter</p>
+<p>数据表 =&gt; table</p>
+<p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table 数据表名称 add 新字段名称 字段类型 first|after 其他字段名称;
+选项说明：
+first：把新添加字段放在第一位
+after 字段名称：把新添加字段放在指定字段的后面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>案例：在tb_article文章表中添加一个addtime字段，类型为date(年-月-日)</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_article add addtime date after content;
+mysql&gt; desc tb_article;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="②-修改字段名称或字段类型"><a href="#②-修改字段名称或字段类型" class="headerlink" title="② 修改字段名称或字段类型"></a>② 修改字段名称或字段类型</h4><p>修改字段名称与字段类型（也可以只修改名称）</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_admin change username user varchar(40);
+mysql&gt; desc tb_admin;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>仅修改字段的类型</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_admin modify user varchar(20);
+mysql&gt; desc tb_admin;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="③-删除某个字段"><a href="#③-删除某个字段" class="headerlink" title="③ 删除某个字段"></a>③ 删除某个字段</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_article drop 字段名称;
+mysql&gt; desc tb_article;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="④-修改数据表引擎（MyISAM或InnoDB）"><a href="#④-修改数据表引擎（MyISAM或InnoDB）" class="headerlink" title="④ 修改数据表引擎（MyISAM或InnoDB）"></a>④ 修改数据表引擎（MyISAM或InnoDB）</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_article engine=myisam;
+mysql&gt; show create table tb_article;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="⑤-修改数据表的编码格式"><a href="#⑤-修改数据表的编码格式" class="headerlink" title="⑤ 修改数据表的编码格式"></a>⑤ 修改数据表的编码格式</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; alter table tb_admin default charset=gbk;
+mysql&gt; show create table tb_admin;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="⑥-修改数据表名称"><a href="#⑥-修改数据表名称" class="headerlink" title="⑥ 修改数据表名称"></a>⑥ 修改数据表名称</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">移动表到另一个库里并重命名
+rename table db01.t1 to db02.t11;
+或者
+alter table db01.t1 rename db02.t11;
+
+只重命名表名不移动
+rename table tt1 to tt2;
+或者
+alter table tt1 rename  tt2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="☆-删除数据表"><a href="#☆-删除数据表" class="headerlink" title="☆ 删除数据表"></a>☆ 删除数据表</h3><p>英语小课堂：</p>
+<p>删除 =&gt; drop</p>
+<p>数据表 =&gt; table</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; drop table 数据表名称;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="6、给EditPlus添加一个语法着色"><a href="#6、给EditPlus添加一个语法着色" class="headerlink" title="6、给EditPlus添加一个语法着色"></a>6、给EditPlus添加一个语法着色</h2><p>第一步：把sql.stx语法着色文件放置在某个位置</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825155423958.png" alt="image-20200825155423958"></p>
+<p>第二步：打开EditPlus配置</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825155455518.png" alt="image-20200825155455518"></p>
+<p>设置编码格式并取消备份文件</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825155600949.png" alt="image-20200825155600949"></p>
+<p>第三步：添加SQL语句的语法着色支持</p>
+<p>添加SQL语句支持</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825155723702.png" alt="image-20200825155723702"></p>
+<p>引入.sql文件以及语法着色文件</p>
+<p><img src="/../assets/blog_res/MySQL%E5%9F%BA%E6%9C%ACSQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E4%B8%8A%EF%BC%89.assets/image-20200825155921218.png" alt="image-20200825155921218"></p>
+<h2 id="7、数据的增删改查（重点）"><a href="#7、数据的增删改查（重点）" class="headerlink" title="7、数据的增删改查（重点）"></a>7、数据的增删改查（重点）</h2><p>英语小课堂：</p>
+<p>增加：insert</p>
+<p>删除：delete</p>
+<p>修改：update</p>
+<p>查询：select</p>
+<h3 id="☆-数据的增加操作"><a href="#☆-数据的增加操作" class="headerlink" title="☆ 数据的增加操作"></a>☆ 数据的增加操作</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; insert into 数据表名称([字段1,字段2,字段3...]) values (字段1的值,字段2的值,字段3的值...);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>特别注意：在SQL语句中，除了数字，其他类型的值，都需要使用引号引起来，否则插入时会报错。</p>
+</blockquote>
+<p>第一步：准备一个数据表</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; use db_itheima;
+mysql&gt; create table tb_user(
+	id int,
+	username varchar(20),
+	age tinyint unsigned,
+	gender enum('男','女','保密'),
+	address varchar(255)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>unsigned代表无符号型，只有0到正数。tinyint unsigned无符号型，范围0 ~ 255</p>
+</blockquote>
+<blockquote>
+<p>enum枚举类型，多选一。只能从给定的值中选择一个</p>
+</blockquote>
+<p>第二步：使用insert语句插入数据</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; insert into tb_user values (1,'李向阳',24,'男','广东省广州市');
+mysql&gt; insert into tb_user(id,username,age) values (2,'马鹏',23);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="☆-数据的查询操作"><a href="#☆-数据的查询操作" class="headerlink" title="☆ 数据的查询操作"></a>☆ 数据的查询操作</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from 数据表名称 [where 查询条件];
+mysql&gt; select id,username,age from 数据表名称 [where 查询条件];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>案例：查询tb_user表中的所有记录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：查询tb_user表中的id，username以及age字段中对应的数据信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select id,username,age from tb_user;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：只查询id=2的小伙伴信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_user where id=2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：查询年龄大于23岁的小伙伴信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; select * from tb_user where age&gt;23;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-数据的修改操作"><a href="#☆-数据的修改操作" class="headerlink" title="☆ 数据的修改操作"></a>☆ 数据的修改操作</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; update 数据表名称 set 字段1=更新后的值,字段2=更新后的值,... where 更新条件;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>特别说明：如果在更新数据时，不指定更新条件，则其会把这个数据表的所有记录全部更新一遍。</p>
+</blockquote>
+<p>案例：修改username=’马鹏’这条记录，将其性别更新为男，家庭住址更新为广东省深圳市</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; update tb_user set gender='男',address='广东省深圳市' where username='马鹏';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：今年是2020年，假设到了2021年，现在存储的学员年龄都差1岁，整体进行一次更新</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; update tb_user set age=age+1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="☆-数据的删除操作"><a href="#☆-数据的删除操作" class="headerlink" title="☆ 数据的删除操作"></a>☆ 数据的删除操作</h3><p>基本语法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; delete from 数据表名称 [where 删除条件];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>案例：删除tb_user表中，id=1的用户信息</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; delete from tb_user where id=1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>delete from与truncate清空数据表操作</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; delete from 数据表;
+或
+mysql&gt; truncate 数据表;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>delete from与truncate区别在哪里？</p>
+<ul>
+<li>delete：删除==数据记录==<ul>
+<li>数据操作语言（DML）</li>
+<li>在事务控制里，DML语句要么commit，要么rollback</li>
+<li>删除==大量==记录速度慢，==只删除数据==不回收高水位线</li>
+<li>可以==带条件==删除</li>
+</ul>
+</li>
+<li>truncate：删除==所有数据记录==<ul>
+<li>数据定义语言（DDL）</li>
+<li>==不在==事务控制里，DDL语句执行前会提交前面所有未提交的事务</li>
+<li>清里大量数据==速度快==，回收高水位线（high water mark）</li>
+<li>==不能带条件删除==</li>
+</ul>
+</li>
+</ul>
+<h2 id="8、自动增长（水位线）与主键约束"><a href="#8、自动增长（水位线）与主键约束" class="headerlink" title="8、自动增长（水位线）与主键约束"></a>8、自动增长（水位线）与主键约束</h2><h3 id="☆-自动增长（对某个字段进行自动编号）"><a href="#☆-自动增长（对某个字段进行自动编号）" class="headerlink" title="☆ 自动增长（对某个字段进行自动编号）"></a>☆ 自动增长（对某个字段进行自动编号）</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create table tb_user(
+	id int not null auto_increment,
+	username varchar(20),
+	age tinyint unsigned,
+	gender enum('男','女','保密'),
+	address varchar(255)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>not null代表非空约束，这个字段只要是插入数据就必须要有值。</p>
+</blockquote>
+<h3 id="☆-主键约束（非空、唯一）"><a href="#☆-主键约束（非空、唯一）" class="headerlink" title="☆ 主键约束（非空、唯一）"></a>☆ 主键约束（非空、唯一）</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">create table tb_user(
+	id int not null auto_increment,
+	username varchar(20),
+	age tinyint unsigned,
+	gender enum('男','女','保密'),
+	address varchar(255),
+	primary key(id)
+) engine=innodb default charset=utf8;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>插入数据库时，id位置直接写NULL即可</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; insert into tb_user values (null,'李向阳',24,'男','广东省广州市');
+mysql&gt; insert into tb_user values (null,'马鹏',23,'男','广东省深圳市');
+mysql&gt; insert into tb_user values (null,'上官婉儿',18,'女','湖南省长沙市');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/">http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/23/mysql-jie-shao-ji-an-zhuang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="MySQL介绍及安装">
+                        
+                        <span class="card-title">MySQL介绍及安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MySQL基本SQL语句（下）">
+                        
+                        <span class="card-title">MySQL基本SQL语句（下）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">72.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

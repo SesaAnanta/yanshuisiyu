@@ -1,0 +1,1793 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL主从复制架构, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="MySQL主从复制架构一、MySQL集群概述1、集群的主要类型
+
+高可用集群（High Available Cluster，HA Cluster）
+高可用集群是指通过特殊的软件把独立的服务器连接起来，组成一个能够提供故障切换（Fail Ov">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>MySQL主从复制架构 | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">MySQL主从复制架构</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/linux/" class="post-category">
+                                linux
+                            </a>
+                        
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                mysql
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="MySQL主从复制架构"><a href="#MySQL主从复制架构" class="headerlink" title="MySQL主从复制架构"></a>MySQL主从复制架构</h1><h1 id="一、MySQL集群概述"><a href="#一、MySQL集群概述" class="headerlink" title="一、MySQL集群概述"></a>一、MySQL集群概述</h1><p>1、集群的主要类型</p>
+<ul>
+<li>高可用集群（High Available Cluster，HA Cluster）</li>
+<li>高可用集群是指通过<strong>特殊的软件</strong>把独立的服务器连接起来，组成一个能够<strong>提供故障切换</strong>（Fail Over）功能的集群</li>
+</ul>
+<h2 id="2、如何衡量高可用"><a href="#2、如何衡量高可用" class="headerlink" title="2、如何衡量高可用"></a>2、如何衡量高可用</h2><table>
+<thead>
+<tr>
+<th>可用性级别(指标)</th>
+<th>年度宕机时间</th>
+<th>描述</th>
+<th>叫法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>99%</td>
+<td>3.65天/年</td>
+<td>基本可用系统</td>
+<td>2个9</td>
+</tr>
+<tr>
+<td>99.9%</td>
+<td>8.76小时/年</td>
+<td>可用系统</td>
+<td>3个9</td>
+</tr>
+<tr>
+<td>99.99%</td>
+<td>52.6分钟/年</td>
+<td>高可用系统</td>
+<td>4个9</td>
+</tr>
+<tr>
+<td>99.999%</td>
+<td>5.3分钟/年</td>
+<td>抗故障系统</td>
+<td>5个9</td>
+</tr>
+<tr>
+<td>99.9999%</td>
+<td>32秒/年</td>
+<td>容错系统</td>
+<td>6个9</td>
+</tr>
+</tbody></table>
+<p>计算方法：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">1年 = 365天 = 8760小时
+99% = 8760 * 1% = 8760 * 0.01 = 87.6小时=3.65天
+99.9 = 8760 * 0.1% = 8760 * 0.001 = 8.76小时
+99.99 = 8760 * 0.0001 = 0.876小时 = 0.876 * 60 = 52.6分钟
+99.999 = 8760 * 0.00001 = 0.0876小时 = 0.0876 * 60 = 5.26分钟<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>##3、常用的集群架构</p>
+<ul>
+<li>==<strong>MySQL Replication</strong>==</li>
+<li>MySQL Cluster</li>
+<li>MySQL Group Replication （MGR）   5.7.17    多主一从</li>
+<li>MariaDB Galera Cluster </li>
+<li>==MHA==|Keepalived|HeartBeat|Lvs，Haproxy等技术构建高可用集群</li>
+</ul>
+<h1 id="二、MySQL复制简介"><a href="#二、MySQL复制简介" class="headerlink" title="二、MySQL复制简介"></a>二、MySQL复制简介</h1><h2 id="1、什么是MySQL复制"><a href="#1、什么是MySQL复制" class="headerlink" title="1、什么是MySQL复制"></a>1、什么是MySQL复制</h2><ul>
+<li>Replication可以实现将数据从一台数据库服务器（master）复制到一台到多台数据库服务器(slave)</li>
+<li>默认情况下，属于<strong>异步</strong>复制，所以无需维持长连接</li>
+</ul>
+<h2 id="2、-MySQL复制原理（重点）"><a href="#2、-MySQL复制原理（重点）" class="headerlink" title="2、 MySQL复制原理（重点）"></a>2、 MySQL复制原理（重点）</h2><p>简单来说，master将数据库的改变写入**==二进制日志==<strong>，slave同步这些二进制日志，并根据这些二进制日志进行</strong>==数据重演操作==**，实现数据异步同步。</p>
+<p>master：主</p>
+<p>slave：从</p>
+<p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831095948344.png" alt="image-20200831095948344"></p>
+<p><strong>详细描述：</strong></p>
+<p>当主从同步配置完毕后：</p>
+<ol>
+<li>slave端的IO线程发送请求给master端的binlog dump线程</li>
+<li>master端binlog dump线程==获取二进制日志==信息(==文件名和位置信息==)发送给slave端的IO线程</li>
+<li>salve端IO线程获取到的内容==依次==写到slave端relay log(中继日志)里，并把master端的bin-log文件名和位置记录到master.info里</li>
+<li>salve端的SQL线程，检测到relay  log中内容更新，就会解析relay log里更新的内容，并==执行这些操作==，从而达到和master数据一致</li>
+</ol>
+<blockquote>
+<p>扩展：relay log中继日志</p>
+</blockquote>
+<p><strong>作用：</strong>记录从(slave)服务器接收来自主(master)服务器的二进制日志.</p>
+<p><strong>场景：</strong>用于==主从复制==</p>
+<blockquote>
+<p> master主服务器将自己的二进制日志发送给slave从服务器，slave先保存在自己的==中继日志中==，然后再执行自己本地的relay log里的sql达到数据库更改和master保持一致。</p>
+</blockquote>
+<p><strong>如何开启？</strong></p>
+<p>默认中继日志==没有开启==，可以通过修改配置文件完成开启，如下：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim my.cnf
+[mysqld]
+#指定二进制日志存放位置及文件名
+relay-log=/mysql_3306/data/relaylog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3、MySQL复制架构"><a href="#3、MySQL复制架构" class="headerlink" title="3、MySQL复制架构"></a>3、MySQL复制架构</h2><h3 id="㈠-双机热备（AB复制）"><a href="#㈠-双机热备（AB复制）" class="headerlink" title="㈠  双机热备（AB复制）"></a>㈠  双机热备（AB复制）</h3><p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831102317979.png" alt="image-20200831102317979"></p>
+<p><strong>默认情况下，master接受读写请求，slave只接受读请求以减轻master的压力。</strong></p>
+<h3 id="㈡-级联复制"><a href="#㈡-级联复制" class="headerlink" title="㈡  级联复制"></a>㈡  级联复制</h3><p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831102431703.png" alt="image-20200831102431703"></p>
+<p><strong>优点：</strong>进一步分担读压力</p>
+<p><strong>缺点：</strong>slave1 出现故障，后面的所有级联slave服务器都会同步失败</p>
+<h3 id="㈢-并联复制（一主多从）"><a href="#㈢-并联复制（一主多从）" class="headerlink" title="㈢ 并联复制（一主多从）"></a>㈢ 并联复制（一主多从）</h3><p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831102645559.png" alt="image-20200831102645559"></p>
+<p><strong>优点：</strong>解决上面的slave1的单点故障，同时也分担读压力</p>
+<p><strong>缺点：</strong>间接增加master的压力（传输二进制日志压力）</p>
+<h3 id="㈣-双主复制（了解）"><a href="#㈣-双主复制（了解）" class="headerlink" title="㈣ 双主复制（了解）"></a>㈣ 双主复制（了解）</h3><p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831102830372.png" alt="image-20200831102830372"></p>
+<p><strong>特点：</strong></p>
+<p>从命名来看，两台master好像都能接受读、写请求，但实际上，往往运作的过程中，同一时刻只有其中一台master会接受写请求，另外一台接受读请求。</p>
+<h1 id="三、MySQL主从复制的搭建（AB复制）"><a href="#三、MySQL主从复制的搭建（AB复制）" class="headerlink" title="三、MySQL主从复制的搭建（AB复制）"></a>三、MySQL主从复制的搭建（AB复制）</h1><p>##1、传统AB复制架构(M-S)</p>
+<p><strong>说明</strong>：在配置MySQL主从架构时，必须保证数据库的版本高度一致，统一版本为5.7.31</p>
+<h2 id="2、环境规划"><a href="#2、环境规划" class="headerlink" title="2、环境规划"></a>2、环境规划</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>主机名称</th>
+<th>主机IP地址</th>
+<th>角色信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>master.itcast.cn</td>
+<td>10.1.1.10</td>
+<td>MASTER主服务器</td>
+</tr>
+<tr>
+<td>2</td>
+<td>slave.itcast.cn</td>
+<td>10.1.1.100</td>
+<td>SLAVE从服务器</td>
+</tr>
+</tbody></table>
+<h2 id="3、安装前准备工作"><a href="#3、安装前准备工作" class="headerlink" title="3、安装前准备工作"></a>3、安装前准备工作</h2><p>第一步：克隆两台全新的数据库服务器，MASTER/SLAVE</p>
+<p>第二步：首先启动MASTER，然后启动SLAVE，更改主机名称</p>
+<p>Master：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl set-hostname master.itcast.cn
+# su<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>Slave：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># hostnamectl set-hostname slave.itcast.cn
+# su<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>第三步：更改静态IP配置，把Master和Slave都配置与规划一致，然后关闭NetworkManager</p>
+<p>Master：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/sysconfig/network-scripts/ifcfg-ens33
+...
+IPADDR=10.1.1.10
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Slave：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/sysconfig/network-scripts/ifcfg-ens33
+...
+IPADDR=10.1.1.10
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Master/Slave：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># systemctl stop NetworkManager
+# systemctl disable NetworkManager<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>设置完成后，重启网络，然后使用MX连接Master与Slave。</p>
+<p>第四步：由于两台机器处于集群架构，需要互相连接。绑定主机名称与IP地址到/etc/hosts</p>
+<p>Master/Slave：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/hosts
+10.1.1.10 master.itcast.cn
+10.1.1.100 slave.itcast.cn<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>第五步：关闭防火墙与SELinux</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># systemctl stop firewalld
+# systemctl disable firewalld
+# systemctl list-unit-files|grep firewalld
+# setenforce 0
+# sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第六步：配置yum源（建议使用腾讯源）</p>
+<p>配置参考以前笔记（略）</p>
+<p>第七步：时间同步</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ntpdate 182.92.12.11<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="4、MySQL主从复制核心思路"><a href="#4、MySQL主从复制核心思路" class="headerlink" title="4、MySQL主从复制核心思路"></a>4、MySQL主从复制核心思路</h2><p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831111825894.png" alt="image-20200831111825894"></p>
+<ol>
+<li>slave必须安装相同版本的mysql数据库软件</li>
+<li>master端必须开启==二进制日志==；slave端必须开启==relay log日志==</li>
+<li>master端和slave端的server-id号==不能一致==</li>
+<li>slave端配置向master来同步数据<ul>
+<li>master端必须创建一个复制用户</li>
+<li>保证master和slave端==初始数据一致==</li>
+<li>配置主从复制（slave端）</li>
+</ul>
+</li>
+</ol>
+<h2 id="5、MySQL主从复制的具体实践"><a href="#5、MySQL主从复制的具体实践" class="headerlink" title="5、MySQL主从复制的具体实践"></a>5、MySQL主从复制的具体实践</h2><h3 id="第一步：上传MySQL软件包到Master与Slave"><a href="#第一步：上传MySQL软件包到Master与Slave" class="headerlink" title="第一步：上传MySQL软件包到Master与Slave"></a>第一步：上传MySQL软件包到Master与Slave</h3><h3 id="第二步：在Master端安装、初始化以及运行mysql软件"><a href="#第二步：在Master端安装、初始化以及运行mysql软件" class="headerlink" title="第二步：在Master端安装、初始化以及运行mysql软件"></a>第二步：在Master端安装、初始化以及运行mysql软件</h3><p>安装需求：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>值（自定义也可以采用默认形式）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>安装路径</td>
+<td>/usr/local/mysql</td>
+</tr>
+<tr>
+<td>数据路径</td>
+<td>/usr/local/mysql/data</td>
+</tr>
+<tr>
+<td>端口号</td>
+<td>3306</td>
+</tr>
+</tbody></table>
+<h4 id="①-安装MySQL软件"><a href="#①-安装MySQL软件" class="headerlink" title="① 安装MySQL软件"></a>① 安装MySQL软件</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim mysql.sh
+#!/bin/bash
+yum install libaio -y
+tar -xf mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz
+rm -rf /usr/local/mysql
+mv mysql-5.7.31-linux-glibc2.12-x86_64 /usr/local/mysql
+useradd -r -s /sbin/nologin mysql
+rm -rf /etc/my.cnf
+cd /usr/local/mysql
+mkdir mysql-files
+chown mysql:mysql mysql-files
+chmod 750 mysql-files
+bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql &amp;&gt; /root/password.txt
+bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data
+cp support-files/mysql.server /etc/init.d/mysqld
+service mysqld start
+echo 'export PATH=$PATH:/usr/local/mysql/bin' &gt;&gt; /etc/profile
+source /etc/profile
+
+# source mysql.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Shell脚本其实就是命令的堆砌，把一堆Linux命令写在同一个文件中，一起执行。</p>
+</blockquote>
+<h4 id="②-安全配置"><a href="#②-安全配置" class="headerlink" title="② 安全配置"></a>② 安全配置</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># mysql_secure_installation<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="③-配置my-cnf（重点开启二进制日志）"><a href="#③-配置my-cnf（重点开启二进制日志）" class="headerlink" title="③ 配置my.cnf（重点开启二进制日志）"></a>③ 配置my.cnf（重点开启二进制日志）</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd /usr/local/mysql
+# vim my.cnf
+[mysqld]
+basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data
+socket=/tmp/mysql.sock
+port=3306
+log-error=/usr/local/mysql/data/master.err
+log-bin=/usr/local/mysql/data/binlog		=&gt;	  一定要开启二进制日志
+server-id=10
+character_set_server=utf8mb4			 	=&gt;    utf8mb4相当于utf8升级版
+
+配置完成后，重启mysqld服务
+# service mysqld restart
+# chkconfig --add mysqld
+# chkconfig mysqld on<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="第三步：在Slave从服务器端安装mysql软件（不需要初始化）"><a href="#第三步：在Slave从服务器端安装mysql软件（不需要初始化）" class="headerlink" title="第三步：在Slave从服务器端安装mysql软件（不需要初始化）"></a>第三步：在Slave从服务器端安装mysql软件（不需要初始化）</h3><h4 id="①-安装MySQL软件-1"><a href="#①-安装MySQL软件-1" class="headerlink" title="① 安装MySQL软件"></a>① 安装MySQL软件</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim mysql.sh
+#!/bin/bash
+yum install libaio -y
+tar -xf mysql-5.7.31-linux-glibc2.12-x86_64.tar.gz
+rm -rf /usr/local/mysql
+mv mysql-5.7.31-linux-glibc2.12-x86_64 /usr/local/mysql
+useradd -r -s /sbin/nologin mysql
+rm -rf /etc/my.cnf
+cd /usr/local/mysql
+mkdir mysql-files
+chown mysql:mysql mysql-files
+chmod 750 mysql-files
+cp support-files/mysql.server /etc/init.d/mysqld
+echo 'export PATH=$PATH:/usr/local/mysql/bin' &gt;&gt; /etc/profile
+source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>相对于主服务器MySQL的安装与配置，从服务器端不需要进行初始化操作，因为其数据将来都来自于主服务器。</p>
+</blockquote>
+<h4 id="②-配置my-cnf文件"><a href="#②-配置my-cnf文件" class="headerlink" title="② 配置my.cnf文件"></a>② 配置my.cnf文件</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cd /usr/local/mysql
+# vim my.cnf
+[mysqld]
+basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data
+socket=/tmp/mysql.sock
+port=3310
+log-error=/usr/local/mysql/data/slave.err
+relay-log=/usr/local/mysql/data/relaylog			=&gt;    	开启中继日志
+server-id=100
+character_set_server=utf8mb4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="③-把master主服务器的数据目录同步到slave从服务器"><a href="#③-把master主服务器的数据目录同步到slave从服务器" class="headerlink" title="③ 把master主服务器的数据目录同步到slave从服务器"></a>③ 把master主服务器的数据目录同步到slave从服务器</h4><p>a. 把MASTER服务器中的mysqld停止掉</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># service mysqld stop<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>b. 把MASTER服务器中的/usr/local/mysql/data目录下的auto.cnf文件删除</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># rm -rf /usr/local/mysql/data/auto.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>没安装一个mysql软件，其data数据目录都会产生一个auto.cnf文件，里面是一个唯一性的编号，相当于我们每个人的身份证号码。</p>
+</blockquote>
+<p>c. 把MASTER服务器中/usr/local/mysql中的data目录拷贝一份到SLAVE从服务器的/usr/local/mysql目录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># rsync -av /usr/local/mysql/data root@10.1.1.100:/usr/local/mysql/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>d. 同步完成后，把主服务器与从服务器中的mysqld启动</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># service mysqld start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="常见问题解决方案"><a href="#常见问题解决方案" class="headerlink" title="常见问题解决方案"></a>常见问题解决方案</h4><p>☆ 常见问题1：MySQL无法启动</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># service mysqld start
+Redirecting to /bin/systemctl start mysqld.service
+Failed to start mysqld.service: Unit not found.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>出现以上问题的主要原因在于/etc/init.d目录中没有mysqld这个文件换句话说，就是你没有cp mysql.server脚本</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+记住：/etc/init.d目录中的文件叫什么名字，我们service的时候就应该使用什么名字
+# service mysqld start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>☆ 常见错误2：MySQL没有安装在/usr/local/mysql目录中，service也无法启动</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># service mysqld start
+无法启动的原因可能是你的MySQL并没有安装在/usr/local/mysql目录中，因为/etc/init.d/mysqld脚本中的basedir与datadir默认指向的都是/usr/local/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>所以如果我们更换了mysql的安装位置，则必须更改/etc/init.d/mysqld脚本中basedir与datadir目录</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/init.d/mysqld
+basedir=你的安装路径
+datadir=你的安装路径/data<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>☆ 常见问题3：因为my.cnf配置文件导致mysql无法启动</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim my.cnf
+[mysqld]
+basedir=/usr/local/mysql			=&gt;    安装路径
+datadir=/usr/local/mysql/data		=&gt;    数据目录
+socket=/tmp/mysql.sock				=&gt;    GLIBC默认就是/tmp/mysql.sock
+port=3310
+log-error=/usr/local/mysql/slave.err	=&gt;	 错误日志到底放在哪里
+relay-log=/usr/local/mysql/data/relaylog
+server-id=100
+character_set_server=utf8mb4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>启动报错：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Starting MySQL.2020-08-31T07:17:06.554270Z mysqld_safe error: log-error set to '/usr/local/mysql/slave.err', however file don't exists. Create writable for user 'mysql'.
+ ERROR! The server quit without updating PID file (/usr/local/mysql/data/slave.itcast.cn.pid).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>产生以上问题的主要原因在于mysql这个用户对/usr/local/mysql文件夹没有写入权限</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ll -d /usr/local/mysql
+drwxr-xr-x 11 7161 31415 174 Aug 31 15:16 /usr/local/mysql
+发现文件拥有者位置与所属组位置都是两个数字，正常应该是文件拥有者的名称与文件所属组的名称。但是由于GLIBC已经提前打包了，我们解压后，如果在我们系统中，找不到原文件对应的文件拥有着与所属组，则以两个数字代替文件拥有者与所属组的显示。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>解决方案：</p>
+<p>方案一：建议把错误日志，丢在数据目录中</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim my.cnf
+...
+log-error=/usr/local/mysql/data/slave.err<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>方案二：直接更改/usr/local/mysql目录的权限</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># chown -R mysql.mysql /usr/local/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="④-配置MASTER-SLAVE主从同步"><a href="#④-配置MASTER-SLAVE主从同步" class="headerlink" title="④ 配置MASTER-SLAVE主从同步"></a>④ 配置MASTER-SLAVE主从同步</h4><p>a. 在MASTER主服务器中创建一个账号，专门用于实现数据同步</p>
+<p>MySQL5.7及以下版本：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; grant replication slave on *.* to 'slave'@'10.1.1.%' identified by '123';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>MySQL新版本中：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; create user 'slave'@'10.1.1.%' identified by '123';
+mysql&gt; grant replication slave on *.* to 'slave'@'10.1.1.%';
+mysql&gt; flush privileges;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>b. 在MASTER中锁表，然后查看二进制文件的名称及位置</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; flush tables with read lock;
+mysql&gt; show master status;
++---------------+----------+--------------+------------------+-------------------+
+| File          | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++---------------+----------+--------------+------------------+-------------------+
+| binlog.000002 |      597 |              |                  |                   |
++---------------+----------+--------------+------------------+-------------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>c. 在SLAVE从服务器中，使用change master to指定主服务器，并实现数据同步</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; change master to master_host='10.1.1.10',master_user='slave',master_password='123',master_port=3306,master_log_file='binlog.000002',master_log_pos=597;
+
+master_host：主机的IP地址
+master_user：主机的user账号
+master_password：主机的user账号密码
+master_port：主机MySQL的端口号
+master_log_file：二进制日志文件名称
+master_log_pos：二进制日志文件位置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>技巧：主从复制的change master to语句记不住怎么办？答：求帮助，mysql&gt; help change master to;</p>
+<p>CHANGE MASTER TO<br>MASTER_HOST=’master2.example.com’,<br>MASTER_USER=’replication’,<br>MASTER_PASSWORD=’password’,<br>MASTER_PORT=3306,<br>MASTER_LOG_FILE=’master2-bin.001’,<br>MASTER_LOG_POS=4,<br>MASTER_CONNECT_RETRY=10;</p>
+</blockquote>
+<p>d. 启动slave数据同步</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; start slave;
+mysql&gt; show slave status\G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831155637556.png" alt="image-20200831155637556"></p>
+<h4 id="常见问题解决方案-1"><a href="#常见问题解决方案-1" class="headerlink" title="常见问题解决方案"></a>常见问题解决方案</h4><p>在配置主从时，一般遇到错误，大部分都是change master to语句写错了（80%），解决方案：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; stop slave;
+mysql&gt; reset slave;
+mysql&gt; change master to master_host='10.1.1.10',master_user='slave',master_password='123',master_port=3306,master_log_file='binlog.000002',master_log_pos=597;
+
+mysql&gt; start slave;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="⑤-主MASTER服务器解锁"><a href="#⑤-主MASTER服务器解锁" class="headerlink" title="⑤ 主MASTER服务器解锁"></a>⑤ 主MASTER服务器解锁</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; unlock tables;
+Query OK, 0 rows affected (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ol>
+<li>主从复制必须保证两台数据库实例的==server-id不一致==</li>
+<li>主服务器==必须开启二进制日志==；从服务器==必须开启中继日志==</li>
+<li>主从复制搭建==必须保证初始数据一致==</li>
+<li>主服务器必须要给从服务器==创建一个复制用户，并授予复制权限==</li>
+<li>Master—&gt;Slave架构，==主写会同步到从==；而==从写不会同步到主==</li>
+</ol>
+<h2 id="6、SLAVE从服务器不小心写入数据解决方案"><a href="#6、SLAVE从服务器不小心写入数据解决方案" class="headerlink" title="6、SLAVE从服务器不小心写入数据解决方案"></a>6、SLAVE从服务器不小心写入数据解决方案</h2><p>正常情况下：</p>
+<p>MASTER既可以读，也可以写。但是SLAVE从服务器，只能执行读取操作。一旦我们在SLAVE从服务器中写入数据，则主从架构会失败。</p>
+<p>SLAVE：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># show slave status\G<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="/../assets/blog_res/MySQL%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%9E%B6%E6%9E%84.assets/image-20200831165406201.png" alt="image-20200831165406201"></p>
+<p>遇到以上问题：如果数量较少，还可以通过跳过当前语句的方式解决。但是如果从服务器写入数据过多，则以上架构必须要重新搭建了！</p>
+<p>解决方案：</p>
+<p>问：</p>
+<p>如果由于人为操作或者其他原因直接将数据更改到从服务器导致数据同步失效，怎么解决？</p>
+<p>答：可以通过变量<code>sql_slave_skip_counter</code>临时跳过事务进行处理</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">SET GLOBAL sql_slave_skip_counter = N  	N代表跳过N个事务
+举例说明：
+mysql&gt; SET GLOBAL sql_slave_skip_counter=1;
+mysql&gt; stop slave;
+mysql&gt; start slave;
+注意：
+1. 跳过事务应该在slave上进行
+2. 传统的AB复制方式可以使用变量：sql_slave_skip_counter，基于GTIDs的方式不支持<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="四、基于GTIDs的AB复制架构-M-S"><a href="#四、基于GTIDs的AB复制架构-M-S" class="headerlink" title="四、基于GTIDs的AB复制架构(M-S)"></a>四、基于GTIDs的AB复制架构(M-S)</h1><h2 id="1、GTIDs概述"><a href="#1、GTIDs概述" class="headerlink" title="1、GTIDs概述"></a>1、GTIDs概述</h2><ul>
+<li><strong>什么是GTIDs以及有什么特点？</strong></li>
+</ul>
+<ol>
+<li><p>GTIDs（Global transaction identifiers）==全局事务标识符==，是mysql 5.6新加入的一项技术</p>
+</li>
+<li><p>当使用GTIDs时，每一个事务都可以被==识别并且跟踪== </p>
+</li>
+<li><p>添加新的slave或者当发生故障需要将master身份或者角色迁移到slave上时，都无需考虑是哪一个二进制日志以及哪个position值，==极大简化了相关操作==</p>
+</li>
+<li><p>GTIDs是完全基于事务的，因此==不支持MYISAM存储引擎== </p>
+</li>
+<li><p>==GTID由source_id和transaction_id组成==： </p>
+<p>1）source_id来自于server_uuid,可以在auto.cnf中看到</p>
+<p>2）transation_id是一个序列数字，自动生成.</p>
+</li>
+</ol>
+<ul>
+<li><strong>使用GTIDs的限制条件有哪些？</strong></li>
+</ul>
+<ol>
+<li>不支持非事务引擎（MyISAM），因为可能会导致多个gtid分配给同一个事务</li>
+<li>create table … select 语句不支持（主库语法报错）</li>
+<li>create/drop <strong>temporary table</strong> 语句不支持</li>
+<li>必须使用enforce-gtid-consistency参数 </li>
+<li>sql-slave-skip-counter不支持(传统的跳过错误方式) </li>
+<li>GTID复制环境中必须要求统一开启和GTID或者关闭GTID </li>
+<li>在mysql 5.6.7之前，使用==mysql_upgrade==命令会出现问题</li>
+</ol>
+<h2 id="2、基于GTIDs的主从复制"><a href="#2、基于GTIDs的主从复制" class="headerlink" title="2、基于GTIDs的主从复制"></a>2、基于GTIDs的主从复制</h2><p>在生产环境中，大多数情况下使用的MySQL5.6基本上都是从5.5或者更低的版本升级而来，这就意味着之前的mysql replication方案是基于传统的方式部署，并且已经在运行，因此，接下来我们就利用已有的环境升级至基于GITDs的Replication</p>
+<p>〇 思路</p>
+<ol>
+<li>修改配置文件支持GTIDs  (主+从)</li>
+<li>重启数据库  (主+从)</li>
+<li>为了保证数据一致性，master和slave设置为只读模式 (主+从)</li>
+<li>==从服务器上重新配置同步== （从）</li>
+</ol>
+<h2 id="3、基于GTIDs的主从复制实践"><a href="#3、基于GTIDs的主从复制实践" class="headerlink" title="3、基于GTIDs的主从复制实践"></a>3、基于GTIDs的主从复制实践</h2><h3 id="①-修改配置文件支持GTIDs"><a href="#①-修改配置文件支持GTIDs" class="headerlink" title="① 修改配置文件支持GTIDs"></a>① 修改配置文件支持GTIDs</h3><p>MASTER =&gt; my.cnf</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim my.cnf
+...
+gtid-mode=on
+log-slave-updates=1
+enforce-gtid-consistency<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>SLAVE =&gt; my.cnf</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># rm -rf data/binlog.*
+# vim my.cnf
+...
+log-bin=/usr/local/mysql/data/binlog	=&gt;   必须要开启二进制
+gtid-mode=on
+log-slave-updates=1
+enforce-gtid-consistency
+skip-slave-start	 =&gt;    当MASTER主服务器GTIDs没有启动时，跳过SLAVE服务器的启动<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>说明：<br>1）开启GITDs需要在master和slave上都配置gtid-mode，log-bin，log-slave-updates，enforce-gtid-consistency（该参数在5.6.9之前是–disable-gtid-unsafe-statement）<br>2）其次，slave还需要增加skip-slave-start参数,目的是启动的时候，先不要把slave起来，需要做一些配置<br>3）基于GTIDs复制从服务器必须开启二进制日志！</p>
+</blockquote>
+<h3 id="②-重新启动mysqld服务"><a href="#②-重新启动mysqld服务" class="headerlink" title="② 重新启动mysqld服务"></a>② 重新启动mysqld服务</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># service mysqld restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="③-主从配置只读模式"><a href="#③-主从配置只读模式" class="headerlink" title="③ 主从配置只读模式"></a>③ 主从配置只读模式</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; set @@global.read_only=ON;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="④-SLAVE重新配置change-master-to"><a href="#④-SLAVE重新配置change-master-to" class="headerlink" title="④ SLAVE重新配置change master to"></a>④ SLAVE重新配置change master to</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; stop slave;
+mysql&gt; reset slave;
+mysql&gt; change master to master_host='10.1.1.10',master_user='slave',master_password='123',master_port=3306,master_auto_position=1;
+
+注意：
+1.确保有复制用户
+2.主要区别于传统复制的参数是：master_auto_position=1
+
+mysql&gt; start slave;
+mysql&gt; show slave status\G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="⑤-关闭主从服务器的只读模式"><a href="#⑤-关闭主从服务器的只读模式" class="headerlink" title="⑤ 关闭主从服务器的只读模式"></a>⑤ 关闭主从服务器的只读模式</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">mysql&gt; set @@global.read_only=OFF;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>测试验证（往主服务器中写入部分数据，验证一下）</p>
+<h2 id="4、SLAVE从服务器不小心写入数据解决方案"><a href="#4、SLAVE从服务器不小心写入数据解决方案" class="headerlink" title="4、SLAVE从服务器不小心写入数据解决方案"></a>4、SLAVE从服务器不小心写入数据解决方案</h2><p>方法一：跳过事务</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">指定需要跳过的GTIDs编号
+SET GTID_NEXT='aaa-bbb-ccc-ddd:N';
+开始一个空事务
+BEGIN;
+COMMIT;
+使用下一个自动生成的全局事务ID。
+SET GTID_NEXT='AUTOMATIC';
+
+举例说明：
+mysql&gt; stop slave;
+mysql&gt; SET @@SESSION.GTID_NEXT= '13e36f00-eb70-11ea-91a8-000c29d1f40a:1'/*!*/;
+mysql&gt; BEGIN;
+mysql&gt; commit;
+mysql&gt; SET @@SESSION.GTID_NEXT= 'AUTOMATIC';	
+mysql&gt; start slave;
+mysql&gt; show slave status\G
+
+说明：需要跳过哪个事务，需要手动查看relaylog文件得到
+[root@slave1 data]# ../bin/mysqlbinlog relay.000003|less
+。。。。
+# at 756
+#181015 12:04:45 server id 10  end_log_pos 817 CRC32 0x5374f49e         GTID [commit=yes]
+SET @@SESSION.GTID_NEXT= '044e6392-cf9b-11e8-a748-000c294ca304:3'/*!*/;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>方法二：重新同步data目录，重新change master to…</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/">http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/23/ban-tong-bu-fu-zhi-yu-mha-gao-ke-yong-jia-gou-she-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="半同步复制与MHA高可用架构设计">
+                        
+                        <span class="card-title">半同步复制与MHA高可用架构设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/23/mysql-bei-fen-yu-hui-fu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL备份与恢复">
+                        
+                        <span class="card-title">MySQL备份与恢复</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/linux/" class="post-category">
+                                    linux
+                                </a>
+                            
+                            <a href="/categories/linux/mysql/" class="post-category">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">72.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
