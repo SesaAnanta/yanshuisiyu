@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-23T09:21:59.973Z</updated>
+  <updated>2023-12-24T04:19:08.838Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell脚本的基础</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/</id>
+    <published>2023-12-24T02:48:40.000Z</published>
+    <updated>2023-12-24T04:19:08.838Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;第十九章  shell脚本的基础&lt;/p&gt;
+&lt;p&gt;本节所讲内容：&lt;/p&gt;
+&lt;p&gt;19.1  shell 基本语法&lt;/p&gt;
+&lt;p&gt;19.2  SHELL变量及运用&lt;/p&gt;
+&lt;p&gt;19.3  数学运算&lt;/p&gt;
+&lt;p&gt;19.4 </summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
   
   <entry>
     <title>SHELL编程前奏_小工具</title>
@@ -491,37 +521,6 @@
   </entry>
   
   <entry>
-    <title>MySQL介绍及安装</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/</id>
-    <published>2023-12-23T02:00:12.000Z</published>
-    <updated>2023-12-23T02:03:57.748Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;MySQL介绍及安装&quot;&gt;&lt;a href=&quot;#MySQL介绍及安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL介绍及安装&quot;&gt;&lt;/a&gt;MySQL介绍及安装&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL概述&quot;&gt;&lt;a href=&quot;#一、MySQL概述&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
     <title>MySQL基本SQL语句（上）</title>
     <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/"/>
     <id>http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-shang/</id>
@@ -553,18 +552,18 @@
   </entry>
   
   <entry>
-    <title>MySQL基本SQL语句（下）</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-ji-ben-sql-yu-ju-xia/</id>
+    <title>MySQL介绍及安装</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-jie-shao-ji-an-zhuang/</id>
     <published>2023-12-23T02:00:12.000Z</published>
-    <updated>2023-12-23T02:05:46.527Z</updated>
+    <updated>2023-12-23T02:03:57.748Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;MySQL基本SQL语句（下）&quot;&gt;&lt;a href=&quot;#MySQL基本SQL语句（下）&quot; class=&quot;headerlink&quot; title=&quot;MySQL基本SQL语句（下）&quot;&gt;&lt;/a&gt;MySQL基本SQL语句（下）&lt;/h1&gt;&lt;h1</summary>
+    <summary type="html">&lt;h1 id=&quot;MySQL介绍及安装&quot;&gt;&lt;a href=&quot;#MySQL介绍及安装&quot; class=&quot;headerlink&quot; title=&quot;MySQL介绍及安装&quot;&gt;&lt;/a&gt;MySQL介绍及安装&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL概述&quot;&gt;&lt;a href=&quot;#一、MySQL概述&quot;</summary>
         
       
     

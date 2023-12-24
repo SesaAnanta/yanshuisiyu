@@ -1,0 +1,1658 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="shell脚本的基础, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="第十九章  shell脚本的基础
+本节所讲内容：
+19.1  shell 基本语法
+19.2  SHELL变量及运用
+19.3  数学运算
+19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备
+19.1 ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>shell脚本的基础 | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/gallery" class="waves-effect waves-light">
+      
+      <i class="fas fa-camera" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/gallery" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-camera"></i>
+			
+			相册
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">shell脚本的基础</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/shell/" class="post-category">
+                                shell
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>第十九章  shell脚本的基础</p>
+<p>本节所讲内容：</p>
+<p>19.1  shell 基本语法</p>
+<p>19.2  SHELL变量及运用</p>
+<p>19.3  数学运算</p>
+<p>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</p>
+<h1 id="19-1-shell-基本语法"><a href="#19-1-shell-基本语法" class="headerlink" title="19.1  shell 基本语法"></a>19.1  shell 基本语法</h1><h2 id="19-1-1-什么是shell"><a href="#19-1-1-什么是shell" class="headerlink" title="19.1.1  什么是shell?"></a>19.1.1  什么是shell?</h2><p>Shell是一个命令解释器，它在操作系统的最外层，负责直接与用户进行对话，把用户的输入解释给操作系统，并处理各种各样的操作系统的输出结果，输出到屏幕反馈给用户。这种对话方式可是交互也可以是非交互式的</p>
+ <img src="../assets/blog_res/shell脚本的基础.assets/image-20231224105331245.png" alt="image-20231224105331245" style="zoom:150%;">
+
+<p>​	我们所输入的命令计算机是不识别的，这时就需要一种程序来帮助我们进行翻译，变成计算机能识别的二进制程序，同时又把计算机生成的结果返回给我们。</p>
+<h2 id="19-1-2-编程语言分类"><a href="#19-1-2-编程语言分类" class="headerlink" title="19.1.2  编程语言分类"></a>19.1.2  编程语言分类</h2><p>编程语言主要用：低级语言和高级语言</p>
+<p>1）低级语言：</p>
+<p>机器语言：二进制语言</p>
+<p>汇编语言：符号语言，使用助记符来代替操作码，也就是用符号代替机器语言的二进制码 </p>
+<p>它们都是面向机器的语言</p>
+<p>2）高级语言：</p>
+<p>它是比较接近自然语言或者说人类语言的一种编程，用人们能够容易理解的方式进行编写程序，</p>
+<p>静态语言：编译型语言 如：c 、 c++ 、 java，</p>
+<p>动态语言：解释型语言 如： php 、 shell 、 python 、 perl</p>
+<p>gcc编译器：（解释器）  将人类理解的语言翻译成机器理解的语言</p>
+<h2 id="19-1-3-什么是SHELL脚本？"><a href="#19-1-3-什么是SHELL脚本？" class="headerlink" title="19.1.3  什么是SHELL脚本？"></a>19.1.3  什么是SHELL脚本？</h2><p>shell脚本：就是说我们把原来linux命令或语句放在一个文件中，然后通过这个程序文件去执行时，我们就说这个程序为shell脚本或shell程序；我们可以在脚本中输入一系统的命令以及相关的语法语句组合，比如变量，流程控制语句等，把他们有机结合起来就形成了一个功能强大的shell脚本</p>
+<p>先手写一个脚本体验一下：</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">[root@xuegod63 ~]# vim test.sh  #写入以下内容<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-none"><code class="language-none">
+#!/bin/bash
+
+# This is shell.
+
+echo "hello world"
+mkdir /tmp/test
+touch /tmp/test/a.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105341201.png" alt="image-20231224105341201"></p>
+<p>注释：</p>
+<p>1、!/bin/bash 作用：告诉脚本使用的是哪种命令解释器。如不指shell，以当前shell作为执行的shell。</p>
+<p> 2、在shell中以#表示开头，整个行就被当作一个注释。执行时被忽略。</p>
+<p>3、shell程序一般以.sh结尾</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# chmod +x test.sh 
+
+[root@xuegod63 ~]# ./test.sh  #执行
+
+hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>创建shell程序的步骤：</strong></p>
+<p>§ 第一步：创建一个包含命令和控制结构的文件。</p>
+<p>§ 第二步：修改这个文件的权限使它可以执行。§ 使用chmod +x test.sh</p>
+<p>§ 第三步：检测语法错误</p>
+<p>§ 第四步：执行 ./example</p>
+<p>shell脚本的执行通常有以下几种方式</p>
+<p>1、/root/test.sh  或者 ./test.sh (当前路径下执行脚本的话要有执行权限chmod +x test.sh) </p>
+<p>2、bash test.sh 或 sh test.sh  （这种方式可以不对脚本文件添加执行权限）</p>
+<p>3、source test.sh (可以没有执行权限)</p>
+<p>4、sh &lt; test.sh 或者 cat test.sh |sh(bash)</p>
+<h1 id="19-2-SHELL变量及运用"><a href="#19-2-SHELL变量及运用" class="headerlink" title="19.2  SHELL变量及运用"></a>19.2  SHELL变量及运用</h1><h2 id="19-2-1-shell变量"><a href="#19-2-1-shell变量" class="headerlink" title="19.2.1  shell变量"></a>19.2.1  shell变量</h2><p>变量是shell 传递数据的一种方法。变量是用来代表每个值的符号名。我们可以把变量当成一个容器，通过变量，可以在内存中存储数据。也<strong>可以在脚本执行中进行修改和访问存储的数据</strong></p>
+<p>变量的设置规则：</p>
+<p>1、 变量名称通常是大写字母，它可以由数字、字母（大小写）和下划线_组成。变量名区分大小写；但是大家要注意变量名称不能以数字开头</p>
+<p>2、 等号 = 用于为变量分配值，在使用过程中等号两边不能有空格</p>
+<p>3、 变量存储的数据类型是整数值和字符串值</p>
+<p>4、 在对变量赋于字符串值时，建议大家用引号将其括起来。因为如果字符串中存在空格隔符号。需要使用单引号或双引号</p>
+<p>5、 要对变量进行调用，可以在变量名称前加美元符号$</p>
+<p>6、 如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含“$变量名<strong>”或用${变量名}包含</strong></p>
+<p>变量的分类</p>
+<p>按照变量的作用可以分成4类：</p>
+<p>​	1、用户自定义变量 </p>
+<p>​	2、环境变量：这种变量中主要保存的是和系统操作环境相关的数据。 </p>
+<p>​	3u<strong>位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。</strong> </p>
+<p>​	4、预定义变量：是Bash<strong>中已经定义好的变量，变量名不能自定义，变量作用也是固定的。</strong> </p>
+<p>按照变量作用域可以分成2类：全局变量和局部变量。</p>
+<p>局部变量是shell 程序内部定义的，其使用范围仅限于定义它的程序，对其它程序不可见。包括：用户自定义变量、位置变量和预定义变量。</p>
+<p>§ 全局变量是环境变量，其值不随shell 脚本的执行结束而消失。</p>
+<h2 id="19-2-2-用户定义变量"><a href="#19-2-2-用户定义变量" class="headerlink" title="19.2.2  用户定义变量"></a>19.2.2  用户定义变量</h2><p>变量名命名规则：由字母或下划线打头，不允许数字开头,后面由字母、数字或下划线组成，并且大小写字母意义不同。在使用变量时，在变量名前加$</p>
+<p>例1：给变量VAR1赋值</p>
+<p>[root@xuegod63 ~]# VAR1=123</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<p>123</p>
+<p>variable  [ˈ<strong>veəriəbl]</strong> 变量</p>
+<p>例2：错误的赋值方式,不允许数字开头，等号两边不能有空格</p>
+<p>[root@xuegod63 ~]# VAR2 =456</p>
+<p>bash: VAR2: 未找到命令…</p>
+<p>[root@xuegod63 ~]# VAR2= 456</p>
+<p>bash: 456: 未找到命令…</p>
+<p>[root@xuegod63 ~]# VAR2 = 456</p>
+<p>bash: VAR2: 未找到命令…</p>
+<p>[root@xuegod63 ~]# 3VAR2 = 456</p>
+<p>bash: 3VAR2: 未找到命令…</p>
+<p>例3：变量值的叠加，使用${}</p>
+<p>$name是${name}的简化版本，但是在某些情况下，还必须使用花括号引起的方式来消除歧义并避免意外的结果</p>
+<p>[root@xuegod63 ~]# VAR4=mysql</p>
+<p>[root@xuegod63 ~]# echo $VAR4</p>
+<p>mysql</p>
+<p>[root@xuegod63 ~]# echo $VAR4-db.log</p>
+<p>mysql-db.log</p>
+<p>[root@xuegod63 ~]# echo $VAR4.db.log</p>
+<p>mysql.db.log</p>
+<p>[root@xuegod63 ~]# echo $VAR4db.log #发现输出的结果不是我们想要的，怎么办？</p>
+<p>.log</p>
+<p>[root@xuegod63 ~]# echo ${VAR4}db.log</p>
+<p>mysqldb.log</p>
+<h2 id="19-2-3-命令的替换-使用-或反引号"><a href="#19-2-3-命令的替换-使用-或反引号" class="headerlink" title="19.2.3  命令的替换,使用$()或反引号"></a>19.2.3  命令的替换,使用$()或反引号</h2><p>例1：在命令就调用date命令</p>
+<p>扩展：date命令是显示或设置系统时间与日期。</p>
+<p>-s&lt;字符串&gt;：根据字符串来设置日期与时间。字符串前后必须加上双引号；</p>
+<p>&lt;+时间日期格式&gt;：指定显示时，使用特定的日期时间格式。</p>
+<p>例：格式化输出：</p>
+<p>[root@xuegod63 ~]# date +”%Y-%m-%d” #今天时间，一般备份数据需要用这个</p>
+<p>2018-05-25</p>
+<p>[root@xuegod63 ~]#  date +”%Y-%m”  #只显示年月</p>
+<p>2018-05</p>
+<p>[root@xuegod63 ~]#  date +”%Y-%m-%d %H:%M.%S”  #日期加时间</p>
+<p>2018-05-25 17:51.36</p>
+<p>[root@xuegod63 ~]#  date +”%Y/<strong>%m/%d %H/%M/%S”</strong> #使用/做分隔符</p>
+<p>2018-05-25 17-51-43</p>
+<p>[root@xuegod63 ~]#  date +”%Y-%m-%d-%H-%M-%S” #使用-做分隔符，一般备份数据需要用这个</p>
+<p>注： %y 年份只显示2位，  %Y年份显示4位</p>
+<p>date命令加减操作：</p>
+<p>date +%Y%m%d          #显示当<strong>天年月日</strong></p>
+<p>date -d “+1 day” +%Y%m%d    #显示明天<strong>的日期</strong></p>
+<p>date -d “-1 day” +%Y%m%d    #显示昨天<strong>的日期</strong></p>
+<p>date -d “-1 month” +%Y%m%d   #显示上一月的日期</p>
+<p>date -d “+1 month” +%Y%m%d   #显示下一月的日期</p>
+<p>date -d “-1 year” +%Y%m%d    #显示前一年的日期</p>
+<p>date -d “+1 year” +%Y%m%d    #显示下一年的日期</p>
+<p>设定时间：</p>
+<p>date -s 20180523        #设置成20120523，这样会把具体时间设置成空00:00:00</p>
+<p>date -s 01:01:01        #设置具体时间，不会对日期做更改</p>
+<p>date -s “2018-05-23 01:01:01”  #这样可以设置全部时间</p>
+<p>例1： 在命令中调用date命令输出值</p>
+<p>[root@xuegod63 ~]# echo date</p>
+<p>2018年 05月 25日 星期五 17:41:29 CST</p>
+<p>[root@xuegod63 ~]# echo $(date)</p>
+<p>2018年 05月 25日 星期五 17:41:42 CST</p>
+<p>[root@xuegod63 ~]# echo date +”%Y-%m-%d”</p>
+<p>2012-05-23</p>
+<h2 id="19-2-4-命令的嵌套使用，使用"><a href="#19-2-4-命令的嵌套使用，使用" class="headerlink" title="19.2.4  命令的嵌套使用，使用$( $( ))"></a>19.2.4  命令的嵌套使用，使用$( $( ))</h2><p>*[root@xuegod63 ~]# find /root/ -name .txt</p>
+<p>*[root@xuegod63 ~]# VAR6=$(tar zcvf root.tar.gz $(find /root/ -name .txt))</p>
+<p>tar: 从成员名中删除开头的“/”</p>
+<p>[root@xuegod63 ~]# echo $VAR6  #查看值， VAR6中存储着tar的标准输出</p>
+<p>/root/.cache/tracker/db-version.txt /root/.cache/tracker/db-locale.txt /root/.cache/tracker/parser-sha1.txt /root/.cache/tracker/locale-for-miner-user-guides.txt /root/.cache/tracker/locale-for-miner-apps.txt /root/.cache/tracker/last-crawl.txt</p>
+<p>。。。</p>
+<p>实战：分享一个系统时间错误，引起tar报警告</p>
+<p>[root@xuegod63 ~]# date -s “2012-03-03 21:25:00”</p>
+<p>[root@xuegod63 ~]# tar zxvf root.tar.gz -C /opt/</p>
+<p>root/.cache/tracker/db-version.txt</p>
+<p>tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未来的 168094624.438537189 秒之后</p>
+<p>注： 如果弹出这个消息，是因为咱们的当前系统的时间不对。 比如：当前系统的时间晚于文件的mtime时间</p>
+<p>[root@xuegod63 ~]# ls /opt/root/.mozilla/firefox/wggimqlt.default/ -a #解压成功</p>
+<h2 id="19-2-5-shell中单引号和双引号区别"><a href="#19-2-5-shell中单引号和双引号区别" class="headerlink" title="19.2.5  shell中单引号和双引号区别"></a>19.2.5  shell中单引号和双引号区别</h2><p>‘’	在单引号中所有的字符包括特殊字符（$,’’,`和\）都将解释成字符本身而成为普通字符。</p>
+<p>“”	在双引号中，除了$, ‘’, `和\以外所有的字符都解释成字符本身，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义</p>
+<p>注：\转义符，跟在之后的特殊符号将失去特殊含义，变为普通字符。如**$将输出“$”符号，而不当做是变量引用</p>
+<p>例：</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<p>123</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<p>$VAR1</p>
+<p>例1：给变量值赋于多个单词，需要使用单引号和双引号</p>
+<p>[root@xuegod63 ~]# VAR8=’xuegdo mk’</p>
+<p>[root@xuegod63 ~]# echo $VAR8</p>
+<p>xuegdo mk</p>
+<p>例2：赋值时单引号和双引号的区别</p>
+<p>[root@xuegod63 ~]# VAR8=’xuegod mk $VAR1’</p>
+<p>[root@xuegod63 ~]# VAR9=”xuegod mk $VAR1”  #双引中$符号有作用</p>
+<p>[root@xuegod63 ~]# echo $VAR8</p>
+<p>xuegod mk $VAR1</p>
+<p>[root@xuegod63 ~]# echo $VAR9</p>
+<p>xuegod mk 123</p>
+<p>注：单引号之间的内容原封不动赋值给变量，	双引号之间的内容如有特殊符号会保留它的特殊含义</p>
+<p>删除变量</p>
+<p>[root@xuegod63 ~]# unset VAR1</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<h2 id="19-2-6-环境变量"><a href="#19-2-6-环境变量" class="headerlink" title="19.2.6  环境变量"></a>19.2.6  环境变量</h2><p>在bash shell中，环境变量分为两类：全局变量和局部变量</p>
+<p>全局变量：对于shell会话和所有的子shell都是可见的</p>
+<p>局部变量： 它只在自己的进程当中使用</p>
+<p>例1：局部变量</p>
+<p>[root@xuegod63 ~]# VAR1=123</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<p>123</p>
+<p>[root@xuegod63 ~]# vim a.sh</p>
+<p>#!/bin/bash</p>
+<p>echo $VAR1</p>
+<p>[root@xuegod63 ~]# echo $VAR1</p>
+<p>123</p>
+<p>[root@xuegod63 ~]# bash a.sh  #执行a.sh 时，会使用另一个bash去执行，就访问不到$VAR1<strong>的值</strong></p>
+<p>例2：env命令查看所全局变量</p>
+<p>[root@xuegod63 ~]# env </p>
+<p>[root@xuegod63 ~]# env | grep PATH</p>
+<p>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin</p>
+<p>例3：使用export把这个局部变量输出为全局变量</p>
+<p>[root@xuegod63 ~]# export  VAR1=xuegod</p>
+<p>[root@xuegod63 ~]#  echo $VAR1</p>
+<p>xuegod</p>
+<p>[root@xuegod63 ~]# vim a.sh  #写入以下内容</p>
+<p>#!/bin/bash</p>
+<p>echo $VAR1</p>
+<p>[root@xuegod63 ~]# bash a.sh  #引用全局<strong>变量成功</strong></p>
+<p>xuegod</p>
+<p>互动： 虽然我们设置了export全局变量，但是新开的xshell连接中，还是读不到变量VAR1，怎么办？</p>
+<p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105420952.png" alt="image-20231224105420952"></p>
+<p>例3：让变量永久生效，可以把定义好的变量写入配置文件</p>
+<p>当登录系统或新开启一个ssh连接启动bash进程时，一定会加载这4个配置文件：</p>
+<p>[root@xuegod63 ~]# vim /etc/profile   #系统全局环境和登录系统的一些配置</p>
+<p>[root@xuegod63 ~]# vim /etc/bashrc   #shell全局自义配置文件，用于自定义shell</p>
+<p>[root@xuegod63 ~]# vim /root/.bashrc  #用于单独自定义某个用户的bash</p>
+<p>[root@xuegod63 ~]# vim /root/.bash_profile #用户单独自定义某个用户的系统环境</p>
+<p>互动：如何知道新建一个ssh连接，加载这4个配置文件先后顺序？ </p>
+<p>有思路：1，没有思路：2</p>
+<p>要会思考，思路很重要！</p>
+<p>答：可以每个文件的最后，追加一个echo命令，输出一下文件的名字</p>
+<p>[root@xuegod63 ~]# echo ‘echo  /etc/profile ‘ &gt;&gt; /etc/profile</p>
+<p>[root@xuegod63 ~]# echo ‘echo  /etc/bashrc’ &gt;&gt; /etc/bashrc</p>
+<p>[root@xuegod63 ~]# echo ‘echo /root/.bashrc ‘ &gt;&gt; /root/.bashrc</p>
+<p>[root@xuegod63 ~]# echo ‘echo  /root/.bash_profile ‘ &gt;&gt; /root/.bash_profile</p>
+<p>[root@xuegod63 ~]# ssh <a href="mailto:root@192.168.1.63">root@192.168.1.63</a>  #弹出以下信息，就知道有优先级了</p>
+<p>/etc/profile</p>
+<p>/etc/bashrc</p>
+<p>/root/.bashrc</p>
+<p>/root/.bash_profile</p>
+<p>互动：知道加载的顺序有什么用？</p>
+<p>可以在这里添加木马程序，只要管理登录系统，就触发木马程序！  现在大家知道学习操作系统原理的作用了吧。</p>
+<p>[root@xuegod63 ~]# echo ‘touch /tmp/profile.txt ‘ &gt;&gt; /etc/profile </p>
+<p>[root@xuegod63 ~]# echo ‘touch /tmp/bash_profile.txt ‘ &gt;&gt; /root/.bash_profile</p>
+<p>下面开始插入永久变量：</p>
+<p>[root@xuegod63 ~]# vim /etc/profile  #在文件的最后插入</p>
+<p>export VAR9=xuegod   #=等号两边不能有空格</p>
+<p>[root@xuegod63 ~]# source  /etc/profile  #重新加载profile文件</p>
+<p>新打开的链接中，也有了</p>
+<p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105605515.png" alt="image-20231224105605515"></p>
+<h2 id="19-2-7-设置PATH环境变量"><a href="#19-2-7-设置PATH环境变量" class="headerlink" title="19.2.7  设置PATH环境变量"></a>19.2.7  设置PATH环境变量</h2><p>SHELL要执行某一个程序，它要在系统中去搜索这个程序的路径，path变量是用来定义命令和查找命令的目录，当我们安装了第三方程序后，可以把第三方程序bin目录添加到这个path路径内，就可以在全局调用这个第三方程序的</p>
+<p>例1： </p>
+<p>[root@xuegod63 ~]# vim /opt/backup          </p>
+<p>#!/bin/bash</p>
+<p>echo “Backup data is OK!”</p>
+<p>[root@xuegod63 ~]# chmod +x /opt/backup  </p>
+<p>[root@xuegod63 ~]# /opt/backup</p>
+<p>[root@xuegod63 ~]# backup</p>
+<p>bash: backup: 未找到命令…</p>
+<p>将backup命令添加PATH中</p>
+<p>[root@xuegod63 ~]# PATH=/opt/:$PATH</p>
+<p>[root@xuegod63 ~]# backup  #发现命令可以直接执行了，不用写全路径了</p>
+<p>[root@xuegod63 ~]# vim /etc/profile # 在文件最后追加以下内容，永久生效</p>
+<p>export PATH=/opt/:$PATH</p>
+<p>[root@xuegod63 ~]# source  /etc/profile  #重新加载配置文件，使用配置生效</p>
+<h2 id="19-2-8-shell位置变量"><a href="#19-2-8-shell位置变量" class="headerlink" title="19.2.8  shell位置变量"></a>19.2.8  shell位置变量</h2><p>Shell解释执行用户的命令时，将命令行的第一个字符作为命令名，而其它字符作为参数。  </p>
+<p>$0  获取当前执行shell脚本的文件文件名，包括脚本路径,命令本身</p>
+<p>$n  获取当前脚本的第n个参数 n=1,2…..n 当n大于9时 用${10}表示。</p>
+<p>例子：</p>
+<p>[root@xuegod63 ~]# vim print.sh </p>
+<p>#!/bin/bash</p>
+<p>echo “本shell脚本的文件名： $0”</p>
+<p>echo “第1个参数：  $1”</p>
+<p>echo “第2个参数：  $2”</p>
+<p>echo “第3个参数：  $3”</p>
+<p>echo “第4个参数：  $4”</p>
+<p>[root@xuegod63 ~]# chmod +x print.sh</p>
+<p>[root@xuegod63 ~]# ./print.sh 111  222 a.txt  444</p>
+<p>本shell脚本的文件名： ./print.sh</p>
+<p>第1个参数：  111</p>
+<p>第2个参数：  222</p>
+<p>第3个参数：  a.txt</p>
+<p>第4个参数：  444</p>
+<p>使用场景：服务器启动传参数</p>
+<p>[root@xuegod63 ~]# /etc/init.d/network restart</p>
+<h2 id="19-2-9-特殊变量"><a href="#19-2-9-特殊变量" class="headerlink" title="19.2.9  特殊变量"></a>19.2.9  特殊变量</h2><p>有些变量是一开始执行Script脚本时就会设定，且不能被修改，但我们不叫它只读的系统变量，而叫它特殊变量。这些变量当一执行程序时就有了，以下是一些特殊变量：</p>
+<table>
+<thead>
+<tr>
+<th><em>$</em>*</th>
+<th>以一个单字符串显示所有向脚本传递的参数；<strong>如”$”用【”】括起来的情况、以”$1 $2 … $n”的形式输出所有参数</strong>*</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$#</td>
+<td>传递到脚本的参数个数</td>
+</tr>
+<tr>
+<td>$$</td>
+<td>当前进程的进程号PID</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>显示最后命令的退出状态；0表示没有错误，其他任何值表明有错误</td>
+</tr>
+<tr>
+<td>$!</td>
+<td>后台运行的最后一个进程的进程号pid</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<p>[root@xuegod63 ~]# vim special_variable.sh #写入以一下内容</p>
+<p>#!/bin/bash</p>
+<p>echo “$ 表示这个程序的所有参数 “*</p>
+<p>echo “$#  表示这个程序的参数个数”</p>
+<p>echo “$$  表示<strong>程序的进程ID “</strong></p>
+<p>touch /tmp/b.txt &amp;</p>
+<p>echo “$!  执行上一个后台指令的PID”</p>
+<p>echo “$$  表示<strong>程序的进程ID “</strong></p>
+<p>echo “$? 表示上一个<strong>程序执行返回结果</strong> “</p>
+<p>[root@xuegod63 ~]# bash special_variable.sh  11 22 33 44 55</p>
+<p>11 22 33 44 55 表示这个程序的所有参数 </p>
+<p>11 22 33 44 55 表示这个程序的所有参数 </p>
+<p>5  表示这个程序的参数个数</p>
+<p>45502  表程序的进程ID </p>
+<p>45504  执行上一个后台指令的PID</p>
+<p>45502  表程序的进程ID</p>
+<p>0 表示上一个程序执行返回结果</p>
+<p>例2：常用的环境变量</p>
+<p>[root@xuegod63 opt]# cd /opt/</p>
+<p>[root@xuegod63 opt]# vim env.sh</p>
+<p>#!/bin/bash</p>
+<p>echo $HOME</p>
+<p>echo $PATH</p>
+<p>echo $PWD</p>
+<p>[root@xuegod63 opt]# bash env.sh </p>
+<p>/root</p>
+<p>/opt/:/opt/:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin</p>
+<p>/opt</p>
+<h1 id="19-3-数学运算"><a href="#19-3-数学运算" class="headerlink" title="19.3  数学运算"></a>19.3  数学运算</h1><h2 id="19-3-1-expr命令"><a href="#19-3-1-expr命令" class="headerlink" title="19.3.1  expr命令"></a>19.3.1  expr命令</h2><p>(1)对数字的基本计算，做比较时，输出结果假为0，1为真；特殊符号用转义符</p>
+<p>[root@xuegod63 ~]# expr 2 &gt; 5</p>
+<p>0</p>
+<p>[root@xuegod63 ~]# expr 6 &gt; 5</p>
+<p>1</p>
+<p><em>[root@xuegod63 ~]# expr 3 * 5</em></p>
+<p>expr: 语法错误</p>
+<p><em>[root@xuegod63 ~]# expr 3 * 5</em></p>
+<p>15</p>
+<p>[root@xuegod63 ~]# expr 3 + 5</p>
+<p>8</p>
+<p>(2)对字符串的处理</p>
+<p>[root@xuegod63 ~]# expr length “ni hao”</p>
+<p>6</p>
+<p>[root@xuegod63 ~]# expr substr “ni hao” 2 4 #从第2个开始，截取4个字符出来</p>
+<p>i ha</p>
+<h2 id="19-3-2-使用"><a href="#19-3-2-使用" class="headerlink" title="19.3.2  使用$(( ))"></a>19.3.2  使用$(( ))</h2><p>格式：$（（表达式1，表达2））</p>
+<p>特点：</p>
+<p>​	1、在双括号结构中，所有表达式可以像c语言一样，如：a++,b–等。a++  等价于 a=a+1 </p>
+<p>​	2、在双括号结构中，所有变量可以不加入：“$”符号前缀。</p>
+<p>​	3、双括号可以进行逻辑运算，四则运算</p>
+<p>​	4、双括号结构 扩展了for，while,if条件测试运算</p>
+<p>​	5、支持多个表达式运算，各个表达式之间用“，”分开</p>
+<p>常用的算数运算符</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>++  –</td>
+<td>递增及递减，可前置也可以后置</td>
+</tr>
+<tr>
+<td>+  -  ! ~</td>
+<td>一元运算的正负号 逻辑与取反</td>
+</tr>
+<tr>
+<td><em>+  -  *  /  %</em></td>
+<td>加减乘除与余数</td>
+</tr>
+<tr>
+<td>&lt;  &lt;=  &gt;  &gt;=</td>
+<td>比较大小符号</td>
+</tr>
+<tr>
+<td>==  !=</td>
+<td>相等 不相等</td>
+</tr>
+<tr>
+<td>&gt;&gt;  &lt;&lt;</td>
+<td>向左位移 向右位移</td>
+</tr>
+<tr>
+<td>&amp; ^  |</td>
+<td>位的与 位的异或 位的或</td>
+</tr>
+<tr>
+<td>&amp;&amp;  ||</td>
+<td>逻辑与 逻辑或</td>
+</tr>
+<tr>
+<td>？ :</td>
+<td>条件判断</td>
+</tr>
+</tbody></table>
+<p>例1：</p>
+<p>[root@xuegod63 opt]# b=$((1+2))</p>
+<p>[root@xuegod63 opt]# echo $b</p>
+<p>3</p>
+<p>[root@xuegod63 opt]# echo $((23))*</p>
+<p>6</p>
+<p>例2：递增和递减</p>
+<p>[root@xuegod63 opt]# echo $((b++))</p>
+<p>4</p>
+<p>[root@xuegod63 opt]# echo $((++b))</p>
+<p>6</p>
+<p>说明： a++或a–为先赋值再+1或减1 ； ++a或–a为先加1或减1，然后再进行赋值</p>
+<p>例3：</p>
+<p>求1到100的和</p>
+<p>[root@xuegod63 opt]# echo $((100(1+100)/2))*</p>
+<p>5050</p>
+<h1 id="19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备"><a href="#19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备" class="headerlink" title="19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备"></a>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</h1><h2 id="19-4-1-安装jdk-java运行环境"><a href="#19-4-1-安装jdk-java运行环境" class="headerlink" title="19.4.1  安装jdk java运行环境"></a>19.4.1  安装jdk java运行环境</h2><p>上传jdk-8u161-linux-x64.rpm<strong>软件包到xuegod63</strong></p>
+<p>[root@xuegod63 ~]# rpm -ivh jdk-8u161-linux-x64.rpm</p>
+<p>[root@xuegod63 ~]#rpm -pql /root/jdk-8u161-linux-x64.rpm  #通过查看jdk的信息可以知道jdk的安装目录在/usr/java </p>
+<p>[root@xuegod63 ~]#vim /etc/profile  #在文件的最后添加以下内容：</p>
+<p>export JAVA_HOME=/usr/java/jdk1.8.0_161</p>
+<p>export JAVA_BIN=/usr/java/jdk1.8.0_161/bin</p>
+<p>export PATH=${JAVA_HOME}/bin:$PATH</p>
+<p>export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar</p>
+<p>[root@xuegod63 ~]#source /etc/profile #使配置文件生效</p>
+<p>验证java运行环境是否安装成功：</p>
+<p>[root@xuegod63 ~]#  java -version</p>
+<p>java version “1.8.0_161”</p>
+<p>Java(TM) SE Runtime Environment (build 1.8.0_161-b12)</p>
+<p>Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)</p>
+<p>如果出现安装的对应版本，说明java运行环境已经安装成功。</p>
+<p>注：这里只是升级了jdk的版本，因为在我安装的系统中已经安装了jdk。</p>
+<p>总结：</p>
+<p>19.1  shell 基本语法</p>
+<p>19.2  SHELL变量及运用</p>
+<p>19.3  数学运算</p>
+<p>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/">http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/24/shell-jiao-ben-de-ji-chu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="shell脚本的基础">
+                        
+                        <span class="card-title">shell脚本的基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/23/shell-bian-cheng-qian-zou-xiao-gong-ju/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="SHELL编程前奏_小工具">
+                        
+                        <span class="card-title">SHELL编程前奏_小工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">112.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>
