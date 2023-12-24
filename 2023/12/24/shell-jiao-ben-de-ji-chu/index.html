@@ -575,79 +575,121 @@ hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 
 
 <p><strong>创建shell程序的步骤：</strong></p>
-<p>§ 第一步：创建一个包含命令和控制结构的文件。</p>
-<p>§ 第二步：修改这个文件的权限使它可以执行。§ 使用chmod +x test.sh</p>
-<p>§ 第三步：检测语法错误</p>
-<p>§ 第四步：执行 ./example</p>
-<p>shell脚本的执行通常有以下几种方式</p>
+<p>第一步：创建一个包含命令和控制结构的文件。</p>
+<p>第二步：修改这个文件的权限使它可以执行。使用chmod +x test.sh</p>
+<p>第三步：检测语法错误</p>
+<p>第四步：执行 ./example</p>
+<p><strong>shell脚本的执行通常有以下几种方式</strong></p>
 <p>1、/root/test.sh  或者 ./test.sh (当前路径下执行脚本的话要有执行权限chmod +x test.sh) </p>
 <p>2、bash test.sh 或 sh test.sh  （这种方式可以不对脚本文件添加执行权限）</p>
 <p>3、source test.sh (可以没有执行权限)</p>
 <p>4、sh &lt; test.sh 或者 cat test.sh |sh(bash)</p>
-<h1 id="19-2-SHELL变量及运用"><a href="#19-2-SHELL变量及运用" class="headerlink" title="19.2  SHELL变量及运用"></a>19.2  SHELL变量及运用</h1><h2 id="19-2-1-shell变量"><a href="#19-2-1-shell变量" class="headerlink" title="19.2.1  shell变量"></a>19.2.1  shell变量</h2><p>变量是shell 传递数据的一种方法。变量是用来代表每个值的符号名。我们可以把变量当成一个容器，通过变量，可以在内存中存储数据。也<strong>可以在脚本执行中进行修改和访问存储的数据</strong></p>
+<h1 id="19-2-SHELL变量及运用"><a href="#19-2-SHELL变量及运用" class="headerlink" title="19.2  SHELL变量及运用"></a>19.2  SHELL变量及运用</h1><h2 id="19-2-1-shell变量"><a href="#19-2-1-shell变量" class="headerlink" title="19.2.1  shell变量"></a>19.2.1  shell变量</h2><p>变量是shell 传递数据的一种方法。变量是用来代表每个值的符号名。我们可以把变量当成一个容器，通过变量，可以在内存中存储数据。也可以在脚本执行中进行修改和访问存储的数据</p>
 <p>变量的设置规则：</p>
-<p>1、 变量名称通常是大写字母，它可以由数字、字母（大小写）和下划线_组成。变量名区分大小写；但是大家要注意变量名称不能以数字开头</p>
+<p>1、 变量名称通常是大写字母，它可以由数字、字母（大小写）和下划线_组成。变量名区分大小写；但是大家要注意变量名称不能<strong>以数字开头</strong></p>
 <p>2、 等号 = 用于为变量分配值，在使用过程中等号两边不能有空格</p>
 <p>3、 变量存储的数据类型是整数值和字符串值</p>
 <p>4、 在对变量赋于字符串值时，建议大家用引号将其括起来。因为如果字符串中存在空格隔符号。需要使用单引号或双引号</p>
 <p>5、 要对变量进行调用，可以在变量名称前加美元符号$</p>
-<p>6、 如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含“$变量名<strong>”或用${变量名}包含</strong></p>
+<p>6、 如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含“$变量名”或用${变量名}包含</p>
 <p>变量的分类</p>
 <p>按照变量的作用可以分成4类：</p>
 <p>​	1、用户自定义变量 </p>
 <p>​	2、环境变量：这种变量中主要保存的是和系统操作环境相关的数据。 </p>
-<p>​	3u<strong>位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。</strong> </p>
-<p>​	4、预定义变量：是Bash<strong>中已经定义好的变量，变量名不能自定义，变量作用也是固定的。</strong> </p>
+<p>​	3、位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。 </p>
+<p>​	4、预定义变量：是Bash中已经定义好的变量，变量名不能自定义，变量作用也是固定的。 </p>
 <p>按照变量作用域可以分成2类：全局变量和局部变量。</p>
 <p>局部变量是shell 程序内部定义的，其使用范围仅限于定义它的程序，对其它程序不可见。包括：用户自定义变量、位置变量和预定义变量。</p>
-<p>§ 全局变量是环境变量，其值不随shell 脚本的执行结束而消失。</p>
+<p>全局变量是环境变量，其值不随shell 脚本的执行结束而消失。</p>
 <h2 id="19-2-2-用户定义变量"><a href="#19-2-2-用户定义变量" class="headerlink" title="19.2.2  用户定义变量"></a>19.2.2  用户定义变量</h2><p>变量名命名规则：由字母或下划线打头，不允许数字开头,后面由字母、数字或下划线组成，并且大小写字母意义不同。在使用变量时，在变量名前加$</p>
 <p>例1：给变量VAR1赋值</p>
-<p>[root@xuegod63 ~]# VAR1=123</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
-<p>123</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR1=123
+
+[root@xuegod63 ~]# echo $VAR1
+
+123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>variable  [ˈ<strong>veəriəbl]</strong> 变量</p>
 <p>例2：错误的赋值方式,不允许数字开头，等号两边不能有空格</p>
-<p>[root@xuegod63 ~]# VAR2 =456</p>
-<p>bash: VAR2: 未找到命令…</p>
-<p>[root@xuegod63 ~]# VAR2= 456</p>
-<p>bash: 456: 未找到命令…</p>
-<p>[root@xuegod63 ~]# VAR2 = 456</p>
-<p>bash: VAR2: 未找到命令…</p>
-<p>[root@xuegod63 ~]# 3VAR2 = 456</p>
-<p>bash: 3VAR2: 未找到命令…</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR2 =456
+
+bash: VAR2: 未找到命令...
+
+[root@xuegod63 ~]# VAR2= 456
+
+bash: 456: 未找到命令...
+
+[root@xuegod63 ~]# VAR2 = 456
+
+bash: VAR2: 未找到命令...
+
+[root@xuegod63 ~]# 3VAR2 = 456
+
+bash: 3VAR2: 未找到命令...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例3：变量值的叠加，使用${}</p>
 <p>$name是${name}的简化版本，但是在某些情况下，还必须使用花括号引起的方式来消除歧义并避免意外的结果</p>
-<p>[root@xuegod63 ~]# VAR4=mysql</p>
-<p>[root@xuegod63 ~]# echo $VAR4</p>
-<p>mysql</p>
-<p>[root@xuegod63 ~]# echo $VAR4-db.log</p>
-<p>mysql-db.log</p>
-<p>[root@xuegod63 ~]# echo $VAR4.db.log</p>
-<p>mysql.db.log</p>
-<p>[root@xuegod63 ~]# echo $VAR4db.log #发现输出的结果不是我们想要的，怎么办？</p>
-<p>.log</p>
-<p>[root@xuegod63 ~]# echo ${VAR4}db.log</p>
-<p>mysqldb.log</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR4=mysql
+
+[root@xuegod63 ~]# echo $VAR4
+
+mysql
+
+[root@xuegod63 ~]# echo $VAR4-db.log
+
+mysql-db.log
+
+[root@xuegod63 ~]# echo $VAR4.db.log
+
+mysql.db.log
+
+[root@xuegod63 ~]# echo $VAR4db.log #发现输出的结果不是我们想要的，怎么办？
+
+.log
+
+[root@xuegod63 ~]# echo ${VAR4}db.log
+
+mysqldb.log
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="19-2-3-命令的替换-使用-或反引号"><a href="#19-2-3-命令的替换-使用-或反引号" class="headerlink" title="19.2.3  命令的替换,使用$()或反引号"></a>19.2.3  命令的替换,使用$()或反引号</h2><p>例1：在命令就调用date命令</p>
 <p>扩展：date命令是显示或设置系统时间与日期。</p>
 <p>-s&lt;字符串&gt;：根据字符串来设置日期与时间。字符串前后必须加上双引号；</p>
 <p>&lt;+时间日期格式&gt;：指定显示时，使用特定的日期时间格式。</p>
 <p>例：格式化输出：</p>
-<p>[root@xuegod63 ~]# date +”%Y-%m-%d” #今天时间，一般备份数据需要用这个</p>
-<p>2018-05-25</p>
-<p>[root@xuegod63 ~]#  date +”%Y-%m”  #只显示年月</p>
-<p>2018-05</p>
-<p>[root@xuegod63 ~]#  date +”%Y-%m-%d %H:%M.%S”  #日期加时间</p>
-<p>2018-05-25 17:51.36</p>
-<p>[root@xuegod63 ~]#  date +”%Y/<strong>%m/%d %H/%M/%S”</strong> #使用/做分隔符</p>
-<p>2018-05-25 17-51-43</p>
-<p>[root@xuegod63 ~]#  date +”%Y-%m-%d-%H-%M-%S” #使用-做分隔符，一般备份数据需要用这个</p>
-<p>注： %y 年份只显示2位，  %Y年份显示4位</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# date +"%Y-%m-%d" #今天时间，一般备份数据需要用这个
+
+2018-05-25
+
+[root@xuegod63 ~]#  date +"%Y-%m"  #只显示年月
+
+2018-05
+
+[root@xuegod63 ~]#  date +"%Y-%m-%d %H:%M.%S"  #日期加时间
+
+2018-05-25 17:51.36
+
+[root@xuegod63 ~]#  date +"%Y/**%m/%d %H/%M/%S"** #使用/做分隔符
+
+2018-05-25 17-51-43
+
+[root@xuegod63 ~]#  date +"%Y-%m-%d-%H-%M-%S" #使用-做分隔符，一般备份数据需要用这个
+
+注： %y 年份只显示2位，  %Y年份显示4位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>date命令加减操作：</p>
-<p>date +%Y%m%d          #显示当<strong>天年月日</strong></p>
-<p>date -d “+1 day” +%Y%m%d    #显示明天<strong>的日期</strong></p>
-<p>date -d “-1 day” +%Y%m%d    #显示昨天<strong>的日期</strong></p>
+<p>date +%Y%m%d          #显示当天年月日</p>
+<p>date -d “+1 day” +%Y%m%d    #显示明天的日期</p>
+<p>date -d “-1 day” +%Y%m%d    #显示昨天的日期</p>
 <p>date -d “-1 month” +%Y%m%d   #显示上一月的日期</p>
 <p>date -d “+1 month” +%Y%m%d   #显示下一月的日期</p>
 <p>date -d “-1 year” +%Y%m%d    #显示前一年的日期</p>
@@ -657,25 +699,50 @@ hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>date -s 01:01:01        #设置具体时间，不会对日期做更改</p>
 <p>date -s “2018-05-23 01:01:01”  #这样可以设置全部时间</p>
 <p>例1： 在命令中调用date命令输出值</p>
-<p>[root@xuegod63 ~]# echo date</p>
-<p>2018年 05月 25日 星期五 17:41:29 CST</p>
-<p>[root@xuegod63 ~]# echo $(date)</p>
-<p>2018年 05月 25日 星期五 17:41:42 CST</p>
-<p>[root@xuegod63 ~]# echo date +”%Y-%m-%d”</p>
-<p>2012-05-23</p>
-<h2 id="19-2-4-命令的嵌套使用，使用"><a href="#19-2-4-命令的嵌套使用，使用" class="headerlink" title="19.2.4  命令的嵌套使用，使用$( $( ))"></a>19.2.4  命令的嵌套使用，使用$( $( ))</h2><p>*[root@xuegod63 ~]# find /root/ -name .txt</p>
-<p>*[root@xuegod63 ~]# VAR6=$(tar zcvf root.tar.gz $(find /root/ -name .txt))</p>
-<p>tar: 从成员名中删除开头的“/”</p>
-<p>[root@xuegod63 ~]# echo $VAR6  #查看值， VAR6中存储着tar的标准输出</p>
-<p>/root/.cache/tracker/db-version.txt /root/.cache/tracker/db-locale.txt /root/.cache/tracker/parser-sha1.txt /root/.cache/tracker/locale-for-miner-user-guides.txt /root/.cache/tracker/locale-for-miner-apps.txt /root/.cache/tracker/last-crawl.txt</p>
-<p>。。。</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo date
+
+2018年 05月 25日 星期五 17:41:29 CST
+
+[root@xuegod63 ~]# echo $(date)
+
+2018年 05月 25日 星期五 17:41:42 CST
+
+[root@xuegod63 ~]# echo date +"%Y-%m-%d"
+
+2012-05-23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="19-2-4-命令的嵌套使用，使用"><a href="#19-2-4-命令的嵌套使用，使用" class="headerlink" title="19.2.4  命令的嵌套使用，使用$( $( ))"></a>19.2.4  命令的嵌套使用，使用$( $( ))</h2><pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# find /root/ -name .txt
+
+[root@xuegod63 ~]# VAR6=$(tar zcvf root.tar.gz $(find /root/ -name .txt))
+
+tar: 从成员名中删除开头的“/”
+
+[root@xuegod63 ~]# echo $VAR6  #查看值， VAR6中存储着tar的标准输出
+
+/root/.cache/tracker/db-version.txt /root/.cache/tracker/db-locale.txt /root/.cache/tracker/parser-sha1.txt /root/.cache/tracker/locale-for-miner-user-guides.txt /root/.cache/tracker/locale-for-miner-apps.txt /root/.cache/tracker/last-crawl.txt
+……<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <p>实战：分享一个系统时间错误，引起tar报警告</p>
-<p>[root@xuegod63 ~]# date -s “2012-03-03 21:25:00”</p>
-<p>[root@xuegod63 ~]# tar zxvf root.tar.gz -C /opt/</p>
-<p>root/.cache/tracker/db-version.txt</p>
-<p>tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未来的 168094624.438537189 秒之后</p>
-<p>注： 如果弹出这个消息，是因为咱们的当前系统的时间不对。 比如：当前系统的时间晚于文件的mtime时间</p>
-<p>[root@xuegod63 ~]# ls /opt/root/.mozilla/firefox/wggimqlt.default/ -a #解压成功</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# date -s "2012-03-03 21:25:00"
+
+[root@xuegod63 ~]# tar zxvf root.tar.gz -C /opt/
+
+root/.cache/tracker/db-version.txt
+
+tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未来的 168094624.438537189 秒之后
+
+注： 如果弹出这个消息，是因为咱们的当前系统的时间不对。 比如：当前系统的时间晚于文件的mtime时间
+
+[root@xuegod63 ~]# ls /opt/root/.mozilla/firefox/wggimqlt.default/ -a #解压成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="19-2-5-shell中单引号和双引号区别"><a href="#19-2-5-shell中单引号和双引号区别" class="headerlink" title="19.2.5  shell中单引号和双引号区别"></a>19.2.5  shell中单引号和双引号区别</h2><p>‘’	在单引号中所有的字符包括特殊字符（$,’’,`和\）都将解释成字符本身而成为普通字符。</p>
 <p>“”	在双引号中，除了$, ‘’, `和\以外所有的字符都解释成字符本身，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义</p>
 <p>注：\转义符，跟在之后的特殊符号将失去特殊含义，变为普通字符。如**$将输出“$”符号，而不当做是变量引用</p>
