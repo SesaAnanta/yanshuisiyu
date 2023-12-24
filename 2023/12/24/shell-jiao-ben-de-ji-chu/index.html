@@ -575,11 +575,7 @@
 <p>gcc编译器：（解释器）  将人类理解的语言翻译成机器理解的语言</p>
 <h2 id="19-1-3-什么是SHELL脚本？"><a href="#19-1-3-什么是SHELL脚本？" class="headerlink" title="19.1.3  什么是SHELL脚本？"></a>19.1.3  什么是SHELL脚本？</h2><p>shell脚本：就是说我们把原来linux命令或语句放在一个文件中，然后通过这个程序文件去执行时，我们就说这个程序为shell脚本或shell程序；我们可以在脚本中输入一系统的命令以及相关的语法语句组合，比如变量，流程控制语句等，把他们有机结合起来就形成了一个功能强大的shell脚本</p>
 <p>先手写一个脚本体验一下：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">[root@xuegod63 ~]# vim test.sh  #写入以下内容<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<pre class="line-numbers language-none"><code class="language-none">
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">[root@xuegod63 ~]# vim test.sh  #写入以下内容
 #!/bin/bash
 
 # This is shell.
@@ -588,12 +584,14 @@ echo "hello world"
 mkdir /tmp/test
 touch /tmp/test/a.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+
+
 <p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105341201.png" alt="image-20231224105341201"></p>
 <p>注释：</p>
 <p>1、!/bin/bash 作用：告诉脚本使用的是哪种命令解释器。如不指shell，以当前shell作为执行的shell。</p>
 <p> 2、在shell中以#表示开头，整个行就被当作一个注释。执行时被忽略。</p>
 <p>3、shell程序一般以.sh结尾</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# chmod +x test.sh 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# chmod +x test.sh 
 
 [root@xuegod63 ~]# ./test.sh  #执行
 
@@ -630,7 +628,7 @@ hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>全局变量是环境变量，其值不随shell 脚本的执行结束而消失。</p>
 <h2 id="19-2-2-用户定义变量"><a href="#19-2-2-用户定义变量" class="headerlink" title="19.2.2  用户定义变量"></a>19.2.2  用户定义变量</h2><p>变量名命名规则：由字母或下划线打头，不允许数字开头,后面由字母、数字或下划线组成，并且大小写字母意义不同。在使用变量时，在变量名前加$</p>
 <p>例1：给变量VAR1赋值</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR1=123
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# VAR1=123
 
 [root@xuegod63 ~]# echo $VAR1
 
@@ -1124,7 +1122,7 @@ i ha
 
 
 <h1 id="19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备"><a href="#19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备" class="headerlink" title="19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备"></a>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</h1><h2 id="19-4-1-安装jdk-java运行环境"><a href="#19-4-1-安装jdk-java运行环境" class="headerlink" title="19.4.1  安装jdk java运行环境"></a>19.4.1  安装jdk java运行环境</h2><p>上传jdk-8u161-linux-x64.rpm软件包到xuegod63</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# rpm -ivh jdk-8u161-linux-x64.rpm
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# rpm -ivh jdk-8u161-linux-x64.rpm
 
 [root@xuegod63 ~]#rpm -pql /root/jdk-8u161-linux-x64.rpm  #通过查看jdk的信息可以知道jdk的安装目录在/usr/java 
 
