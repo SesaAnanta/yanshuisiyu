@@ -774,51 +774,101 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <p>“”	在双引号中，除了$, ‘’, `和\以外所有的字符都解释成字符本身，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义</p>
 <p>注：\转义符，跟在之后的特殊符号将失去特殊含义，变为普通字符。如**$将输出“$”符号，而不当做是变量引用</p>
 <p>例：</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
-<p>123</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
-<p>$VAR1</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo $VAR1
+
+123
+
+[root@xuegod63 ~]# echo $VAR1
+
+$VAR1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例1：给变量值赋于多个单词，需要使用单引号和双引号</p>
-<p>[root@xuegod63 ~]# VAR8=’xuegdo mk’</p>
-<p>[root@xuegod63 ~]# echo $VAR8</p>
-<p>xuegdo mk</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR8='xuegdo mk'
+
+[root@xuegod63 ~]# echo $VAR8
+
+xuegdo mk<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：赋值时单引号和双引号的区别</p>
-<p>[root@xuegod63 ~]# VAR8=’xuegod mk $VAR1’</p>
-<p>[root@xuegod63 ~]# VAR9=”xuegod mk $VAR1”  #双引中$符号有作用</p>
-<p>[root@xuegod63 ~]# echo $VAR8</p>
-<p>xuegod mk $VAR1</p>
-<p>[root@xuegod63 ~]# echo $VAR9</p>
-<p>xuegod mk 123</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR8='xuegod mk $VAR1'
+
+[root@xuegod63 ~]# VAR9="xuegod mk $VAR1"  #双引中$符号有作用
+
+[root@xuegod63 ~]# echo $VAR8
+
+xuegod mk $VAR1
+
+[root@xuegod63 ~]# echo $VAR9
+
+xuegod mk 123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>注：单引号之间的内容原封不动赋值给变量，	双引号之间的内容如有特殊符号会保留它的特殊含义</p>
 <p>删除变量</p>
-<p>[root@xuegod63 ~]# unset VAR1</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# unset VAR1
+
+[root@xuegod63 ~]# echo $VAR1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="19-2-6-环境变量"><a href="#19-2-6-环境变量" class="headerlink" title="19.2.6  环境变量"></a>19.2.6  环境变量</h2><p>在bash shell中，环境变量分为两类：全局变量和局部变量</p>
 <p>全局变量：对于shell会话和所有的子shell都是可见的</p>
 <p>局部变量： 它只在自己的进程当中使用</p>
 <p>例1：局部变量</p>
-<p>[root@xuegod63 ~]# VAR1=123</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
-<p>123</p>
-<p>[root@xuegod63 ~]# vim a.sh</p>
-<p>#!/bin/bash</p>
-<p>echo $VAR1</p>
-<p>[root@xuegod63 ~]# echo $VAR1</p>
-<p>123</p>
-<p>[root@xuegod63 ~]# bash a.sh  #执行a.sh 时，会使用另一个bash去执行，就访问不到$VAR1<strong>的值</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR1=123
+
+[root@xuegod63 ~]# echo $VAR1
+
+123
+
+[root@xuegod63 ~]# vim a.sh
+
+#!/bin/bash
+
+echo $VAR1
+
+[root@xuegod63 ~]# echo $VAR1
+
+123
+
+[root@xuegod63 ~]# bash a.sh  #执行a.sh 时，会使用另一个bash去执行，就访问不到$VAR1**的值**<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：env命令查看所全局变量</p>
-<p>[root@xuegod63 ~]# env </p>
-<p>[root@xuegod63 ~]# env | grep PATH</p>
-<p>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# env 
+
+[root@xuegod63 ~]# env | grep PATH
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例3：使用export把这个局部变量输出为全局变量</p>
-<p>[root@xuegod63 ~]# export  VAR1=xuegod</p>
-<p>[root@xuegod63 ~]#  echo $VAR1</p>
-<p>xuegod</p>
-<p>[root@xuegod63 ~]# vim a.sh  #写入以下内容</p>
-<p>#!/bin/bash</p>
-<p>echo $VAR1</p>
-<p>[root@xuegod63 ~]# bash a.sh  #引用全局<strong>变量成功</strong></p>
-<p>xuegod</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# export  VAR1=xuegod
+
+[root@xuegod63 ~]#  echo $VAR1
+
+xuegod
+
+[root@xuegod63 ~]# vim a.sh  #写入以下内容
+
+#!/bin/bash
+
+echo $VAR1
+
+[root@xuegod63 ~]# bash a.sh  #引用全局**变量成功**
+
+xuegod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>互动： 虽然我们设置了export全局变量，但是新开的xshell连接中，还是读不到变量VAR1，怎么办？</p>
 <p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105420952.png" alt="image-20231224105420952"></p>
 <p>例3：让变量永久生效，可以把定义好的变量写入配置文件</p>
@@ -831,15 +881,26 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <p>有思路：1，没有思路：2</p>
 <p>要会思考，思路很重要！</p>
 <p>答：可以每个文件的最后，追加一个echo命令，输出一下文件的名字</p>
-<p>[root@xuegod63 ~]# echo ‘echo  /etc/profile ‘ &gt;&gt; /etc/profile</p>
-<p>[root@xuegod63 ~]# echo ‘echo  /etc/bashrc’ &gt;&gt; /etc/bashrc</p>
-<p>[root@xuegod63 ~]# echo ‘echo /root/.bashrc ‘ &gt;&gt; /root/.bashrc</p>
-<p>[root@xuegod63 ~]# echo ‘echo  /root/.bash_profile ‘ &gt;&gt; /root/.bash_profile</p>
-<p>[root@xuegod63 ~]# ssh <a href="mailto:root@192.168.1.63">root@192.168.1.63</a>  #弹出以下信息，就知道有优先级了</p>
-<p>/etc/profile</p>
-<p>/etc/bashrc</p>
-<p>/root/.bashrc</p>
-<p>/root/.bash_profile</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo 'echo  /etc/profile ' &gt;&gt; /etc/profile
+
+[root@xuegod63 ~]# echo 'echo  /etc/bashrc' &gt;&gt; /etc/bashrc
+
+[root@xuegod63 ~]# echo 'echo /root/.bashrc ' &gt;&gt; /root/.bashrc
+
+[root@xuegod63 ~]# echo 'echo  /root/.bash_profile ' &gt;&gt; /root/.bash_profile
+
+[root@xuegod63 ~]# ssh root@192.168.1.63  #弹出以下信息，就知道有优先级了
+
+/etc/profile
+
+/etc/bashrc
+
+/root/.bashrc
+
+/root/.bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>互动：知道加载的顺序有什么用？</p>
 <p>可以在这里添加木马程序，只要管理登录系统，就触发木马程序！  现在大家知道学习操作系统原理的作用了吧。</p>
 <p>[root@xuegod63 ~]# echo ‘touch /tmp/profile.txt ‘ &gt;&gt; /etc/profile </p>
@@ -889,8 +950,8 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <table>
 <thead>
 <tr>
-<th><em>$</em>*</th>
-<th>以一个单字符串显示所有向脚本传递的参数；<strong>如”$”用【”】括起来的情况、以”$1 $2 … $n”的形式输出所有参数</strong>*</th>
+<th>$*</th>
+<th>以一个单字符串显示所有向脚本传递的参数；如”$*”用【”】括起来的情况、以”$1 $2 … $n”的形式输出所有参数</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -913,13 +974,13 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <p>例子：</p>
 <p>[root@xuegod63 ~]# vim special_variable.sh #写入以一下内容</p>
 <p>#!/bin/bash</p>
-<p>echo “$ 表示这个程序的所有参数 “*</p>
+<p>echo “$* 表示这个程序的所有参数 “</p>
 <p>echo “$#  表示这个程序的参数个数”</p>
-<p>echo “$$  表示<strong>程序的进程ID “</strong></p>
+<p>echo “$$  表示程序的进程ID “</p>
 <p>touch /tmp/b.txt &amp;</p>
 <p>echo “$!  执行上一个后台指令的PID”</p>
-<p>echo “$$  表示<strong>程序的进程ID “</strong></p>
-<p>echo “$? 表示上一个<strong>程序执行返回结果</strong> “</p>
+<p>echo “$$  表示程序的进程ID “</p>
+<p>echo “$? 表示上一个程序执行返回结果 “</p>
 <p>[root@xuegod63 ~]# bash special_variable.sh  11 22 33 44 55</p>
 <p>11 22 33 44 55 表示这个程序的所有参数 </p>
 <p>11 22 33 44 55 表示这个程序的所有参数 </p>
@@ -940,21 +1001,43 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <p>/opt/:/opt/:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin</p>
 <p>/opt</p>
 <h1 id="19-3-数学运算"><a href="#19-3-数学运算" class="headerlink" title="19.3  数学运算"></a>19.3  数学运算</h1><h2 id="19-3-1-expr命令"><a href="#19-3-1-expr命令" class="headerlink" title="19.3.1  expr命令"></a>19.3.1  expr命令</h2><p>(1)对数字的基本计算，做比较时，输出结果假为0，1为真；特殊符号用转义符</p>
-<p>[root@xuegod63 ~]# expr 2 &gt; 5</p>
-<p>0</p>
-<p>[root@xuegod63 ~]# expr 6 &gt; 5</p>
-<p>1</p>
-<p><em>[root@xuegod63 ~]# expr 3 * 5</em></p>
-<p>expr: 语法错误</p>
-<p><em>[root@xuegod63 ~]# expr 3 * 5</em></p>
-<p>15</p>
-<p>[root@xuegod63 ~]# expr 3 + 5</p>
-<p>8</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# expr 2 \&gt; 5
+
+0
+
+[root@xuegod63 ~]# expr 6 \&gt; 5
+
+1
+
+*[root@xuegod63 ~]# expr 3 * 5*
+
+expr: 语法错误
+
+*[root@xuegod63 ~]# expr 3 \* 5
+
+15
+
+[root@xuegod63 ~]# expr 3 \+ 5
+
+8
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>(2)对字符串的处理</p>
-<p>[root@xuegod63 ~]# expr length “ni hao”</p>
-<p>6</p>
-<p>[root@xuegod63 ~]# expr substr “ni hao” 2 4 #从第2个开始，截取4个字符出来</p>
-<p>i ha</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# expr length "ni hao"
+
+6
+
+[root@xuegod63 ~]# expr substr "ni hao" 2 4 #从第2个开始，截取4个字符出来
+
+i ha
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="19-3-2-使用"><a href="#19-3-2-使用" class="headerlink" title="19.3.2  使用$(( ))"></a>19.3.2  使用$(( ))</h2><p>格式：$（（表达式1，表达2））</p>
 <p>特点：</p>
 <p>​	1、在双括号结构中，所有表达式可以像c语言一样，如：a++,b–等。a++  等价于 a=a+1 </p>
@@ -1008,37 +1091,77 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 </tr>
 </tbody></table>
 <p>例1：</p>
-<p>[root@xuegod63 opt]# b=$((1+2))</p>
-<p>[root@xuegod63 opt]# echo $b</p>
-<p>3</p>
-<p>[root@xuegod63 opt]# echo $((23))*</p>
-<p>6</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 opt]# b=$((1+2))
+
+[root@xuegod63 opt]# echo $b
+
+3
+
+[root@xuegod63 opt]# echo $((2*3))
+
+6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：递增和递减</p>
-<p>[root@xuegod63 opt]# echo $((b++))</p>
-<p>4</p>
-<p>[root@xuegod63 opt]# echo $((++b))</p>
-<p>6</p>
-<p>说明： a++或a–为先赋值再+1或减1 ； ++a或–a为先加1或减1，然后再进行赋值</p>
-<p>例3：</p>
-<p>求1到100的和</p>
-<p>[root@xuegod63 opt]# echo $((100(1+100)/2))*</p>
-<p>5050</p>
-<h1 id="19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备"><a href="#19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备" class="headerlink" title="19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备"></a>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</h1><h2 id="19-4-1-安装jdk-java运行环境"><a href="#19-4-1-安装jdk-java运行环境" class="headerlink" title="19.4.1  安装jdk java运行环境"></a>19.4.1  安装jdk java运行环境</h2><p>上传jdk-8u161-linux-x64.rpm<strong>软件包到xuegod63</strong></p>
-<p>[root@xuegod63 ~]# rpm -ivh jdk-8u161-linux-x64.rpm</p>
-<p>[root@xuegod63 ~]#rpm -pql /root/jdk-8u161-linux-x64.rpm  #通过查看jdk的信息可以知道jdk的安装目录在/usr/java </p>
-<p>[root@xuegod63 ~]#vim /etc/profile  #在文件的最后添加以下内容：</p>
-<p>export JAVA_HOME=/usr/java/jdk1.8.0_161</p>
-<p>export JAVA_BIN=/usr/java/jdk1.8.0_161/bin</p>
-<p>export PATH=${JAVA_HOME}/bin:$PATH</p>
-<p>export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar</p>
-<p>[root@xuegod63 ~]#source /etc/profile #使配置文件生效</p>
-<p>验证java运行环境是否安装成功：</p>
-<p>[root@xuegod63 ~]#  java -version</p>
-<p>java version “1.8.0_161”</p>
-<p>Java(TM) SE Runtime Environment (build 1.8.0_161-b12)</p>
-<p>Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)</p>
-<p>如果出现安装的对应版本，说明java运行环境已经安装成功。</p>
-<p>注：这里只是升级了jdk的版本，因为在我安装的系统中已经安装了jdk。</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 opt]# echo $((b++))
+
+4
+
+[root@xuegod63 opt]# echo $((++b))
+
+6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>说明： a++或a–为先赋值再+1或减1 ；</p>
+<p> ++a或–a为先加1或减1，然后再进行赋值</p>
+<p>例3：求1到100的和</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 opt]# echo $((100*(1+100)/2))
+
+5050<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备"><a href="#19-4-实战-升级系统中的java版本到1-8版本-为后期安装Hadoop集群做准备" class="headerlink" title="19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备"></a>19.4  实战-升级系统中的java版本到1.8版本-为后期安装Hadoop集群做准备</h1><h2 id="19-4-1-安装jdk-java运行环境"><a href="#19-4-1-安装jdk-java运行环境" class="headerlink" title="19.4.1  安装jdk java运行环境"></a>19.4.1  安装jdk java运行环境</h2><p>上传jdk-8u161-linux-x64.rpm软件包到xuegod63</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# rpm -ivh jdk-8u161-linux-x64.rpm
+
+[root@xuegod63 ~]#rpm -pql /root/jdk-8u161-linux-x64.rpm  #通过查看jdk的信息可以知道jdk的安装目录在/usr/java 
+
+ 
+
+[root@xuegod63 ~]#vim /etc/profile  #在文件的最后添加以下内容：
+
+export JAVA_HOME=/usr/java/jdk1.8.0_161
+
+export JAVA_BIN=/usr/java/jdk1.8.0_161/bin
+
+export PATH=${JAVA_HOME}/bin:$PATH
+
+export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
+
+ 
+
+[root@xuegod63 ~]#source /etc/profile #使配置文件生效
+
+ 
+
+验证java运行环境是否安装成功：
+
+[root@xuegod63 ~]#  java -version
+
+java version "1.8.0_161"
+
+Java(TM) SE Runtime Environment (build 1.8.0_161-b12)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
+
+如果出现安装的对应版本，说明java运行环境已经安装成功。
+
+注：这里只是升级了jdk的版本，因为在我安装的系统中已经安装了jdk。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>总结：</p>
 <p>19.1  shell 基本语法</p>
 <p>19.2  SHELL变量及运用</p>
