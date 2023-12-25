@@ -520,7 +520,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-24
+                    2023-12-25
                 </div>
                 
 
@@ -684,56 +684,115 @@ eof
 
 
 
-<h1 id="20-2-流程控制语句if"><a href="#20-2-流程控制语句if" class="headerlink" title="20.2  流程控制语句if"></a>20.2  流程控制语句if</h1><h2 id="20-2-1-语法格式："><a href="#20-2-1-语法格式：" class="headerlink" title="20.2.1  语法格式："></a>20.2.1  语法格式：</h2><p>​	if  条件  </p>
-<p>​	then</p>
-<p>  commands</p>
-<p>​	fi</p>
+<h1 id="20-2-流程控制语句if"><a href="#20-2-流程控制语句if" class="headerlink" title="20.2  流程控制语句if"></a>20.2  流程控制语句if</h1><h2 id="20-2-1-语法格式："><a href="#20-2-1-语法格式：" class="headerlink" title="20.2.1  语法格式："></a>20.2.1  语法格式：</h2><pre class="line-numbers language-none"><code class="language-none">if  条件  
+
+then
+
+       commands
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>if语句流程图：</p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps1.png" alt="img"> </p>
 <p>注：根据我们的命令退出码来进行判断(echo $? =0)，如果是0,那么就会执行then后面的命令</p>
 <p>例1：</p>
-<p>[root@xuegod63 ~]# vim  if-1.sh </p>
-<p>#!/bin/bash</p>
-<p>if ls /mnt</p>
-<p>then</p>
-<p>​	echo “it’s ok”</p>
-<p>fi</p>
-<p>[root@xuegod63 ~]# bash !$</p>
-<p>bash if-1.sh</p>
-<p>CentOS_BuildTag  GPL	  LiveOS   RPM-GPG-KEY-CentOS-7</p>
-<p>EFI		 images   Packages  RPM-GPG-KEY-CentOS-Testing-7</p>
-<p>EULA		 isolinux  repodata  TRANS.TBL</p>
-<p>it’s ok</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim  if-1.sh 
+
+\#!/bin/bash
+
+if ls /mnt
+
+then
+
+​	echo "it's ok"
+
+fi
+
+[root@xuegod63 ~]# bash !$
+
+bash if-1.sh
+
+CentOS_BuildTag  GPL	  LiveOS   RPM-GPG-KEY-CentOS-7
+
+EFI		 images   Packages  RPM-GPG-KEY-CentOS-Testing-7
+
+EULA		 isolinux  repodata  TRANS.TBL
+
+it's ok
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="20-2-2-双分支if语句"><a href="#20-2-2-双分支if语句" class="headerlink" title="20.2.2  双分支if语句"></a>20.2.2  双分支if语句</h2><p>语法格式：</p>
-<p>if command  ; then</p>
-<p>​		commands</p>
-<p>else</p>
-<p>​		commands</p>
-<p>fi</p>
+<pre class="line-numbers language-none"><code class="language-none">if command  ; then
+
+		commands
+
+else
+
+		commands
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps2.jpg" alt="img"> </p>
 <p>例2：</p>
-<p>[root@xuegod63 ~]# cat if-2.sh</p>
-<p>#!/bin/bash</p>
-<p>if grep root /etc/passwd ; then</p>
-<p>​    echo “it’s ok”</p>
-<p>else</p>
-<p>​    “it’s err”</p>
-<p>fi </p>
-<p>[root@xuegod63 ~]# sh if-2.sh </p>
-<p>root<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>0:0:root:/root:/bin/bash</p>
-<p>operator<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>11:0:operator:/root:/sbin/nologin</p>
-<p>it’s ok</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-2.sh
+
+#!/bin/bash
+
+if grep root /etc/passwd ; then
+
+    echo "it's ok"
+
+else
+
+    "it's err"
+
+fi 
+
+ 
+
+[root@xuegod63 ~]# sh if-2.sh 
+
+root:x:0:0:root:/root:/bin/bash
+
+operator:x:11:0:operator:/root:/sbin/nologin
+
+it's ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>​	</p>
 <p>例3：</p>
-<p>[root@xuegod63 ~]# cat if-3.sh</p>
-<p>#!/bin/bash</p>
-<p>if grep xuegod /etc/passwd ;then</p>
-<p>​	echo “it’s ok”</p>
-<p>else</p>
-<p>​	echo “it’s err”</p>
-<p>fi</p>
-<p>[root@xuegod63 ~]# sh if-3.sh</p>
-<p>it’s err</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-3.sh
+
+#!/bin/bash
+
+ 
+
+if grep xuegod /etc/passwd ;then
+
+	echo "it's ok"
+
+else
+
+	echo "it's err"
+
+fi
+
+[root@xuegod63 ~]# sh if-3.sh
+
+it's err
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="20-2-3-多分支if语句"><a href="#20-2-3-多分支if语句" class="headerlink" title="20.2.3  多分支if语句"></a>20.2.3  多分支if语句</h2><p>语法结构：</p>
 <p>if条件测试操作1 ; then</p>
 <p>​		commands</p>
@@ -747,27 +806,54 @@ eof
 <p>fi</p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps3.jpg" alt="img"> </p>
 <p>例4：判断用户在系统中是否存在，是否有家目录</p>
-<p>[root@xuegod63 ~]# cat if-4.sh</p>
-<p>#!/bin/bash</p>
-<p>read -p “input a user:” tu</p>
-<p>if grep $tu /etc/passwd ; then</p>
-<p>​    echo “the user $tu exists on this system”</p>
-<p>elif ls -d /home/$tu  ;  then</p>
-<p>​    echo “the user $tu not exists on this system”</p>
-<p>​    echo “$tu has a home directory”</p>
-<p>else</p>
-<p>​    echo “the user $tu not exists on this system”</p>
-<p>​    echo “$tu not has a direcotry”</p>
-<p>fi</p>
-<p>[root@xuegod63 ~]# sh if-4.sh </p>
-<p>Input a user: hr</p>
-<p>chrony<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>994:990::/var/lib/chrony:/sbin/nologin</p>
-<p>hr<span class="github-emoji"><span>❌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>1000:1000:hr:/home/hr:/bin/bash</p>
-<p>the user hr exists on this system</p>
-<p>[root@xuegod63 ~]# sh if-4.sh</p>
-<p>Input a user: xuegod</p>
-<p>/home/xuegod</p>
-<p>xuegod has a directory</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-4.sh
+
+#!/bin/bash
+
+read -p "input a user:" tu
+
+if grep $tu /etc/passwd ; then
+
+​    echo "the user $tu exists on this system"
+
+elif ls -d /home/$tu  ;  then
+
+​    echo "the user $tu not exists on this system"
+
+​    echo "$tu has a home directory"
+
+else
+
+​    echo "the user $tu not exists on this system"
+
+​    echo "$tu not has a direcotry"
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# sh if-4.sh 
+
+Input a user: hr
+
+chrony:x:994:990::/var/lib/chrony:/sbin/nologin
+
+hr:x:1000:1000:hr:/home/hr:/bin/bash
+
+the user hr exists on this system
+
+[root@xuegod63 ~]# sh if-4.sh
+
+Input a user: xuegod
+
+/home/xuegod
+
+xuegod has a directory
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="20-3-test测试命令"><a href="#20-3-test测试命令" class="headerlink" title="20.3  test测试命令"></a>20.3  test测试命令</h1><p>Shell中的 test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试</p>
 <p>格式：test 测试条件 </p>
 <p>如果结果是对的，也叫结果为真，用$?=0表示，反之为假，用非0表示</p>
@@ -811,29 +897,59 @@ eof
 </tr>
 </tbody></table>
 <p>例1：比较大小</p>
-<p>[root@xuegod63 ~]# cat test1.sh </p>
-<p>#!/bin/bash</p>
-<p>if test 2 -eq 1  ; then</p>
-<p>​    echo ok</p>
-<p>else</p>
-<p>​    echo err</p>
-<p>fi</p>
-<p>if [ 2 -eq 2 ]  ; then</p>
-<p>​    echo ok</p>
-<p>else</p>
-<p>​    echo err</p>
-<p>fi</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test1.sh 
+
+#!/bin/bash
+
+if test 2 -eq 1  ; then
+
+​    echo ok
+
+else
+
+​    echo err
+
+fi
+
+ 
+
+if [ 2 -eq 2 ]  ; then
+
+​    echo ok
+
+else
+
+​    echo err
+
+fi
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2： 比较整数大小</p>
-<p>[root@xuegod63 ~]# cat test2.sh </p>
-<p>#!/bin/bash</p>
-<p>read -p “input var1 var2:” var1 var2</p>
-<p>if [ $var1 -gt $var2  ] ;  then</p>
-<p>​    echo “$var1 &gt; $var2”</p>
-<p>elif [ $var1 -lt $var2 ] ; then</p>
-<p>​    echo “$var1 &lt; $var2”</p>
-<p>else</p>
-<p>​    echo “$var1 = $var2”</p>
-<p>fi</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test2.sh 
+
+#!/bin/bash
+
+read -p "input var1 var2:" var1 var2
+
+if [ $var1 -gt $var2  ] ;  then
+
+​    echo "$var1 &gt; $var2"
+
+elif [ $var1 -lt $var2 ] ; then
+
+​    echo "$var1 &lt; $var2"
+
+else
+
+​    echo "$var1 = $var2"
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>注意：在做数值比较时，只能用整数</p>
 <h2 id="20-3-2-字符串比较"><a href="#20-3-2-字符串比较" class="headerlink" title="20.3.2  字符串比较"></a>20.3.2  字符串比较</h2><table>
 <thead>
@@ -875,38 +991,70 @@ eof
 </tr>
 </tbody></table>
 <p>例1：根据用户名判断是否是超级管理员</p>
-<p>[root@xuegod63 ~]# cat test3.sh</p>
-<p>#!/bin/bash</p>
-<p>read -p  “input your name: “ name</p>
-<p>if [ $name == “root” ] ; then</p>
-<p>​    echo “you are super administrator”</p>
-<p>else</p>
-<p>​    echo  “You are a general user”</p>
-<p>fi</p>
-<p>​	</p>
-<p>[root@xuegod63 ~]# bash test3.sh </p>
-<p>input your name: root</p>
-<p>you are super administrator</p>
-<p>[root@xuegod63 ~]# bash test3.sh </p>
-<p>input your name: mk</p>
-<p>You are a general usero “You are a general user”</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test3.sh
+
+#!/bin/bash
+
+read -p  "input your name: " name
+
+if [ $name == "root" ] ; then
+
+​    echo "you are super administrator"
+
+else
+
+​    echo  "You are a general user"
+
+fi
+
+​	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# bash test3.sh 
+
+input your name: root
+
+you are super administrator
+
+[root@xuegod63 ~]# bash test3.sh 
+
+input your name: mk
+
+You are a general usero "You are a general user"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：在做字符串大小比较的时候，注意字符串的顺序</p>
 <p>l 大于号和小于号必须转义，要不然SHELL会把它当成重定向符号</p>
 <p>l 大于和小于它们的顺序和sort排序是不一样的</p>
 <p>l 在test比较测试中，它使用的是ASCII顺序，大写字母是小于小写字母的；sort刚好相反</p>
 <p>扩展： ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps4.png" alt="img"> </p>
-<p>[root@xuegod63 ~]# cat test4.sh </p>
-<p>#!/bin/bash</p>
-<p>var1=test</p>
-<p>var2=Test</p>
-<p>if [  $var1 &gt;  $var2  ] ; then</p>
-<p>​    echo “$var1 &gt; $var2”</p>
-<p>else</p>
-<p>​    echo “$var1 &lt; $var2”</p>
-<p>fi </p>
-<p>[root@xuegod63 ~]# bash test4.sh </p>
-<p>test &gt; Test</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test4.sh 
+
+#!/bin/bash
+
+var1=test
+
+var2=Test
+
+if [  $var1 \&gt;  $var2  ] ; then
+
+​    echo "$var1 &gt; $var2"
+
+else
+
+​    echo "$var1 &lt; $var2"
+
+fi 
+
+[root@xuegod63 ~]# bash test4.sh 
+
+test &gt; Test
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="20-3-3-文件比较"><a href="#20-3-3-文件比较" class="headerlink" title="20.3.3  文件比较"></a>20.3.3  文件比较</h2><table>
 <thead>
 <tr>
@@ -972,54 +1120,118 @@ eof
 </tr>
 </tbody></table>
 <p>例1：</p>
-<p>[root@xuegod63 ~]# vim  test5.sh </p>
-<p>#!/bin/bash</p>
-<p>if [ -e /etc/passwd ] ; then</p>
-<p>​    echo ok</p>
-<p>else</p>
-<p>​    echo err</p>
-<p>fi </p>
-<p>[root@xuegod63 ~]# bash test5.sh </p>
-<p>ok</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim  test5.sh 
+
+#!/bin/bash
+
+if [ -e /etc/passwd ] ; then
+
+​    echo ok
+
+else
+
+​    echo err
+
+fi 
+
+[root@xuegod63 ~]# bash test5.sh 
+
+ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：</p>
-<p>[root@xuegod63 ~]# test -e /etc/aaa.txt &amp;&amp; echo ok || echo err</p>
-<p>err</p>
-<p>[root@xuegod63 ~]# test -e /etc/passwd &amp;&amp; echo ok || echo err</p>
-<p>ok</p>
-<p>[root@xuegod63 ~]# test -e /etc &amp;&amp; echo ok || echo err</p>
-<p>ok</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# test -e /etc/aaa.txt &amp;&amp; echo ok || echo err
+
+err
+
+[root@xuegod63 ~]# test -e /etc/passwd &amp;&amp; echo ok || echo err
+
+ok
+
+[root@xuegod63 ~]# test -e /etc &amp;&amp; echo ok || echo err
+
+ok
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例：清空日志目录</p>
-<p>[root@xuegod63 ~]# cat clear-log.sh </p>
-<p>#!/bin/bash</p>
-<p># clear /var/log/messages</p>
-<p>#确定当前是root用户</p>
-<p>if [ $USER != “root” ];then</p>
-<p>​	echo “你必须使用root用户才能执行脚本”</p>
-<p>​	exit 10  #直接退出，并返回10</p>
-<p>fi</p>
-<p>#判断文件是否存在</p>
-<p>if [ ! -f /var/log/messages ];then</p>
-<p>​	echo “文件不存在”</p>
-<p>​	exit 12</p>
-<p>fi</p>
-<p>#保留最近100行的日志内容</p>
-<p>tail -100 /var/log/messages &gt; /var/log/mesg.tmp</p>
-<p>#日志清理</p>
-<p>&gt;/var/log/messages</p>
-<p>#cat /dev/null &gt; /var/log/messages</p>
-<p>mv /var/log/mesg.tmp /var/log/messages</p>
-<p>echo “Logs clean up”</p>
-<p>注：退出码 exit ,取值范围是0-255</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat clear-log.sh 
+#!/bin/bash
+
+# clear /var/log/messages
+
+ 
+
+#确定当前是root用户
+
+if [ $USER != "root" ];then
+
+​	echo "你必须使用root用户才能执行脚本"
+
+​	exit 10  #直接退出，并返回10
+
+fi
+
+ 
+
+#判断文件是否存在
+
+if [ ! -f /var/log/messages ];then
+
+​	echo "文件不存在"
+
+​	exit 12
+
+fi
+
+ 
+
+#保留最近100行的日志内容
+
+tail -100 /var/log/messages &gt; /var/log/mesg.tmp
+
+ 
+
+#日志清理
+
+&gt;/var/log/messages
+
+#cat /dev/null &gt; /var/log/messages
+
+ 
+
+mv /var/log/mesg.tmp /var/log/messages
+
+echo "Logs clean up"
+
+注：退出码 exit ,取值范围是0-255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例： exit 退出bash，并返回一个值</p>
-<p>[root@xuegod63 ~]# ssh 192.168.1.63</p>
-<p><a href="mailto:root@192.168.1.63">root@192.168.1.63</a>‘s password: 123456</p>
-<p>Last login: Mon May 28 20:37:41 2018 from xuegod63.cn</p>
-<p>[root@xuegod63 ~]# </p>
-<p>[root@xuegod63 ~]# exit 10</p>
-<p>登出</p>
-<p>Connection to 192.168.1.63 closed.</p>
-<p>[root@xuegod63 ~]# echo $?</p>
-<p>10</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# ssh 192.168.1.63
+
+root@192.168.1.63's password: 123456
+
+Last login: Mon May 28 20:37:41 2018 from xuegod63.cn
+
+[root@xuegod63 ~]# 
+
+[root@xuegod63 ~]# exit 10
+
+登出
+
+Connection to 192.168.1.63 closed.
+
+[root@xuegod63 ~]# echo $?
+
+10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="20-4-流程控制过程中复杂条件和通配符"><a href="#20-4-流程控制过程中复杂条件和通配符" class="headerlink" title="20.4  流程控制过程中复杂条件和通配符"></a>20.4  流程控制过程中复杂条件和通配符</h1><h2 id="20-4-1-判断第一种：两个条件都为真或有一个为真就执行"><a href="#20-4-1-判断第一种：两个条件都为真或有一个为真就执行" class="headerlink" title="20.4.1  判断第一种：两个条件都为真或有一个为真就执行"></a>20.4.1  判断第一种：两个条件都为真或有一个为真就执行</h2><p>if [ 条件判断一 ] &amp;&amp; (||) [ 条件判断二 ]; then   </p>
 <p>  命令一</p>
 <p>elif [ 条件判断三 ] &amp;&amp; (||) [ 条件判断四 ]; then</p>
