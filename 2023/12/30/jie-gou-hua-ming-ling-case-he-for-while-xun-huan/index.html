@@ -4,9 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux计划任务以及进程检测与控制, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
-    <meta name="description" content="Linux计划任务以及进程检测与控制一、Linux计划任务1、计划任务权限☆ 黑名单crontab是任何用户都可以创建的计划任务，但是超级管理员可以通过配置来设置某些用户不允许设置计划任务 。
-提出问题：如果我们想限定某个用户（如ithei">
+    <meta name="keywords" content="结构化命令case和for、while循环, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="第二十一章  结构化命令case和for、while循环
+本节所讲内容：
+21.1  case - 流程控制语句
+21.2  循环语句
+21.3  while循环语句和循环嵌套
+21.4  实战-3个shell脚本实战
+21.1  流程控制">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux计划任务以及进程检测与控制 | yanshuisiyu&#39;s Blog</title>
+    <title>结构化命令case和for、while循环 | yanshuisiyu&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -454,12 +459,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux计划任务以及进程检测与控制</h1>
+                    <h1 class="description center-align post-title">结构化命令case和for、while循环</h1>
                 </div>
             </div>
         </div>
@@ -483,12 +488,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">学习</span>
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
                             </a>
                         
                     </div>
@@ -499,8 +500,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/linux/" class="post-category">
-                                linux
+                            <a href="/categories/shell/" class="post-category">
+                                shell
                             </a>
                         
                     </div>
@@ -512,28 +513,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-23
+                    2023-12-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-23
+                    2023-12-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    8 分
                 </div>
                 
 
@@ -553,517 +554,329 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux计划任务以及进程检测与控制"><a href="#Linux计划任务以及进程检测与控制" class="headerlink" title="Linux计划任务以及进程检测与控制"></a>Linux计划任务以及进程检测与控制</h1><h1 id="一、Linux计划任务"><a href="#一、Linux计划任务" class="headerlink" title="一、Linux计划任务"></a>一、Linux计划任务</h1><h2 id="1、计划任务权限"><a href="#1、计划任务权限" class="headerlink" title="1、计划任务权限"></a>1、计划任务权限</h2><h3 id="☆-黑名单"><a href="#☆-黑名单" class="headerlink" title="☆ 黑名单"></a>☆ 黑名单</h3><p>crontab是任何用户都可以创建的计划任务，但是超级管理员可以通过配置来设置某些用户不允许设置计划任务 。</p>
-<p>提出问题：如果我们想限定某个用户（如itheima）使用计划任务，如何处理呢？</p>
-<p>答：可以使用计划任务的黑名单，黑名单文件路径 =&gt; ==/etc/cron.deny==文件</p>
-<p>案例：把普通账号itheima加入到cron.deny黑名单中，禁止其创建计划任务</p>
-<p>第一步：切换到超级管理员root</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># su - root<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>第二十一章  结构化命令case和for、while循环</p>
+<p>本节所讲内容：</p>
+<p>21.1  case - 流程控制语句</p>
+<p>21.2  循环语句</p>
+<p>21.3  while循环语句和循环嵌套</p>
+<p>21.4  实战-3个shell脚本实战</p>
+<h1 id="21-1-流程控制语句：case"><a href="#21-1-流程控制语句：case" class="headerlink" title="21.1  流程控制语句：case"></a>21.1  流程控制语句：case</h1><p>控制语句：用来实现对程序流程的选择、循环、转向和返回等进行控制。case是开关语句的一个组成部分；</p>
+<p>它是根据变量的不同进行取值比较，然后针对不同的取值分别执行不同的命令操作</p>
+<p>适用于多分支，是一个多选择语句</p>
+<p>case   变量或表达式   in</p>
+<p>​        变量或表达式1）</p>
+<p>​           命令序列1</p>
+<p>​           ；；</p>
+<p>​      变量或表达式2）</p>
+<p>​           命令序列2</p>
+<p>​           ；；</p>
+<p>​           ……</p>
+<p>​           *） </p>
+<p>​           默认命令序列</p>
+<p> esac</p>
+<p>case语句执行流程控制：</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps7.jpg" alt="img"> </p>
+<p>执行流程：</p>
+<p>首先使用“变量或表达式”的值与值1进行比较，若取值相同则执行值1后的命令序列，直到遇见双分号“；； ”后跳转至esac，表示分支结束；</p>
+<p>若与值1不相匹配，则继续与值2 进行比较，若取值相同则执行值2 后的命令序列，直到遇见双分号“；； ”后跳转至esac，表示结束分支。</p>
+<p>依次类推，若找不到任何匹配的值，则执行默认模式“ *） ”后的命令序列，直到遇见esac后结束分支</p>
+<p>注意事项：</p>
+<p>u “变量或表达式”后面必须为单词in，每一个“变量或表达式”的值必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;; </p>
+<p>u 匹配中的值可以是多个值，通过“|”来分隔</p>
+<p>例1：编写一个操作文件的脚本</p>
+<p>[root@xuegod63 ~]# cat case-1.sh </p>
+<p>#########################################################################</p>
+<p># File Name: case-1.sh</p>
+<p># Author: xuegod</p>
+<p>#########################################################################</p>
+<p>#!/bin/bash</p>
+<p>cat &lt;&lt;eof</p>
+<hr>
+<p>** 1. backup  **</p>
+<p>** 2. copy   **</p>
+<p>** 3. quit   **</p>
+<hr>
+<p>eof</p>
+<p>read -p “Input a choose: “ OP</p>
+<p>case $OP in</p>
+<p>​	1|backup)</p>
+<p>​		echo “BACKUP……”</p>
+<p>​		;;</p>
+<p>​	2|copy)</p>
+<p>​		echo “COPY…..”</p>
+<p>​		;;</p>
+<p>​	3|quit)</p>
+<p>​		exit</p>
+<p>​		;;</p>
+<p>​	*)</p>
+<p>​		echo error</p>
+<p>esac</p>
+<p>例2：编写一个启动apache服务脚本</p>
+<p>[root@xuegod63 ~]# yum install httpd -y</p>
+<p>[root@xuegod63 ~]# vim  case-2.sh</p>
+<p>#!/bin/bash</p>
+<p>case $1 in</p>
+<p>​	start)</p>
+<p>​		systemctl $1 httpd</p>
+<p>​		ps aux|grep httpd</p>
+<p>​		echo “httpd start”</p>
+<p>​		;;</p>
+<p>​	stop)</p>
+<p>​		systemctl $1 httpd</p>
+<p>​		ps aux|grep httpd</p>
+<p>​		echo “httpd stop”</p>
+<p>​		;;</p>
+<p>​	status)</p>
+<p>​		systemctl $1 httpd</p>
+<p>​		;;</p>
+<p>​	restart)</p>
+<p>​		systemctl $1 httpd</p>
+<p>​		echo “httpd restart”</p>
+<p>​		;;</p>
+<p>​	*)</p>
+<p>​		echo “USAGE: $0 start|stop|restart”</p>
+<p>esac</p>
+<h1 id="21-2-循环语句"><a href="#21-2-循环语句" class="headerlink" title="21.2  循环语句"></a>21.2  循环语句</h1><h2 id="21-2-1-for-do-done"><a href="#21-2-1-for-do-done" class="headerlink" title="21.2.1  for-do-done"></a>21.2.1  for-do-done</h2><p>语法格式：</p>
+<p>for var in list </p>
+<p>do</p>
+<p> commands</p>
+<p>done</p>
+<p>或：</p>
+<p>for var in list ; do</p>
+<p> commands</p>
+<p>done</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps8.jpg" alt="img"> </p>
+<p>取值列表有多种取值方式，比如</p>
+<p>可以直接读取in 后面的值，默认以空格做分隔</p>
+<p>[root@xuegod63 ~]# vim for-1.sh</p>
+<p>#!/bin/bash</p>
+<p>for var in a1 b1 c1 d1</p>
+<p>do</p>
+<p>​	echo the text is $var</p>
+<p>done</p>
+<p>列表中的复杂值，可以使用 引号或转义字符”/”来加以约束</p>
+<p>[root@xuegod63 ~]# cat for-2.sh  </p>
+<p>#!/bin/bash</p>
+<p>for var in a1 b1 “c1 d1” e2 “hello world”</p>
+<p>do</p>
+<p>​	echo the text is $var</p>
+<p>done</p>
+<p>[root@xuegod63 ~]# cat for-3.sh </p>
+<p>#!/bin/bash</p>
+<p>for var in a1 b'1 “c1 d1” e2 “hello world” I's a22 </p>
+<p>do</p>
+<p>​	echo the text is $var</p>
+<p>done</p>
+<p>从变量中取值</p>
+<p>[root@xuegod63 ~]# cat for-4.sh </p>
+<p>#!/bin/bash</p>
+<p>list=”a1 b1 c1 d1”</p>
+<p>for i in $list</p>
+<p>do</p>
+<p>​	echo is a $i</p>
+<p>done</p>
+<p>4、从命令中取值</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat for-5.sh  #以空格做分隔符
 
-<p>第二步：使用vim打开/etc/cron.deny文件</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/cron.deny<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+#!/bin/bash
 
-<p>第三步：把你需要禁止的用户名单，加入此文件（如itheima）</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">itheima<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+for i in `cat  /etc/hosts`
 
-<p>切换到itheima账号，测试是否可以使用crontab命令</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324095412933.png" alt="image-20200324095412933"></p>
-<h3 id="☆-白名单"><a href="#☆-白名单" class="headerlink" title="☆ 白名单"></a>☆ 白名单</h3><p>在Linux的计划任务中，除了拥有黑名单以外，还有白名单。作用：允许哪些用户使用计划任务。</p>
-<p>白名单文件的路径 =&gt; ==/etc/cron.allow==，但是要特别注意，此文件需要手工创建。</p>
-<blockquote>
-<p>注意：白名单优先级高于黑名单，如果一个用户同时存在两个名单文件中，则会被默认允许创建计划任务。</p>
-</blockquote>
-<h2 id="2、查看计划任务的保存文件"><a href="#2、查看计划任务的保存文件" class="headerlink" title="2、查看计划任务的保存文件"></a>2、查看计划任务的保存文件</h2><p>问题：计划任务文件具体保存在哪里呢？</p>
-<p>答：<code>/var/spool/cron/用户名称</code>，如果使用root用户编辑计划任务，则用户文件名为root</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ll /var/spool/cron
-total 4
--rw-------. 1 itheima itheima  0 Mar 24 09:50 itheima
--rw-------. 1 root    root    40 Mar 24 10:21 root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+do
 
-<h2 id="3、计划任务的日志程序"><a href="#3、计划任务的日志程序" class="headerlink" title="3、计划任务的日志程序"></a>3、计划任务的日志程序</h2><p>问题：在实际应用中，我们如何查看定时任务运行情况？</p>
-<p>答：通过计划任务日志，日志文件位于<code>/var/log/cron</code></p>
-<p>案例：演示计划任务的日志程序</p>
-<p>第一步：使用root账号创建一个计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># su - root
-# crontab -e
-* * * * * echo 1 &gt;&gt; ~/readme.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+​	echo "$i"
 
-<p>第二步：使用tail -f命令监控/var/log/cron日志程序</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># tail -f /var/log/cron<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="4、扩展内容：at命令"><a href="#4、扩展内容：at命令" class="headerlink" title="4、扩展内容：at命令"></a>4、扩展内容：at命令</h2><p>在Linux系统下，有两个命令可以实现计划任务：crontab与at（第三方需要额外安装）</p>
-<p>crontab ：每天定时执行计划任务（最小单元分钟）</p>
-<p>at ：一次性定时执行任务</p>
-<h3 id="☆-安装at命令"><a href="#☆-安装at命令" class="headerlink" title="☆ 安装at命令"></a>☆ 安装at命令</h3><p>CentOS7自带，其他版本可能需要手工安装</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># yum install at -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="☆-启动底层服务"><a href="#☆-启动底层服务" class="headerlink" title="☆ 启动底层服务"></a>☆ 启动底层服务</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># systemctl start atd
-# systemctl enable atd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>atd = at + d = at命令 + daemon缩写</p>
-</blockquote>
-<h3 id="☆-案例演示"><a href="#☆-案例演示" class="headerlink" title="☆ 案例演示"></a>☆ 案例演示</h3><p>案例1：三天后下午5点执行/bin/ls</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># at 5pm+3 days
-at&gt;/bin/ls &gt;/root/readme.txt
-at&gt;按Ctrl+D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>am = 上午、pm = 下午、3 days = 3天</p>
-</blockquote>
-<p>案例2：明天17点，输出时间到指定的文件中</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># at 17:00 tomorrow
-at&gt;date&gt;/root/readme.txt
-at&gt;按Ctrl+D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>tomorrow = 明天</p>
-</blockquote>
-<p>案例3：使用atq查看没有执行的计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># atq<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>atq = at + q = at命令 + query查询</p>
-</blockquote>
-<p>案例4：删除指定的计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># atq
-# atrm 任务号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>atrm = at + rm = at命令 + remove移除</p>
-</blockquote>
-<h1 id="二、Linux进程与程序"><a href="#二、Linux进程与程序" class="headerlink" title="二、Linux进程与程序"></a>二、Linux进程与程序</h1><h2 id="1、了解一下进程与程序的关系"><a href="#1、了解一下进程与程序的关系" class="headerlink" title="1、了解一下进程与程序的关系"></a>1、了解一下进程与程序的关系</h2><p>​        <strong>进程</strong>是正在执行的一个程序或命令，每个进程都是一个运行的实体，并占用一定的系统资源。<strong>程序</strong>是人使用计算机语言编写的可以实现特定目标或解决特定问题的代码集合。</p>
-<p>​        简单来说，程序是人使用计算机语言编写的，可以实现一定功能，并且可以执行的代码集合。进程是正在执行中的程序。</p>
-<p><strong>举例</strong>：谷歌浏览器是一个程序，当我们打开谷歌浏览器，就会在系统中看到一个浏览器的进程，当程序被执行时，程序的代码都会被加载入内存，操作系统给这个进程分配一个 ID，称为 <strong>PID</strong>（进程 ID）。我们打开多个谷歌浏览器，就有多个浏览器子进程，但是这些进程使用的程序，都是chrome</p>
-<blockquote>
-<p>PID = Process ID = 进程编号</p>
-</blockquote>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324113209223.png" alt="image-20200324113209223"></p>
-<h2 id="2、Linux下的进程管理工作"><a href="#2、Linux下的进程管理工作" class="headerlink" title="2、Linux下的进程管理工作"></a>2、Linux下的进程管理工作</h2><p>进程查看，通过查看，判断健康状态</p>
-<p>进程终止</p>
-<p>进程优先级控制</p>
-<h1 id="三、Linux下进程管理命令"><a href="#三、Linux下进程管理命令" class="headerlink" title="三、Linux下进程管理命令"></a>三、Linux下进程管理命令</h1><h2 id="1、任务背景"><a href="#1、任务背景" class="headerlink" title="1、任务背景"></a>1、任务背景</h2><p>工作场景：</p>
-<p>​        小黑入职到一家公司，接到的第一项任务，就是监控生产服务器的性能，提到服务器性能，我们首先想到的就是CPU，内存和磁盘。</p>
-<h2 id="2、使用top命令动态监测CPU信息"><a href="#2、使用top命令动态监测CPU信息" class="headerlink" title="2、使用top命令动态监测CPU信息"></a>2、使用top命令动态监测CPU信息</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># top<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324114201114.png" alt="image-20200324114201114"></p>
-<h2 id="3、系统的整体情况"><a href="#3、系统的整体情况" class="headerlink" title="3、系统的整体情况"></a>3、系统的整体情况</h2><h3 id="☆-第一行"><a href="#☆-第一行" class="headerlink" title="☆ 第一行"></a>☆ 第一行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324114427942.png" alt="image-20200324114427942"></p>
-<table>
-<thead>
-<tr>
-<th>内 容</th>
-<th>说 明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>10:12:28</td>
-<td>系统当前时间</td>
-</tr>
-<tr>
-<td>up 13:05</td>
-<td>系统的运行时间.本机己经运行 13 小时 05 分钟</td>
-</tr>
-<tr>
-<td>3 users</td>
-<td>当前登录了三个用户</td>
-</tr>
-<tr>
-<td>load average: 0.00,0.01，0.05</td>
-<td>系统在之前 1 分钟、5 分钟、15 分钟的平均负载。如果 CPU 是单核的，则这个数值超过 1 就是高负载：如果 CPU 是四核的，则这个数值超过 4 就是高负载</td>
-</tr>
-</tbody></table>
-<h3 id="☆-第二行"><a href="#☆-第二行" class="headerlink" title="☆ 第二行"></a>☆ 第二行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324115718442.png" alt="image-20200324115718442"></p>
-<table>
-<thead>
-<tr>
-<th>Tasks:   230 total</th>
-<th>系统中的进程总数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1 running</td>
-<td>正在运行的进程数</td>
-</tr>
-<tr>
-<td>229 sleeping</td>
-<td>睡眠的进程数</td>
-</tr>
-<tr>
-<td>0 stopped</td>
-<td>正在停止的进程数</td>
-</tr>
-<tr>
-<td>0 zombie</td>
-<td>僵尸进程数。如果不是   0，则需要手工检查僵尸进程</td>
-</tr>
-</tbody></table>
-<h3 id="☆-第三行"><a href="#☆-第三行" class="headerlink" title="☆ 第三行"></a>☆ 第三行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324142002240.png" alt="image-20200324142002240"></p>
-<table>
-<thead>
-<tr>
-<th>内 容</th>
-<th>说 明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Cpu(s): 0.1 %us</td>
-<td>用户模式占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.1%sy</td>
-<td>系统模式占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.0%ni</td>
-<td>改变过优先级的用户进程占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>99.7%id</td>
-<td>idle缩写，空闲   CPU 占用的 CPU 百分比</td>
-</tr>
-<tr>
-<td>0.1%wa</td>
-<td>等待输入/输出的进程占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.0%hi</td>
-<td>硬中断请求服务占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.1%si</td>
-<td>软中断请求服务占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.0%st</td>
-<td>st（steal   time）意为虚拟时间百分比，就是当有虚拟机时，虚拟 CPU 等待实际 CPU 的时间百分比</td>
-</tr>
-</tbody></table>
-<h4 id="问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？"><a href="#问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？" class="headerlink" title="问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？"></a>问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？</h4><p>答：交换快捷键 “1”</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324142144911.png" alt="image-20200324142144911"></p>
-<blockquote>
-<p>CPU负载测试 =&gt;  cat  /dev/urandom |md5sum</p>
-</blockquote>
-<h3 id="☆-第四行"><a href="#☆-第四行" class="headerlink" title="☆ 第四行"></a>☆ 第四行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324143340302.png" alt="image-20200324143340302"></p>
-<table>
-<thead>
-<tr>
-<th>内 容</th>
-<th>说 明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Mem: 1863252 total</td>
-<td>物理内存的总量，单位为KB</td>
-</tr>
-<tr>
-<td>829960 used</td>
-<td>己经使用的物理内存数量</td>
-</tr>
-<tr>
-<td>68352 free</td>
-<td>空闲的物理内存数量。我们使用的是虚拟机，共分配了 628MB内存，所以只有53MB的空闲内存</td>
-</tr>
-<tr>
-<td>96490 buff/cache</td>
-<td>作为缓冲的内存数量</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>扩展：真正剩余内存 = free + buff/cache，真正使用内存 = used - buff/cache</p>
-</blockquote>
-<h3 id="☆-第五行"><a href="#☆-第五行" class="headerlink" title="☆ 第五行"></a>☆ 第五行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324144347040.png" alt="image-20200324144347040"></p>
-<table>
-<thead>
-<tr>
-<th>内 容</th>
-<th>说 明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Swap: 2097148 total</td>
-<td>交换分区（虚拟内存）的总大小</td>
-</tr>
-<tr>
-<td>3336 used</td>
-<td>已经使用的交换分区的大小</td>
-</tr>
-<tr>
-<td>2093812 free</td>
-<td>空闲交换分区的大小</td>
-</tr>
-<tr>
-<td>622420 avail Mem</td>
-<td>可用内存</td>
-</tr>
-</tbody></table>
-<p> 在Linux操作系统分区时，最少需要3个分区：</p>
-<p>① /boot分区 ： 系统分区</p>
-<p>② swap交换分区 ：一般情况下为内存的1~2倍，但是尽量不要超过2G</p>
-<p>③ /分区 ：根分区，所有文件都存放于此</p>
-<blockquote>
-<p>swap分区：就是当计算机的内存不足时，系统会自动从硬盘中划出一块区域充当内存使用。</p>
-</blockquote>
-<p>​       我们通过 top 命令的整体信息部分，就可以判断服务器的健康状态。如果 1 分钟、5 分钟、15 分钟的平均负载高于CPU核数，说明系统压力较大。如果物理内存的空闲内存过小，则也证明系统压力较大。</p>
-<p>问题：根据以上信息，目前我们的系统压力如何？</p>
-<p>答：看CPU负载及内存的使用情况</p>
-<p>问题：如果我们发现CPU负载过大，接下来怎么办？</p>
-<p>答：如果1分钟、5分钟以及15分钟全部超过CPU的总核心数（必须引起警觉），这个时候就要查看底部的进程信息了。</p>
-<blockquote>
-<p>经验之谈：如果一个总核数=8核心的CPU，理论上平均负载达到16，也还可以坚持很长一段时间。</p>
-</blockquote>
-<h2 id="4、系统的进程信息"><a href="#4、系统的进程信息" class="headerlink" title="4、系统的进程信息"></a>4、系统的进程信息</h2><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324151820219.png" alt="image-20200324151820219"></p>
-<table>
-<thead>
-<tr>
-<th>PID</th>
-<th>进程的 ID。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>USER</td>
-<td>该进程所属的用户。</td>
-</tr>
-<tr>
-<td>PR</td>
-<td>优先级，数值越小优先级越高。</td>
-</tr>
-<tr>
-<td>NI</td>
-<td>NICE优先级，数值越小优先级越高，取值范围-20到19，默认都是0</td>
-</tr>
-<tr>
-<td>VIRT</td>
-<td>该进程使用的虚拟内存的大小，单位为 KB。</td>
-</tr>
-<tr>
-<td>RES</td>
-<td>该进程使用的物理内存的大小，单位为 KB。</td>
-</tr>
-<tr>
-<td>SHR</td>
-<td>共享内存大小，单位为 KB。计算一个进程实际使用的内存 = 常驻内存（RES）- 共享内存（SHR）</td>
-</tr>
-<tr>
-<td>S</td>
-<td>进程状态。其中S 表示睡眠，R 表示运行</td>
-</tr>
-<tr>
-<td>%CPU</td>
-<td>该进程占用 CPU 的百分比。</td>
-</tr>
-<tr>
-<td>%MEM</td>
-<td>该进程占用内存的百分比。</td>
-</tr>
-<tr>
-<td>TIME+</td>
-<td>该进程共占用的 CPU 时间。</td>
-</tr>
-<tr>
-<td>COMMAND</td>
-<td>进程名</td>
-</tr>
-</tbody></table>
-<h4 id="问题：如果我们发现CPU负载过大，接下来怎么办？"><a href="#问题：如果我们发现CPU负载过大，接下来怎么办？" class="headerlink" title="问题：如果我们发现CPU负载过大，接下来怎么办？"></a>问题：如果我们发现CPU负载过大，接下来怎么办？</h4><p>答：查看占用CPU最多的进程</p>
-<h4 id="问题：如何查看占用CPU最多的进程？"><a href="#问题：如何查看占用CPU最多的进程？" class="headerlink" title="问题：如何查看占用CPU最多的进程？"></a>问题：如何查看占用CPU最多的进程？</h4><p>答：交互操作快捷键P，P（大写）：，表示将结果按照CPU 使用率从高到低进行降序排列</p>
-<h4 id="问题：如果我们发现内存可用量很小，接下来怎么办？"><a href="#问题：如果我们发现内存可用量很小，接下来怎么办？" class="headerlink" title="问题：如果我们发现内存可用量很小，接下来怎么办？"></a>问题：如果我们发现内存可用量很小，接下来怎么办？</h4><p>答：查看占用内存最多的进程，使用交互快捷键M（大写）：表示将结果按照内存（MEM）从高到低进行降序排列</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324154216736.png" alt="image-20200324154216736"></p>
-<h4 id="问题：当我们查看完系统状态，需要做什么？"><a href="#问题：当我们查看完系统状态，需要做什么？" class="headerlink" title="问题：当我们查看完系统状态，需要做什么？"></a>问题：当我们查看完系统状态，需要做什么？</h4><p>答：退出，使用q，按键盘上的q，就会回到#提示符的状态。</p>
-<h2 id="5、free查看内存使用情况"><a href="#5、free查看内存使用情况" class="headerlink" title="5、free查看内存使用情况"></a>5、free查看内存使用情况</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># free [选项]  1GB = 1024MB  1MB = 1024KB
-选项说明：
--m : 以MB的形式显示内存大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：显示计算机的内存使用情况</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># free -m<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>​    和Centos6相比，buffer和cached被合成一组，加入了一个available。</p>
-<p>​    关于此available，即系统可用内存，用户不需要去计算buffer/cache，即可以看到还有多少内存可用，更加简单直观</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324155922424.png" alt="image-20200324155922424"></p>
-<h2 id="6、df查看磁盘剩余空间"><a href="#6、df查看磁盘剩余空间" class="headerlink" title="6、df查看磁盘剩余空间"></a>6、df查看磁盘剩余空间</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># df [选项]
--h ：以较高的可读性显示磁盘剩余空间大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>df = disk free = 磁盘 剩余</p>
-</blockquote>
-<p>这几列依次是：</p>
-<table>
-<thead>
-<tr>
-<th>Filesystem</th>
-<th>磁盘名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Size</td>
-<td>总大小</td>
-</tr>
-<tr>
-<td>Used</td>
-<td>被使用的大小</td>
-</tr>
-<tr>
-<td>Avail</td>
-<td>剩余大小</td>
-</tr>
-<tr>
-<td>Use%</td>
-<td>使用百分比</td>
-</tr>
-<tr>
-<td>Mounted on</td>
-<td>挂载路径（相当于Windows 的磁盘符）</td>
-</tr>
-</tbody></table>
-<h2 id="7、ps查看系统进程信息"><a href="#7、ps查看系统进程信息" class="headerlink" title="7、ps查看系统进程信息"></a>7、ps查看系统进程信息</h2><p>top ： 动态查看系统进程的信息（每隔3s切换一次）</p>
-<p>ps  ： 静态查看系统进程的信息（只能查询运行ps命令瞬间，系统的进程信息）</p>
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps [选项]
-选项说明：
--e : 等价于“-A”，表示列出全部（all）的进程
--f : 表示full，显示全部的列（显示全字段）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：显示当前系统中所有进程的信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324162137670.png" alt="image-20200324162137670"></p>
-<table>
-<thead>
-<tr>
-<th>UID</th>
-<th>该进程执行的用户ID</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PID</td>
-<td>进程ID</td>
-</tr>
-<tr>
-<td>PPID</td>
-<td>该进程的父级进程ID，如果找不到，则该进程就被称之为僵尸进程（Parent Process ID）</td>
-</tr>
-<tr>
-<td>C</td>
-<td>Cpu的占用率，其形式是百分数</td>
-</tr>
-<tr>
-<td>STIME</td>
-<td>进程的启动时间</td>
-</tr>
-<tr>
-<td>TTY</td>
-<td>终端设备，发起该进程的设备识别符号，如果显示“?”则表示该进程并不是由终端设备发起</td>
-</tr>
-<tr>
-<td>TIME</td>
-<td>进程实际使用CPU的时间</td>
-</tr>
-<tr>
-<td>CMD</td>
-<td>该进程的名称或者对应的路径</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>经验之谈：我们在实际工作中使用ps命令其实主要用于查询某个进程的PID或PPID</p>
-</blockquote>
-<p>工作场景</p>
-<p>​        小黑用学到的命令，发现某个进程占用CPU很高，希望进一步查看这个简称的信息。</p>
-<p>​        ps -ef 会列出全部进程，但是我们发现进程非常多，我们很难找到自己想要看的进程。这里需要使用过滤命令grep，来过滤掉我们不需要的信息。</p>
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">用法：ps -ef |grep 想要看到的进程名
-示例代码：
-# ps -ef |grep crond
-含义：查看crond进程的详细情况
-注意：查询结果中，如果只有一条则表示没查到对应的进程（这1 条表示刚才ps 指令的自身）。只有查到的结果多余1 条，才表示有对应的进程。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：查询crond的进程信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond
-root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n
-root      24752  12881  0 16:34 pts/2    00:00:00 grep --color=auto crond<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>问题：以上信息只有第一行是crond的进程，第二行，实际是管道命令发起时，grep所启动的进程，如何去掉？</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond |grep -v "grep"
-root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>grep  -v  需要去除的相关信息 ： 去除包含指定关键词的那一行</p>
-</blockquote>
-<p>扩展：ps  aux命令</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps aux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p># man ps</p>
-<p>1   UNIX options, which may be grouped and must be preceded by a dash.     ps  -ef<br>2   BSD options, which may be grouped and must not be used with a dash.	 ps  aux</p>
-</blockquote>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324165018806.png" alt="image-20200324165018806"></p>
-<p>USER：该 process 属于哪个使用者账号<br>==PID ：该 process 的ID==<br>==%CPU：该 process 使用掉的 CPU 资源百分比==<br>==%MEM：该 process 所占用的物理内存百分比==<br>VSZ ：该 process 使用掉的虚拟内存量 (Kbytes)<br>RSS ：该 process 占用的固定的内存量 (Kbytes)<br>TTY ：该 process 是在那个终端机上面运作，若与终端机无关，则显示 ?，另外， tty1-tty6 是本机上面的登入者程序，若为 pts/0 等等的，则表示为由网络连接进主机的程序。<br>==STAT：该程序目前的状态，主要的状态有==<br>    R ：该程序目前正在运作，或者是可被运作<br>    S ：该程序目前正在睡眠当中 (可说是 idle 状态)，但可被某些讯号 (signal) 唤醒。<br>    T ：该程序目前正在侦测或者是停止了<br>   ==Z ：该程序应该已经终止，但是其父程序却无法正常的终止他，造成 zombie (疆尸) 程序的状态==<br>START：该 process 被触发启动的时间<br>TIME ：该 process 实际使用 CPU 运作的时间<br>COMMAND：该程序的实际指令</p>
-<h2 id="8、netstat-ss查询网络访问信息"><a href="#8、netstat-ss查询网络访问信息" class="headerlink" title="8、netstat/ss查询网络访问信息"></a>8、netstat/ss查询网络访问信息</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># netstat [选项] |grep 进程名称
-选项说明：
--t：表示只列出tcp 协议的连接（tcp协议与udp协议）
--n：表示将地址从字母组合转化成ip 地址，将协议转化成端口号来显示  10.1.1.10:80
--l：表示过滤出"state（状态）"列中其值为LISTEN（监听）的连接
--p：表示显示发起连接的进程pid 和进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：查询Web Server（httpd）服务的端口信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># netstat -tnlp |grep httpd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ss -naltp |grep 进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>5、自定义shell分隔符</p>
+<p>默认情况下，base shell会以空格、制表符、换行符做为分隔符。通过IFS来自定义为分隔符</p>
+<p>指定单个字符做分隔符：</p>
+<p>IFS=：  #以：冒号做分隔符</p>
+<p>可以指定多个</p>
+<p>如 IFS=’\n’:;”   #这个赋值会将反斜杠、n、冒号、分号和双引号作为字段分隔符。</p>
+<p>注：$’\n’与’\n’时的区别</p>
+<p>IFS=’\n’   #将字符\和字符n作为IFS的换行符。</p>
+<p>IFS=$’\n’  #正真的使用换行符做为字段分隔符。</p>
+<p>[root@xuegod63 ~]# cat for-6.sh #指定以\n回车做为 for语句的分隔符</p>
+<p>#!/bin/bash</p>
+<p>IFS=$’\n’</p>
+<p>for i in <code>cat /etc/hosts</code></p>
+<p>do</p>
+<p>​	echo “$i”</p>
+<p>done</p>
+<p> [root@xuegod63 ~]# cat for-7.sh  #以：冒号做分隔符</p>
+<p>#!/bin/bash</p>
+<p>IFS=:</p>
+<p>list=<code>head -1 /etc/passwd</code></p>
+<p>for i in $list</p>
+<p>do</p>
+<p>​	echo $i</p>
+<p>done</p>
+<p>6、C语言风格的for</p>
+<p>语法格式：</p>
+<p>for ((i=0;i&lt;10;i++))</p>
+<p>do</p>
+<p>  commmands</p>
+<p>done</p>
+<p>例1：单个变量。 输出1到10之间的数字</p>
+<p>[root@xuegod63 ~]# cat for-8.sh </p>
+<p>#!/bin/bash</p>
+<p>for (( i=1 ; i&lt;=10  ; i++  ))</p>
+<p>do</p>
+<p>​	echo num is $i</p>
+<p>done</p>
+<p>注：</p>
+<p>互动：  i++ 这一条语句在for循环体中哪个位置执行？</p>
+<p>for (( i=1 ; i&lt;=10  ;  ))  #i=1 只赋值一次。然后执行 i &lt;= 10</p>
+<p>do</p>
+<p>​		echo num is $i</p>
+<p>i=$(($i+1))  # i++在这里执行。 当for循环体中所有命令执行完后，再执行i++</p>
+<p>done</p>
+<p>例2：多个变量。 同时输出1-9的升序和降序</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps9.jpg" alt="img"> </p>
+<p>[root@xuegod63 ~]# cat for-8.sh </p>
+<p>#!/bin/bash</p>
+<p>for ((a=1,b=9 ; a&lt;10 ; a++,b–))</p>
+<p>do</p>
+<p>​	echo num is $a - $b </p>
+<p>done</p>
+<h1 id="21-3-while循环语句和循环嵌套"><a href="#21-3-while循环语句和循环嵌套" class="headerlink" title="21.3  while循环语句和循环嵌套"></a>21.3  while循环语句和循环嵌套</h1><h2 id="21-3-1-while-do-done"><a href="#21-3-1-while-do-done" class="headerlink" title="21.3.1  while-do-done"></a>21.3.1  while-do-done</h2><p>重复测试指令的条件，只要条件成立就反复执行对应的命令操作，直到命令不成立或为假；</p>
+<p>语法格式如下：</p>
+<p>while 测试命令</p>
+<p>do</p>
+<p>命令</p>
+<p>done</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps10.jpg" alt="img"> </p>
+<p>注意：避免陷入死循环  while true </p>
+<p>例1：降序输出10到1的数字</p>
+<p>[root@xuegod63 ~]# cat while-1.sh </p>
+<p>#!/bin/bash</p>
+<p>var=10</p>
+<p>while [ $var -gt 0 ]</p>
+<p>do</p>
+<p>​		echo $var</p>
+<p>​		var=$[$var-1]</p>
+<p>done</p>
+<p>例2：输出如下图两数相乘的效果</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps11.jpg" alt="img"> </p>
+<p>自增操作  let var++  </p>
+<p>自减操作  let var–  </p>
+<p>[root@xuegod63 ~]# cat while-2.sh</p>
+<p>#!/bin/bash</p>
+<p>num=1</p>
+<p>while [ $num -lt 10 ]</p>
+<p>do</p>
+<p>​    sum=$((  $num * $num ))</p>
+<p>​    echo  “$num * $num = $sum”</p>
+<p>​    ((num++))</p>
+<p>#    let num++</p>
+<p>done</p>
+<h2 id="21-3-2-嵌套循环"><a href="#21-3-2-嵌套循环" class="headerlink" title="21.3.2  嵌套循环"></a>21.3.2  嵌套循环</h2><p>例1：批量添加a.txt文件5个用户</p>
+<p>[root@xuegod63 ~]# vim a.txt  #添加5个用户</p>
+<p>mk</p>
+<p>cd</p>
+<p>ls</p>
+<p>find</p>
+<p>ln</p>
+<p>编写脚本的思路</p>
+<p>1  明确脚本的功能</p>
+<p>2  编写脚本时会使用到那些命令 ？  useradd   passwd  for </p>
+<p>3  把变化的数据使用变量表示</p>
+<p>4  选择适合的流程控制  （选择 、 循环 、分支）</p>
+<p>[root@xuegod63 ~]# cat for-adduser.sh </p>
+<p>#!/bin/bash</p>
+<p>for name in <code>cat /root/a.txt</code></p>
+<p>#for name in $(cat /root/a.txt)</p>
+<p>do</p>
+<p>​    id $name &amp;&gt; /dev/null</p>
+<p>​    if [ $? -ne 0 ];then</p>
+<p>​        useradd $name</p>
+<p>​        echo “123456” |passwd –stdin $name &amp;&gt; /dev/null</p>
+<p>​        echo “user $name created”</p>
+<p>​    else</p>
+<p>​        echo “user $name is exist”</p>
+<p>​    fi</p>
+<p>done</p>
+<p>注：&amp;&gt; 是正确和错误的信息都重定向到/dev/null里面</p>
+<p>例2 ：打印九九乘法表</p>
+<p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps12.jpg" alt="img"> </p>
+<p>注：外层循环循环行，内层循环循环列</p>
+<p>规律:  内层循环的变量&lt;=外层循环的变量</p>
+<p>[root@xuegod63 ~]# cat for-for.sh</p>
+<p>for i in  <code>seq 9</code></p>
+<p>do</p>
+<p>​     for j in <code>seq $i</code></p>
+<p>​     do</p>
+<p>​       echo  -n  “$i*$j= <code>echo $(($i*$j))</code> “</p>
+<p>​     done</p>
+<p>​    echo “  “</p>
+<p>done</p>
+<h1 id="21-4-实战-3个shell脚本实战"><a href="#21-4-实战-3个shell脚本实战" class="headerlink" title="21.4  实战-3个shell脚本实战"></a>21.4  实战-3个shell脚本实战</h1><h2 id="21-4-1-实战-将-opt目录下所有的日志文件全自动打包"><a href="#21-4-1-实战-将-opt目录下所有的日志文件全自动打包" class="headerlink" title="21.4.1  实战-将/opt目录下所有的日志文件全自动打包"></a>21.4.1  实战-将/opt目录下所有的日志文件全自动打包</h2><p>[root@xuegod63 ~]# vim log-back.sh</p>
+<p>#!/bin/sh</p>
+<p>SRC_DIR=/var/log/</p>
+<p>DES_DIR=/opt/backup/<code>date +%Y%m%d</code></p>
+<p>if</p>
+<p>[ ! -d  $DES_DIR ] ; then</p>
+<p>​    mkdir -p $DES_DIR</p>
+<p>fi</p>
+<p>for i in  <code>find  $SRC_DIR  -name "*.log"</code></p>
+<p>do</p>
+<p>​    tar  czf  $i.tgz  $i</p>
+<p>done</p>
+<p>mv /var/log/*.tgz $DES_DIR</p>
+<p>ls -lh $DES_DIR</p>
+<p>echo “The scripts exec end, Files tar successfully !”</p>
+<h2 id="21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址"><a href="#21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址" class="headerlink" title="21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址"></a>21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址</h2><p>[root@xuegod63 ~]# vim ping.sh</p>
+<p>#!/bin/bash</p>
+<p>i=1</p>
+<p>for (( i=1;i&lt;10;i++ ))</p>
+<p>do</p>
+<p> ping  -c  3  192.168.1.$i &amp;&gt; /dev/null</p>
+<p> if  [ $? -ne 0 ];then</p>
+<p>   echo 192.168.1.$i is shutdown</p>
+<p> fi</p>
+<p>done</p>
+<h2 id="21-4-3-批量创建帐号并生成随机密码"><a href="#21-4-3-批量创建帐号并生成随机密码" class="headerlink" title="21.4.3  批量创建帐号并生成随机密码"></a>21.4.3  批量创建帐号并生成随机密码</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim adduser.sh
 
-<p>案例：查询sshd服务的端口信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ss -naltp |grep sshd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+#!/bin/bash
 
-<blockquote>
-<p>netstat与ss区别？① netstat信息比较简洁，ss更加丰富 ② ss执行效率比netstat略高一些</p>
-</blockquote>
-<h2 id="9、kill-killall杀死进程"><a href="#9、kill-killall杀死进程" class="headerlink" title="9、kill/killall杀死进程"></a>9、kill/killall杀死进程</h2><h3 id="☆-根据pid杀掉进程"><a href="#☆-根据pid杀掉进程" class="headerlink" title="☆ 根据pid杀掉进程"></a>☆ 根据pid杀掉进程</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">命令：kill
-语法：kill [信号] PID
-作用：kill 命令会向操作系统内核发送一个信号（多是终止信号）和目标进程的 PID，然后系统内核根据收到的信号类型，对指定进程进行相应的操作
+for i in xuegoda{1..10}
 
-经验：kill经常结合ps命令一起使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+do
 
-<blockquote>
-<p>kill命令用于杀死某个进程，这其实只是其一个功能。kill命令的实质是向进程发送信号</p>
-</blockquote>
-<p>信号种类：</p>
-<table>
-<thead>
-<tr>
-<th>信号编号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>9</td>
-<td>杀死进程，即强制结束进程。</td>
-</tr>
-<tr>
-<td>15</td>
-<td>正常结束进程，是 kill   命令的默认信号。</td>
-</tr>
-</tbody></table>
-<p>案例：使用kill命令杀死crond进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond
-7102
-# kill 7102<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+   useradd $i
 
-<blockquote>
-<p>备注：在互联网中，经常看到kill  -9  进程PID，强制杀死某个进程，kill -9 pid</p>
-</blockquote>
-<h3 id="☆-根据进程名称杀掉进程"><a href="#☆-根据进程名称杀掉进程" class="headerlink" title="☆ 根据进程名称杀掉进程"></a>☆ 根据进程名称杀掉进程</h3><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall [信号编号] 进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+   pass=`date +%s|md5sum|cut -c 1-8`
 
-<p>案例：使用killall命令杀死crond进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall crond<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+   sleep 1
 
-<p>案例：使用killall命令杀死httpd进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall httpd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+   echo "$i:$pass" &gt;&gt; /tmp/passwd.log
 
+   echo $pass |passwd --stdin $i &gt; /dev/null 2&gt;&amp;1
+
+   if [ $? -eq 0 ];then
+
+​    echo "create user is successfully!"
+
+   else
+
+​    echo "create user is failed!"
+
+   fi
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>总结：</p>
+<p>21.1  case - 流程控制语句</p>
+<p>21.2  循环语句</p>
+<p>21.3  while循环语句和循环嵌套</p>
+<p>21.4  实战-3个shell脚本实战</p>
 
                 
             </div>
@@ -1090,7 +903,7 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/">http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</a>
+                    <a href="http://yanshuisiyu.github.io/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/">http://yanshuisiyu.github.io/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1128,12 +941,8 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">学习</span>
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
                                 </a>
                             
                         </div>
@@ -1212,17 +1021,18 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/">
+                <a href="/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Linux自有服务与软件包管理">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="结构化命令case和for、while循环">
                         
-                        <span class="card-title">Linux自有服务与软件包管理</span>
+                        <span class="card-title">结构化命令case和for、while循环</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1232,30 +1042,27 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>
@@ -1269,13 +1076,13 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/">
+                <a href="/2023/12/25/zi-yuan-bai-piao-wang-zhan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux的权限管理操作">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="资源白嫖网站">
                         
-                        <span class="card-title">Linux的权限管理操作</span>
+                        <span class="card-title">资源白嫖网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1286,16 +1093,12 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yanshuisiyu
                             
                         </span>
                     </div>
@@ -1303,12 +1106,8 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
                     </a>
                     
                 </div>
