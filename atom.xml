@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-30T08:00:16.833Z</updated>
+  <updated>2023-12-30T09:08:04.055Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yanshuisiyu.github.io/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/"/>
     <id>http://yanshuisiyu.github.io/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/</id>
     <published>2023-12-30T07:55:58.000Z</published>
-    <updated>2023-12-30T08:00:16.833Z</updated>
+    <updated>2023-12-30T09:08:04.055Z</updated>
     
     
       
@@ -43,6 +43,35 @@
     
     
     <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown的使用说明</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/typora/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/typora/</id>
+    <published>2023-12-29T16:00:00.000Z</published>
+    <updated>2023-12-30T09:17:00.237Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;markdown的使用说明&quot;&gt;&lt;a href=&quot;#markdown的使用说明&quot; class=&quot;headerlink&quot; title=&quot;markdown的使用说明&quot;&gt;&lt;/a&gt;markdown的使用说明&lt;/h1&gt;&lt;h2 id=&quot;一、标题&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Typora" scheme="http://yanshuisiyu.github.io/categories/%E5%AD%A6%E4%B9%A0/Typora/"/>
+    
+    
+    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="Typora" scheme="http://yanshuisiyu.github.io/tags/Typora/"/>
     
   </entry>
   
@@ -524,37 +553,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;MySQL主从复制架构&quot;&gt;&lt;a href=&quot;#MySQL主从复制架构&quot; class=&quot;headerlink&quot; title=&quot;MySQL主从复制架构&quot;&gt;&lt;/a&gt;MySQL主从复制架构&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL集群概述&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL备份与恢复</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-bei-fen-yu-hui-fu/</id>
-    <published>2023-12-23T02:00:18.000Z</published>
-    <updated>2023-12-23T02:07:24.294Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;MySQL备份与恢复&quot;&gt;&lt;a href=&quot;#MySQL备份与恢复&quot; class=&quot;headerlink&quot; title=&quot;MySQL备份与恢复&quot;&gt;&lt;/a&gt;MySQL备份与恢复&lt;/h1&gt;&lt;h1 id=&quot;一、逻辑备份&quot;&gt;&lt;a href=&quot;#一、逻辑备份&quot;</summary>
         
       
     

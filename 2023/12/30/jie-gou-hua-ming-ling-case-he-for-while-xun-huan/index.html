@@ -563,17 +563,30 @@
 <h1 id="21-1-流程控制语句：case"><a href="#21-1-流程控制语句：case" class="headerlink" title="21.1  流程控制语句：case"></a>21.1  流程控制语句：case</h1><p>控制语句：用来实现对程序流程的选择、循环、转向和返回等进行控制。case是开关语句的一个组成部分；</p>
 <p>它是根据变量的不同进行取值比较，然后针对不同的取值分别执行不同的命令操作</p>
 <p>适用于多分支，是一个多选择语句</p>
-<p>case   变量或表达式   in</p>
-<p>​        变量或表达式1）</p>
-<p>​           命令序列1</p>
-<p>​           ；；</p>
-<p>​      变量或表达式2）</p>
-<p>​           命令序列2</p>
-<p>​           ；；</p>
-<p>​           ……</p>
-<p>​           *） </p>
-<p>​           默认命令序列</p>
-<p> esac</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">case   变量或表达式   in
+
+​        变量或表达式1）
+
+​           命令序列1
+
+​           ；；
+
+​      变量或表达式2）
+
+​           命令序列2
+
+​           ；；
+
+​           ……
+
+​           *） 
+
+​           默认命令序列
+
+ esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>case语句执行流程控制：</p>
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps7.jpg" alt="img"> </p>
 <p>执行流程：</p>
@@ -581,61 +594,116 @@
 <p>若与值1不相匹配，则继续与值2 进行比较，若取值相同则执行值2 后的命令序列，直到遇见双分号“；； ”后跳转至esac，表示结束分支。</p>
 <p>依次类推，若找不到任何匹配的值，则执行默认模式“ *） ”后的命令序列，直到遇见esac后结束分支</p>
 <p>注意事项：</p>
-<p>u “变量或表达式”后面必须为单词in，每一个“变量或表达式”的值必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;; </p>
-<p>u 匹配中的值可以是多个值，通过“|”来分隔</p>
+<p> “变量或表达式”后面必须为单词in，每一个“变量或表达式”的值必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;; </p>
+<p>匹配中的值可以是多个值，通过“|”来分隔</p>
 <p>例1：编写一个操作文件的脚本</p>
-<p>[root@xuegod63 ~]# cat case-1.sh </p>
-<p>#########################################################################</p>
-<p># File Name: case-1.sh</p>
-<p># Author: xuegod</p>
-<p>#########################################################################</p>
-<p>#!/bin/bash</p>
-<p>cat &lt;&lt;eof</p>
-<hr>
-<p>** 1. backup  **</p>
-<p>** 2. copy   **</p>
-<p>** 3. quit   **</p>
-<hr>
-<p>eof</p>
-<p>read -p “Input a choose: “ OP</p>
-<p>case $OP in</p>
-<p>​	1|backup)</p>
-<p>​		echo “BACKUP……”</p>
-<p>​		;;</p>
-<p>​	2|copy)</p>
-<p>​		echo “COPY…..”</p>
-<p>​		;;</p>
-<p>​	3|quit)</p>
-<p>​		exit</p>
-<p>​		;;</p>
-<p>​	*)</p>
-<p>​		echo error</p>
-<p>esac</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat case-1.sh 
+
+#########################################################################
+
+# File Name: case-1.sh
+
+# Author: xuegod
+
+#########################################################################
+
+#!/bin/bash
+
+cat &lt;&lt;eof
+
+****************
+
+** 1. backup  **
+
+** 2. copy   **
+
+** 3. quit   **
+
+****************
+
+eof
+
+read -p "Input a choose: " OP
+
+case $OP in
+
+​	1|backup)
+
+​		echo "BACKUP......"
+
+​		;;
+
+​	2|copy)
+
+​		echo "COPY....."
+
+​		;;
+
+​	3|quit)
+
+​		exit
+
+​		;;
+
+​	*)
+
+​		echo error
+
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：编写一个启动apache服务脚本</p>
-<p>[root@xuegod63 ~]# yum install httpd -y</p>
-<p>[root@xuegod63 ~]# vim  case-2.sh</p>
-<p>#!/bin/bash</p>
-<p>case $1 in</p>
-<p>​	start)</p>
-<p>​		systemctl $1 httpd</p>
-<p>​		ps aux|grep httpd</p>
-<p>​		echo “httpd start”</p>
-<p>​		;;</p>
-<p>​	stop)</p>
-<p>​		systemctl $1 httpd</p>
-<p>​		ps aux|grep httpd</p>
-<p>​		echo “httpd stop”</p>
-<p>​		;;</p>
-<p>​	status)</p>
-<p>​		systemctl $1 httpd</p>
-<p>​		;;</p>
-<p>​	restart)</p>
-<p>​		systemctl $1 httpd</p>
-<p>​		echo “httpd restart”</p>
-<p>​		;;</p>
-<p>​	*)</p>
-<p>​		echo “USAGE: $0 start|stop|restart”</p>
-<p>esac</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# yum install httpd -y
+
+[root@xuegod63 ~]# vim  case-2.sh
+
+#!/bin/bash
+
+case $1 in
+
+​	start)
+
+​		systemctl $1 httpd
+
+​		ps aux|grep httpd
+
+​		echo "httpd start"
+
+​		;;
+
+​	stop)
+
+​		systemctl $1 httpd
+
+​		ps aux|grep httpd
+
+​		echo "httpd stop"
+
+​		;;
+
+​	status)
+
+​		systemctl $1 httpd
+
+​		;;
+
+​	restart)
+
+​		systemctl $1 httpd
+
+​		echo "httpd restart"
+
+​		;;
+
+​	*)
+
+​		echo "USAGE: $0 start|stop|restart"
+
+esac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="21-2-循环语句"><a href="#21-2-循环语句" class="headerlink" title="21.2  循环语句"></a>21.2  循环语句</h1><h2 id="21-2-1-for-do-done"><a href="#21-2-1-for-do-done" class="headerlink" title="21.2.1  for-do-done"></a>21.2.1  for-do-done</h2><p>语法格式：</p>
 <p>for var in list </p>
 <p>do</p>
@@ -648,35 +716,69 @@
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps8.jpg" alt="img"> </p>
 <p>取值列表有多种取值方式，比如</p>
 <p>可以直接读取in 后面的值，默认以空格做分隔</p>
-<p>[root@xuegod63 ~]# vim for-1.sh</p>
-<p>#!/bin/bash</p>
-<p>for var in a1 b1 c1 d1</p>
-<p>do</p>
-<p>​	echo the text is $var</p>
-<p>done</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim for-1.sh
+
+#!/bin/bash
+
+for var in a1 b1 c1 d1
+
+do
+
+​	echo the text is $var
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>列表中的复杂值，可以使用 引号或转义字符”/”来加以约束</p>
-<p>[root@xuegod63 ~]# cat for-2.sh  </p>
-<p>#!/bin/bash</p>
-<p>for var in a1 b1 “c1 d1” e2 “hello world”</p>
-<p>do</p>
-<p>​	echo the text is $var</p>
-<p>done</p>
-<p>[root@xuegod63 ~]# cat for-3.sh </p>
-<p>#!/bin/bash</p>
-<p>for var in a1 b'1 “c1 d1” e2 “hello world” I's a22 </p>
-<p>do</p>
-<p>​	echo the text is $var</p>
-<p>done</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat for-2.sh  
+
+#!/bin/bash
+
+for var in a1 b1 "c1 d1" e2 "hello world"
+
+do
+
+​	echo the text is $var
+
+done
+
+
+[root@xuegod63 ~]# cat for-3.sh 
+
+#!/bin/bash
+
+for var in a1 b\'1 "c1 d1" e2 "hello world" I\'s a22 
+
+do
+
+​	echo the text is $var
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>从变量中取值</p>
-<p>[root@xuegod63 ~]# cat for-4.sh </p>
-<p>#!/bin/bash</p>
-<p>list=”a1 b1 c1 d1”</p>
-<p>for i in $list</p>
-<p>do</p>
-<p>​	echo is a $i</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-4.sh 
+
+#!/bin/bash
+
+list="a1 b1 c1 d1"
+
+for i in $list
+
+do
+
+​	echo is a $i
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>4、从命令中取值</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat for-5.sh  #以空格做分隔符
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-5.sh  #以空格做分隔符
 
 #!/bin/bash
 
@@ -699,49 +801,97 @@ done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <p>注：$’\n’与’\n’时的区别</p>
 <p>IFS=’\n’   #将字符\和字符n作为IFS的换行符。</p>
 <p>IFS=$’\n’  #正真的使用换行符做为字段分隔符。</p>
-<p>[root@xuegod63 ~]# cat for-6.sh #指定以\n回车做为 for语句的分隔符</p>
-<p>#!/bin/bash</p>
-<p>IFS=$’\n’</p>
-<p>for i in <code>cat /etc/hosts</code></p>
-<p>do</p>
-<p>​	echo “$i”</p>
-<p>done</p>
-<p> [root@xuegod63 ~]# cat for-7.sh  #以：冒号做分隔符</p>
-<p>#!/bin/bash</p>
-<p>IFS=:</p>
-<p>list=<code>head -1 /etc/passwd</code></p>
-<p>for i in $list</p>
-<p>do</p>
-<p>​	echo $i</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-6.sh #指定以\n回车做为 for语句的分隔符
+
+#!/bin/bash
+
+IFS=$'\n'
+
+for i in `cat /etc/hosts`
+
+do
+
+​	echo "$i"
+
+done
+
+ [root@xuegod63 ~]# cat for-7.sh  #以：冒号做分隔符
+
+#!/bin/bash
+
+IFS=:
+
+list=`head -1 /etc/passwd`
+
+for i in $list
+
+do
+
+​	echo $i
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>6、C语言风格的for</p>
 <p>语法格式：</p>
-<p>for ((i=0;i&lt;10;i++))</p>
-<p>do</p>
-<p>  commmands</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">for ((i=0;i&lt;10;i++))
+
+do
+
+  commmands
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例1：单个变量。 输出1到10之间的数字</p>
-<p>[root@xuegod63 ~]# cat for-8.sh </p>
-<p>#!/bin/bash</p>
-<p>for (( i=1 ; i&lt;=10  ; i++  ))</p>
-<p>do</p>
-<p>​	echo num is $i</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-8.sh 
+
+#!/bin/bash
+
+for (( i=1 ; i&lt;=10  ; i++  ))
+
+do
+
+​	echo num is $i
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>注：</p>
 <p>互动：  i++ 这一条语句在for循环体中哪个位置执行？</p>
-<p>for (( i=1 ; i&lt;=10  ;  ))  #i=1 只赋值一次。然后执行 i &lt;= 10</p>
-<p>do</p>
-<p>​		echo num is $i</p>
-<p>i=$(($i+1))  # i++在这里执行。 当for循环体中所有命令执行完后，再执行i++</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">for (( i=1 ; i&lt;=10  ;  ))  #i=1 只赋值一次。然后执行 i &lt;= 10
+
+do
+
+​		echo num is $i
+
+i=$(($i+1))  # i++在这里执行。 当for循环体中所有命令执行完后，再执行i++
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>例2：多个变量。 同时输出1-9的升序和降序</p>
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps9.jpg" alt="img"> </p>
-<p>[root@xuegod63 ~]# cat for-8.sh </p>
-<p>#!/bin/bash</p>
-<p>for ((a=1,b=9 ; a&lt;10 ; a++,b–))</p>
-<p>do</p>
-<p>​	echo num is $a - $b </p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-8.sh 
+
+#!/bin/bash
+
+for ((a=1,b=9 ; a&lt;10 ; a++,b--))
+
+do
+
+​	echo num is $a - $b 
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="21-3-while循环语句和循环嵌套"><a href="#21-3-while循环语句和循环嵌套" class="headerlink" title="21.3  while循环语句和循环嵌套"></a>21.3  while循环语句和循环嵌套</h1><h2 id="21-3-1-while-do-done"><a href="#21-3-1-while-do-done" class="headerlink" title="21.3.1  while-do-done"></a>21.3.1  while-do-done</h2><p>重复测试指令的条件，只要条件成立就反复执行对应的命令操作，直到命令不成立或为假；</p>
 <p>语法格式如下：</p>
 <p>while 测试命令</p>
@@ -751,93 +901,185 @@ done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps10.jpg" alt="img"> </p>
 <p>注意：避免陷入死循环  while true </p>
 <p>例1：降序输出10到1的数字</p>
-<p>[root@xuegod63 ~]# cat while-1.sh </p>
-<p>#!/bin/bash</p>
-<p>var=10</p>
-<p>while [ $var -gt 0 ]</p>
-<p>do</p>
-<p>​		echo $var</p>
-<p>​		var=$[$var-1]</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat while-1.sh 
+
+#!/bin/bash
+
+var=10
+
+while [ $var -gt 0 ]
+
+do
+
+​		echo $var
+
+​		var=$[$var-1]
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：输出如下图两数相乘的效果</p>
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps11.jpg" alt="img"> </p>
 <p>自增操作  let var++  </p>
 <p>自减操作  let var–  </p>
-<p>[root@xuegod63 ~]# cat while-2.sh</p>
-<p>#!/bin/bash</p>
-<p>num=1</p>
-<p>while [ $num -lt 10 ]</p>
-<p>do</p>
-<p>​    sum=$((  $num * $num ))</p>
-<p>​    echo  “$num * $num = $sum”</p>
-<p>​    ((num++))</p>
-<p>#    let num++</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat while-2.sh
+
+#!/bin/bash
+
+num=1
+
+while [ $num -lt 10 ]
+
+do
+
+​    sum=$((  $num * $num ))
+
+​    echo  "$num * $num = $sum"
+
+​    ((num++))
+
+#    let num++
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="21-3-2-嵌套循环"><a href="#21-3-2-嵌套循环" class="headerlink" title="21.3.2  嵌套循环"></a>21.3.2  嵌套循环</h2><p>例1：批量添加a.txt文件5个用户</p>
-<p>[root@xuegod63 ~]# vim a.txt  #添加5个用户</p>
-<p>mk</p>
-<p>cd</p>
-<p>ls</p>
-<p>find</p>
-<p>ln</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim a.txt  #添加5个用户
+
+mk
+
+cd
+
+ls
+
+find
+
+ln<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>编写脚本的思路</p>
 <p>1  明确脚本的功能</p>
 <p>2  编写脚本时会使用到那些命令 ？  useradd   passwd  for </p>
 <p>3  把变化的数据使用变量表示</p>
 <p>4  选择适合的流程控制  （选择 、 循环 、分支）</p>
-<p>[root@xuegod63 ~]# cat for-adduser.sh </p>
-<p>#!/bin/bash</p>
-<p>for name in <code>cat /root/a.txt</code></p>
-<p>#for name in $(cat /root/a.txt)</p>
-<p>do</p>
-<p>​    id $name &amp;&gt; /dev/null</p>
-<p>​    if [ $? -ne 0 ];then</p>
-<p>​        useradd $name</p>
-<p>​        echo “123456” |passwd –stdin $name &amp;&gt; /dev/null</p>
-<p>​        echo “user $name created”</p>
-<p>​    else</p>
-<p>​        echo “user $name is exist”</p>
-<p>​    fi</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-adduser.sh 
+
+#!/bin/bash
+
+for name in `cat /root/a.txt`
+
+#for name in $(cat /root/a.txt)
+
+do
+
+​    id $name &amp;&gt; /dev/null
+
+​    if [ $? -ne 0 ];then
+
+​        useradd $name
+
+​        echo "123456" |passwd --stdin $name &amp;&gt; /dev/null
+
+​        echo "user $name created"
+
+ 
+
+​    else
+
+​        echo "user $name is exist"
+
+​    fi
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>注：&amp;&gt; 是正确和错误的信息都重定向到/dev/null里面</p>
 <p>例2 ：打印九九乘法表</p>
 <p><img src="/../assets/blog_res/%E7%BB%93%E6%9E%84%E5%8C%96%E5%91%BD%E4%BB%A4case%E5%92%8Cfor%E3%80%81while%E5%BE%AA%E7%8E%AF.assets/wps12.jpg" alt="img"> </p>
 <p>注：外层循环循环行，内层循环循环列</p>
 <p>规律:  内层循环的变量&lt;=外层循环的变量</p>
-<p>[root@xuegod63 ~]# cat for-for.sh</p>
-<p>for i in  <code>seq 9</code></p>
-<p>do</p>
-<p>​     for j in <code>seq $i</code></p>
-<p>​     do</p>
-<p>​       echo  -n  “$i*$j= <code>echo $(($i*$j))</code> “</p>
-<p>​     done</p>
-<p>​    echo “  “</p>
-<p>done</p>
-<h1 id="21-4-实战-3个shell脚本实战"><a href="#21-4-实战-3个shell脚本实战" class="headerlink" title="21.4  实战-3个shell脚本实战"></a>21.4  实战-3个shell脚本实战</h1><h2 id="21-4-1-实战-将-opt目录下所有的日志文件全自动打包"><a href="#21-4-1-实战-将-opt目录下所有的日志文件全自动打包" class="headerlink" title="21.4.1  实战-将/opt目录下所有的日志文件全自动打包"></a>21.4.1  实战-将/opt目录下所有的日志文件全自动打包</h2><p>[root@xuegod63 ~]# vim log-back.sh</p>
-<p>#!/bin/sh</p>
-<p>SRC_DIR=/var/log/</p>
-<p>DES_DIR=/opt/backup/<code>date +%Y%m%d</code></p>
-<p>if</p>
-<p>[ ! -d  $DES_DIR ] ; then</p>
-<p>​    mkdir -p $DES_DIR</p>
-<p>fi</p>
-<p>for i in  <code>find  $SRC_DIR  -name "*.log"</code></p>
-<p>do</p>
-<p>​    tar  czf  $i.tgz  $i</p>
-<p>done</p>
-<p>mv /var/log/*.tgz $DES_DIR</p>
-<p>ls -lh $DES_DIR</p>
-<p>echo “The scripts exec end, Files tar successfully !”</p>
-<h2 id="21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址"><a href="#21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址" class="headerlink" title="21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址"></a>21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址</h2><p>[root@xuegod63 ~]# vim ping.sh</p>
-<p>#!/bin/bash</p>
-<p>i=1</p>
-<p>for (( i=1;i&lt;10;i++ ))</p>
-<p>do</p>
-<p> ping  -c  3  192.168.1.$i &amp;&gt; /dev/null</p>
-<p> if  [ $? -ne 0 ];then</p>
-<p>   echo 192.168.1.$i is shutdown</p>
-<p> fi</p>
-<p>done</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# cat for-for.sh
+
+for i in  `seq 9`
+
+do
+
+​     for j in `seq $i`
+
+​     do
+
+​       echo  -n  "$i*$j= `echo $(($i*$j))` "
+
+​     done
+
+​    echo "  "
+
+done
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="21-4-实战-3个shell脚本实战"><a href="#21-4-实战-3个shell脚本实战" class="headerlink" title="21.4  实战-3个shell脚本实战"></a>21.4  实战-3个shell脚本实战</h1><h2 id="21-4-1-实战-将-opt目录下所有的日志文件全自动打包"><a href="#21-4-1-实战-将-opt目录下所有的日志文件全自动打包" class="headerlink" title="21.4.1  实战-将/opt目录下所有的日志文件全自动打包"></a>21.4.1  实战-将/opt目录下所有的日志文件全自动打包</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim log-back.sh
+
+#!/bin/sh
+
+SRC_DIR=/var/log/
+
+DES_DIR=/opt/backup/`date +%Y%m%d`
+
+if
+
+[ ! -d  $DES_DIR ] ; then
+
+​    mkdir -p $DES_DIR
+
+fi
+
+for i in  `find  $SRC_DIR  -name "*.log"`
+
+do
+
+​    tar  czf  $i.tgz  $i
+
+done
+
+mv /var/log/*.tgz $DES_DIR
+
+ls -lh $DES_DIR
+
+echo "The scripts exec end, Files tar successfully !"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址"><a href="#21-4-2-实战-找出192-168-1-1-10网段中，服务器已经关机的IP地址" class="headerlink" title="21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址"></a>21.4.2  实战-找出192.168.1.1-10网段中，服务器已经关机的IP地址</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim ping.sh
+
+#!/bin/bash
+
+i=1
+
+for (( i=1;i&lt;10;i++ ))
+
+do
+
+ ping  -c  3  192.168.1.$i &amp;&gt; /dev/null
+
+ if  [ $? -ne 0 ];then
+
+   echo 192.168.1.$i is shutdown
+
+ fi
+
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="21-4-3-批量创建帐号并生成随机密码"><a href="#21-4-3-批量创建帐号并生成随机密码" class="headerlink" title="21.4.3  批量创建帐号并生成随机密码"></a>21.4.3  批量创建帐号并生成随机密码</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim adduser.sh
 
 #!/bin/bash
@@ -1076,13 +1318,13 @@ done
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/25/zi-yuan-bai-piao-wang-zhan/">
+                <a href="/2023/12/30/typora/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="资源白嫖网站">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="markdown的使用说明">
                         
-                        <span class="card-title">资源白嫖网站</span>
+                        <span class="card-title">markdown的使用说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1093,12 +1335,20 @@ done
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yanshuisiyu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/Typora/" class="post-category">
+                                    Typora
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1106,8 +1356,12 @@ done
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                        <span class="chip bg-color">网站</span>
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">学习</span>
+                    </a>
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
                     </a>
                     
                 </div>
@@ -1304,7 +1558,7 @@ done
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">118.9k</span>
+                        class="white-color">121.4k</span>
             
             
             

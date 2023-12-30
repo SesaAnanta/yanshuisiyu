@@ -4,9 +4,22 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux计划任务以及进程检测与控制, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
-    <meta name="description" content="Linux计划任务以及进程检测与控制一、Linux计划任务1、计划任务权限☆ 黑名单crontab是任何用户都可以创建的计划任务，但是超级管理员可以通过配置来设置某些用户不允许设置计划任务 。
-提出问题：如果我们想限定某个用户（如ithei">
+    <meta name="keywords" content="markdown的使用说明, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="markdown的使用说明一、标题
+语法：# (一级标题)  ## (二级标题)  ### (三级标题) ……
+
+
+代码：
+&amp;gt;# 这是一级标题
+&amp;gt;## 这是二级标题
+
+
+效果:  
+这是一级标题这是二级标题
+
+快捷键:
+
+Ctr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +31,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux计划任务以及进程检测与控制 | yanshuisiyu&#39;s Blog</title>
+    <title>markdown的使用说明 | yanshuisiyu&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -454,12 +467,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux计划任务以及进程检测与控制</h1>
+                    <h1 class="description center-align post-title">markdown的使用说明</h1>
                 </div>
             </div>
         </div>
@@ -483,12 +496,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
-                            </a>
-                        
                             <a href="/tags/%E5%AD%A6%E4%B9%A0/">
                                 <span class="chip bg-color">学习</span>
+                            </a>
+                        
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
                             </a>
                         
                     </div>
@@ -499,8 +512,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/linux/" class="post-category">
-                                linux
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/Typora/" class="post-category">
+                                Typora
                             </a>
                         
                     </div>
@@ -512,28 +529,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-23
+                    2023-12-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-23
+                    2023-12-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    12 分
                 </div>
                 
 
@@ -553,517 +570,1113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux计划任务以及进程检测与控制"><a href="#Linux计划任务以及进程检测与控制" class="headerlink" title="Linux计划任务以及进程检测与控制"></a>Linux计划任务以及进程检测与控制</h1><h1 id="一、Linux计划任务"><a href="#一、Linux计划任务" class="headerlink" title="一、Linux计划任务"></a>一、Linux计划任务</h1><h2 id="1、计划任务权限"><a href="#1、计划任务权限" class="headerlink" title="1、计划任务权限"></a>1、计划任务权限</h2><h3 id="☆-黑名单"><a href="#☆-黑名单" class="headerlink" title="☆ 黑名单"></a>☆ 黑名单</h3><p>crontab是任何用户都可以创建的计划任务，但是超级管理员可以通过配置来设置某些用户不允许设置计划任务 。</p>
-<p>提出问题：如果我们想限定某个用户（如itheima）使用计划任务，如何处理呢？</p>
-<p>答：可以使用计划任务的黑名单，黑名单文件路径 =&gt; ==/etc/cron.deny==文件</p>
-<p>案例：把普通账号itheima加入到cron.deny黑名单中，禁止其创建计划任务</p>
-<p>第一步：切换到超级管理员root</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># su - root<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>第二步：使用vim打开/etc/cron.deny文件</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># vim /etc/cron.deny<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>第三步：把你需要禁止的用户名单，加入此文件（如itheima）</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">itheima<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>切换到itheima账号，测试是否可以使用crontab命令</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324095412933.png" alt="image-20200324095412933"></p>
-<h3 id="☆-白名单"><a href="#☆-白名单" class="headerlink" title="☆ 白名单"></a>☆ 白名单</h3><p>在Linux的计划任务中，除了拥有黑名单以外，还有白名单。作用：允许哪些用户使用计划任务。</p>
-<p>白名单文件的路径 =&gt; ==/etc/cron.allow==，但是要特别注意，此文件需要手工创建。</p>
-<blockquote>
-<p>注意：白名单优先级高于黑名单，如果一个用户同时存在两个名单文件中，则会被默认允许创建计划任务。</p>
+                <h1 id="markdown的使用说明"><a href="#markdown的使用说明" class="headerlink" title="markdown的使用说明"></a>markdown的使用说明</h1><h2 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h2><blockquote>
+<p>语法：# (一级标题)  ## (二级标题)  ### (三级标题) ……</p>
 </blockquote>
-<h2 id="2、查看计划任务的保存文件"><a href="#2、查看计划任务的保存文件" class="headerlink" title="2、查看计划任务的保存文件"></a>2、查看计划任务的保存文件</h2><p>问题：计划任务文件具体保存在哪里呢？</p>
-<p>答：<code>/var/spool/cron/用户名称</code>，如果使用root用户编辑计划任务，则用户文件名为root</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ll /var/spool/cron
-total 4
--rw-------. 1 itheima itheima  0 Mar 24 09:50 itheima
--rw-------. 1 root    root    40 Mar 24 10:21 root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="3、计划任务的日志程序"><a href="#3、计划任务的日志程序" class="headerlink" title="3、计划任务的日志程序"></a>3、计划任务的日志程序</h2><p>问题：在实际应用中，我们如何查看定时任务运行情况？</p>
-<p>答：通过计划任务日志，日志文件位于<code>/var/log/cron</code></p>
-<p>案例：演示计划任务的日志程序</p>
-<p>第一步：使用root账号创建一个计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># su - root
-# crontab -e
-* * * * * echo 1 &gt;&gt; ~/readme.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>第二步：使用tail -f命令监控/var/log/cron日志程序</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># tail -f /var/log/cron<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="4、扩展内容：at命令"><a href="#4、扩展内容：at命令" class="headerlink" title="4、扩展内容：at命令"></a>4、扩展内容：at命令</h2><p>在Linux系统下，有两个命令可以实现计划任务：crontab与at（第三方需要额外安装）</p>
-<p>crontab ：每天定时执行计划任务（最小单元分钟）</p>
-<p>at ：一次性定时执行任务</p>
-<h3 id="☆-安装at命令"><a href="#☆-安装at命令" class="headerlink" title="☆ 安装at命令"></a>☆ 安装at命令</h3><p>CentOS7自带，其他版本可能需要手工安装</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># yum install at -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="☆-启动底层服务"><a href="#☆-启动底层服务" class="headerlink" title="☆ 启动底层服务"></a>☆ 启动底层服务</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># systemctl start atd
-# systemctl enable atd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <blockquote>
-<p>atd = at + d = at命令 + daemon缩写</p>
+<p>代码：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;# 这是一级标题
+&gt;## 这是二级标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </blockquote>
-<h3 id="☆-案例演示"><a href="#☆-案例演示" class="headerlink" title="☆ 案例演示"></a>☆ 案例演示</h3><p>案例1：三天后下午5点执行/bin/ls</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># at 5pm+3 days
-at&gt;/bin/ls &gt;/root/readme.txt
-at&gt;按Ctrl+D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
-<p>am = 上午、pm = 下午、3 days = 3天</p>
-</blockquote>
-<p>案例2：明天17点，输出时间到指定的文件中</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># at 17:00 tomorrow
-at&gt;date&gt;/root/readme.txt
-at&gt;按Ctrl+D<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<p>效果:  </p>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2></blockquote>
 <blockquote>
-<p>tomorrow = 明天</p>
+<p>快捷键:</p>
+<ul>
+<li>Ctrl+数字1~6可以快速将选中的文本调成对应级别的标题</li>
+<li>Ctrl+0可以快速将选中的文本调成普通文本</li>
+<li>Ctrl+加号/减号对标题级别进行加减</li>
+</ul>
 </blockquote>
-<p>案例3：使用atq查看没有执行的计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># atq<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<h2 id="二、段落"><a href="#二、段落" class="headerlink" title="二、段落"></a>二、段落</h2><h3 id="1、换行"><a href="#1、换行" class="headerlink" title="1、换行"></a>1、换行</h3><blockquote>
+<p>代码:  </p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;这是一个段落
+&gt;这是一个段落<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
 <blockquote>
-<p>atq = at + q = at命令 + query查询</p>
+<p>效果: </p>
+<p>这是一个段落<br>这是一个段落</p>
 </blockquote>
-<p>案例4：删除指定的计划任务</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># atq
-# atrm 任务号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<h3 id="2、分割线"><a href="#2、分割线" class="headerlink" title="2、分割线"></a>2、分割线</h3><blockquote>
+<p>语法:  —或者***+回车</p>
+</blockquote>
 <blockquote>
-<p>atrm = at + rm = at命令 + remove移除</p>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;---或者***<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </blockquote>
-<h1 id="二、Linux进程与程序"><a href="#二、Linux进程与程序" class="headerlink" title="二、Linux进程与程序"></a>二、Linux进程与程序</h1><h2 id="1、了解一下进程与程序的关系"><a href="#1、了解一下进程与程序的关系" class="headerlink" title="1、了解一下进程与程序的关系"></a>1、了解一下进程与程序的关系</h2><p>​        <strong>进程</strong>是正在执行的一个程序或命令，每个进程都是一个运行的实体，并占用一定的系统资源。<strong>程序</strong>是人使用计算机语言编写的可以实现特定目标或解决特定问题的代码集合。</p>
-<p>​        简单来说，程序是人使用计算机语言编写的，可以实现一定功能，并且可以执行的代码集合。进程是正在执行中的程序。</p>
-<p><strong>举例</strong>：谷歌浏览器是一个程序，当我们打开谷歌浏览器，就会在系统中看到一个浏览器的进程，当程序被执行时，程序的代码都会被加载入内存，操作系统给这个进程分配一个 ID，称为 <strong>PID</strong>（进程 ID）。我们打开多个谷歌浏览器，就有多个浏览器子进程，但是这些进程使用的程序，都是chrome</p>
 <blockquote>
-<p>PID = Process ID = 进程编号</p>
+<p>效果:</p>
+<hr>
 </blockquote>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324113209223.png" alt="image-20200324113209223"></p>
-<h2 id="2、Linux下的进程管理工作"><a href="#2、Linux下的进程管理工作" class="headerlink" title="2、Linux下的进程管理工作"></a>2、Linux下的进程管理工作</h2><p>进程查看，通过查看，判断健康状态</p>
-<p>进程终止</p>
-<p>进程优先级控制</p>
-<h1 id="三、Linux下进程管理命令"><a href="#三、Linux下进程管理命令" class="headerlink" title="三、Linux下进程管理命令"></a>三、Linux下进程管理命令</h1><h2 id="1、任务背景"><a href="#1、任务背景" class="headerlink" title="1、任务背景"></a>1、任务背景</h2><p>工作场景：</p>
-<p>​        小黑入职到一家公司，接到的第一项任务，就是监控生产服务器的性能，提到服务器性能，我们首先想到的就是CPU，内存和磁盘。</p>
-<h2 id="2、使用top命令动态监测CPU信息"><a href="#2、使用top命令动态监测CPU信息" class="headerlink" title="2、使用top命令动态监测CPU信息"></a>2、使用top命令动态监测CPU信息</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># top<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324114201114.png" alt="image-20200324114201114"></p>
-<h2 id="3、系统的整体情况"><a href="#3、系统的整体情况" class="headerlink" title="3、系统的整体情况"></a>3、系统的整体情况</h2><h3 id="☆-第一行"><a href="#☆-第一行" class="headerlink" title="☆ 第一行"></a>☆ 第一行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324114427942.png" alt="image-20200324114427942"></p>
+<h2 id="三、文字显示"><a href="#三、文字显示" class="headerlink" title="三、文字显示"></a>三、文字显示</h2><h3 id="1、字体"><a href="#1、字体" class="headerlink" title="1、字体"></a>1、字体</h3><blockquote>
+<p>语法:</p>
+<ul>
+<li>粗体:  用一对双星号包裹</li>
+<li>删除线:  用一对双飘号包裹</li>
+<li>下划线:  用一对u标签包裹</li>
+<li>斜体:  用一对单星号包裹</li>
+<li>高亮:  用一对双等号包裹</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;**这是粗体**
+&gt;~~这是删除线~~
+&gt;&lt;u&gt;这是下划线&lt;/u&gt;
+&gt;*这是斜体*
+&gt;==这是高亮==<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br><strong>这是粗体</strong><br><del>这是删除线</del><br><u>这是下划线</u><br><em>这是斜体</em><br>==这是高亮==</p>
+</blockquote>
+<blockquote>
+<p>快捷键:</p>
+<ul>
+<li>加粗:  Ctrl+B</li>
+<li>删除线:  Shift+Alt+5</li>
+<li>下划线:  Ctrl+U</li>
+<li>斜体:  Ctrl+I</li>
+</ul>
+</blockquote>
+<h3 id="2、上下标"><a href="#2、上下标" class="headerlink" title="2、上下标"></a>2、上下标</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;x^2^
+&gt;H~2~O<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>x^2^<br>H<del>2</del>O</p>
+</blockquote>
+<h2 id="四、列表"><a href="#四、列表" class="headerlink" title="四、列表"></a>四、列表</h2><h3 id="1、无序列表"><a href="#1、无序列表" class="headerlink" title="1、无序列表"></a>1、无序列表</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;*/-/+ +空格<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>1.只有同一级别:</p>
+<ul>
+<li>苹果</li>
+<li>香蕉</li>
+<li>橘子</li>
+</ul>
+<p>2.子集类:</p>
+<ul>
+<li>一级分类<ul>
+<li>二级分类 <ul>
+<li>三级分类</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+]</p>
+</blockquote>
+<h3 id="2、有序列表"><a href="#2、有序列表" class="headerlink" title="2、有序列表"></a>2、有序列表</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;数字+.+空格<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
+<ol>
+<li>第一个标题</li>
+<li>第二个标题</li>
+<li>第三个标题</li>
+</ol>
+<ul>
+<li>子内容1</li>
+<li>子内容2</li>
+</ul>
+<ol start="4">
+<li>第四个标题</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+[</p>
+</blockquote>
+<h3 id="3、任务列表"><a href="#3、任务列表" class="headerlink" title="3、任务列表"></a>3、任务列表</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;- [ ] 吃早餐
+&gt;- [x] 背单词<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
+<ul>
+<li><input disabled="" type="checkbox"> 吃早餐</li>
+<li><input checked="" disabled="" type="checkbox"> 背单词</li>
+</ul>
+</blockquote>
+<h2 id="五、区块显示"><a href="#五、区块显示" class="headerlink" title="五、区块显示"></a>五、区块显示</h2><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;&gt;+回车<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
+<blockquote>
+<p>这是最外层区块</p>
+<blockquote>
+<p>这是内层区块</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>这是最内层区块</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="六、代码显示"><a href="#六、代码显示" class="headerlink" title="六、代码显示"></a>六、代码显示</h2><h3 id="1、行内代码"><a href="#1、行内代码" class="headerlink" title="1、行内代码"></a>1、行内代码</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;`int a=0;`（说明：`位于Esc下面）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br><code>int a=0;</code></p>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+`</p>
+</blockquote>
+<h3 id="2、代码块"><a href="#2、代码块" class="headerlink" title="2、代码块"></a>2、代码块</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;```js/java/c#/text
+&gt;内容
+&gt;```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+K</p>
+</blockquote>
+<h2 id="七、链接"><a href="#七、链接" class="headerlink" title="七、链接"></a>七、链接</h2><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;www.baidu.com
+&gt;[百度一下](https://www.baidu.com)
+&gt;[百度一下](https://www.baidu.com "https://www.baidu.com")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br><a target="_blank" rel="noopener" href="https://www.baidu.com/">百度一下</a><br><a target="_blank" rel="noopener" href="https://www.baidu.com/" title="https://www.baidu.com">百度一下</a></p>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+K</p>
+</blockquote>
+<h2 id="八、脚注"><a href="#八、脚注" class="headerlink" title="八、脚注"></a>八、脚注</h2><blockquote>
+<p>说明:  对文本进行解释说明。</p>
+</blockquote>
+<blockquote>
+<p>代码: </p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;[^文本]
+&gt;[^文本]:解释说明<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>这是一个技术<a href="%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E6%A1%86%E6%9E%B6%E3%80%82">^①</a></p>
+</blockquote>
+<h2 id="九、图片插入"><a href="#九、图片插入" class="headerlink" title="九、图片插入"></a>九、图片插入</h2><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;![不显示的文字](图片路径 "图片标题")<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>![This is a picture](C:\Users\asus\Pictures\Saved Pictures\Snipaste_2020-09-03_13-19-11.png “漫步图”)</p>
+<p>(注：效果路径为C:\Users\asus\Pictures\Saved Pictures\Snipaste_2020-09-03_13-19-11.png。在其他电脑上可能不显示。)</p>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+Shift+I</p>
+</blockquote>
+<h2 id="十、表格"><a href="#十、表格" class="headerlink" title="十、表格"></a>十、表格</h2><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;|  1   |  2   |  3   |
+&gt;| :--- | :--: | ---: |
+&gt;|  4   |  5   |  6   |
+&gt;|  7   |  8   |  9   |
+&gt;|  10  |  11  |  12  |<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
 <table>
 <thead>
 <tr>
-<th>内 容</th>
-<th>说 明</th>
+<th>1</th>
+<th align="center">2</th>
+<th align="right">3</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>10:12:28</td>
-<td>系统当前时间</td>
+<td>4</td>
+<td align="center">5</td>
+<td align="right">6</td>
 </tr>
 <tr>
-<td>up 13:05</td>
-<td>系统的运行时间.本机己经运行 13 小时 05 分钟</td>
+<td>7</td>
+<td align="center">8</td>
+<td align="right">9</td>
 </tr>
 <tr>
-<td>3 users</td>
-<td>当前登录了三个用户</td>
-</tr>
-<tr>
-<td>load average: 0.00,0.01，0.05</td>
-<td>系统在之前 1 分钟、5 分钟、15 分钟的平均负载。如果 CPU 是单核的，则这个数值超过 1 就是高负载：如果 CPU 是四核的，则这个数值超过 4 就是高负载</td>
+<td>10</td>
+<td align="center">11</td>
+<td align="right">12</td>
 </tr>
 </tbody></table>
-<h3 id="☆-第二行"><a href="#☆-第二行" class="headerlink" title="☆ 第二行"></a>☆ 第二行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324115718442.png" alt="image-20200324115718442"></p>
+</blockquote>
+<blockquote>
+<p>快捷键:  Ctrl+T</p>
+</blockquote>
+<h2 id="十一、流程图"><a href="#十一、流程图" class="headerlink" title="十一、流程图"></a>十一、流程图</h2><h3 id="1、横向流程图"><a href="#1、横向流程图" class="headerlink" title="1、横向流程图"></a>1、横向流程图</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">```mermaid
+graph LR
+A[方形]==&gt;B(圆角)
+B==&gt;C{条件a}
+C--&gt;|a=1|D[结果1]
+C--&gt;|a=2|E[结果2]
+F[横向流程图]
+```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">&gt;graph LR
+&gt;A[方形]==&gt;B(圆角)
+&gt;B==&gt;C{条件a}
+&gt;C--&gt;|a=1|D[结果1]
+&gt;C--&gt;|a=2|E[结果2]
+&gt;F[横向流程图]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="2、竖向流程图"><a href="#2、竖向流程图" class="headerlink" title="2、竖向流程图"></a>2、竖向流程图</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">```mermaid
+&gt;graph TD
+&gt;A[方形]==&gt;B(圆角)
+&gt;B==&gt;C{条件a}
+&gt;C--&gt;|a=1|D[结果1]
+&gt;C--&gt;|a=2|E[结果2]
+&gt;F[竖向流程图]
+&gt;```<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:</p>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">&gt;graph TD
+&gt;A[方形]==&gt;B(圆角)
+&gt;B==&gt;C{条件a}
+&gt;C--&gt;|a=1|D[结果1]
+&gt;C--&gt;|a=2|E[结果2]
+&gt;F[竖向流程图]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h2 id="十二、表情符号"><a href="#十二、表情符号" class="headerlink" title="十二、表情符号"></a>十二、表情符号</h2><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;:happy:、:cry:、:man:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>:happy:、 <span class="github-emoji"><span>😢</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>、 <span class="github-emoji"><span>👨</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f468.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+</blockquote>
+<h2 id="十三、数学公式的输入"><a href="#十三、数学公式的输入" class="headerlink" title="十三、数学公式的输入"></a>十三、数学公式的输入</h2><h3 id="1、公式的插入"><a href="#1、公式的插入" class="headerlink" title="1、公式的插入"></a>1、公式的插入</h3><h4 id="①行中公式"><a href="#①行中公式" class="headerlink" title="①行中公式"></a>①行中公式</h4><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$公式$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$公式$</p>
+</blockquote>
+<h4 id="②独立公式"><a href="#②独立公式" class="headerlink" title="②独立公式"></a>②独立公式</h4><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$$
+&gt;公式
+&gt;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$$<br>公式<br>$$</p>
+</blockquote>
+<h3 id="2、上下标-1"><a href="#2、上下标-1" class="headerlink" title="2、上下标"></a>2、上下标</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$x^{y^z}=(1+e^x)^{-2xy^w}$
+&gt;$\sideset{^1_2}{^3_4}{\underset{6}\bigotimes}$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$x^{y^z}=(1+e^x)^{-2xy^w}$<br>$\sideset{^1_2}{^3_4}{\underset{6}\bigotimes}$</p>
+</blockquote>
+<h3 id="3、括号和分隔符"><a href="#3、括号和分隔符" class="headerlink" title="3、括号和分隔符"></a>3、括号和分隔符</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\langle\quad\rangle\quad\lceil\quad\rceil\quad\lfloor\quad\rfloor\quad\lbrace\quad\rbrace\quad\lVert\quad\rVert$
+&gt;$f(x,y,z)=3y^2z\left(3+\dfrac{7x+5}{1+y^2}\right)$
+&gt;$\left.\dfrac{\mathrm{d}u}{\mathrm{d}x}\right|_{x=0}$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\langle\quad\rangle\quad\lceil\quad\rceil\quad\lfloor\quad\rfloor\quad\lbrace\quad\rbrace\quad\lVert\quad\rVert$<br>$f(x,y,z)=3y^2z\left(3+\dfrac{7x+5}{1+y^2}\right)$<br>$\left.\dfrac{\mathrm{d}u}{\mathrm{d}x}\right|_{x=0}$</p>
+</blockquote>
+<h3 id="4、分数"><a href="#4、分数" class="headerlink" title="4、分数"></a>4、分数</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\frac{a}{b}\quad\dfrac{a}{b}\quad {a\over b}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\frac{a}{b}\quad\dfrac{a}{b}\quad {a\over b}$</p>
+</blockquote>
+<h3 id="5、开方"><a href="#5、开方" class="headerlink" title="5、开方"></a>5、开方</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\sqrt[根指数,省略时为2]{被开方数}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\sqrt{2}\quad\sqrt[3]{2}$</p>
+</blockquote>
+<h3 id="6、省略号"><a href="#6、省略号" class="headerlink" title="6、省略号"></a>6、省略号</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\cdots\quad\ldots\quad\vdots\quad\ddots$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\cdots\quad\ldots\quad\vdots\quad\ddots$</p>
+</blockquote>
+<h3 id="7、矢量和均值"><a href="#7、矢量和均值" class="headerlink" title="7、矢量和均值"></a>7、矢量和均值</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\overrightarrow{E(\vec{r})}\quad\overleftarrow{E(\vec{r})}\quad\overleftrightarrow{E(\vec{r})}\quad\underrightarrow{E(\vec{r})}\quad\underleftarrow{E(\vec{r})}\quad\underleftrightarrow{E(\vec{r})}\quad\overline{v}=\bar{v}\quad\underline{v}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\overrightarrow{E(\vec{r})}\quad\overleftarrow{E(\vec{r})}\quad\overleftrightarrow{E(\vec{r})}\quad\underrightarrow{E(\vec{r})}\quad\underleftarrow{E(\vec{r})}\quad\underleftrightarrow{E(\vec{r})}\quad\overline{v}=\bar{v}\quad\underline{v}$</p>
+</blockquote>
+<h3 id="8、积分"><a href="#8、积分" class="headerlink" title="8、积分"></a>8、积分</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$$
+&gt;\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right){\rm d}x{\rm d}y=\oint\limits_LP{\rm d}x+Q{\rm d}y
+&gt;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$$<br>\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right){\rm d}x{\rm d}y=\oint\limits_LP{\rm d}x+Q{\rm d}y<br>$$</p>
+</blockquote>
+<h3 id="9、极限"><a href="#9、极限" class="headerlink" title="9、极限"></a>9、极限</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\lim\limits_{n\to\infin}(1+\dfrac{1}{n})^n=e$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\lim\limits_{n\to\infin}(1+\dfrac{1}{n})^n=e$</p>
+</blockquote>
+<h3 id="10、累加、累乘及交集、并集"><a href="#10、累加、累乘及交集、并集" class="headerlink" title="10、累加、累乘及交集、并集"></a>10、累加、累乘及交集、并集</h3><blockquote>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\sum\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\prod\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\bigcup\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\bigcap\limits_{i=1}^n\dfrac{1}{n^2}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$\sum\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\prod\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\bigcup\limits_{i=1}^n\dfrac{1}{n^2}\quad and\quad\bigcap\limits_{i=1}^n\dfrac{1}{n^2}$</p>
+</blockquote>
+<h3 id="11、希腊字母"><a href="#11、希腊字母" class="headerlink" title="11、希腊字母"></a>11、希腊字母</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>字母</th>
+<th>语法</th>
+<th>字母</th>
+<th>语法</th>
+<th>字母</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\Alpha(\alpha)</td>
+<td>$\Alpha(\alpha)$</td>
+<td>\Beta(\beta)</td>
+<td>$\Beta(\beta)$</td>
+<td>\Gamma(\gamma)</td>
+<td>$\Gamma(\gamma)$</td>
+</tr>
+<tr>
+<td>\Epsilon(\epsilon)\varepsilon</td>
+<td>$\Epsilon(\epsilon)\varepsilon$</td>
+<td>\Zeta(\zeta)</td>
+<td>$\Zeta(\zeta)$</td>
+<td>\Eta(\eta)</td>
+<td>$\Eta(\eta)$</td>
+</tr>
+<tr>
+<td>\Iota(\iota)</td>
+<td>$\Iota(\iota)$</td>
+<td>\Kappa(\kappa)\varkappa</td>
+<td>$\Kappa(\kappa)\varkappa$</td>
+<td>\Lambda(\lambda)</td>
+<td>$\Lambda(\lambda)$</td>
+</tr>
+<tr>
+<td>\Nu(\nu)</td>
+<td>$\Nu(\nu)$</td>
+<td>\Xi(\xi)</td>
+<td>$\Xi(\xi)$</td>
+<td>\Omicron(\omicron)</td>
+<td>$\Omicron(\omicron)$</td>
+</tr>
+<tr>
+<td>\Rho(\rho)\varrho</td>
+<td>$\Rho(\rho)\varrho$</td>
+<td>\Sigma(\sigma)\varsigma</td>
+<td>$\Sigma(\sigma)\varsigma$</td>
+<td>\Tau(\tau)</td>
+<td>$\Tau(\tau)$</td>
+</tr>
+<tr>
+<td>\Phi(\phi)\varphi</td>
+<td>$\Phi(\phi)\varphi$</td>
+<td>\Chi(\chi)</td>
+<td>$\Chi(\chi)$</td>
+<td>\Psi(\psi)</td>
+<td>$\Psi(\psi)$</td>
+</tr>
+<tr>
+<td>\Delta(\delta)</td>
+<td>$\Delta(\delta)$</td>
+<td>\Theta(\theta)\vartheta</td>
+<td>$\Theta(\theta)\vartheta$</td>
+<td>\Mu(\mu)</td>
+<td>$\Mu(\mu)$</td>
+</tr>
+<tr>
+<td>\Pi(\pi)\varpi</td>
+<td>$\Pi(\pi)\varpi$</td>
+<td>\Omega(\omega)</td>
+<td>$\Omega(\omega)$</td>
+<td>\upsilon</td>
+<td>$\upsilon$</td>
+</tr>
+<tr>
+<td>\ell</td>
+<td>$\ell$</td>
+<td>\eth</td>
+<td>$\eth$</td>
+<td>\hbar</td>
+<td>$\hbar$</td>
+</tr>
+<tr>
+<td>\hslash</td>
+<td>$\hslash$</td>
+<td>\mho</td>
+<td>$\mho$</td>
+<td>\partial</td>
+<td>$\partial$</td>
+</tr>
+</tbody></table>
+<h3 id="12、特殊字符"><a href="#12、特殊字符" class="headerlink" title="12、特殊字符"></a>12、特殊字符</h3><h4 id="①说明"><a href="#①说明" class="headerlink" title="①说明"></a>①说明</h4><blockquote>
+<p>可以在字符前使用<code>\large</code>或<code>\small</code>以显示更大或更小的字符。${\LARGE A}{\Large A}{\large A}A{\small A}$</p>
+</blockquote>
+<h4 id="②关系运算符"><a href="#②关系运算符" class="headerlink" title="②关系运算符"></a>②关系运算符</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\pm(\mp)</td>
+<td>$\pm(\mp)$</td>
+<td>\times</td>
+<td>$\times$</td>
+<td>\div</td>
+<td>$\div$</td>
+</tr>
+<tr>
+<td>\nmid</td>
+<td>$\nmid$</td>
+<td>\cdot</td>
+<td>$\cdot$</td>
+<td>\mid</td>
+<td>$\mid$</td>
+</tr>
+<tr>
+<td>\bigodot</td>
+<td>$\bigodot$</td>
+<td>\bigotimes</td>
+<td>$\bigotimes$</td>
+<td>\bigoplus</td>
+<td>$\bigoplus$</td>
+</tr>
+<tr>
+<td>\ge</td>
+<td>$\ge$</td>
+<td>\le</td>
+<td>$\le$</td>
+<td>\ll</td>
+<td>$\ll$</td>
+</tr>
+<tr>
+<td>\geqslant</td>
+<td>$\geqslant$</td>
+<td>\leqslant</td>
+<td>$\leqslant$</td>
+<td>\neq</td>
+<td>$\neq$</td>
+</tr>
+<tr>
+<td>\approx</td>
+<td>$\approx$</td>
+<td>\xlongequal{文本}</td>
+<td>$\xlongequal{文本}$</td>
+<td>\triangleq</td>
+<td>$\triangleq$</td>
+</tr>
+<tr>
+<td>\sim</td>
+<td>$\sim$</td>
+<td>\doteq</td>
+<td>$\doteq$</td>
+<td>\equiv</td>
+<td>$\equiv$</td>
+</tr>
+<tr>
+<td>\cong</td>
+<td>$\cong$</td>
+<td>\propto</td>
+<td>$\propto$</td>
+<td>\parallel(\</td>
+<td>)</td>
+</tr>
+<tr>
+<td>\prec</td>
+<td>$\prec$</td>
+<td>\pmod{2}</td>
+<td>$\pmod{2}$</td>
+<td>\bmod</td>
+<td>$\bmod{2}$</td>
+</tr>
+</tbody></table>
+<h4 id="③集合运算符"><a href="#③集合运算符" class="headerlink" title="③集合运算符"></a>③集合运算符</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\emptyset</td>
+<td>$\emptyset$</td>
+<td>\varnothing</td>
+<td>$\varnothing$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\subset</td>
+<td>$\subset$</td>
+<td>\subseteq</td>
+<td>$\subseteq$</td>
+<td>\subsetneq</td>
+<td>$\subsetneq$</td>
+</tr>
+<tr>
+<td>\supset</td>
+<td>$\supset$</td>
+<td>\supseteq</td>
+<td>$\supseteq$</td>
+<td>\supsetneq</td>
+<td>$\supsetneq$</td>
+</tr>
+<tr>
+<td>\bigcap</td>
+<td>$\bigcap$</td>
+<td>\bigcup</td>
+<td>$\bigcup$</td>
+<td>\setminus</td>
+<td>$\setminus$</td>
+</tr>
+<tr>
+<td>\bigvee</td>
+<td>$\bigvee$</td>
+<td>\bigwedge</td>
+<td>$\bigwedge$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\in</td>
+<td>$\in$</td>
+<td>\notin</td>
+<td>$\notin$</td>
+<td>\ni</td>
+<td>$\ni$</td>
+</tr>
+</tbody></table>
+<h4 id="④三角运算符"><a href="#④三角运算符" class="headerlink" title="④三角运算符"></a>④三角运算符</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\circ</td>
+<td>$\circ$</td>
+<td>\bot</td>
+<td>$\bot$</td>
+<td>\angle</td>
+<td>$\angle$</td>
+</tr>
+<tr>
+<td>\degree</td>
+<td>$\degree$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="⑤微积分运算符"><a href="#⑤微积分运算符" class="headerlink" title="⑤微积分运算符"></a>⑤微积分运算符</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\int</td>
+<td>$\int$</td>
+<td>\iint</td>
+<td>$\iint$</td>
+<td>\iiint</td>
+<td>$\iiint$</td>
+</tr>
+<tr>
+<td>\oint</td>
+<td>$\oint$</td>
+<td>\oiint</td>
+<td>$\oiint$</td>
+<td>\prime(‘)</td>
+<td>$\prime$</td>
+</tr>
+<tr>
+<td>\lim</td>
+<td>$\lim$</td>
+<td>\infin</td>
+<td>$\infin$</td>
+<td>\nabla</td>
+<td>$\nabla$</td>
+</tr>
+<tr>
+<td>\grad</td>
+<td>$\grad$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="⑥逻辑运算符"><a href="#⑥逻辑运算符" class="headerlink" title="⑥逻辑运算符"></a>⑥逻辑运算符</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\because</td>
+<td>$\because$</td>
+<td>\therefore</td>
+<td>$\therefore$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\forall</td>
+<td>$\forall$</td>
+<td>\exist</td>
+<td>$\exist$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\not&gt;</td>
+<td>$\not&gt;$</td>
+<td>\not&lt;</td>
+<td>$\not&lt;$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\land</td>
+<td>$\land$</td>
+<td>\lor</td>
+<td>$\lor$</td>
+<td>\lnot</td>
+<td>$\lnot$</td>
+</tr>
+<tr>
+<td>\top</td>
+<td>$\top$</td>
+<td>\vdash</td>
+<td>$\vdash$</td>
+<td>\vDash</td>
+<td>$\vDash$</td>
+</tr>
+</tbody></table>
+<h4 id="⑦带帽符号"><a href="#⑦带帽符号" class="headerlink" title="⑦带帽符号"></a>⑦带帽符号</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\hat{xy}</td>
+<td>$\hat{xy}$</td>
+<td>\widehat{xyz}</td>
+<td>$\widehat{xyz}$</td>
+</tr>
+<tr>
+<td>\tilde{xy}</td>
+<td>$\tilde{xy}$</td>
+<td>\widetilde{xyz}</td>
+<td>$\widetilde{xyz}$</td>
+</tr>
+<tr>
+<td>\check{x}</td>
+<td>$\check{x}$</td>
+<td>\breve{y}</td>
+<td>$\breve{y}$</td>
+</tr>
+<tr>
+<td>\grave{x}</td>
+<td>$\grave{x}$</td>
+<td>\acute{y}</td>
+<td>$\acute{y}$</td>
+</tr>
+<tr>
+<td>\dot{x}</td>
+<td>$\dot{x}$</td>
+<td>\ddot{x}</td>
+<td>$\ddot{x}$</td>
+</tr>
+<tr>
+<td>\overparen{xy}</td>
+<td>$\overparen{xy}$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="⑧选取符号"><a href="#⑧选取符号" class="headerlink" title="⑧选取符号"></a>⑧选取符号</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\fbox{a+b+c+d}</td>
+<td>$\fbox{a+b+c+d}$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>\overbrace{xx\cdots x}^{10个x}</td>
+<td>$\overbrace{xx\cdots x}^{10个x}$</td>
+<td>\underbrace{xx\cdots x}_{10个x}</td>
+<td>$\underbrace{xx\cdots x}_{10个x}$</td>
+</tr>
+</tbody></table>
+<h4 id="⑨箭头符号"><a href="#⑨箭头符号" class="headerlink" title="⑨箭头符号"></a>⑨箭头符号</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\leftarrow</td>
+<td>$\leftarrow$</td>
+<td>\rightarrow</td>
+<td>$\rightarrow$</td>
+<td>\leftrightarrow</td>
+<td>$\leftrightarrow$</td>
+</tr>
+<tr>
+<td>\longleftarrow</td>
+<td>$\longleftarrow$</td>
+<td>\longrightarrow</td>
+<td>$\longrightarrow$</td>
+<td>\longleftrightarrow</td>
+<td>$\longleftrightarrow$</td>
+</tr>
+<tr>
+<td>\Leftarrow</td>
+<td>$\Leftarrow$</td>
+<td>\Rightarrow</td>
+<td>$\Rightarrow$</td>
+<td>\Leftrightarrow</td>
+<td>$\Leftrightarrow$</td>
+</tr>
+<tr>
+<td>\Longleftarrow</td>
+<td>$\Longleftarrow$</td>
+<td>\Longrightarrow</td>
+<td>$\Longrightarrow$</td>
+<td>\Longleftrightarrow</td>
+<td>$\Longleftrightarrow$</td>
+</tr>
+<tr>
+<td>\uparrow</td>
+<td>$\uparrow$</td>
+<td>\downarrow</td>
+<td>$\downarrow$</td>
+<td>\updownarrow</td>
+<td>$\updownarrow$</td>
+</tr>
+<tr>
+<td>\Uparrow</td>
+<td>$\Uparrow$</td>
+<td>\Downarrow</td>
+<td>$\Downarrow$</td>
+<td>\Updownarrow</td>
+<td>$\Updownarrow$</td>
+</tr>
+<tr>
+<td>\to</td>
+<td>$\to$</td>
+<td>\swarrow</td>
+<td>$\swarrow$</td>
+<td>\nearrow</td>
+<td>$\nearrow$</td>
+</tr>
+<tr>
+<td>\gets</td>
+<td>$\gets$</td>
+<td>\searrow</td>
+<td>$\searrow$</td>
+<td>\nwarrow</td>
+<td>$\nwarrow$</td>
+</tr>
+<tr>
+<td>\mapsto</td>
+<td>$\mapsto$</td>
+<td>\rightrightarrows</td>
+<td>$\rightrightarrows$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="⑩空格"><a href="#⑩空格" class="headerlink" title="⑩空格"></a>⑩空格</h4><table>
+<thead>
+<tr>
+<th>输入</th>
+<th>效果</th>
+<th>输入</th>
+<th>效果</th>
+<th>输入</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\!</td>
+<td>$</td>
+<td>!</td>
+<td>$</td>
+<td>默认</td>
+<td>$</td>
+</tr>
+<tr>
+<td>,</td>
+<td>$</td>
+<td>,</td>
+<td>$</td>
+<td>;(\ )</td>
+<td>$</td>
+</tr>
+</tbody></table>
+<h3 id="13、字体"><a href="#13、字体" class="headerlink" title="13、字体"></a>13、字体</h3><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">${\字体{需要转换的字符}}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
 <table>
 <thead>
 <tr>
-<th>Tasks:   230 total</th>
-<th>系统中的进程总数</th>
+<th>输入</th>
+<th>说明</th>
+<th>显示</th>
+<th>输入</th>
+<th>说明</th>
+<th>显示</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>1 running</td>
-<td>正在运行的进程数</td>
+<td>\rm</td>
+<td>罗马体</td>
+<td>${\rm{Sample}}$</td>
+<td>\cal</td>
+<td>花体</td>
+<td>${\cal{Sample}}$</td>
 </tr>
 <tr>
-<td>229 sleeping</td>
-<td>睡眠的进程数</td>
+<td>\it</td>
+<td>意大利体</td>
+<td>${\it{Sample}}$</td>
+<td>\Bbb</td>
+<td>黑板粗体</td>
+<td>${\Bbb{Sample}}$</td>
 </tr>
 <tr>
-<td>0 stopped</td>
-<td>正在停止的进程数</td>
+<td>\bf</td>
+<td>粗体</td>
+<td>${\bf{Sample}}$</td>
+<td>\mit</td>
+<td>数学斜体</td>
+<td>${\mit{Sample}}$</td>
 </tr>
 <tr>
-<td>0 zombie</td>
-<td>僵尸进程数。如果不是   0，则需要手工检查僵尸进程</td>
+<td>\sf</td>
+<td>等线体</td>
+<td>${\sf{Sample}}$</td>
+<td>\scr</td>
+<td>手写体</td>
+<td>${\scr{Sample}}$</td>
+</tr>
+<tr>
+<td>\tt</td>
+<td>打字机体</td>
+<td>${\tt{Sample}}$</td>
+<td>\frak</td>
+<td>旧德式字体</td>
+<td>${\frak{Sample}}$</td>
 </tr>
 </tbody></table>
-<h3 id="☆-第三行"><a href="#☆-第三行" class="headerlink" title="☆ 第三行"></a>☆ 第三行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324142002240.png" alt="image-20200324142002240"></p>
+<h3 id="14、大括号和行标"><a href="#14、大括号和行标" class="headerlink" title="14、大括号和行标"></a>14、大括号和行标</h3><blockquote>
+<p>说明:  使用<code>\left</code>和<code>\right</code>来创建自动匹配高度的<code>()</code>、<code>[]</code>、<code>{}</code>、<code>.</code>。在每个公式末尾使用<code>\tag{行标}</code>来实现行标。</p>
+</blockquote>
+<blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$$
+&gt;f\left(
+&gt;\left[
+&gt;\dfrac{1+\{x,y\}}{\left(\dfrac{x}{y}+\dfrac{y}{x}\right)(u+1)}+a
+&gt;\right]
+&gt;^{\dfrac{3}{2}}
+&gt;\right)
+&gt;\tag{行标}
+&gt;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$$<br>f\left(\left[\dfrac{1+{x,y}}{\left(\dfrac{x}{y}+\dfrac{y}{x}\right)(u+1)}+a\right]^{\dfrac{3}{2}}\right)\tag{行标}<br>$$</p>
+</blockquote>
+<blockquote>
+<p>说明:如果你想将行内显示的分隔符也变大,也可以使用<code>\middle</code>命令</p>
+</blockquote>
+<blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$$
+&gt;\left\langle q\middle\|\dfrac{\dfrac{x}{y}}{\dfrac{u}{v}}\middle|p\right\rangle
+&gt;$$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$$<br>\left\langle q\middle|\dfrac{\dfrac{x}{y}}{\dfrac{u}{v}}\middle|p\right\rangle<br>$$</p>
+</blockquote>
+<h3 id="15、其他命令"><a href="#15、其他命令" class="headerlink" title="15、其他命令"></a>15、其他命令</h3><h4 id="①注释文字"><a href="#①注释文字" class="headerlink" title="①注释文字"></a>①注释文字</h4><blockquote>
+<p>代码:</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\text{文字}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>效果:<br>$$<br>f(n)=\begin{cases}n/2,&amp;\text{if $n$ is even}\3n+1,&amp;\text{if $n$ is odd}\end{cases}<br>$$</p>
+</blockquote>
+<h4 id="③文字颜色"><a href="#③文字颜色" class="headerlink" title="③文字颜色"></a>③文字颜色</h4><blockquote>
+<ul>
+<li>适用新旧浏览器<br>代码:<pre class="line-numbers language-text" data-language="text"><code class="language-text">$\color{颜色}{文字}$<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</blockquote>
 <table>
 <thead>
 <tr>
-<th>内 容</th>
-<th>说 明</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
+<th>输入</th>
+<th>显示</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Cpu(s): 0.1 %us</td>
-<td>用户模式占用的   CPU 百分比</td>
+<td>black</td>
+<td>$\color{black}{color}$</td>
+<td>grey</td>
+<td>$\color{grey}{color}$</td>
+<td>silver</td>
+<td>$\color{silver}{color}$</td>
 </tr>
 <tr>
-<td>0.1%sy</td>
-<td>系统模式占用的   CPU 百分比</td>
+<td>white</td>
+<td>$\color{white}{color}$</td>
+<td>maroon</td>
+<td>$\color{maroon}{color}$</td>
+<td>red</td>
+<td>$\color{red}{color}$</td>
 </tr>
 <tr>
-<td>0.0%ni</td>
-<td>改变过优先级的用户进程占用的   CPU 百分比</td>
+<td>yellow</td>
+<td>$\color{yellow}{color}$</td>
+<td>lime</td>
+<td>$\color{lime}{color}$</td>
+<td>olive</td>
+<td>$\color{olive}{color}$</td>
 </tr>
 <tr>
-<td>99.7%id</td>
-<td>idle缩写，空闲   CPU 占用的 CPU 百分比</td>
+<td>green</td>
+<td>$\color{green}{color}$</td>
+<td>teal</td>
+<td>$\color{teal}{color}$</td>
+<td>auqa</td>
+<td>$\color{auqa}{color}$</td>
 </tr>
 <tr>
-<td>0.1%wa</td>
-<td>等待输入/输出的进程占用的   CPU 百分比</td>
+<td>blue</td>
+<td>$\color{blue}{color}$</td>
+<td>navy</td>
+<td>$\color{navy}{color}$</td>
+<td>purple</td>
+<td>$\color{purple}{color}$</td>
 </tr>
 <tr>
-<td>0.0%hi</td>
-<td>硬中断请求服务占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.1%si</td>
-<td>软中断请求服务占用的   CPU 百分比</td>
-</tr>
-<tr>
-<td>0.0%st</td>
-<td>st（steal   time）意为虚拟时间百分比，就是当有虚拟机时，虚拟 CPU 等待实际 CPU 的时间百分比</td>
+<td>fuchsia</td>
+<td>$\color{fuchsia}{color}$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
-<h4 id="问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？"><a href="#问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？" class="headerlink" title="问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？"></a>问题：如果我的机器有4核CPU，我想查看每一核心分别的负载情况怎能办？</h4><p>答：交换快捷键 “1”</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324142144911.png" alt="image-20200324142144911"></p>
 <blockquote>
-<p>CPU负载测试 =&gt;  cat  /dev/urandom |md5sum</p>
+<ul>
+<li>适用新版浏览器<br>代码:<pre class="line-numbers language-text" data-language="text"><code class="language-text">&gt;$\color{#rgb}{文字}$    (注:其中r、g、b可以输入0~9和a~f来分别表示红色、绿色和蓝色的纯度)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
 </blockquote>
-<h3 id="☆-第四行"><a href="#☆-第四行" class="headerlink" title="☆ 第四行"></a>☆ 第四行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324143340302.png" alt="image-20200324143340302"></p>
 <table>
 <thead>
 <tr>
-<th>内 容</th>
-<th>说 明</th>
+<th>输入</th>
+<th>输出</th>
+<th>输入</th>
+<th>输出</th>
+<th>输入</th>
+<th>输出</th>
+<th>输入</th>
+<th>输出</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Mem: 1863252 total</td>
-<td>物理内存的总量，单位为KB</td>
-</tr>
-<tr>
-<td>829960 used</td>
-<td>己经使用的物理内存数量</td>
-</tr>
-<tr>
-<td>68352 free</td>
-<td>空闲的物理内存数量。我们使用的是虚拟机，共分配了 628MB内存，所以只有53MB的空闲内存</td>
-</tr>
-<tr>
-<td>96490 buff/cache</td>
-<td>作为缓冲的内存数量</td>
+<td>#000</td>
+<td>$\color</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
-<blockquote>
-<p>扩展：真正剩余内存 = free + buff/cache，真正使用内存 = used - buff/cache</p>
-</blockquote>
-<h3 id="☆-第五行"><a href="#☆-第五行" class="headerlink" title="☆ 第五行"></a>☆ 第五行</h3><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324144347040.png" alt="image-20200324144347040"></p>
-<table>
-<thead>
-<tr>
-<th>内 容</th>
-<th>说 明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Swap: 2097148 total</td>
-<td>交换分区（虚拟内存）的总大小</td>
-</tr>
-<tr>
-<td>3336 used</td>
-<td>已经使用的交换分区的大小</td>
-</tr>
-<tr>
-<td>2093812 free</td>
-<td>空闲交换分区的大小</td>
-</tr>
-<tr>
-<td>622420 avail Mem</td>
-<td>可用内存</td>
-</tr>
-</tbody></table>
-<p> 在Linux操作系统分区时，最少需要3个分区：</p>
-<p>① /boot分区 ： 系统分区</p>
-<p>② swap交换分区 ：一般情况下为内存的1~2倍，但是尽量不要超过2G</p>
-<p>③ /分区 ：根分区，所有文件都存放于此</p>
-<blockquote>
-<p>swap分区：就是当计算机的内存不足时，系统会自动从硬盘中划出一块区域充当内存使用。</p>
-</blockquote>
-<p>​       我们通过 top 命令的整体信息部分，就可以判断服务器的健康状态。如果 1 分钟、5 分钟、15 分钟的平均负载高于CPU核数，说明系统压力较大。如果物理内存的空闲内存过小，则也证明系统压力较大。</p>
-<p>问题：根据以上信息，目前我们的系统压力如何？</p>
-<p>答：看CPU负载及内存的使用情况</p>
-<p>问题：如果我们发现CPU负载过大，接下来怎么办？</p>
-<p>答：如果1分钟、5分钟以及15分钟全部超过CPU的总核心数（必须引起警觉），这个时候就要查看底部的进程信息了。</p>
-<blockquote>
-<p>经验之谈：如果一个总核数=8核心的CPU，理论上平均负载达到16，也还可以坚持很长一段时间。</p>
-</blockquote>
-<h2 id="4、系统的进程信息"><a href="#4、系统的进程信息" class="headerlink" title="4、系统的进程信息"></a>4、系统的进程信息</h2><p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324151820219.png" alt="image-20200324151820219"></p>
-<table>
-<thead>
-<tr>
-<th>PID</th>
-<th>进程的 ID。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>USER</td>
-<td>该进程所属的用户。</td>
-</tr>
-<tr>
-<td>PR</td>
-<td>优先级，数值越小优先级越高。</td>
-</tr>
-<tr>
-<td>NI</td>
-<td>NICE优先级，数值越小优先级越高，取值范围-20到19，默认都是0</td>
-</tr>
-<tr>
-<td>VIRT</td>
-<td>该进程使用的虚拟内存的大小，单位为 KB。</td>
-</tr>
-<tr>
-<td>RES</td>
-<td>该进程使用的物理内存的大小，单位为 KB。</td>
-</tr>
-<tr>
-<td>SHR</td>
-<td>共享内存大小，单位为 KB。计算一个进程实际使用的内存 = 常驻内存（RES）- 共享内存（SHR）</td>
-</tr>
-<tr>
-<td>S</td>
-<td>进程状态。其中S 表示睡眠，R 表示运行</td>
-</tr>
-<tr>
-<td>%CPU</td>
-<td>该进程占用 CPU 的百分比。</td>
-</tr>
-<tr>
-<td>%MEM</td>
-<td>该进程占用内存的百分比。</td>
-</tr>
-<tr>
-<td>TIME+</td>
-<td>该进程共占用的 CPU 时间。</td>
-</tr>
-<tr>
-<td>COMMAND</td>
-<td>进程名</td>
-</tr>
-</tbody></table>
-<h4 id="问题：如果我们发现CPU负载过大，接下来怎么办？"><a href="#问题：如果我们发现CPU负载过大，接下来怎么办？" class="headerlink" title="问题：如果我们发现CPU负载过大，接下来怎么办？"></a>问题：如果我们发现CPU负载过大，接下来怎么办？</h4><p>答：查看占用CPU最多的进程</p>
-<h4 id="问题：如何查看占用CPU最多的进程？"><a href="#问题：如何查看占用CPU最多的进程？" class="headerlink" title="问题：如何查看占用CPU最多的进程？"></a>问题：如何查看占用CPU最多的进程？</h4><p>答：交互操作快捷键P，P（大写）：，表示将结果按照CPU 使用率从高到低进行降序排列</p>
-<h4 id="问题：如果我们发现内存可用量很小，接下来怎么办？"><a href="#问题：如果我们发现内存可用量很小，接下来怎么办？" class="headerlink" title="问题：如果我们发现内存可用量很小，接下来怎么办？"></a>问题：如果我们发现内存可用量很小，接下来怎么办？</h4><p>答：查看占用内存最多的进程，使用交互快捷键M（大写）：表示将结果按照内存（MEM）从高到低进行降序排列</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324154216736.png" alt="image-20200324154216736"></p>
-<h4 id="问题：当我们查看完系统状态，需要做什么？"><a href="#问题：当我们查看完系统状态，需要做什么？" class="headerlink" title="问题：当我们查看完系统状态，需要做什么？"></a>问题：当我们查看完系统状态，需要做什么？</h4><p>答：退出，使用q，按键盘上的q，就会回到#提示符的状态。</p>
-<h2 id="5、free查看内存使用情况"><a href="#5、free查看内存使用情况" class="headerlink" title="5、free查看内存使用情况"></a>5、free查看内存使用情况</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># free [选项]  1GB = 1024MB  1MB = 1024KB
-选项说明：
--m : 以MB的形式显示内存大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：显示计算机的内存使用情况</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># free -m<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>​    和Centos6相比，buffer和cached被合成一组，加入了一个available。</p>
-<p>​    关于此available，即系统可用内存，用户不需要去计算buffer/cache，即可以看到还有多少内存可用，更加简单直观</p>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324155922424.png" alt="image-20200324155922424"></p>
-<h2 id="6、df查看磁盘剩余空间"><a href="#6、df查看磁盘剩余空间" class="headerlink" title="6、df查看磁盘剩余空间"></a>6、df查看磁盘剩余空间</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># df [选项]
--h ：以较高的可读性显示磁盘剩余空间大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>df = disk free = 磁盘 剩余</p>
-</blockquote>
-<p>这几列依次是：</p>
-<table>
-<thead>
-<tr>
-<th>Filesystem</th>
-<th>磁盘名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Size</td>
-<td>总大小</td>
-</tr>
-<tr>
-<td>Used</td>
-<td>被使用的大小</td>
-</tr>
-<tr>
-<td>Avail</td>
-<td>剩余大小</td>
-</tr>
-<tr>
-<td>Use%</td>
-<td>使用百分比</td>
-</tr>
-<tr>
-<td>Mounted on</td>
-<td>挂载路径（相当于Windows 的磁盘符）</td>
-</tr>
-</tbody></table>
-<h2 id="7、ps查看系统进程信息"><a href="#7、ps查看系统进程信息" class="headerlink" title="7、ps查看系统进程信息"></a>7、ps查看系统进程信息</h2><p>top ： 动态查看系统进程的信息（每隔3s切换一次）</p>
-<p>ps  ： 静态查看系统进程的信息（只能查询运行ps命令瞬间，系统的进程信息）</p>
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps [选项]
-选项说明：
--e : 等价于“-A”，表示列出全部（all）的进程
--f : 表示full，显示全部的列（显示全字段）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：显示当前系统中所有进程的信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324162137670.png" alt="image-20200324162137670"></p>
-<table>
-<thead>
-<tr>
-<th>UID</th>
-<th>该进程执行的用户ID</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PID</td>
-<td>进程ID</td>
-</tr>
-<tr>
-<td>PPID</td>
-<td>该进程的父级进程ID，如果找不到，则该进程就被称之为僵尸进程（Parent Process ID）</td>
-</tr>
-<tr>
-<td>C</td>
-<td>Cpu的占用率，其形式是百分数</td>
-</tr>
-<tr>
-<td>STIME</td>
-<td>进程的启动时间</td>
-</tr>
-<tr>
-<td>TTY</td>
-<td>终端设备，发起该进程的设备识别符号，如果显示“?”则表示该进程并不是由终端设备发起</td>
-</tr>
-<tr>
-<td>TIME</td>
-<td>进程实际使用CPU的时间</td>
-</tr>
-<tr>
-<td>CMD</td>
-<td>该进程的名称或者对应的路径</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>经验之谈：我们在实际工作中使用ps命令其实主要用于查询某个进程的PID或PPID</p>
-</blockquote>
-<p>工作场景</p>
-<p>​        小黑用学到的命令，发现某个进程占用CPU很高，希望进一步查看这个简称的信息。</p>
-<p>​        ps -ef 会列出全部进程，但是我们发现进程非常多，我们很难找到自己想要看的进程。这里需要使用过滤命令grep，来过滤掉我们不需要的信息。</p>
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">用法：ps -ef |grep 想要看到的进程名
-示例代码：
-# ps -ef |grep crond
-含义：查看crond进程的详细情况
-注意：查询结果中，如果只有一条则表示没查到对应的进程（这1 条表示刚才ps 指令的自身）。只有查到的结果多余1 条，才表示有对应的进程。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：查询crond的进程信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond
-root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n
-root      24752  12881  0 16:34 pts/2    00:00:00 grep --color=auto crond<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>问题：以上信息只有第一行是crond的进程，第二行，实际是管道命令发起时，grep所启动的进程，如何去掉？</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond |grep -v "grep"
-root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>grep  -v  需要去除的相关信息 ： 去除包含指定关键词的那一行</p>
-</blockquote>
-<p>扩展：ps  aux命令</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps aux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p># man ps</p>
-<p>1   UNIX options, which may be grouped and must be preceded by a dash.     ps  -ef<br>2   BSD options, which may be grouped and must not be used with a dash.	 ps  aux</p>
-</blockquote>
-<p><img src="/../assets/blog_res/Linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BB%A5%E5%8F%8A%E8%BF%9B%E7%A8%8B%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8E%A7%E5%88%B6.assets/image-20200324165018806.png" alt="image-20200324165018806"></p>
-<p>USER：该 process 属于哪个使用者账号<br>==PID ：该 process 的ID==<br>==%CPU：该 process 使用掉的 CPU 资源百分比==<br>==%MEM：该 process 所占用的物理内存百分比==<br>VSZ ：该 process 使用掉的虚拟内存量 (Kbytes)<br>RSS ：该 process 占用的固定的内存量 (Kbytes)<br>TTY ：该 process 是在那个终端机上面运作，若与终端机无关，则显示 ?，另外， tty1-tty6 是本机上面的登入者程序，若为 pts/0 等等的，则表示为由网络连接进主机的程序。<br>==STAT：该程序目前的状态，主要的状态有==<br>    R ：该程序目前正在运作，或者是可被运作<br>    S ：该程序目前正在睡眠当中 (可说是 idle 状态)，但可被某些讯号 (signal) 唤醒。<br>    T ：该程序目前正在侦测或者是停止了<br>   ==Z ：该程序应该已经终止，但是其父程序却无法正常的终止他，造成 zombie (疆尸) 程序的状态==<br>START：该 process 被触发启动的时间<br>TIME ：该 process 实际使用 CPU 运作的时间<br>COMMAND：该程序的实际指令</p>
-<h2 id="8、netstat-ss查询网络访问信息"><a href="#8、netstat-ss查询网络访问信息" class="headerlink" title="8、netstat/ss查询网络访问信息"></a>8、netstat/ss查询网络访问信息</h2><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># netstat [选项] |grep 进程名称
-选项说明：
--t：表示只列出tcp 协议的连接（tcp协议与udp协议）
--n：表示将地址从字母组合转化成ip 地址，将协议转化成端口号来显示  10.1.1.10:80
--l：表示过滤出"state（状态）"列中其值为LISTEN（监听）的连接
--p：表示显示发起连接的进程pid 和进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>案例：查询Web Server（httpd）服务的端口信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># netstat -tnlp |grep httpd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ss -naltp |grep 进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>案例：查询sshd服务的端口信息</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ss -naltp |grep sshd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>netstat与ss区别？① netstat信息比较简洁，ss更加丰富 ② ss执行效率比netstat略高一些</p>
-</blockquote>
-<h2 id="9、kill-killall杀死进程"><a href="#9、kill-killall杀死进程" class="headerlink" title="9、kill/killall杀死进程"></a>9、kill/killall杀死进程</h2><h3 id="☆-根据pid杀掉进程"><a href="#☆-根据pid杀掉进程" class="headerlink" title="☆ 根据pid杀掉进程"></a>☆ 根据pid杀掉进程</h3><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">命令：kill
-语法：kill [信号] PID
-作用：kill 命令会向操作系统内核发送一个信号（多是终止信号）和目标进程的 PID，然后系统内核根据收到的信号类型，对指定进程进行相应的操作
-
-经验：kill经常结合ps命令一起使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>kill命令用于杀死某个进程，这其实只是其一个功能。kill命令的实质是向进程发送信号</p>
-</blockquote>
-<p>信号种类：</p>
-<table>
-<thead>
-<tr>
-<th>信号编号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>9</td>
-<td>杀死进程，即强制结束进程。</td>
-</tr>
-<tr>
-<td>15</td>
-<td>正常结束进程，是 kill   命令的默认信号。</td>
-</tr>
-</tbody></table>
-<p>案例：使用kill命令杀死crond进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># ps -ef |grep crond
-7102
-# kill 7102<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>备注：在互联网中，经常看到kill  -9  进程PID，强制杀死某个进程，kill -9 pid</p>
-</blockquote>
-<h3 id="☆-根据进程名称杀掉进程"><a href="#☆-根据进程名称杀掉进程" class="headerlink" title="☆ 根据进程名称杀掉进程"></a>☆ 根据进程名称杀掉进程</h3><p>基本语法：</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall [信号编号] 进程名称<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>案例：使用killall命令杀死crond进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall crond<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>案例：使用killall命令杀死httpd进程</p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># killall httpd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 
                 
             </div>
@@ -1090,7 +1703,7 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/">http://yanshuisiyu.github.io/2023/12/23/linux-ji-hua-ren-wu-yi-ji-jin-cheng-jian-ce-yu-kong-zhi/</a>
+                    <a href="http://yanshuisiyu.github.io/2023/12/30/typora/">http://yanshuisiyu.github.io/2023/12/30/typora/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1128,12 +1741,12 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%AD%A6%E4%B9%A0/">
                                     <span class="chip bg-color">学习</span>
+                                </a>
+                            
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
                                 </a>
                             
                         </div>
@@ -1216,13 +1829,13 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/12/23/linux-zi-you-fu-wu-yu-ruan-jian-bao-guan-li/">
+                <a href="/2023/12/30/jie-gou-hua-ming-ling-case-he-for-while-xun-huan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Linux自有服务与软件包管理">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="结构化命令case和for、while循环">
                         
-                        <span class="card-title">Linux自有服务与软件包管理</span>
+                        <span class="card-title">结构化命令case和for、while循环</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1233,14 +1846,14 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-30
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
                                 </a>
                             
                             
@@ -1250,12 +1863,8 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
                     </a>
                     
                 </div>
@@ -1269,13 +1878,13 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/23/linux-de-quan-xian-guan-li-cao-zuo/">
+                <a href="/2023/12/25/zi-yuan-bai-piao-wang-zhan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux的权限管理操作">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="资源白嫖网站">
                         
-                        <span class="card-title">Linux的权限管理操作</span>
+                        <span class="card-title">资源白嫖网站</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1286,16 +1895,12 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yanshuisiyu
                             
                         </span>
                     </div>
@@ -1303,12 +1908,8 @@ root       7102      1  0 Mar23 ?        00:00:04 /usr/sbin/crond -n<span aria-h
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
                     </a>
                     
                 </div>
