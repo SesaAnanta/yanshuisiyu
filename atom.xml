@@ -47,6 +47,133 @@
   </entry>
   
   <entry>
+    <title>06_SHELL编程之文本处理工具AWK</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/06-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju-awk/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/06-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju-awk/</id>
+    <published>2023-12-30T04:00:00.000Z</published>
+    <updated>2023-12-30T12:10:06.230Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;课程目标&quot;&gt;&lt;a href=&quot;#课程目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>05_SHELL编程之文本处理工具</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/05-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/05-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju/</id>
+    <published>2023-12-30T03:11:00.000Z</published>
+    <updated>2023-12-30T12:09:03.526Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;课程目标&quot;&gt;&lt;a href=&quot;#课程目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>04_SHELL编程之CASE语句+函数+正则.md</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/04-shell-bian-cheng-zhi-case-yu-ju-han-shu-zheng-ze.md/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/04-shell-bian-cheng-zhi-case-yu-ju-han-shu-zheng-ze.md/</id>
+    <published>2023-12-30T03:10:00.000Z</published>
+    <updated>2023-12-30T12:08:15.675Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;课程目标&quot;&gt;&lt;a href=&quot;#课程目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>02_SHELL编程之流程控制和循环语句</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/02-shell-bian-cheng-zhi-liu-cheng-kong-zhi-he-xun-huan-yu-ju.md/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/02-shell-bian-cheng-zhi-liu-cheng-kong-zhi-he-xun-huan-yu-ju.md/</id>
+    <published>2023-12-30T03:00:00.000Z</published>
+    <updated>2023-12-30T12:06:03.656Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;课程目标&quot;&gt;&lt;a href=&quot;#课程目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>01_SHELL编程之变量定义</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/30/01-shell-bian-cheng-zhi-bian-liang-ding-yi/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/30/01-shell-bian-cheng-zhi-bian-liang-ding-yi/</id>
+    <published>2023-12-30T02:48:40.000Z</published>
+    <updated>2023-12-30T12:06:22.432Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SHELL编程&quot;&gt;&lt;a href=&quot;#SHELL编程&quot; class=&quot;headerlink&quot; title=&quot;SHELL编程&quot;&gt;&lt;/a&gt;SHELL编程&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;该课程主要包括以下内容：&lt;/p&gt;
+&lt;p&gt;①</summary>
+        
+      
+    
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/categories/shell/"/>
+    
+    
+    <category term="shell" scheme="http://yanshuisiyu.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown的使用说明</title>
     <link href="http://yanshuisiyu.github.io/2023/12/30/typora/"/>
     <id>http://yanshuisiyu.github.io/2023/12/30/typora/</id>
@@ -104,7 +231,7 @@
     <link href="http://yanshuisiyu.github.io/2023/12/24/tiao-jian-pan-duan-he-liu-cheng-kong-zhi/"/>
     <id>http://yanshuisiyu.github.io/2023/12/24/tiao-jian-pan-duan-he-liu-cheng-kong-zhi/</id>
     <published>2023-12-24T12:40:25.000Z</published>
-    <updated>2023-12-25T03:17:28.847Z</updated>
+    <updated>2023-12-30T11:10:04.199Z</updated>
     
     
       
@@ -134,7 +261,7 @@
     <link href="http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/"/>
     <id>http://yanshuisiyu.github.io/2023/12/24/shell-jiao-ben-de-ji-chu/</id>
     <published>2023-12-24T02:48:40.000Z</published>
-    <updated>2023-12-24T07:21:54.670Z</updated>
+    <updated>2023-12-30T11:59:12.938Z</updated>
     
     
       
@@ -424,150 +551,6 @@
     <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
     
     <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux高级命令（扩展）二</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-er/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-er/</id>
-    <published>2023-12-23T09:00:00.000Z</published>
-    <updated>2023-12-23T09:09:03.838Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、Linux下用户管理&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSH远程管理服务</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/ssh-yuan-cheng-guan-li-fu-wu/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/ssh-yuan-cheng-guan-li-fu-wu/</id>
-    <published>2023-12-23T09:00:00.000Z</published>
-    <updated>2023-12-23T09:11:08.325Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;SSH远程管理服务&quot;&gt;&lt;a href=&quot;#SSH远程管理服务&quot; class=&quot;headerlink&quot; title=&quot;SSH远程管理服务&quot;&gt;&lt;/a&gt;SSH远程管理服务&lt;/h1&gt;&lt;h1 id=&quot;一、SSH概述&quot;&gt;&lt;a href=&quot;#一、SSH概述&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>live2D安装指南</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/live2d-an-zhuang-zhi-nan/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/live2d-an-zhuang-zhi-nan/</id>
-    <published>2023-12-23T04:28:28.000Z</published>
-    <updated>2023-12-23T04:37:42.296Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;个人博客安装live2d插件&quot;&gt;&lt;a href=&quot;#个人博客安装live2d插件&quot; class=&quot;headerlink&quot; title=&quot;个人博客安装live2d插件&quot;&gt;&lt;/a&gt;个人博客安装live2d插件&lt;/h1&gt;&lt;p&gt;参考资料：&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="blog" scheme="http://yanshuisiyu.github.io/categories/blog/"/>
-    
-    
-    <category term="blog" scheme="http://yanshuisiyu.github.io/tags/blog/"/>
-    
-    <category term="live2d" scheme="http://yanshuisiyu.github.io/tags/live2d/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>半同步复制与MHA高可用架构设计</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/ban-tong-bu-fu-zhi-yu-mha-gao-ke-yong-jia-gou-she-ji/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/ban-tong-bu-fu-zhi-yu-mha-gao-ke-yong-jia-gou-she-ji/</id>
-    <published>2023-12-23T02:00:20.000Z</published>
-    <updated>2023-12-23T02:10:00.247Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;半同步复制与MHA高可用架构设计&quot;&gt;&lt;a href=&quot;#半同步复制与MHA高可用架构设计&quot; class=&quot;headerlink&quot; title=&quot;半同步复制与MHA高可用架构设计&quot;&gt;&lt;/a&gt;半同步复制与MHA高可用架构设计&lt;/h1&gt;&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL主从复制架构</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/mysql-zhu-cong-fu-zhi-jia-gou/</id>
-    <published>2023-12-23T02:00:19.000Z</published>
-    <updated>2023-12-23T02:08:18.908Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;MySQL主从复制架构&quot;&gt;&lt;a href=&quot;#MySQL主从复制架构&quot; class=&quot;headerlink&quot; title=&quot;MySQL主从复制架构&quot;&gt;&lt;/a&gt;MySQL主从复制架构&lt;/h1&gt;&lt;h1 id=&quot;一、MySQL集群概述&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/categories/linux/mysql/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="mysql" scheme="http://yanshuisiyu.github.io/tags/mysql/"/>
     
   </entry>
   

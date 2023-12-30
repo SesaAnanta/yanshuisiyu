@@ -520,7 +520,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-25
+                    2023-12-30
                 </div>
                 
 
@@ -564,24 +564,30 @@
 <h1 id="20-1-read命令键盘读取变量的值"><a href="#20-1-read命令键盘读取变量的值" class="headerlink" title="20.1  read命令键盘读取变量的值"></a>20.1  read命令键盘读取变量的值</h1><p>从键盘读取变量的值，通常用在shell脚本中与用户进行交互的场合。该命令可以一次读取多个变量的值，变量和输入的值都需要使用空格隔开。在read命令后面，如果没有指定变量名，读取的数据将被自动赋值给特定的变量REPLY</p>
 <p>read从键盘读入数据，赋给变量</p>
 <p>例1：</p>
-<p>[root@xuegod63 ~]# read a b</p>
-<p>hello world</p>
-<p>[root@xuegod63 ~]# echo $a $b</p>
-<p>hello world</p>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read a b
+
+hello world
+
+[root@xuegod63 ~]# echo $a $b
+
+hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="2-1-1-read常用见用法及参数"><a href="#2-1-1-read常用见用法及参数" class="headerlink" title="2.1.1  read常用见用法及参数"></a>2.1.1  read常用见用法及参数</h2><p>例1：从标准输入读取一行并赋值给变量passwd</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>例2：读取多个值，从标准输入读取一行，直至遇到第一个空白符或换行符。把用户键入的第一个词存到变量first中，把该行的剩余部分保存到变量last中</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read firt last
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read firt last
 
 aaaa  bbbb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>例3：read -s passwd 将你输入的东西隐藏起来，值赋给passwd。这个用户隐藏密码信息</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read -s passwd
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read -s passwd
 
 [root@xuegod63 ~]# echo $passwd
 
@@ -590,17 +596,17 @@ aaaa  bbbb<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
 
 <p>例4：输入的时间限制</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read -t 2 time  #超过两秒没有输入，直接退出<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read -t 2 time  #超过两秒没有输入，直接退出<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>例5：输入的长度限制</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read -n 2 test #最多只接受2个字符<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read -n 2 test #最多只接受2个字符<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <p>例6：使用-r参数输，允许让输入中的内容包括：空格、/、\、 ？等特殊字符串。</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read  -r line
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read  -r line
 
 sdf sdf / sdfs /n
 
@@ -612,7 +618,7 @@ sdf sdf / sdfs /n<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 <p>例7：-p 用于给出提示符，在前面的例子中我们使用了echo –n “…“来给出提示符</p>
 <p>方法1：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# read -p  "please input: "  pass
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# read -p  "please input: "  pass
 
 please input: 123456
 
@@ -623,7 +629,7 @@ please input: 123456
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>方法2：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo -n "please input: " ; read pass
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# echo -n "please input: " ; read pass
 
 please input: 123456   
 
@@ -634,7 +640,7 @@ please input: 123456
 
 
 <p>例8：read 综合实例</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim  test-read.sh #写入以下内容
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# vim  test-read.sh #写入以下内容
 
 #!/bin/bash
 
@@ -684,7 +690,7 @@ eof
 
 
 
-<h1 id="20-2-流程控制语句if"><a href="#20-2-流程控制语句if" class="headerlink" title="20.2  流程控制语句if"></a>20.2  流程控制语句if</h1><h2 id="20-2-1-语法格式："><a href="#20-2-1-语法格式：" class="headerlink" title="20.2.1  语法格式："></a>20.2.1  语法格式：</h2><pre class="line-numbers language-none"><code class="language-none">if  条件  
+<h1 id="20-2-流程控制语句if"><a href="#20-2-流程控制语句if" class="headerlink" title="20.2  流程控制语句if"></a>20.2  流程控制语句if</h1><h2 id="20-2-1-语法格式："><a href="#20-2-1-语法格式：" class="headerlink" title="20.2.1  语法格式："></a>20.2.1  语法格式：</h2><pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">if  条件  
 
 then
 
@@ -698,7 +704,7 @@ fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps1.png" alt="img"> </p>
 <p>注：根据我们的命令退出码来进行判断(echo $? =0)，如果是0,那么就会执行then后面的命令</p>
 <p>例1：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim  if-1.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# vim  if-1.sh 
 
 \#!/bin/bash
 
@@ -727,7 +733,7 @@ it's ok
 
 
 <h2 id="20-2-2-双分支if语句"><a href="#20-2-2-双分支if语句" class="headerlink" title="20.2.2  双分支if语句"></a>20.2.2  双分支if语句</h2><p>语法格式：</p>
-<pre class="line-numbers language-none"><code class="language-none">if command  ; then
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">if command  ; then
 
 		commands
 
@@ -741,7 +747,7 @@ fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps2.jpg" alt="img"> </p>
 <p>例2：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-2.sh
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat if-2.sh
 
 #!/bin/bash
 
@@ -769,7 +775,7 @@ it's ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 
 <p>​	</p>
 <p>例3：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-3.sh
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat if-3.sh
 
 #!/bin/bash
 
@@ -806,7 +812,7 @@ it's err
 <p>fi</p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps3.jpg" alt="img"> </p>
 <p>例4：判断用户在系统中是否存在，是否有家目录</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat if-4.sh
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat if-4.sh
 
 #!/bin/bash
 
@@ -832,7 +838,7 @@ fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 
 
 
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# sh if-4.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# sh if-4.sh 
 
 Input a user: hr
 
@@ -897,7 +903,7 @@ xuegod has a directory
 </tr>
 </tbody></table>
 <p>例1：比较大小</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test1.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat test1.sh 
 
 #!/bin/bash
 
@@ -928,7 +934,7 @@ fi
 
 
 <p>例2： 比较整数大小</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test2.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat test2.sh 
 
 #!/bin/bash
 
@@ -991,7 +997,7 @@ fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 </tr>
 </tbody></table>
 <p>例1：根据用户名判断是否是超级管理员</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test3.sh
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat test3.sh
 
 #!/bin/bash
 
@@ -1009,7 +1015,7 @@ fi
 
 ​	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# bash test3.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# bash test3.sh 
 
 input your name: root
 
@@ -1029,7 +1035,7 @@ You are a general usero "You are a general user"<span aria-hidden="true" class="
 <p>l 在test比较测试中，它使用的是ASCII顺序，大写字母是小于小写字母的；sort刚好相反</p>
 <p>扩展： ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps4.png" alt="img"> </p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat test4.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat test4.sh 
 
 #!/bin/bash
 
@@ -1120,7 +1126,7 @@ test &gt; Test
 </tr>
 </tbody></table>
 <p>例1：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# vim  test5.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# vim  test5.sh 
 
 #!/bin/bash
 
@@ -1141,7 +1147,7 @@ ok<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 
 
 <p>例2：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# test -e /etc/aaa.txt &amp;&amp; echo ok || echo err
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# test -e /etc/aaa.txt &amp;&amp; echo ok || echo err
 
 err
 
@@ -1158,7 +1164,7 @@ ok
 
 
 <p>例：清空日志目录</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# cat clear-log.sh 
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# cat clear-log.sh 
 #!/bin/bash
 
 # clear /var/log/messages
@@ -1212,7 +1218,7 @@ echo "Logs clean up"
 
 
 <p>例： exit 退出bash，并返回一个值</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# ssh 192.168.1.63
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# ssh 192.168.1.63
 
 root@192.168.1.63's password: 123456
 
@@ -1254,26 +1260,51 @@ Connection to 192.168.1.63 closed.
 <p>例1：设置umask</p>
 <p>参考： [root@xuegod63 ~]# vim /etc/profile </p>
 <p><img src="/../assets/blog_res/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6.assets/wps5.jpg" alt="img"> </p>
-<p>[root@xuegod63 ~]# vim umask.sh </p>
-<p>if [ $UID -gt 199 ] &amp;&amp; [ “<code>/usr/bin/id -gn</code>“ = “<code>/usr/bin/id -un</code>“ ]; then</p>
-<p>  echo “umask 002”</p>
-<p>else</p>
-<p>  echo “i am root :umask 022”</p>
-<p>fi</p>
-<p>[root@xuegod63 ~]# bash umask.sh </p>
-<p>i am root :umask 022</p>
+<pre class="line-numbers language-BASH" data-language="BASH"><code class="language-BASH">[root@xuegod63 ~]# vim umask.sh 
+
+if [ $UID -gt 199 ] &amp;&amp; [ "`/usr/bin/id -gn`" = "`/usr/bin/id -un`" ]; then
+
+  echo "umask 002"
+
+else
+
+  echo "i am root :umask 022"
+
+fi
+
+[root@xuegod63 ~]# bash umask.sh 
+
+i am root :umask 022
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <p>例2：[[ 。。。 ]]和[ 。。。]的区别</p>
 <p>[[… ]] 运算符是[… ]运算符的扩充；[[… ]]能够支持 *，&lt; 、&gt;等符号且不需要转义符</p>
 <p>例1：</p>
-<p>[root@xuegod63 ~]# if [[ $USER == r* ]] ; then echo “hello,$USER” ; else echo $USER not ; fi</p>
-<p>hello,root</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# if [[ $USER == r* ]] ; then echo "hello,$USER" ; else echo $USER not ; fi
+
+hello,root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>注： $USER == r<em>对比时，  r</em> 表示以r开头的任意长度字符串，这样就包括root</p>
 <p>当只有一个[] 方括号时：</p>
-<p>[root@xuegod63 ~]# if [ $USER == r* ] ; then echo “hello,$USER” ; else echo $USER not ; fi</p>
-<p>root not</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# if [ $USER == r* ] ; then echo "hello,$USER" ; else echo $USER not ; fi
+
+root not<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>#对比时r* ，就表示两个字符串 r*</p>
 <p>也可以这样写：</p>
-<p>[root@xuegod63 ~]# if [[ $USER == [a-z]oot ]] ; then echo “hello,$USER” ; else echo $USER not ; fi</p>
+<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# if [[ $USER == [a-z]oot ]] ; then echo "hello,$USER" ; else echo $USER not ; fi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <p>[[ 。。。 ]]和[ 。。。]的区别汇总：</p>
 <p>1、所有的字符与逻辑运算符直接用“空格”分开，不能连到一起。</p>
 <p>2、在[… ]表达式中，常见的&gt; 、&lt;需要加转义符\，大小比较</p>
@@ -1325,65 +1356,141 @@ Connection to 192.168.1.63 closed.
 </tr>
 </tbody></table>
 <p>例：</p>
-<p>[root@xuegod63 ~]#  ls /etc/*.conf</p>
-<p>[root@xuegod63 ~]# ls /etc/???.conf</p>
-<p>/etc/nfs.conf  /etc/sos.conf  /etc/yum.conf</p>
-<p>[root@xuegod63 ~]# touch  /opt/a{1,2,3}.txt</p>
-<p>[root@xuegod63 ~]# ls /opt/a[123].txt</p>
-<p>/opt/a1.txt  /opt/a2.txt  /opt/a3.txt</p>
-<p>[root@xuegod63 ~]# ls /opt/a[1,2,3].txt</p>
-<p>[root@xuegod63 ~]# ls /opt/a[13].txt</p>
-<p>/opt/a1.txt  /opt/a3.txt</p>
-<h1 id="20-5-实战-3个shell脚本实战"><a href="#20-5-实战-3个shell脚本实战" class="headerlink" title="20.5  实战-3个shell脚本实战"></a>20.5  实战-3个shell脚本实战</h1><h2 id="20-5-1-实战1：编写脚本检查服务器运行状态"><a href="#20-5-1-实战1：编写脚本检查服务器运行状态" class="headerlink" title="20.5.1  实战1：编写脚本检查服务器运行状态"></a>20.5.1  实战1：编写脚本检查服务器运行状态</h2><p>[root@xuegod63 ~]# vim status.sh</p>
-<p>#!/bin/bash</p>
-<p>if [ $# -ge 1 ] ; then</p>
-<p>​    systemctl status $1 &gt; /dev/null</p>
-<p>  if [ $? -eq 0 ] ; then</p>
-<p>​    echo “$1 服务正在运行”</p>
-<p>  else</p>
-<p>​    systemctl start $1</p>
-<p>  fi</p>
-<p>else</p>
-<p>​     echo “执行脚本的格式”</p>
-<p>​     echo “sh $0 服务名”</p>
-<p>fi</p>
-<h2 id="20-5-2-实战2-根据学生的成绩判断-学生的优劣"><a href="#20-5-2-实战2-根据学生的成绩判断-学生的优劣" class="headerlink" title="20.5.2  实战2:根据学生的成绩判断 学生的优劣"></a>20.5.2  实战2:根据学生的成绩判断 学生的优劣</h2><p>[root@xuegod63 ~]# vim  check_cj.sh </p>
-<p>#!/bin/bash</p>
-<p>read  -p  “请输入你的成绩  “  cj</p>
-<p>if  [ $cj  -ge  0  ]   &amp;&amp;  [  $cj  -le  59  ]  ;then</p>
-<p>   echo  “补考”</p>
-<p>elif  [  $cj  -ge  60 ]   &amp;&amp;  [  $cj  -le  70  ]  ;then</p>
-<p>  echo  “良好”</p>
-<p>elif   [ $cj -ge 71 ]   &amp;&amp;  [ $cj  -le  85 ]  ;then</p>
-<p>  echo  “好”</p>
-<p>elif [ $cj  -ge 86 ]   &amp;&amp;  [  $cj  -le  100 ]  ;then</p>
-<p>  echo  “优秀” </p>
-<p>else</p>
-<p>  echo “成绩的有效范围是0-100之间”</p>
-<p>fi</p>
-<h2 id="20-5-3-实战3：每周一晚上3-00-，备份数据库服务器上webdb库的所有数据到系统的-mysqlbak目录里，使用系统日期做备份文件名。"><a href="#20-5-3-实战3：每周一晚上3-00-，备份数据库服务器上webdb库的所有数据到系统的-mysqlbak目录里，使用系统日期做备份文件名。" class="headerlink" title="20.5.3  实战3：每周一晚上3:00 ，备份数据库服务器上webdb库的所有数据到系统的/mysqlbak目录里，使用系统日期做备份文件名。"></a>20.5.3  实战3：每周一晚上3:00 ，备份数据库服务器上webdb库的所有数据到系统的/mysqlbak目录里，使用系统日期做备份文件名。</h2><p>[root@xuegod63 ~]# vim  mysqlbak.sh</p>
-<p>#!/bin/bash</p>
-<p>baknamefile=<code>date +%Y-%m-%d</code></p>
-<p>bakdir=/mysqlbak</p>
-<p>user=root</p>
-<p>password=123</p>
-<p>dbname=webdb</p>
-<p>[  -e  $bakdir  ]  ||   mkdir   $bakdir</p>
-<p>mysqldump  -u$user  -p$password  –flush-logs  $dbname  &gt;   $bakdir/${baknamefile}-webdb.sql</p>
-<p>因为mysql咱们还没有学，这里以/etc目录来做实验：</p>
-<p>[root@xuegod63 ~]# vim etcbak.sh</p>
-<p>#!/bin/bash</p>
-<p>baknamefile=<code>date +%Y-%m-%d</code></p>
-<p>bakdir=/etcbak</p>
-<p>srcdir=/etc</p>
-<p>[  -e  $bakdir  ]  ||   mkdir   $bakdir</p>
-<p>tar zcvf ${bakdir}/${baknamefile}-etc.tar.gz /etc/</p>
-<p>echo “========================”</p>
-<p>ls -lh ${bakdir}/${baknamefile}-etc.tar.gz</p>
-<p>echo “back etc is ok!”</p>
-<p>[root@xuegod63 ~]# chmod +x  etcbak.sh</p>
-<p>[root@xuegod63 ~]# crontab  -e</p>
-<p>0 3 * * *  /root/etcbak.sh  2&gt;&amp;1 &gt; /dev/null</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]#  ls /etc/*.conf
+
+[root@xuegod63 ~]# ls /etc/???.conf
+
+/etc/nfs.conf  /etc/sos.conf  /etc/yum.conf
+
+[root@xuegod63 ~]# touch  /opt/a{1,2,3}.txt
+
+[root@xuegod63 ~]# ls /opt/a[123].txt
+
+/opt/a1.txt  /opt/a2.txt  /opt/a3.txt
+
+[root@xuegod63 ~]# ls /opt/a[1,2,3].txt
+
+[root@xuegod63 ~]# ls /opt/a[13].txt
+
+/opt/a1.txt  /opt/a3.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="20-5-实战-3个shell脚本实战"><a href="#20-5-实战-3个shell脚本实战" class="headerlink" title="20.5  实战-3个shell脚本实战"></a>20.5  实战-3个shell脚本实战</h1><h2 id="20-5-1-实战1：编写脚本检查服务器运行状态"><a href="#20-5-1-实战1：编写脚本检查服务器运行状态" class="headerlink" title="20.5.1  实战1：编写脚本检查服务器运行状态"></a>20.5.1  实战1：编写脚本检查服务器运行状态</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim status.sh
+
+#!/bin/bash
+
+if [ $# -ge 1 ] ; then
+
+​    systemctl status $1 &gt; /dev/null
+
+  if [ $? -eq 0 ] ; then
+
+​    echo "$1 服务正在运行"
+
+  else
+
+​    systemctl start $1
+
+  fi
+
+else
+
+​     echo "执行脚本的格式"
+
+​     echo "sh $0 服务名"
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="20-5-2-实战2-根据学生的成绩判断-学生的优劣"><a href="#20-5-2-实战2-根据学生的成绩判断-学生的优劣" class="headerlink" title="20.5.2  实战2:根据学生的成绩判断 学生的优劣"></a>20.5.2  实战2:根据学生的成绩判断 学生的优劣</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim  check_cj.sh 
+
+#!/bin/bash
+
+read  -p  "请输入你的成绩  "  cj
+
+if  [ $cj  -ge  0  ]   &amp;&amp;  [  $cj  -le  59  ]  ;then
+
+   echo  "补考"
+
+elif  [  $cj  -ge  60 ]   &amp;&amp;  [  $cj  -le  70  ]  ;then
+
+  echo  "良好"
+
+elif   [ $cj -ge 71 ]   &amp;&amp;  [ $cj  -le  85 ]  ;then
+
+  echo  "好"
+
+elif [ $cj  -ge 86 ]   &amp;&amp;  [  $cj  -le  100 ]  ;then
+
+  echo  "优秀" 
+
+else
+
+  echo "成绩的有效范围是0-100之间"
+
+fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="20-5-3-实战3："><a href="#20-5-3-实战3：" class="headerlink" title="20.5.3  实战3："></a>20.5.3  实战3：</h2><p>每周一晚上3:00 ，备份数据库服务器上webdb库的所有数据到系统的/mysqlbak目录里，使用系统日期做备份文件名。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim  mysqlbak.sh
+
+#!/bin/bash
+
+baknamefile=`date +%Y-%m-%d`
+
+bakdir=/mysqlbak
+
+user=root
+
+password=123
+
+dbname=webdb
+
+[  -e  $bakdir  ]  ||   mkdir   $bakdir
+
+mysqldump  -u$user  -p$password  --flush-logs  $dbname  &gt;   $bakdir/${baknamefile}-webdb.sql
+
+ 
+
+因为mysql咱们还没有学，这里以/etc目录来做实验：
+
+[root@xuegod63 ~]# vim etcbak.sh
+
+#!/bin/bash
+
+baknamefile=`date +%Y-%m-%d`
+
+bakdir=/etcbak
+
+srcdir=/etc
+
+[  -e  $bakdir  ]  ||   mkdir   $bakdir
+
+tar zcvf ${bakdir}/${baknamefile}-etc.tar.gz /etc/
+
+echo "========================"
+
+ls -lh ${bakdir}/${baknamefile}-etc.tar.gz
+
+echo "back etc is ok!"
+
+ 
+
+[root@xuegod63 ~]# chmod +x  etcbak.sh
+
+ 
+
+[root@xuegod63 ~]# crontab  -e
+
+0 3 * * *  /root/etcbak.sh  2&gt;&amp;1 &gt; /dev/null
+
+ <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>总结：</p>
 <p>20.1  read命令键盘读取变量的值</p>
 <p>20.2  流程控制语句if</p>
@@ -1815,7 +1922,7 @@ Connection to 192.168.1.63 closed.
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">121.4k</span>
+                        class="white-color">151.6k</span>
             
             
             
@@ -2098,6 +2205,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
 
 </html>

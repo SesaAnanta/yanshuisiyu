@@ -520,7 +520,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-24
+                    2023-12-30
                 </div>
                 
 
@@ -658,7 +658,7 @@ bash: 3VAR2: 未找到命令...<span aria-hidden="true" class="line-numbers-rows
 
 <p>例3：变量值的叠加，使用${}</p>
 <p>$name是${name}的简化版本，但是在某些情况下，还必须使用花括号引起的方式来消除歧义并避免意外的结果</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR4=mysql
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# VAR4=mysql
 
 [root@xuegod63 ~]# echo $VAR4
 
@@ -689,7 +689,7 @@ mysqldb.log
 <p>-s&lt;字符串&gt;：根据字符串来设置日期与时间。字符串前后必须加上双引号；</p>
 <p>&lt;+时间日期格式&gt;：指定显示时，使用特定的日期时间格式。</p>
 <p>例：格式化输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# date +"%Y-%m-%d" #今天时间，一般备份数据需要用这个
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# date +"%Y-%m-%d" #今天时间，一般备份数据需要用这个
 
 2018-05-25
 
@@ -724,7 +724,7 @@ mysqldb.log
 <p>date -s 01:01:01        #设置具体时间，不会对日期做更改</p>
 <p>date -s “2018-05-23 01:01:01”  #这样可以设置全部时间</p>
 <p>例1： 在命令中调用date命令输出值</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo date
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# echo date
 
 2018年 05月 25日 星期五 17:41:29 CST
 
@@ -738,7 +738,7 @@ mysqldb.log
 
 
 
-<h2 id="19-2-4-命令的嵌套使用，使用"><a href="#19-2-4-命令的嵌套使用，使用" class="headerlink" title="19.2.4  命令的嵌套使用，使用$( $( ))"></a>19.2.4  命令的嵌套使用，使用$( $( ))</h2><pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# find /root/ -name .txt
+<h2 id="19-2-4-命令的嵌套使用，使用"><a href="#19-2-4-命令的嵌套使用，使用" class="headerlink" title="19.2.4  命令的嵌套使用，使用$( $( ))"></a>19.2.4  命令的嵌套使用，使用$( $( ))</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# find /root/ -name .txt
 
 [root@xuegod63 ~]# VAR6=$(tar zcvf root.tar.gz $(find /root/ -name .txt))
 
@@ -754,7 +754,7 @@ tar: 从成员名中删除开头的“/”
 
 
 <p>实战：分享一个系统时间错误，引起tar报警告</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# date -s "2012-03-03 21:25:00"
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# date -s "2012-03-03 21:25:00"
 
 [root@xuegod63 ~]# tar zxvf root.tar.gz -C /opt/
 
@@ -772,7 +772,7 @@ tar: root/.cache/tracker/db-version.txt：时间戳 2017-09-19 13:05:18 是未�
 <p>“”	在双引号中，除了$, ‘’, `和\以外所有的字符都解释成字符本身，拥有“调用变量的值”、“引用命令”和“转义符”的特殊含义</p>
 <p>注：\转义符，跟在之后的特殊符号将失去特殊含义，变为普通字符。如**$将输出“$”符号，而不当做是变量引用</p>
 <p>例：</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo $VAR1
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# echo $VAR1
 
 123
 
@@ -783,7 +783,7 @@ $VAR1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
 
 <p>例1：给变量值赋于多个单词，需要使用单引号和双引号</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR8='xuegdo mk'
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# VAR8='xuegdo mk'
 
 [root@xuegod63 ~]# echo $VAR8
 
@@ -792,7 +792,7 @@ xuegdo mk<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 
 
 <p>例2：赋值时单引号和双引号的区别</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR8='xuegod mk $VAR1'
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# VAR8='xuegod mk $VAR1'
 
 [root@xuegod63 ~]# VAR9="xuegod mk $VAR1"  #双引中$符号有作用
 
@@ -808,7 +808,7 @@ xuegod mk 123<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 <p>注：单引号之间的内容原封不动赋值给变量，	双引号之间的内容如有特殊符号会保留它的特殊含义</p>
 <p>删除变量</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# unset VAR1
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# unset VAR1
 
 [root@xuegod63 ~]# echo $VAR1
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -819,7 +819,7 @@ xuegod mk 123<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <p>全局变量：对于shell会话和所有的子shell都是可见的</p>
 <p>局部变量： 它只在自己的进程当中使用</p>
 <p>例1：局部变量</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# VAR1=123
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# VAR1=123
 
 [root@xuegod63 ~]# echo $VAR1
 
@@ -840,7 +840,7 @@ echo $VAR1
 
 
 <p>例2：env命令查看所全局变量</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# env 
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# env 
 
 [root@xuegod63 ~]# env | grep PATH
 
@@ -849,7 +849,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin<span aria-hidde
 
 
 <p>例3：使用export把这个局部变量输出为全局变量</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# export  VAR1=xuegod
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# export  VAR1=xuegod
 
 [root@xuegod63 ~]#  echo $VAR1
 
@@ -871,15 +871,23 @@ xuegod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105420952.png" alt="image-20231224105420952"></p>
 <p>例3：让变量永久生效，可以把定义好的变量写入配置文件</p>
 <p>当登录系统或新开启一个ssh连接启动bash进程时，一定会加载这4个配置文件：</p>
-<p>[root@xuegod63 ~]# vim /etc/profile   #系统全局环境和登录系统的一些配置</p>
-<p>[root@xuegod63 ~]# vim /etc/bashrc   #shell全局自义配置文件，用于自定义shell</p>
-<p>[root@xuegod63 ~]# vim /root/.bashrc  #用于单独自定义某个用户的bash</p>
-<p>[root@xuegod63 ~]# vim /root/.bash_profile #用户单独自定义某个用户的系统环境</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim /etc/profile   #系统全局环境和登录系统的一些配置
+
+[root@xuegod63 ~]# vim /etc/bashrc   #shell全局自义配置文件，用于自定义shell
+
+[root@xuegod63 ~]# vim /root/.bashrc  #用于单独自定义某个用户的bash
+
+[root@xuegod63 ~]# vim /root/.bash_profile #用户单独自定义某个用户的系统环境<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
 <p>互动：如何知道新建一个ssh连接，加载这4个配置文件先后顺序？ </p>
 <p>有思路：1，没有思路：2</p>
 <p>要会思考，思路很重要！</p>
 <p>答：可以每个文件的最后，追加一个echo命令，输出一下文件的名字</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# echo 'echo  /etc/profile ' &gt;&gt; /etc/profile
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# echo 'echo  /etc/profile ' &gt;&gt; /etc/profile
 
 [root@xuegod63 ~]# echo 'echo  /etc/bashrc' &gt;&gt; /etc/bashrc
 
@@ -901,49 +909,97 @@ xuegod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 
 <p>互动：知道加载的顺序有什么用？</p>
 <p>可以在这里添加木马程序，只要管理登录系统，就触发木马程序！  现在大家知道学习操作系统原理的作用了吧。</p>
-<p>[root@xuegod63 ~]# echo ‘touch /tmp/profile.txt ‘ &gt;&gt; /etc/profile </p>
-<p>[root@xuegod63 ~]# echo ‘touch /tmp/bash_profile.txt ‘ &gt;&gt; /root/.bash_profile</p>
-<p>下面开始插入永久变量：</p>
-<p>[root@xuegod63 ~]# vim /etc/profile  #在文件的最后插入</p>
-<p>export VAR9=xuegod   #=等号两边不能有空格</p>
-<p>[root@xuegod63 ~]# source  /etc/profile  #重新加载profile文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# echo 'touch /tmp/profile.txt ' &gt;&gt; /etc/profile 
+
+[root@xuegod63 ~]# echo 'touch /tmp/bash_profile.txt ' &gt;&gt; /root/.bash_profile
+
+ 
+
+下面开始插入永久变量：
+
+[root@xuegod63 ~]# vim /etc/profile  #在文件的最后插入
+
+export VAR9=xuegod   #=等号两边不能有空格
+
+[root@xuegod63 ~]# source  /etc/profile  #重新加载profile文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>新打开的链接中，也有了</p>
 <p> <img src="/../assets/blog_res/shell%E8%84%9A%E6%9C%AC%E7%9A%84%E5%9F%BA%E7%A1%80.assets/image-20231224105605515.png" alt="image-20231224105605515"></p>
 <h2 id="19-2-7-设置PATH环境变量"><a href="#19-2-7-设置PATH环境变量" class="headerlink" title="19.2.7  设置PATH环境变量"></a>19.2.7  设置PATH环境变量</h2><p>SHELL要执行某一个程序，它要在系统中去搜索这个程序的路径，path变量是用来定义命令和查找命令的目录，当我们安装了第三方程序后，可以把第三方程序bin目录添加到这个path路径内，就可以在全局调用这个第三方程序的</p>
 <p>例1： </p>
-<p>[root@xuegod63 ~]# vim /opt/backup          </p>
-<p>#!/bin/bash</p>
-<p>echo “Backup data is OK!”</p>
-<p>[root@xuegod63 ~]# chmod +x /opt/backup  </p>
-<p>[root@xuegod63 ~]# /opt/backup</p>
-<p>[root@xuegod63 ~]# backup</p>
-<p>bash: backup: 未找到命令…</p>
-<p>将backup命令添加PATH中</p>
-<p>[root@xuegod63 ~]# PATH=/opt/:$PATH</p>
-<p>[root@xuegod63 ~]# backup  #发现命令可以直接执行了，不用写全路径了</p>
-<p>[root@xuegod63 ~]# vim /etc/profile # 在文件最后追加以下内容，永久生效</p>
-<p>export PATH=/opt/:$PATH</p>
-<p>[root@xuegod63 ~]# source  /etc/profile  #重新加载配置文件，使用配置生效</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim /opt/backup          
+
+#!/bin/bash
+
+echo "Backup data is OK!"
+
+ 
+
+[root@xuegod63 ~]# chmod +x /opt/backup  
+
+[root@xuegod63 ~]# /opt/backup
+
+[root@xuegod63 ~]# backup
+
+bash: backup: 未找到命令...
+
+ 
+
+将backup命令添加PATH中
+
+[root@xuegod63 ~]# PATH=/opt/:$PATH
+
+[root@xuegod63 ~]# backup  #发现命令可以直接执行了，不用写全路径了
+
+[root@xuegod63 ~]# vim /etc/profile # 在文件最后追加以下内容，永久生效
+
+export PATH=/opt/:$PATH
+
+[root@xuegod63 ~]# source  /etc/profile  #重新加载配置文件，使用配置生效<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h2 id="19-2-8-shell位置变量"><a href="#19-2-8-shell位置变量" class="headerlink" title="19.2.8  shell位置变量"></a>19.2.8  shell位置变量</h2><p>Shell解释执行用户的命令时，将命令行的第一个字符作为命令名，而其它字符作为参数。  </p>
 <p>$0  获取当前执行shell脚本的文件文件名，包括脚本路径,命令本身</p>
 <p>$n  获取当前脚本的第n个参数 n=1,2…..n 当n大于9时 用${10}表示。</p>
 <p>例子：</p>
-<p>[root@xuegod63 ~]# vim print.sh </p>
-<p>#!/bin/bash</p>
-<p>echo “本shell脚本的文件名： $0”</p>
-<p>echo “第1个参数：  $1”</p>
-<p>echo “第2个参数：  $2”</p>
-<p>echo “第3个参数：  $3”</p>
-<p>echo “第4个参数：  $4”</p>
-<p>[root@xuegod63 ~]# chmod +x print.sh</p>
-<p>[root@xuegod63 ~]# ./print.sh 111  222 a.txt  444</p>
-<p>本shell脚本的文件名： ./print.sh</p>
-<p>第1个参数：  111</p>
-<p>第2个参数：  222</p>
-<p>第3个参数：  a.txt</p>
-<p>第4个参数：  444</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim print.sh 
+
+#!/bin/bash
+
+echo "本shell脚本的文件名： $0"
+
+echo "第1个参数：  $1"
+
+echo "第2个参数：  $2"
+
+echo "第3个参数：  $3"
+
+echo "第4个参数：  $4"
+
+[root@xuegod63 ~]# chmod +x print.sh
+
+[root@xuegod63 ~]# ./print.sh 111  222 a.txt  444
+
+本shell脚本的文件名： ./print.sh
+
+第1个参数：  111
+
+第2个参数：  222
+
+第3个参数：  a.txt
+
+第4个参数：  444<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>使用场景：服务器启动传参数</p>
-<p>[root@xuegod63 ~]# /etc/init.d/network restart</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# /etc/init.d/network restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <h2 id="19-2-9-特殊变量"><a href="#19-2-9-特殊变量" class="headerlink" title="19.2.9  特殊变量"></a>19.2.9  特殊变量</h2><p>有些变量是一开始执行Script脚本时就会设定，且不能被修改，但我们不叫它只读的系统变量，而叫它特殊变量。这些变量当一执行程序时就有了，以下是一些特殊变量：</p>
 <table>
 <thead>
@@ -970,36 +1026,75 @@ xuegod<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </tr>
 </tbody></table>
 <p>例子：</p>
-<p>[root@xuegod63 ~]# vim special_variable.sh #写入以一下内容</p>
-<p>#!/bin/bash</p>
-<p>echo “$* 表示这个程序的所有参数 “</p>
-<p>echo “$#  表示这个程序的参数个数”</p>
-<p>echo “$$  表示程序的进程ID “</p>
-<p>touch /tmp/b.txt &amp;</p>
-<p>echo “$!  执行上一个后台指令的PID”</p>
-<p>echo “$$  表示程序的进程ID “</p>
-<p>echo “$? 表示上一个程序执行返回结果 “</p>
-<p>[root@xuegod63 ~]# bash special_variable.sh  11 22 33 44 55</p>
-<p>11 22 33 44 55 表示这个程序的所有参数 </p>
-<p>11 22 33 44 55 表示这个程序的所有参数 </p>
-<p>5  表示这个程序的参数个数</p>
-<p>45502  表程序的进程ID </p>
-<p>45504  执行上一个后台指令的PID</p>
-<p>45502  表程序的进程ID</p>
-<p>0 表示上一个程序执行返回结果</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# vim special_variable.sh #写入以一下内容
+
+#!/bin/bash
+
+echo "$* 表示这个程序的所有参数 "
+
+echo "$#  表示这个程序的参数个数"
+
+ 
+
+echo "$$  表示程序的进程ID "
+
+ 
+
+touch /tmp/b.txt &amp;
+
+echo "$!  执行上一个后台指令的PID"
+
+echo "$$  表示程序的进程ID "
+
+echo "$? 表示上一个程序执行返回结果 "
+
+ 
+
+[root@xuegod63 ~]# bash special_variable.sh  11 22 33 44 55
+
+11 22 33 44 55 表示这个程序的所有参数 
+
+11 22 33 44 55 表示这个程序的所有参数 
+
+5  表示这个程序的参数个数
+
+45502  表程序的进程ID 
+
+45504  执行上一个后台指令的PID
+
+45502  表程序的进程ID
+
+0 表示上一个程序执行返回结果<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p>例2：常用的环境变量</p>
-<p>[root@xuegod63 opt]# cd /opt/</p>
-<p>[root@xuegod63 opt]# vim env.sh</p>
-<p>#!/bin/bash</p>
-<p>echo $HOME</p>
-<p>echo $PATH</p>
-<p>echo $PWD</p>
-<p>[root@xuegod63 opt]# bash env.sh </p>
-<p>/root</p>
-<p>/opt/:/opt/:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin</p>
-<p>/opt</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 opt]# cd /opt/
+
+[root@xuegod63 opt]# vim env.sh
+
+#!/bin/bash
+
+echo $HOME
+
+echo $PATH
+
+echo $PWD
+
+ 
+
+[root@xuegod63 opt]# bash env.sh 
+
+/root
+
+/opt/:/opt/:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/root/bin
+
+/opt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <h1 id="19-3-数学运算"><a href="#19-3-数学运算" class="headerlink" title="19.3  数学运算"></a>19.3  数学运算</h1><h2 id="19-3-1-expr命令"><a href="#19-3-1-expr命令" class="headerlink" title="19.3.1  expr命令"></a>19.3.1  expr命令</h2><p>(1)对数字的基本计算，做比较时，输出结果假为0，1为真；特殊符号用转义符</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# expr 2 \&gt; 5
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# expr 2 \&gt; 5
 
 0
 
@@ -1024,7 +1119,7 @@ expr: 语法错误
 
 
 <p>(2)对字符串的处理</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@xuegod63 ~]# expr length "ni hao"
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">[root@xuegod63 ~]# expr length "ni hao"
 
 6
 
@@ -1594,7 +1689,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">121.4k</span>
+                        class="white-color">151.6k</span>
             
             
             
@@ -1877,6 +1972,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
 
 </html>

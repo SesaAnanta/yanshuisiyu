@@ -1,0 +1,1806 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="05_SHELL编程之文本处理工具, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="课程目标
+掌握sed的基本语法结构
+熟悉sed常用的命令，如打印p，删除d，插入i等
+
+Windows：​	
+ 
+Linux：
+​	==vim	  vi==	 gedit  nano  emacs
+一、sed介绍1. sed的工作流程![s">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>05_SHELL编程之文本处理工具 | yanshuisiyu&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <style>
+        body{
+            background-image: url(/medias/featureimages/9.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="yanshuisiyu's Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yanshuisiyu&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>主页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/gallery">
+          
+          <i class="fas fa-camera" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/navigate">
+          
+          <i class="fas fa-location-arrow" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>大众网站</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate2">
+          
+          <i class="fas fa-compass" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>他人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/navigate3">
+          
+          <i class="fas fa-location" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>个人收藏</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>我</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yanshuisiyu&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            个人博客
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			主页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/gallery " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-camera" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/navigate " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location-arrow" style="position: absolute;left:50px" ></i>
+			      
+		          <span>大众网站</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate2 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-compass" style="position: absolute;left:50px" ></i>
+			      
+		          <span>他人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/navigate3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-location" style="position: absolute;left:50px" ></i>
+			      
+		          <span>个人收藏</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>我</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/yanshuisiyu/yanshuisiyu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">05_SHELL编程之文本处理工具</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/shell/">
+                                <span class="chip bg-color">shell</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/shell/" class="post-category">
+                                shell
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    20 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="课程目标"><a href="#课程目标" class="headerlink" title="课程目标"></a>课程目标</h3><ul>
+<li>掌握sed的基本语法结构</li>
+<li>熟悉sed常用的命令，如打印p，删除d，插入i等</li>
+</ul>
+<p>Windows：​	</p>
+<p> <img src="/../assets/blog_res/05_SHELL%E7%BC%96%E7%A8%8B%E4%B9%8B%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7.assets/edit.png" alt="edit"></p>
+<p>Linux：</p>
+<p>​	==vim	  vi==	 gedit  nano  emacs</p>
+<h3 id="一、sed介绍"><a href="#一、sed介绍" class="headerlink" title="一、sed介绍"></a>一、sed介绍</h3><h4 id="1-sed的工作流程"><a href="#1-sed的工作流程" class="headerlink" title="1. sed的工作流程"></a>1. sed的工作流程</h4><p>![sed](E:/1——linux系统运维/linux运维 it黑马/00-Linux运维课件资料【非视频】/02.阶段二运维系统服务/shell脚本/pictures/sed.png)</p>
+<ul>
+<li>首先sed把当前正在处理的行保存在一个临时缓存区中（也称为模式空间），然后处理临时缓冲区中的行，完成后把该行发送到屏幕上。</li>
+<li>sed把每一行都存在临时缓冲区中，对这个<strong>副本</strong>进行编辑，所以不会修改原文件。</li>
+<li>Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</li>
+</ul>
+<h4 id="2-sed使用方法"><a href="#2-sed使用方法" class="headerlink" title="2. sed使用方法"></a>2. sed使用方法</h4><p>sed常见的语法格式有两种，一种叫==命令行==模式，另一种叫==脚本==模式。</p>
+<h5 id="2-1-命令行格式"><a href="#2-1-命令行格式" class="headerlink" title="2.1 命令行格式"></a>2.1 命令行格式</h5><ul>
+<li>格式</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">sed [option]  'sed的命令|地址定位' filename
+
+说明：引用shell script中的变量应使用双引号，而非通常使用的单引号
+
+option：
+-e	进行多项编辑，即对输入行应用多条sed命令时使用
+-n	取消默认的输出
+-f	指定sed脚本的文件名
+-r  使用扩展正则表达式
+-i inplace，原地编辑（修改源文件）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>常用命令和选项</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">参考文件：
+[root@server shell06]# cat 2.txt 
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+298374837483
+172.16.0.254
+10.1.1.1
+
+p	打印行
+d	删除行
+[root@server ~]# sed -n 'p'  a.txt
+[root@server ~]# sed -n '1p'  a.txt
+[root@server ~]# sed -n '2p'  a.txt
+[root@server ~]# sed -n '1,5p'  a.txt
+[root@server ~]# sed -n '5,10p' a.txt 
+[root@server ~]# sed -n '$p' a.txt 
+[root@server ~]# sed '5p' a.txt 
+[root@server ~]# sed -n '5p' a.txt 
+[root@server ~]# sed '1d' a.txt 
+[root@server ~]# sed -n '1d' a.txt 
+[root@server ~]# sed '1d' a.txt 
+[root@server ~]# sed '1,5d' a.txt 
+[root@server ~]# sed '$d' a.txt 
+
+i\	在当前行之前插入文本。多行时除最后一行外，每行末尾需用"\"续行  vim——&gt;O
+a\	在当前行后添加一行或多行。多行时除最后一行外，每行末尾需用“\”续行 vim——&gt; o
+c\	用此符号后的新文本替换当前行中的文本。多行时除最后一行外，每行末尾需用"\"续行  整行替换
+
+[root@server ~]# sed '$a99999' a.txt 
+[root@server ~]# sed 'a99999' a.txt 
+[root@server ~]# cat -n a.txt 
+[root@server ~]# sed '5chello world' a.txt 
+[root@server ~]# sed 'chello world' a.txt 
+[root@server ~]# cat -n a.txt 
+[root@server ~]# sed '1,5chello world' a.txt 
+
+[root@server ~]# sed 'i\
+aaaaa\
+bbbbb\
+88888' 1.txt
+
+# sed '$a\
+yyyyy\
+8888' 1.txt
+
+[root@server ~]# sed '/^user01/c888888' 1.txt
+[root@server ~]# sed '18chello world' 1.txt
+
+
+命令2：
+r	从文件中读取输入行
+w	将所选的行写入文件
+
+[root@server ~]# sed '3r /etc/hosts' 2.txt 
+[root@server ~]# sed '$r /etc/hosts' 2.txt
+[root@server ~]# sed '/root/w a.txt' 2.txt 
+[root@server ~]# sed '/[0-9]{4}/w a.txt' 2.txt
+[root@server ~]# sed  -r '/([0-9]{1,3}\.){3}[0-9]{1,3}/w b.txt' 2.txt
+
+!	对所选行以外的所有行应用命令，放到行数之后
+ [root@server ~]# sed -n '1!p' 1.txt 
+ [root@server ~]# sed -n '4p' 1.txt 
+ [root@server ~]# sed -n '4!p' 1.txt 
+ [root@server ~]# cat -n 1.txt 
+ [root@server ~]# sed -n '1,17p' 1.txt 
+ [root@server ~]# sed -n '1,17!p' 1.txt 
+
+s	用一个字符串替换另一个
+g	在行内进行全局替换
+
+[root@server ~]# sed -n 's/root/ROOT/p' 1.txt 
+[root@server ~]# sed -n 's/root/ROOT/gp' 1.txt 
+[root@server ~]# sed -n 's/^#//gp' 1.txt 
+[root@server ~]# sed -n 's@/sbin/nologin@itcast@gp' a.txt
+[root@server ~]# sed -n 's/\/sbin\/nologin/itcast/gp' a.txt
+[root@server ~]# sed -n '10s#/sbin/nologin#itcast#p' a.txt 
+uucp:x:10:14:uucp:/var/spool/uucp:itcast
+[root@server ~]# sed -n 's@/sbin/nologin@itcastheima@p' 2.txt 
+注意：搜索替换中的分隔符可以自己指定
+
+[root@server ~]# sed -n '1,5s/^/#/p' a.txt 		注释掉文件的1-5行内容
+#root:x:0:0:root:/root:/bin/bash
+#bin:x:1:1:bin:/bin:/sbin/nologin
+#daemon:x:2:2:daemon:/sbin:/sbin/nologin
+#adm:x:3:4:adm:/var/adm:/sbin/nologin
+#lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+
+
+&amp;   保存查找串以便在替换串中引用   \(\)
+
+[root@server ~]# sed -n '/root/p' a.txt 
+root:x:0:0:root:/root:/bin/bash
+[root@server ~]# sed -n 's/root/#&amp;/p' a.txt 
+#root:x:0:0:root:/root:/bin/bash
+
+# sed -n 's/^root/#&amp;/p' passwd   注释掉以root开头的行
+# sed -n -r 's/^root|^stu/#&amp;/p' /etc/passwd	注释掉以root开头或者以stu开头的行
+# sed -n '1,5s/^[a-z].*/#&amp;/p' passwd  注释掉1~5行中以任意小写字母开头的行
+# sed -n '1,5s/^/#/p' /etc/passwd  注释1~5行
+或者
+sed -n '1,5s/^/#/p' passwd 以空开头的加上#
+sed -n '1,5s/^#//p' passwd 以#开头的替换成空
+
+[root@server ~]# sed -n '/^root/p' 1.txt 
+[root@server ~]# sed -n 's/^root/#&amp;/p' 1.txt 
+[root@server ~]# sed -n 's/\(^root\)/#\1/p' 1.txt 
+[root@server ~]# sed -nr '/^root|^stu/p' 1.txt 
+[root@server ~]# sed -nr 's/^root|^stu/#&amp;/p' 1.txt 
+
+
+= 	打印行号
+# sed -n '/bash$/=' passwd    打印以bash结尾的行的行号
+# sed -ne '/root/=' -ne '/root/p' passwd 
+# sed -n '/nologin$/=;/nologin$/p' 1.txt
+# sed -ne '/nologin$/=' -ne '/nologin$/p' 1.txt
+
+
+综合运用：
+[root@server ~]# sed -n '1,5s/^/#&amp;/p' 1.txt 
+#root:x:0:0:root:/root:/bin/bash
+#bin:x:1:1:bin:/bin:/sbin/nologin
+#daemon:x:2:2:daemon:/sbin:/sbin/nologin
+#adm:x:3:4:adm:/var/adm:/sbin/nologin
+#lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+
+[root@server ~]# sed -n '1,5s/\(^\)/#\1/p' 1.txt 
+#root:x:0:0:root:/root:/bin/bash
+#bin:x:1:1:bin:/bin:/sbin/nologin
+#daemon:x:2:2:daemon:/sbin:/sbin/nologin
+#adm:x:3:4:adm:/var/adm:/sbin/nologin
+#lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+
+
+
+选项：-e -r -i
+-e 多项编辑
+-r	扩展正则
+-i 修改原文件
+[root@server ~]# sed -ne '/root/p' 1.txt -ne '/root/='
+root:x:0:0:root:/root:/bin/bash
+1
+[root@server ~]# sed -ne '/root/=' -ne '/root/p' 1.txt 
+1
+root:x:0:0:root:/root:/bin/bash
+
+在1.txt文件中的第5行的前面插入“hello world”;在1.txt文件的第8行下面插入“哈哈哈哈”
+
+[root@server ~]# sed -e '5ihello world' -e '8a哈哈哈哈哈' 1.txt  -e '5=;8='
+
+过滤vsftpd.conf文件中以#开头和空行：
+[root@server ~]# grep -Ev '^#|^$' /etc/vsftpd/vsftpd.conf
+[root@server ~]# sed -e '/^#/d' -e '/^$/d' /etc/vsftpd/vsftpd.conf
+[root@server ~]# sed '/^#/d;/^$/d' /etc/vsftpd/vsftpd.conf
+[root@server ~]# sed -r '/^#|^$/d' /etc/vsftpd/vsftpd.conf
+
+过滤smb.conf文件中生效的行：
+[root@server shell06]# sed -e '/^#/d' -e '/^;/d' -e '/^$/d' -e '/^\t$/d' -e '/^\t#/d' smb.conf
+[root@server shell06]# sed -r '/^(#|$|;|\t#|\t$)/d' smb.conf 
+[root@server shell06]# sed -e '/^#/d' -e '/^;/d' -e '/^$/d' -e '/^\t$/d' -e '/^\t#/' smb.conf
+
+
+[root@server ~]# grep '^[^a-z]' 1.txt
+[root@server ~]# sed -n '/^[^a-z]/p' 1.txt
+
+过滤出文件中的IP地址：
+[root@server ~]# grep -E '([0-9]{1,3}\.){3}[0-9]{1,3}' 1.txt 
+192.168.0.254
+[root@server ~]# sed -nr '/([0-9]{1,3}\.){3}[0-9]{1,3}/p' 1.txt 
+192.168.0.254
+
+[root@server ~]# grep -o -E '([0-9]{1,3}\.){3}[0-9]{1,3}' 2.txt 
+10.1.1.1
+10.1.1.255
+255.255.255.0
+
+[root@server ~]# sed -nr '/([0-9]{1,3}\.){3}[0-9]{1,3}/p' 2.txt
+10.1.1.1
+10.1.1.255
+255.255.255.0
+过滤出ifcfg-eth0文件中的IP、子网掩码、广播地址
+[root@server shell06]# grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' ifcfg-eth0 
+10.1.1.1
+255.255.255.0
+10.1.1.254
+[root@server shell06]# sed -nr '/([0-9]{1,3}\.){3}[0-9]{1,3}/p' ifcfg-eth0|cut -d'=' -f2
+10.1.1.1
+255.255.255.0
+10.1.1.254
+[root@server shell06]# sed -nr '/([0-9]{1,3}\.){3}[0-9]{1,3}/p' ifcfg-eth0|sed -n 's/[A-Z=]//gp'
+10.1.1.1
+255.255.255.0
+10.1.1.254
+
+[root@server shell06]# ifconfig eth0|sed -n '2p'|sed -n 's/[:a-Z]//gp'|sed -n 's/ /\n/gp'|sed '/^$/d'
+10.1.1.1
+10.1.1.255
+255.255.255.0
+[root@server shell06]# ifconfig | sed -nr '/([0-9]{1,3}\.)[0-9]{1,3}/p' | head -1|sed -r 's/([a-z:]|[A-Z/t])//g'|sed 's/ /\n/g'|sed  '/^$/d'
+
+[root@server shell06]# ifconfig eth0|sed -n '2p'|sed -n 's/.*addr:\(.*\) Bcast:\(.*\) Mask:\(.*\)/\1\n\2\n\3/p'
+10.1.1.1 
+10.1.1.255 
+255.255.255.0
+
+-i 选项  直接修改原文件
+# sed -i 's/root/ROOT/;s/stu/STU/' 11.txt
+[root@server ~]# sed -i '17{s/YUNWEI/yunwei/;s#/bin/bash#/sbin/nologin#}' 1.txt
+[root@server ~]# sed -i '1,5s/^/#&amp;/' a.txt
+注意：
+-ni  不要一起使用
+p命令 不要再使用-i时使用
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>总结</li>
+</ul>
+<p>sed  选项  ==’==sed==命令==或者==正则表达式==或者==地址定位====’==  文件名</p>
+<p>定址用于决定对哪些行进行编辑。地址的形式可以是数字、正则表达式、或二者的结合。如果没有指定地址，sed将处理输入文件的所有行。</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">x   				指定x行号						 sed -n '5p' 1.txt
+x,y 				指定x到y行号					 sed -n '1,5p' 1.txt
+/key/ 			查询包含关键字的行		sed -n '/root/p' 1.txt
+/key1/,/key2/    匹配包含两个关键字之间的行	sed -n '/^adm/,/^mysql/p' 1.txt
+/key/,x  		从匹配关键字的行开始到文件第x行之间的行（包含关键字所在行）sed -n '/^lp/,7p' 
+x,/key/  		从第x行开始到与关键字的匹配行之间的行
+x,y! 				不包含x到y行
+
+[root@server ~]# sed -n '/bash$/!p' 1.txt
+
+注意：sed使用的正则表达式是括在斜杠线"/"之间的模式。
+
+//以下命令是找出以lp开头或者以mail开头的行
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>其他命令讲解</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">y命令
+该命令与UNIX/Linux中的tr命令类似，字符按照一对一的方式从左到右进行转换。
+正则表达式元字符对y命令不起作用。与s命令的分隔符一样，斜线可以被替换成其它的字符。
+s/xxx/xxx/
+y/xxx/xxx/
+# sed '39,41y/stu/STU/' /etc/passwd
+# sed '39,41y/stu:x/STU@%/' /etc/passwd
+
+q	退出
+# sed '5q' 1.txt
+# sed '/mail/q' 1.txt
+# sed -r '/^yunwei|^mail/q' 1.txt
+[root@server ~]# sed -n '/bash$/p;10q' 1.txt
+ROOT:x:0:0:root:/root:/bin/bash
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-脚本格式"><a href="#2-2-脚本格式" class="headerlink" title="2.2 脚本格式"></a>2.2 脚本格式</h5><ul>
+<li>用法</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># sed -f scripts.sed  file		//使用脚本处理文件
+建议使用   ./sed.sh   file
+
+脚本的第一行写上
+#!/bin/sed -f
+1,5d
+s/root/hello/g
+3i777
+5i888
+a
+p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>注意事项</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">１）　脚本文件是一个sed的命令行清单。'commands'
+２）　在每行的末尾不能有任何空格、制表符（tab）或其它文本。
+３）　如果在一行中有多个命令，应该用分号分隔。
+４）　不需要且不可用引号保护命令
+５）　#号开头的行为注释
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>示例</li>
+</ul>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"># cat passwd
+stu3:x:509:512::/home/user3:/bin/bash
+stu4:x:510:513::/home/user4:/bin/bash
+stu5:x:511:514::/home/user5:/bin/bash
+
+# cat sed.sh 
+#!/bin/sed -f
+2a\
+******************
+2,$s/stu/user/
+$a\
+we inster new line
+s/^[a-z].*/#&amp;/
+
+[root@server ~]# cat 1.sed 
+#!/bin/sed -f
+3a**********************
+$chelloworld
+1,3s/^/#&amp;/
+
+[root@server ~]# sed -f 1.sed -i 11.txt 
+[root@server ~]# cat 11.txt 
+#root:x:0:0:root:/root:/bin/bash
+#bin:x:1:1:bin:/bin:/sbin/nologin
+#daemon:x:2:2:daemon:/sbin:/sbin/nologin
+**********************
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+helloworld
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-sed和正则的综合运用"><a href="#3-sed和正则的综合运用" class="headerlink" title="3. sed和正则的综合运用"></a>3. sed和正则的综合运用</h4><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">1、正则表达式必须以”/“前后规范间隔
+例如：sed '/root/d' file
+例如：sed '/^root/d' file
+
+2、如果匹配的是扩展正则表达式，需要使用-r选来扩展sed
+grep -E
+sed -r
++ ? () {n,m} | \d
+
+注意：         
+在正则表达式中如果出现特殊字符(^$.*/[]),需要以前导 "\" 号做转义
+eg：sed '/\$foo/p' file
+
+3、逗号分隔符
+例如：sed '5,7d' file  				删除5到7行
+例如：sed '/root/,/ftp/d' file	
+删除第一个匹配字符串"root"到第一个匹配字符串"ftp"的所有行本行不找 循环执行
+       
+4、组合方式
+例如：sed '1,/foo/d' file			删除第一行到第一个匹配字符串"foo"的所有行
+例如：sed '/foo/,+4d' file			删除从匹配字符串”foo“开始到其后四行为止的行
+例如：sed '/foo/,~3d' file			删除从匹配字符串”foo“开始删除到3的倍数行（文件中）
+例如：sed '1~5d' file				从第一行开始删每五行删除一行
+例如：sed -nr '/foo|bar/p' file	显示配置字符串"foo"或"bar"的行
+例如：sed -n '/foo/,/bar/p' file	显示匹配从foo到bar的行
+例如：sed '1~2d'  file				删除奇数行
+例如：sed '0-2d'   file				删除偶数行 sed '1~2!d'  file
+
+5、特殊情况
+例如：sed '$d' file					删除最后一行
+例如：sed '1d' file					删除第一行
+	
+6、其他：
+sed 's/.//' a.txt						删除每一行中的第一个字符
+sed 's/.//2' a.txt					删除每一行中的第二个字符
+sed 's/.//N' a.txt					从文件中第N行开始，删除每行中第N个字符（N&gt;2）
+sed 's/.$//' a.txt					删除每一行中的最后一个字符
+
+
+[root@server ~]# cat 2.txt 
+1 a
+2 b
+3 c
+4 d
+5 e
+6 f
+7 u
+8 k
+9 o
+[root@server ~]# sed '/c/,~2d' 2.txt 
+1 a
+2 b
+5 e
+6 f
+7 u
+8 k
+9 o
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="4-课堂练习"><a href="#4-课堂练习" class="headerlink" title="4. 课堂练习"></a>4. 课堂练习</h4><ol>
+<li>将任意数字替换成空或者制表符</li>
+<li>去掉文件1-5行中的数字、冒号、斜杠</li>
+<li>匹配root关键字替换成hello itcast，并保存到test.txt文件中</li>
+<li>删除vsftpd.conf、smb.conf、main.cf配置文件里所有注释的行及空行（不要直接修改原文件）</li>
+<li>使用sed命令截取自己的ip地址</li>
+<li>使用sed命令一次性截取ip地址、广播地址、子网掩码</li>
+<li>注释掉文件的2-3行和匹配到以root开头或者以ftp开头的行</li>
+</ol>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">1、将文件中任意数字替换成空或者制表符
+2、去掉文件1-5行中的数字、冒号、斜杠
+3、匹配root关键字的行替换成hello itcast，并保存到test.txt文件中
+4、删除vsftpd.conf、smb.conf、main.cf配置文件里所有注释的行及空行（不要直接修改原文件）
+5、使用sed命令截取自己的ip地址
+# ifconfig eth0|sed -n '2p'|sed -n 's/.*addr://pg'|sed -n 's/Bcast.*//gp'
+10.1.1.1  
+# ifconfig eth0|sed -n '2p'|sed 's/.*addr://g'|sed 's/ Bcast:.*//g'
+6、使用sed命令一次性截取ip地址、广播地址、子网掩码
+# ifconfig eth0|sed -n '2p'|sed -n 's#.*addr:\(.*\) Bcast:\(.*\) Mask:\(.*\)#\1\n\2\n\3#p'
+10.1.1.1 
+10.1.1.255 
+255.255.255.0
+
+7、注释掉文件的2-3行和匹配到以root开头或者以ftp开头的行
+# sed -nr '2,3s/^/#&amp;/p;s/^ROOT|^ftp/#&amp;/p' 1.txt
+#ROOT:x:0:0:root:/root:/bin/bash
+#bin:x:1:1:bin:/bin:/sbin/nologin
+#3daemon:x:2:2:daemon:/sbin:/sbin/nologin
+
+# sed -ne '1,2s/^/#&amp;/gp' a.txt -nre 's/^lp|^mail/#&amp;/gp'
+# sed -nr '1,2s/^/#&amp;/gp;s/^lp|^mail/#&amp;/gp' a.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="二、课后作业"><a href="#二、课后作业" class="headerlink" title="二、课后作业"></a>二、课后作业</h3><p>1、写一个初始化系统的脚本<br>1）自动修改主机名（如：ip是192.168.0.88，则主机名改为server88.itcast.cc）</p>
+<p>a. 更改文件非交互式 sed</p>
+<p>/etc/sysconfig/network</p>
+<p>b.将本主机的IP截取出来赋值给一个变量ip;再然后将ip变量里以.分割的最后一位赋值给另一个变量ip1</p>
+<p>2）自动配置可用的yum源</p>
+<p>3）自动关闭防火墙和selinux</p>
+<p>2、写一个搭建ftp服务的脚本，要求如下：<br>1）不支持本地用户登录		local_enable=NO<br>2） 匿名用户可以上传 新建 删除	 anon_upload_enable=YES  anon_mkdir_write_enable=YES	<br>3） 匿名用户限速500KBps  anon_max_rate=500000</p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">仅供参考：
+#!/bin/bash
+ipaddr=`ifconfig eth0|sed -n '2p'|sed -e 's/.*inet addr:\(.*\) Bcast.*/\1/g'`
+iptail=`echo $ipaddr|cut -d'.' -f4`
+ipremote=192.168.1.10
+#修改主机名
+hostname server$iptail.itcast.com
+sed -i "/HOSTNAME/cHOSTNAME=server$iptail.itcast.com" /etc/sysconfig/network
+echo "$ipaddr server$iptail.itcast.cc" &gt;&gt;/etc/hosts
+#关闭防火墙和selinux
+service iptables stop
+setenforce 0 &gt;/dev/null 2&gt;&amp;1
+sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
+#配置yum源(一般是内网源)
+#test network
+ping -c 1 $ipremote &gt; /dev/null 2&gt;&amp;1
+if [ $? -ne 0 ];then
+	echo "你的网络不通，请先检查你的网络"
+	exit 1
+else
+	echo "网络ok."
+fi
+cat &gt; /etc/yum.repos.d/server.repo &lt;&lt; end
+[server]
+name=server
+baseurl=ftp://$ipremote
+enabled=1
+gpgcheck=0
+end
+
+#安装软件
+read -p "请输入需要安装的软件，多个用空格隔开：" soft
+yum -y install $soft &amp;&gt;/dev/null
+
+#备份配置文件
+conf=/etc/vsftpd/vsftpd.conf
+\cp $conf $conf.default
+#根据需求修改配置文件
+sed -ir '/^#|^$/d' $conf
+sed -i '/local_enable/c\local_enable=NO' $conf
+sed -i '$a anon_upload_enable=YES' $conf
+sed -i '$a anon_mkdir_write_enable=YES' $conf
+sed -i '$a anon_other_write_enable=YES' $conf
+sed -i '$a anon_max_rate=512000' $conf
+#启动服务
+service vsftpd restart &amp;&gt;/dev/null &amp;&amp; echo"vsftpd服务启动成功"
+
+#测试验证
+chmod 777 /var/ftp/pub
+cp /etc/hosts /var/ftp/pub
+#测试下载
+cd /tmp
+lftp $ipaddr &lt;&lt;end
+cd pub
+get hosts
+exit
+end
+
+if [ -f /tmp/hosts ];then
+	echo "匿名用户下载成功"
+	rm -f /tmp/hosts
+else
+	echo "匿名用户下载失败"
+fi
+#测试上传、创建目录、删除目录等
+cd /tmp
+lftp $ipaddr &lt;&lt; end
+cd pub
+mkdir test1
+mkdir test2
+put /etc/group
+rmdir test2
+exit
+end
+
+if [ -d /var/ftp/pub/test1 ];then
+    echo "创建目录成功"
+	if [ ! -d /var/ftp/pub/test2 ];then
+    	echo "文件删除成功"
+        fi
+else
+	if [ -f /var/ftp/pub/group ];then
+	echo "文件上传成功"
+        else
+        echo "上传、创建目录删除目录部ok"
+        fi 
+fi   
+[ -f /var/ftp/pub/group ] &amp;&amp; echo "上传文件成功"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">yanshuisiyu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yanshuisiyu.github.io/2023/12/30/05-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju/">http://yanshuisiyu.github.io/2023/12/30/05-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">yanshuisiyu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/shell/">
+                                    <span class="chip bg-color">shell</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/30/06-shell-bian-cheng-zhi-wen-ben-chu-li-gong-ju-awk/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="06_SHELL编程之文本处理工具AWK">
+                        
+                        <span class="card-title">06_SHELL编程之文本处理工具AWK</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/30/04-shell-bian-cheng-zhi-case-yu-ju-han-shu-zheng-ze.md/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="04_SHELL编程之CASE语句+函数+正则.md">
+                        
+                        <span class="card-title">04_SHELL编程之CASE语句+函数+正则.md</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/shell/" class="post-category">
+                                    shell
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/shell/">
+                        <span class="chip bg-color">shell</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">yanshuisiyu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+                <span id="translate">|&nbsp;繁/简：</span><a id="translateLink" href="javascript:translatePage();">繁</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">151.6k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yanshuisiyu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1874121517@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1874121517" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1874121517" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+        <script type="text/javascript" src="/js/tw_cn.js"></script>
+        <script type="text/javascript">
+          var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+          var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+          var cookieDomain = "http://yanshuisiyu.github.io"; //Cookie地址, 一定要设定, 通常为你的网址
+          var msgToTraditionalChinese = "繁"; //此处可以更改为你想要显示的文字
+          var msgToSimplifiedChinese = "简"; //同上，但两处均不建议更改
+          var translateButtonId = "translateLink"; //默认互换id
+          translateInitilization();
+        </script>
+    
+    
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":180,"height":300},"mobile":{"show":true},"react":{"opacity":0.9},"log":false});</script></body>
+
+</html>
