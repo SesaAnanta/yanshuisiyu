@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2023-12-30T09:08:04.055Z</updated>
+  <updated>2023-12-31T07:55:03.530Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>购物清单</title>
+    <link href="http://yanshuisiyu.github.io/2023/12/31/gou-wu-qing-dan/"/>
+    <id>http://yanshuisiyu.github.io/2023/12/31/gou-wu-qing-dan/</id>
+    <published>2023-12-31T05:16:33.000Z</published>
+    <updated>2023-12-31T07:55:03.530Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;个人购物清单大全&quot;&gt;&lt;a href=&quot;#个人购物清单大全&quot; class=&quot;headerlink&quot; title=&quot;个人购物清单大全&quot;&gt;&lt;/a&gt;个人购物清单大全&lt;/h1&gt;&lt;h2 id=&quot;一、已购清单物品&quot;&gt;&lt;a href=&quot;#一、已购清单物品&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="购物" scheme="http://yanshuisiyu.github.io/categories/%E8%B4%AD%E7%89%A9/"/>
+    
+    
+    <category term="购物" scheme="http://yanshuisiyu.github.io/tags/%E8%B4%AD%E7%89%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>结构化命令case和for、while循环</title>
@@ -178,7 +203,7 @@
     <link href="http://yanshuisiyu.github.io/2023/12/30/typora/"/>
     <id>http://yanshuisiyu.github.io/2023/12/30/typora/</id>
     <published>2023-12-29T16:00:00.000Z</published>
-    <updated>2023-12-30T09:17:00.237Z</updated>
+    <updated>2023-12-31T06:27:00.355Z</updated>
     
     
       
@@ -513,33 +538,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、find命令&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/categories/linux/"/>
-    
-    
-    <category term="linux" scheme="http://yanshuisiyu.github.io/tags/linux/"/>
-    
-    <category term="学习" scheme="http://yanshuisiyu.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux高级命令（扩展）三</title>
-    <link href="http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-san/"/>
-    <id>http://yanshuisiyu.github.io/2023/12/23/linux-gao-ji-ming-ling-kuo-zhan-san/</id>
-    <published>2023-12-23T09:00:00.000Z</published>
-    <updated>2023-12-23T09:09:49.965Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Linux高级命令（扩展）&quot;&gt;&lt;a href=&quot;#Linux高级命令（扩展）&quot; class=&quot;headerlink&quot; title=&quot;Linux高级命令（扩展）&quot;&gt;&lt;/a&gt;Linux高级命令（扩展）&lt;/h1&gt;&lt;h1 id=&quot;一、date命令&quot;&gt;&lt;a</summary>
         
       
     
