@@ -6,7 +6,7 @@
   <link href="http://yanshuisiyu.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanshuisiyu.github.io/"/>
-  <updated>2024-01-03T01:38:47.903Z</updated>
+  <updated>2024-01-03T02:08:10.084Z</updated>
   <id>http://yanshuisiyu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yanshuisiyu.github.io/2024/01/03/zhuo-mian-yun-wei-gu-zhang-pai-chu-ji-lu/"/>
     <id>http://yanshuisiyu.github.io/2024/01/03/zhuo-mian-yun-wei-gu-zhang-pai-chu-ji-lu/</id>
     <published>2024-01-03T01:17:15.000Z</published>
-    <updated>2024-01-03T01:38:47.903Z</updated>
+    <updated>2024-01-03T02:08:10.084Z</updated>
     
     
       
@@ -35,9 +35,9 @@
     
     
     
-    <category term="运维" scheme="http://yanshuisiyu.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
-    
     <category term="问题" scheme="http://yanshuisiyu.github.io/tags/%E9%97%AE%E9%A2%98/"/>
+    
+    <category term="运维" scheme="http://yanshuisiyu.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
