@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>桌面运维故障排除记录</title>
+      <link href="/2024/01/03/zhuo-mian-yun-wei-gu-zhang-pai-chu-ji-lu/"/>
+      <url>/2024/01/03/zhuo-mian-yun-wei-gu-zhang-pai-chu-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、网络故障排除"><a href="#一、网络故障排除" class="headerlink" title="一、网络故障排除"></a>一、网络故障排除</h1><p>检查方式：</p><p>1.确认桌面网络图标是否异常，检查网络设置选项是否异常；</p><p>2.寻线器检测网线连同是否正常，有无出现破损情况</p><p>3.网线正常测试连接工作机，查看网络是否正常</p><p>4.检查交换机是否故障，断电重启测试，可尝试进行更换硬件检测</p><h2 id="案例一：网络故障，显示连接却无网络"><a href="#案例一：网络故障，显示连接却无网络" class="headerlink" title="案例一：网络故障，显示连接却无网络"></a>案例一：网络故障，显示连接却无网络</h2><p>故障表现：网路图标正常，无网络进入</p><p>解决思路：</p><pre class="line-numbers language-text" data-language="text"><code class="language-text">查看网络配置-检查网线功能-交换机故障排除-对比测试故障原因：静态ip与自动ip的区别，某些电脑没有预设ip，在一些需要固定ip才能连接上网络的区域无法正常使用。解决思路：1.更换一个固定ip2.将网线插在路由器上，经由路由器的自动分配ip功能即可（前提须确保路由器网络正常，且支持该种方法）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="案例二：网络故障——路由器断网"><a href="#案例二：网络故障——路由器断网" class="headerlink" title="案例二：网络故障——路由器断网"></a>案例二：网络故障——路由器断网</h2><p>故障表现：交换机亮红灯，无网络进入，同区域台式机断网</p><p>解决思路：</p><pre class="line-numbers language-text" data-language="text"><code class="language-text">交换机检查-网线检查-对比测试网络功能故障原因：交换机主线没插好解决思路：1.多设备网络故障，从该区域网络源头开始排查<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h1 id="二、硬件故障排除"><a href="#二、硬件故障排除" class="headerlink" title="二、硬件故障排除"></a>二、硬件故障排除</h1><p>检查方式：</p><p>1.物理层面查看硬件有无损坏区域</p><p>2.检测开启查看运行状态</p><p>3.查看报错代码或提示事项，检查对应硬件</p><p>5.硬件替换测试</p><h2 id="案例一：台式机无法启动-提示未检测风扇"><a href="#案例一：台式机无法启动-提示未检测风扇" class="headerlink" title="案例一：台式机无法启动-提示未检测风扇"></a>案例一：台式机无法启动-提示未检测风扇</h2><p>故障表示：开机后，界面提示未检测到风扇，无法继续开启</p><p>解决思路：</p><pre class="line-numbers language-text" data-language="text"><code class="language-text">检查硬件外观-查看连接状态-测试是否松动-更换配件测试故障原因：疑似接触不良解决思路：1.接口可能存在氧化接触不良可能性，重复插拔数次，再次测试（断电状态）2.设备故障，需要更换<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 运维 </tag>
+            
+            <tag> 问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>购物清单</title>
       <link href="/2023/12/31/gou-wu-qing-dan/"/>
       <url>/2023/12/31/gou-wu-qing-dan/</url>
