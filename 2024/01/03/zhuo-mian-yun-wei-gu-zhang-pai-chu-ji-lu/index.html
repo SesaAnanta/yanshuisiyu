@@ -486,12 +486,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                <span class="chip bg-color">问题</span>
-                            </a>
-                        
                             <a href="/tags/%E8%BF%90%E7%BB%B4/">
                                 <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%97%AE%E9%A2%98/">
+                                <span class="chip bg-color">问题</span>
                             </a>
                         
                     </div>
@@ -520,14 +520,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    867
+                    983
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -552,7 +552,7 @@
 <p>2.寻线器检测网线连同是否正常，有无出现破损情况</p>
 <p>3.网线正常测试连接工作机，查看网络是否正常</p>
 <p>4.检查交换机是否故障，断电重启测试，可尝试进行更换硬件检测</p>
-<h2 id="案例一：网络故障，显示连接却无网络"><a href="#案例一：网络故障，显示连接却无网络" class="headerlink" title="案例一：网络故障，显示连接却无网络"></a>案例一：网络故障，显示连接却无网络</h2><p>故障表现：网路图标正常，无网络进入</p>
+<h4 id="案例一：网络故障，显示连接却无网络"><a href="#案例一：网络故障，显示连接却无网络" class="headerlink" title="案例一：网络故障，显示连接却无网络"></a>案例一：网络故障，显示连接却无网络</h4><p>故障表现：网路图标正常，无网络进入</p>
 <p>解决思路：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">查看网络配置-检查网线功能-交换机故障排除-对比测试
 故障原因：静态ip与自动ip的区别，某些电脑没有预设ip，在一些需要固定ip才能连接上网络的区域无法正常使用。
@@ -560,12 +560,24 @@
 1.更换一个固定ip
 2.将网线插在路由器上，经由路由器的自动分配ip功能即可（前提须确保路由器网络正常，且支持该种方法）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="案例二：网络故障——路由器断网"><a href="#案例二：网络故障——路由器断网" class="headerlink" title="案例二：网络故障——路由器断网"></a>案例二：网络故障——路由器断网</h2><p>故障表现：交换机亮红灯，无网络进入，同区域台式机断网</p>
+<h4 id="案例二：网络故障——路由器断网"><a href="#案例二：网络故障——路由器断网" class="headerlink" title="案例二：网络故障——路由器断网"></a>案例二：网络故障——路由器断网</h4><p>故障表现：交换机亮红灯，无网络进入，同区域台式机断网</p>
 <p>解决思路：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">交换机检查-网线检查-对比测试网络功能
 故障原因：交换机主线没插好
 解决思路：
 1.多设备网络故障，从该区域网络源头开始排查<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="案例三：网络无显示，打叉"><a href="#案例三：网络无显示，打叉" class="headerlink" title="案例三：网络无显示，打叉"></a>案例三：网络无显示，打叉</h4><p>故障表现：显示器网络图标打叉，机箱网络接口不亮</p>
+<p>解决思路：</p>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text">检查网络配置-排查网线损坏-检测网络进口
+故障原因：
+1.网线损坏，百兆（4芯）千兆（8芯），1236-12345678
+2.接触不良
+3.进线故障
+解决思路
+1.寻线仪检测网线
+2.插拔接口，调整测试
+3.巡线进线，利用其他硬件测试<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -574,7 +586,7 @@
 <p>2.检测开启查看运行状态</p>
 <p>3.查看报错代码或提示事项，检查对应硬件</p>
 <p>5.硬件替换测试</p>
-<h2 id="案例一：台式机无法启动-提示未检测风扇"><a href="#案例一：台式机无法启动-提示未检测风扇" class="headerlink" title="案例一：台式机无法启动-提示未检测风扇"></a>案例一：台式机无法启动-提示未检测风扇</h2><p>故障表示：开机后，界面提示未检测到风扇，无法继续开启</p>
+<h4 id="案例一：台式机无法启动-提示未检测风扇"><a href="#案例一：台式机无法启动-提示未检测风扇" class="headerlink" title="案例一：台式机无法启动-提示未检测风扇"></a>案例一：台式机无法启动-提示未检测风扇</h4><p>故障表示：开机后，界面提示未检测到风扇，无法继续开启</p>
 <p>解决思路：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">检查硬件外观-查看连接状态-测试是否松动-更换配件测试
 故障原因：疑似接触不良
@@ -582,7 +594,7 @@
 1.接口可能存在氧化接触不良可能性，重复插拔数次，再次测试（断电状态）
 2.设备故障，需要更换<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="案例二：台式机无法启动——开机没反应"><a href="#案例二：台式机无法启动——开机没反应" class="headerlink" title="案例二：台式机无法启动——开机没反应"></a>案例二：台式机无法启动——开机没反应</h2><p>故障表示：按开机键后，显示器无反应，鼠标键盘不亮</p>
+<h4 id="案例二：台式机无法启动——开机没反应"><a href="#案例二：台式机无法启动——开机没反应" class="headerlink" title="案例二：台式机无法启动——开机没反应"></a>案例二：台式机无法启动——开机没反应</h4><p>故障表示：按开机键后，显示器无反应，鼠标键盘不亮</p>
 <p>解决思路：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">检查电源开关-检查电脑开机键-检查风扇有无启动-检查接口是否故障-检查硬件是否损坏
 故障原因：
@@ -597,7 +609,7 @@
 3.擦拭内存金手指/显卡金手指
 4.更换usb接口<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="案例三：多屏融合机器无法启动——类似反复重启"><a href="#案例三：多屏融合机器无法启动——类似反复重启" class="headerlink" title="案例三：多屏融合机器无法启动——类似反复重启"></a>案例三：多屏融合机器无法启动——类似反复重启</h3><p>故障表示：开机灯不断切换闪烁，屏幕不显示</p>
+<h4 id="案例三：多屏融合机器无法启动——类似反复重启"><a href="#案例三：多屏融合机器无法启动——类似反复重启" class="headerlink" title="案例三：多屏融合机器无法启动——类似反复重启"></a>案例三：多屏融合机器无法启动——类似反复重启</h4><p>故障表示：开机灯不断切换闪烁，屏幕不显示</p>
 <p>解决思路：</p>
 <pre class="line-numbers language-text" data-language="text"><code class="language-text">检查内部硬件-检查显示器连接情况-检查开关机
 故障原因：不明，排列以下表现
@@ -674,12 +686,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%97%AE%E9%A2%98/">
-                                    <span class="chip bg-color">问题</span>
-                                </a>
-                            
                                 <a href="/tags/%E8%BF%90%E7%BB%B4/">
                                     <span class="chip bg-color">运维</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%97%AE%E9%A2%98/">
+                                    <span class="chip bg-color">问题</span>
                                 </a>
                             
                         </div>
@@ -758,18 +770,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/03/zhuo-mian-yun-wei-gu-zhang-pai-chu-ji-lu/">
+                <a href="/2024/01/05/overlord-0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="桌面运维故障排除记录">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Overlord-0">
                         
-                        <span class="card-title">桌面运维故障排除记录</span>
+                        <span class="card-title">Overlord-0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -779,27 +790,26 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-05
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yanshuisiyu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Overlord/" class="post-category">
+                                    Overlord
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">问题</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BF%90%E7%BB%B4/">
-                        <span class="chip bg-color">运维</span>
+                    <a href="/tags/%E7%BD%91%E6%96%87/">
+                        <span class="chip bg-color">网文</span>
                     </a>
                     
                 </div>
@@ -1045,7 +1055,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">154.1k</span>
+                        class="white-color">206.8k</span>
             
             
             
